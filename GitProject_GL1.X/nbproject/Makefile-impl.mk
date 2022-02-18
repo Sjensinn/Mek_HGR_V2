@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=mek_hand.X
+PROJECTNAME=GitProject_GL1.X
 
 # Active Configuration
 DEFAULTCONF=default

@@ -11,3 +11,11 @@
  */
 
  #include <xc.h>
+
+
+
+    volatile uint8_t data_in = 0;
+
+    void process(uint8_t data);
+
+    

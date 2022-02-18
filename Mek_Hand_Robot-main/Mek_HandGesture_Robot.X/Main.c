@@ -25,6 +25,7 @@
 void main(void) {
     system_init();                  //Initiate clock, pins, uart, i2c, timer1 and interrupts
     PCA_Init(130, 0x08);            //Initiate PCA9685 unit with I2C address: 0x80 and prescalar of 130
+    stepper_init();
     
     while(1){
         

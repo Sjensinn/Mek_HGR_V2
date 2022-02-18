@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Mek_robot.X
+PROJECTNAME=Mek_HandGesture_Robot.X
 
 # Active Configuration
 DEFAULTCONF=default
