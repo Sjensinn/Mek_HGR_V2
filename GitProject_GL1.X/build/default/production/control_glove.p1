@@ -1685,16 +1685,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 1614 ]
 }
 "38
-[; ;control_glove.c: 38:     uint8_t data_Transform(uint8_t flex, uint8_t f1, uint8_t f2, uint8_t f3, uint8_t ax, uint8_t ay){
-[v _data_Transform `(uc ~T0 @X0 1 ef6`uc`uc`uc`uc`uc`uc ]
+[; ;control_glove.c: 38:     uint8_t data_Transform(int16_t flex, uint8_t f1, uint8_t f2, uint8_t f3, int16_t ax, int16_t ay){
+[v _data_Transform `(uc ~T0 @X0 1 ef6`s`uc`uc`uc`s`s ]
 {
 [e :U _data_Transform ]
-[v _flex `uc ~T0 @X0 1 r1 ]
+[v _flex `s ~T0 @X0 1 r1 ]
 [v _f1 `uc ~T0 @X0 1 r2 ]
 [v _f2 `uc ~T0 @X0 1 r3 ]
 [v _f3 `uc ~T0 @X0 1 r4 ]
-[v _ax `uc ~T0 @X0 1 r5 ]
-[v _ay `uc ~T0 @X0 1 r6 ]
+[v _ax `s ~T0 @X0 1 r5 ]
+[v _ay `s ~T0 @X0 1 r6 ]
 [f ]
 "39
 [; ;control_glove.c: 39:         uint8_t transferData = 0;
@@ -1723,15 +1723,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! || < -> _ax `i -U -> 10000 `i > -> _ax `i -> 10000 `i 1618  ]
 {
 "49
-[; ;control_glove.c: 49:                 transferData =+ 16;
-[e = _transferData -> -> 16 `i `uc ]
+[; ;control_glove.c: 49:                 transferData += 16;
+[e =+ _transferData -> -> 16 `i `uc ]
 "50
 [; ;control_glove.c: 50:                 if(ax > 10000){
 [e $ ! > -> _ax `i -> 10000 `i 1619  ]
 {
 "51
-[; ;control_glove.c: 51:                     transferData =+ 32;
-[e = _transferData -> -> 32 `i `uc ]
+[; ;control_glove.c: 51:                     transferData += 32;
+[e =+ _transferData -> -> 32 `i `uc ]
 "52
 [; ;control_glove.c: 52:                 }
 }
@@ -1741,19 +1741,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 1618 ]
 "55
-[; ;control_glove.c: 55:             if(ay < -10000 || ay > 10000){
-[e $ ! || < -> _ay `i -U -> 10000 `i > -> _ay `i -> 10000 `i 1620  ]
+[; ;control_glove.c: 55:             if(ay < -7000 || ay > 7000){
+[e $ ! || < -> _ay `i -U -> 7000 `i > -> _ay `i -> 7000 `i 1620  ]
 {
 "56
-[; ;control_glove.c: 56:                 transferData =+ 64;
-[e = _transferData -> -> 64 `i `uc ]
+[; ;control_glove.c: 56:                 transferData += 64;
+[e =+ _transferData -> -> 64 `i `uc ]
 "57
-[; ;control_glove.c: 57:                 if(ay > 10000){
-[e $ ! > -> _ay `i -> 10000 `i 1621  ]
+[; ;control_glove.c: 57:                 if(ay > 7000){
+[e $ ! > -> _ay `i -> 7000 `i 1621  ]
 {
 "58
-[; ;control_glove.c: 58:                     transferData =+ 128;
-[e = _transferData -> -> 128 `i `uc ]
+[; ;control_glove.c: 58:                     transferData += 128;
+[e =+ _transferData -> -> 128 `i `uc ]
 "59
 [; ;control_glove.c: 59:                 }
 }
@@ -1770,11 +1770,129 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;control_glove.c: 62:         }
 }
 [e :U 1617 ]
-"110
-[; ;control_glove.c: 110:         return transferData;
+"65
+[; ;control_glove.c: 65:         if(f2 == 1){
+[e $ ! == -> _f2 `i -> 1 `i 1622  ]
+{
+"67
+[; ;control_glove.c: 67:             transferData += 4;
+[e =+ _transferData -> -> 4 `i `uc ]
+"70
+[; ;control_glove.c: 70:             if(ax < -10000 || ax > 10000){
+[e $ ! || < -> _ax `i -U -> 10000 `i > -> _ax `i -> 10000 `i 1623  ]
+{
+"71
+[; ;control_glove.c: 71:                 transferData += 16;
+[e =+ _transferData -> -> 16 `i `uc ]
+"72
+[; ;control_glove.c: 72:                 if(ax > 10000){
+[e $ ! > -> _ax `i -> 10000 `i 1624  ]
+{
+"73
+[; ;control_glove.c: 73:                     transferData += 32;
+[e =+ _transferData -> -> 32 `i `uc ]
+"74
+[; ;control_glove.c: 74:                 }
+}
+[e :U 1624 ]
+"75
+[; ;control_glove.c: 75:             }
+}
+[e :U 1623 ]
+"78
+[; ;control_glove.c: 78:             if(ay < -7000 || ay > 7000){
+[e $ ! || < -> _ay `i -U -> 7000 `i > -> _ay `i -> 7000 `i 1625  ]
+{
+"79
+[; ;control_glove.c: 79:                 transferData += 64;
+[e =+ _transferData -> -> 64 `i `uc ]
+"80
+[; ;control_glove.c: 80:                 if(ay > 7000){
+[e $ ! > -> _ay `i -> 7000 `i 1626  ]
+{
+"81
+[; ;control_glove.c: 81:                     transferData += 128;
+[e =+ _transferData -> -> 128 `i `uc ]
+"82
+[; ;control_glove.c: 82:                 }
+}
+[e :U 1626 ]
+"83
+[; ;control_glove.c: 83:             }
+}
+[e :U 1625 ]
+"84
+[; ;control_glove.c: 84:             return transferData;
 [e ) _transferData ]
 [e $UE 1615  ]
-"111
-[; ;control_glove.c: 111:     }
+"85
+[; ;control_glove.c: 85:         }
+}
+[e :U 1622 ]
+"88
+[; ;control_glove.c: 88:         if(f3 == 1){
+[e $ ! == -> _f3 `i -> 1 `i 1627  ]
+{
+"89
+[; ;control_glove.c: 89:             transferData += 8;
+[e =+ _transferData -> -> 8 `i `uc ]
+"91
+[; ;control_glove.c: 91:             if(ax < -10000 || ax > 10000){
+[e $ ! || < -> _ax `i -U -> 10000 `i > -> _ax `i -> 10000 `i 1628  ]
+{
+"92
+[; ;control_glove.c: 92:                 transferData += 16;
+[e =+ _transferData -> -> 16 `i `uc ]
+"93
+[; ;control_glove.c: 93:                 if(ax > 10000){
+[e $ ! > -> _ax `i -> 10000 `i 1629  ]
+{
+"94
+[; ;control_glove.c: 94:                     transferData += 32;
+[e =+ _transferData -> -> 32 `i `uc ]
+"95
+[; ;control_glove.c: 95:                 }
+}
+[e :U 1629 ]
+"96
+[; ;control_glove.c: 96:             }
+}
+[e :U 1628 ]
+"99
+[; ;control_glove.c: 99:             if(ay < -7000 || ay > 7000){
+[e $ ! || < -> _ay `i -U -> 7000 `i > -> _ay `i -> 7000 `i 1630  ]
+{
+"100
+[; ;control_glove.c: 100:                 transferData += 64;
+[e =+ _transferData -> -> 64 `i `uc ]
+"101
+[; ;control_glove.c: 101:                 if(ay > 7000){
+[e $ ! > -> _ay `i -> 7000 `i 1631  ]
+{
+"102
+[; ;control_glove.c: 102:                     transferData += 128;
+[e =+ _transferData -> -> 128 `i `uc ]
+"103
+[; ;control_glove.c: 103:                 }
+}
+[e :U 1631 ]
+"104
+[; ;control_glove.c: 104:             }
+}
+[e :U 1630 ]
+"105
+[; ;control_glove.c: 105:             return transferData;
+[e ) _transferData ]
+[e $UE 1615  ]
+"106
+[; ;control_glove.c: 106:         }
+}
+[e :U 1627 ]
+"109
+[; ;control_glove.c: 109:         return transferData;
+[e ) _transferData ]
+[e $UE 1615  ]
+"110
+[; ;control_glove.c: 110:     }
 [e :UE 1615 ]
 }

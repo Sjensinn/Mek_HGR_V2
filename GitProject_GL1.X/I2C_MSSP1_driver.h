@@ -19,11 +19,6 @@ extern "C" {
 
 #include <xc.h>
 
-//Pin macros
-#ifndef LED_TOGGLE()            
-#define LED_TOGGLE() do { LATBbits.LATB2 = ~LATBbits.LATB2; } while(0)
-#endif
-
 #ifndef _XTAL_FREQ
 #define _XTAL_FREQ 16000000
 #endif

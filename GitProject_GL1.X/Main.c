@@ -3,7 +3,6 @@
  * Author: Sjensi
  *
  * Mekatronisk Kerfi 1 : Gesture controlled Robot
- * 
  * This Project belongs to the Gesture Control Glove
  * 
  * Pins

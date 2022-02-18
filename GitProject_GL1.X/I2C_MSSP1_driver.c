@@ -30,12 +30,6 @@ void I2C_Start(void){
 
 void I2C_Wait(void){
     while(!PIR3bits.SSP1IF){    //Check if transmission finished, or Start Stop acknowledged
-        if(SSP1CON1bits.WCOL == 1){ //If we have an issue with writing
-            while(1){
-                LED_TOGGLE();
-                __delay_ms(50); //Toggle led fast
-            }
-        }
         continue;
     }
     PIR3bits.SSP1IF = 0; //Clear the flag
@@ -61,7 +55,7 @@ void I2C_Write(uint8_t data){
 
 //  Takes in an integer, 0 or 1, which is what the Acknowledge Data bit (ACKDT) is set to. Set to 0 to acknowledge (when reading first 2 bytes) and 1 when reading last byte. Also, sends restart condition, and sets Acknowledge Sequence Enable bit (ACKEN) to 1 to initiate acknowledge sequence on SDA and SCL and send ACKDT bit. The hardware automatically clears this bit.
  uint8_t I2C_Read(int8_t ackbit){
-    int8_t tempreadbuffer;      //Temporary variable for reading from buffer
+    uint8_t tempreadbuffer;      //Temporary variable for reading from buffer
     
     SSP1CON2bits.RCEN = 1;          //Set Recieve Enable
     I2C_Wait();                     //Wait for ack

@@ -4,7 +4,6 @@
 #include "gy_521.h"
 #include "I2C_MSSP1_driver.h"
 #include "uart.h"   //for troubleshooting
-#include "LCD.h"    //for troubleshooting
 
 
 void gy_init(uint8_t gyAdd){

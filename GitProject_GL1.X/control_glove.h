@@ -21,7 +21,7 @@ void get_Finger_Data(uint8_t *F1, uint8_t *F2, uint8_t *F3);
     
 void get_Flex_Data(uint8_t *Flex);
 
-uint8_t data_Transform(uint8_t flex, uint8_t f1, uint8_t f2, uint8_t f3, uint8_t ax, uint8_t ay);
+uint8_t data_Transform(int16_t flex, uint8_t f1, uint8_t f2, uint8_t f3, int16_t ax, int16_t ay);
 
 #ifdef	__cplusplus
 }

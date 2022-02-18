@@ -71,24 +71,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5351
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 5351: extern volatile SSP1CON2bits_t SSP1CON2bits __attribute__((address(0x191)));
 [v _SSP1CON2bits `VS251 ~T0 @X0 0 e@401 ]
-"70 ./I2C_MSSP1_driver.h
-[; ;./I2C_MSSP1_driver.h: 70: void I2C_Wait(void);
+"65 ./I2C_MSSP1_driver.h
+[; ;./I2C_MSSP1_driver.h: 65: void I2C_Wait(void);
 [v _I2C_Wait `(v ~T0 @X0 0 ef ]
-"1025 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 1025:     struct {
-[s S55 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S55 . LATB0 LATB1 LATB2 LATB3 LATB4 LATB5 LATB6 LATB7 ]
-"1024
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 1024: typedef union {
-[u S54 `S55 1 ]
-[n S54 . . ]
-"1036
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 1036: extern volatile LATBbits_t LATBbits __attribute__((address(0x017)));
-[v _LATBbits `VS54 ~T0 @X0 0 e@23 ]
-[v F183 `(v ~T0 @X0 1 tf1`ul ]
-"12 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\builtins.h
-[v __delay `JF183 ~T0 @X0 0 e ]
-[p i __delay ]
 "21373 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 21373:     struct {
 [s S972 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -1867,136 +1852,108 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1617 ]
 {
 "33
-[; ;I2C_MSSP1_driver.c: 33:         if(SSP1CON1bits.WCOL == 1){
-[e $ ! == -> . . _SSP1CON1bits 0 4 `i -> 1 `i 1619  ]
-{
-"34
-[; ;I2C_MSSP1_driver.c: 34:             while(1){
-[e :U 1621 ]
-{
-"35
-[; ;I2C_MSSP1_driver.c: 35:                 do { LATBbits.LATB2 = ~LATBbits.LATB2; } while(0);
-[e :U 1625 ]
-{
-[e = . . _LATBbits 0 2 -> ~ -> . . _LATBbits 0 2 `i `uc ]
-}
-[e :U 1624 ]
-"36
-[; ;I2C_MSSP1_driver.c: 36:                 _delay((unsigned long)((50)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"37
-[; ;I2C_MSSP1_driver.c: 37:             }
-}
-[e :U 1620 ]
-[e $U 1621  ]
-[e :U 1622 ]
-"38
-[; ;I2C_MSSP1_driver.c: 38:         }
-}
-[e :U 1619 ]
-"39
-[; ;I2C_MSSP1_driver.c: 39:         continue;
+[; ;I2C_MSSP1_driver.c: 33:         continue;
 [e $U 1616  ]
-"40
-[; ;I2C_MSSP1_driver.c: 40:     }
+"34
+[; ;I2C_MSSP1_driver.c: 34:     }
 }
 [e :U 1616 ]
 "32
 [; ;I2C_MSSP1_driver.c: 32:     while(!PIR3bits.SSP1IF){
 [e $ ! != -> . . _PIR3bits 0 0 `i -> 0 `i 1617  ]
 [e :U 1618 ]
-"41
-[; ;I2C_MSSP1_driver.c: 41:     PIR3bits.SSP1IF = 0;
+"35
+[; ;I2C_MSSP1_driver.c: 35:     PIR3bits.SSP1IF = 0;
 [e = . . _PIR3bits 0 0 -> -> 0 `i `uc ]
-"42
-[; ;I2C_MSSP1_driver.c: 42: }
+"36
+[; ;I2C_MSSP1_driver.c: 36: }
 [e :UE 1615 ]
 }
-"45
-[; ;I2C_MSSP1_driver.c: 45: void I2C_RepeatedStart(void){
+"39
+[; ;I2C_MSSP1_driver.c: 39: void I2C_RepeatedStart(void){
 [v _I2C_RepeatedStart `(v ~T0 @X0 1 ef ]
 {
 [e :U _I2C_RepeatedStart ]
 [f ]
-"46
-[; ;I2C_MSSP1_driver.c: 46:   SSP1CON2bits.RSEN = 1;
+"40
+[; ;I2C_MSSP1_driver.c: 40:   SSP1CON2bits.RSEN = 1;
 [e = . . _SSP1CON2bits 0 1 -> -> 1 `i `uc ]
+"41
+[; ;I2C_MSSP1_driver.c: 41:   I2C_Wait();
+[e ( _I2C_Wait ..  ]
+"42
+[; ;I2C_MSSP1_driver.c: 42: }
+[e :UE 1619 ]
+}
+"45
+[; ;I2C_MSSP1_driver.c: 45: void I2C_Stop(void){
+[v _I2C_Stop `(v ~T0 @X0 1 ef ]
+{
+[e :U _I2C_Stop ]
+[f ]
+"46
+[; ;I2C_MSSP1_driver.c: 46:   SSP1CON2bits.PEN = 1;
+[e = . . _SSP1CON2bits 0 2 -> -> 1 `i `uc ]
 "47
 [; ;I2C_MSSP1_driver.c: 47:   I2C_Wait();
 [e ( _I2C_Wait ..  ]
 "48
 [; ;I2C_MSSP1_driver.c: 48: }
-[e :UE 1626 ]
+[e :UE 1620 ]
 }
 "51
-[; ;I2C_MSSP1_driver.c: 51: void I2C_Stop(void){
-[v _I2C_Stop `(v ~T0 @X0 1 ef ]
-{
-[e :U _I2C_Stop ]
-[f ]
-"52
-[; ;I2C_MSSP1_driver.c: 52:   SSP1CON2bits.PEN = 1;
-[e = . . _SSP1CON2bits 0 2 -> -> 1 `i `uc ]
-"53
-[; ;I2C_MSSP1_driver.c: 53:   I2C_Wait();
-[e ( _I2C_Wait ..  ]
-"54
-[; ;I2C_MSSP1_driver.c: 54: }
-[e :UE 1627 ]
-}
-"57
-[; ;I2C_MSSP1_driver.c: 57: void I2C_Write(uint8_t data){
+[; ;I2C_MSSP1_driver.c: 51: void I2C_Write(uint8_t data){
 [v _I2C_Write `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _I2C_Write ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [f ]
-"58
-[; ;I2C_MSSP1_driver.c: 58:   SSP1BUF = data;
+"52
+[; ;I2C_MSSP1_driver.c: 52:   SSP1BUF = data;
 [e = _SSP1BUF _data ]
-"59
-[; ;I2C_MSSP1_driver.c: 59:   I2C_Wait();
+"53
+[; ;I2C_MSSP1_driver.c: 53:   I2C_Wait();
 [e ( _I2C_Wait ..  ]
-"60
-[; ;I2C_MSSP1_driver.c: 60: }
-[e :UE 1628 ]
+"54
+[; ;I2C_MSSP1_driver.c: 54: }
+[e :UE 1621 ]
 }
-"63
-[; ;I2C_MSSP1_driver.c: 63:  uint8_t I2C_Read(int8_t ackbit){
+"57
+[; ;I2C_MSSP1_driver.c: 57:  uint8_t I2C_Read(int8_t ackbit){
 [v _I2C_Read `(uc ~T0 @X0 1 ef1`c ]
 {
 [e :U _I2C_Read ]
 [v _ackbit `c ~T0 @X0 1 r1 ]
 [f ]
-"64
-[; ;I2C_MSSP1_driver.c: 64:     int8_t tempreadbuffer;
-[v _tempreadbuffer `c ~T0 @X0 1 a ]
-"66
-[; ;I2C_MSSP1_driver.c: 66:     SSP1CON2bits.RCEN = 1;
+"58
+[; ;I2C_MSSP1_driver.c: 58:     uint8_t tempreadbuffer;
+[v _tempreadbuffer `uc ~T0 @X0 1 a ]
+"60
+[; ;I2C_MSSP1_driver.c: 60:     SSP1CON2bits.RCEN = 1;
 [e = . . _SSP1CON2bits 0 3 -> -> 1 `i `uc ]
-"67
-[; ;I2C_MSSP1_driver.c: 67:     I2C_Wait();
+"61
+[; ;I2C_MSSP1_driver.c: 61:     I2C_Wait();
 [e ( _I2C_Wait ..  ]
-"69
-[; ;I2C_MSSP1_driver.c: 69:     tempreadbuffer = SSP1BUF;
-[e = _tempreadbuffer -> _SSP1BUF `c ]
-"70
-[; ;I2C_MSSP1_driver.c: 70:     SSP1STATbits.BF = 0;
+"63
+[; ;I2C_MSSP1_driver.c: 63:     tempreadbuffer = SSP1BUF;
+[e = _tempreadbuffer _SSP1BUF ]
+"64
+[; ;I2C_MSSP1_driver.c: 64:     SSP1STATbits.BF = 0;
 [e = . . _SSP1STATbits 0 0 -> -> 0 `i `uc ]
-"72
-[; ;I2C_MSSP1_driver.c: 72:     SSP1CON2bits.ACKDT = (ackbit);
+"66
+[; ;I2C_MSSP1_driver.c: 66:     SSP1CON2bits.ACKDT = (ackbit);
 [e = . . _SSP1CON2bits 0 5 -> _ackbit `uc ]
-"73
-[; ;I2C_MSSP1_driver.c: 73:     SSP1CON2bits.ACKEN = 1;
+"67
+[; ;I2C_MSSP1_driver.c: 67:     SSP1CON2bits.ACKEN = 1;
 [e = . . _SSP1CON2bits 0 4 -> -> 1 `i `uc ]
-"74
-[; ;I2C_MSSP1_driver.c: 74:     I2C_Wait();
+"68
+[; ;I2C_MSSP1_driver.c: 68:     I2C_Wait();
 [e ( _I2C_Wait ..  ]
-"76
-[; ;I2C_MSSP1_driver.c: 76:     return tempreadbuffer;
-[e ) -> _tempreadbuffer `uc ]
-[e $UE 1629  ]
-"77
-[; ;I2C_MSSP1_driver.c: 77: }
-[e :UE 1629 ]
+"70
+[; ;I2C_MSSP1_driver.c: 70:     return tempreadbuffer;
+[e ) _tempreadbuffer ]
+[e $UE 1622  ]
+"71
+[; ;I2C_MSSP1_driver.c: 71: }
+[e :UE 1622 ]
 }

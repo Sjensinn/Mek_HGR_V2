@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\GitProject_GL1.X.production.hex">
+  <executable name="dist/default/production\mek_hand.X.production.hex">
     <memory name="program">
       <units>words</units>
       <length>32768</length>
-      <used>2046</used>
-      <free>30722</free>
+      <used>2008</used>
+      <free>30760</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>4096</length>
-      <used>198</used>
-      <free>3898</free>
+      <used>195</used>
+      <free>3901</free>
     </memory>
   </executable>
 </project>

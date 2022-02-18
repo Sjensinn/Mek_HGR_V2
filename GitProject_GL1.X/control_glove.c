@@ -35,7 +35,7 @@
         //*Flex = PORTAbits
     }
 
-    uint8_t data_Transform(uint8_t flex, uint8_t f1, uint8_t f2, uint8_t f3, uint8_t ax, uint8_t ay){
+    uint8_t data_Transform(int16_t flex, uint8_t f1, uint8_t f2, uint8_t f3, int16_t ax, int16_t ay){
         uint8_t transferData = 0;
 
         if(flex == 1){ //If flex sensor is active
@@ -46,16 +46,16 @@
             transferData += 2;
 
             if(ax < ax_min || ax > ax_max){ //If accel X value is below min or above max threshold
-                transferData =+ 16;
+                transferData += 16;
                 if(ax > ax_max){
-                    transferData =+ 32;
+                    transferData += 32;
                 }
             }
 
             if(ay < ay_min || ay > ay_max){ //If accel Y value is below min or above max threshold
-                transferData =+ 64;
+                transferData += 64;
                 if(ay > ay_max){
-                    transferData =+ 128;
+                    transferData += 128;
                 }
             }
             return transferData;
