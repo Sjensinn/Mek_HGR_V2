@@ -1,4 +1,16 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"9 ./stepper.h
+[; ;./stepper.h: 9: void stepper_stop();
+[v _stepper_stop `(v ~T0 @X0 0 e? ]
+"3 ./dc.h
+[; ;./dc.h: 3: void DC_move(uint8_t direction);
+[v _DC_move `(v ~T0 @X0 0 ef1`uc ]
+"2
+[; ;./dc.h: 2: void DC_stop();
+[v _DC_stop `(v ~T0 @X0 0 e? ]
+"8 ./stepper.h
+[; ;./stepper.h: 8: void stepper_move(uint8_t direction);
+[v _stepper_move `(v ~T0 @X0 0 ef1`uc ]
 "55 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 55: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -1637,3 +1649,220 @@ Version 4.0 HI-TECH Software Intermediate Code
 "47 ./PCA9685_driver.h
 [; ;./PCA9685_driver.h: 47:     uint8_t pca_address;
 [v _pca_address `uc ~T0 @X0 1 e ]
+"10 robot.c
+[; ;robot.c: 10: void process(uint8_t data) {
+[v _process `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _process ]
+[v _data `uc ~T0 @X0 1 r1 ]
+[f ]
+"23
+[; ;robot.c: 23:     if ((data & 1) == 11) {
+[e $ ! == & -> _data `i -> 1 `i -> 11 `i 1614  ]
+{
+"25
+[; ;robot.c: 25:     }
+}
+[e :U 1614 ]
+"27
+[; ;robot.c: 27:     if ((data & 2) == 2) {
+[e $ ! == & -> _data `i -> 2 `i -> 2 `i 1615  ]
+{
+"28
+[; ;robot.c: 28:         stepper_stop();
+[e ( _stepper_stop ..  ]
+"29
+[; ;robot.c: 29:         if ((data & 64) == 64) {
+[e $ ! == & -> _data `i -> 64 `i -> 64 `i 1616  ]
+{
+"30
+[; ;robot.c: 30:             if ((data & 128) == 128) {
+[e $ ! == & -> _data `i -> 128 `i -> 128 `i 1617  ]
+{
+"31
+[; ;robot.c: 31:                 DC_move(0);
+[e ( _DC_move (1 -> -> 0 `i `uc ]
+"32
+[; ;robot.c: 32:             } else {
+}
+[e $U 1618  ]
+[e :U 1617 ]
+{
+"33
+[; ;robot.c: 33:                 DC_move(1);
+[e ( _DC_move (1 -> -> 1 `i `uc ]
+"34
+[; ;robot.c: 34:             }
+}
+[e :U 1618 ]
+"35
+[; ;robot.c: 35:         }
+}
+[e :U 1616 ]
+"36
+[; ;robot.c: 36:         if ((data & 16) == 16) {
+[e $ ! == & -> _data `i -> 16 `i -> 16 `i 1619  ]
+{
+"37
+[; ;robot.c: 37:             if ((data & 32) == 32) {
+[e $ ! == & -> _data `i -> 32 `i -> 32 `i 1620  ]
+{
+"38
+[; ;robot.c: 38:                 DC_move(2);
+[e ( _DC_move (1 -> -> 2 `i `uc ]
+"39
+[; ;robot.c: 39:             } else {
+}
+[e $U 1621  ]
+[e :U 1620 ]
+{
+"40
+[; ;robot.c: 40:                 DC_move(3);
+[e ( _DC_move (1 -> -> 3 `i `uc ]
+"41
+[; ;robot.c: 41:             }
+}
+[e :U 1621 ]
+"42
+[; ;robot.c: 42:         }
+}
+[e :U 1619 ]
+"43
+[; ;robot.c: 43:     } else if ((data & 4) == 4) {
+}
+[e $U 1622  ]
+[e :U 1615 ]
+[e $ ! == & -> _data `i -> 4 `i -> 4 `i 1623  ]
+{
+"44
+[; ;robot.c: 44:         DC_stop();
+[e ( _DC_stop ..  ]
+"45
+[; ;robot.c: 45:         if ((data & 64) == 64) {
+[e $ ! == & -> _data `i -> 64 `i -> 64 `i 1624  ]
+{
+"46
+[; ;robot.c: 46:             if ((data & 128) == 128) {
+[e $ ! == & -> _data `i -> 128 `i -> 128 `i 1625  ]
+{
+"48
+[; ;robot.c: 48:             } else {
+}
+[e $U 1626  ]
+[e :U 1625 ]
+{
+"50
+[; ;robot.c: 50:             }
+}
+[e :U 1626 ]
+"51
+[; ;robot.c: 51:         }
+}
+[e :U 1624 ]
+"52
+[; ;robot.c: 52:         if ((data & 16) == 16) {
+[e $ ! == & -> _data `i -> 16 `i -> 16 `i 1627  ]
+{
+"53
+[; ;robot.c: 53:             if ((data & 32) == 32) {
+[e $ ! == & -> _data `i -> 32 `i -> 32 `i 1628  ]
+{
+"54
+[; ;robot.c: 54:                 stepper_move(0);
+[e ( _stepper_move (1 -> -> 0 `i `uc ]
+"55
+[; ;robot.c: 55:             } else {
+}
+[e $U 1629  ]
+[e :U 1628 ]
+{
+"56
+[; ;robot.c: 56:                 stepper_move(1);
+[e ( _stepper_move (1 -> -> 1 `i `uc ]
+"57
+[; ;robot.c: 57:             }
+}
+[e :U 1629 ]
+"58
+[; ;robot.c: 58:         }
+}
+[e :U 1627 ]
+"59
+[; ;robot.c: 59:     } else if ((data & 8) == 8) {
+}
+[e $U 1630  ]
+[e :U 1623 ]
+[e $ ! == & -> _data `i -> 8 `i -> 8 `i 1631  ]
+{
+"60
+[; ;robot.c: 60:         stepper_stop();
+[e ( _stepper_stop ..  ]
+"61
+[; ;robot.c: 61:         DC_stop();
+[e ( _DC_stop ..  ]
+"62
+[; ;robot.c: 62:         if ((data & 64) == 64) {
+[e $ ! == & -> _data `i -> 64 `i -> 64 `i 1632  ]
+{
+"63
+[; ;robot.c: 63:             if ((data & 128) == 128) {
+[e $ ! == & -> _data `i -> 128 `i -> 128 `i 1633  ]
+{
+"65
+[; ;robot.c: 65:             } else {
+}
+[e $U 1634  ]
+[e :U 1633 ]
+{
+"67
+[; ;robot.c: 67:             }
+}
+[e :U 1634 ]
+"68
+[; ;robot.c: 68:         }
+}
+[e :U 1632 ]
+"69
+[; ;robot.c: 69:         if ((data & 16) == 16) {
+[e $ ! == & -> _data `i -> 16 `i -> 16 `i 1635  ]
+{
+"70
+[; ;robot.c: 70:             if ((data & 32) == 32) {
+[e $ ! == & -> _data `i -> 32 `i -> 32 `i 1636  ]
+{
+"72
+[; ;robot.c: 72:             } else {
+}
+[e $U 1637  ]
+[e :U 1636 ]
+{
+"74
+[; ;robot.c: 74:             }
+}
+[e :U 1637 ]
+"75
+[; ;robot.c: 75:         }
+}
+[e :U 1635 ]
+"77
+[; ;robot.c: 77:     } else {
+}
+[e $U 1638  ]
+[e :U 1631 ]
+{
+"78
+[; ;robot.c: 78:         stepper_stop();
+[e ( _stepper_stop ..  ]
+"79
+[; ;robot.c: 79:         DC_stop();
+[e ( _DC_stop ..  ]
+"80
+[; ;robot.c: 80:     }
+}
+[e :U 1638 ]
+[e :U 1630 ]
+[e :U 1622 ]
+"82
+[; ;robot.c: 82: }
+[e :UE 1613 ]
+}

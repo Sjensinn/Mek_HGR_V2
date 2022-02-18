@@ -1644,8 +1644,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _DC_stop ]
 [f ]
 "3
-[; ;dc.c: 3:     LATB &= 0b11110000;
-[e =& _LATB -> -> 240 `i `Vuc ]
+[; ;dc.c: 3:     LATB &= 0b11100001;
+[e =& _LATB -> -> 225 `i `Vuc ]
 "4
 [; ;dc.c: 4: }
 [e :UE 1613 ]
@@ -1665,11 +1665,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc.c: 8:         case 0:
 [e :U 1617 ]
 "9
-[; ;dc.c: 9:             LATB &= 0b11111010;
-[e =& _LATB -> -> 250 `i `Vuc ]
+[; ;dc.c: 9:             LATB &= 0b11110100;
+[e =& _LATB -> -> 244 `i `Vuc ]
 "10
-[; ;dc.c: 10:             LATB |= 0b00001010;
-[e =| _LATB -> -> 10 `i `Vuc ]
+[; ;dc.c: 10:             LATB |= 0b00010100;
+[e =| _LATB -> -> 20 `i `Vuc ]
 "11
 [; ;dc.c: 11:             break;
 [e $U 1615  ]
@@ -1677,11 +1677,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc.c: 12:         case 1:
 [e :U 1618 ]
 "13
-[; ;dc.c: 13:             LATB &= 0b11110101;
-[e =& _LATB -> -> 245 `i `Vuc ]
+[; ;dc.c: 13:             LATB &= 0b11101010;
+[e =& _LATB -> -> 234 `i `Vuc ]
 "14
-[; ;dc.c: 14:             LATB |= 0b00000101;
-[e =| _LATB -> -> 5 `i `Vuc ]
+[; ;dc.c: 14:             LATB |= 0b00001010;
+[e =| _LATB -> -> 10 `i `Vuc ]
 "15
 [; ;dc.c: 15:             break;
 [e $U 1615  ]
@@ -1689,11 +1689,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc.c: 16:         case 2:
 [e :U 1619 ]
 "17
-[; ;dc.c: 17:             LATB &= 0b11111001;
-[e =& _LATB -> -> 249 `i `Vuc ]
+[; ;dc.c: 17:             LATB &= 0b11110010;
+[e =& _LATB -> -> 242 `i `Vuc ]
 "18
-[; ;dc.c: 18:             LATB |= 0b00001001;
-[e =| _LATB -> -> 9 `i `Vuc ]
+[; ;dc.c: 18:             LATB |= 0b00010010;
+[e =| _LATB -> -> 18 `i `Vuc ]
 "19
 [; ;dc.c: 19:             break;
 [e $U 1615  ]
@@ -1701,11 +1701,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc.c: 20:         case 3:
 [e :U 1620 ]
 "21
-[; ;dc.c: 21:             LATB &= 0b11110110;
-[e =& _LATB -> -> 246 `i `Vuc ]
+[; ;dc.c: 21:             LATB &= 0b11101100;
+[e =& _LATB -> -> 236 `i `Vuc ]
 "22
-[; ;dc.c: 22:             LATB |= 0b00000110;
-[e =| _LATB -> -> 6 `i `Vuc ]
+[; ;dc.c: 22:             LATB |= 0b00001100;
+[e =| _LATB -> -> 12 `i `Vuc ]
 "23
 [; ;dc.c: 23:             break;
 [e $U 1615  ]
@@ -1713,8 +1713,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc.c: 24:         default:
 [e :U 1621 ]
 "25
-[; ;dc.c: 25:             LATB &= 0b11110000;
-[e =& _LATB -> -> 240 `i `Vuc ]
+[; ;dc.c: 25:             LATB &= 0b11100000;
+[e =& _LATB -> -> 224 `i `Vuc ]
 "26
 [; ;dc.c: 26:             LATB |= 0b00000000;
 [e =| _LATB -> -> 0 `i `Vuc ]

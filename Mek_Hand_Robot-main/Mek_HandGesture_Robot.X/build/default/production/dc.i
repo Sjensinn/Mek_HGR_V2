@@ -20719,29 +20719,29 @@ extern __bank0 __bit __timeout;
 # 1 "dc.c" 2
 
 void DC_stop(){
-    LATB &= 0b11110000;
+    LATB &= 0b11100001;
 }
 void DC_move(uint8_t direction) {
 
     switch (direction) {
         case 0:
-            LATB &= 0b11111010;
-            LATB |= 0b00001010;
+            LATB &= 0b11110100;
+            LATB |= 0b00010100;
             break;
         case 1:
-            LATB &= 0b11110101;
-            LATB |= 0b00000101;
+            LATB &= 0b11101010;
+            LATB |= 0b00001010;
             break;
         case 2:
-            LATB &= 0b11111001;
-            LATB |= 0b00001001;
+            LATB &= 0b11110010;
+            LATB |= 0b00010010;
             break;
         case 3:
-            LATB &= 0b11110110;
-            LATB |= 0b00000110;
+            LATB &= 0b11101100;
+            LATB |= 0b00001100;
             break;
         default:
-            LATB &= 0b11110000;
+            LATB &= 0b11100000;
             LATB |= 0b00000000;
 
     }

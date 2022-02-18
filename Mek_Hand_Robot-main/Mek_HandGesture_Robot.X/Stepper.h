@@ -5,7 +5,7 @@
 #include <xc.h>
 
 void stepper_init();
-void stepper_start(uint8_t direction);
+void stepper_move(uint8_t direction);
 void stepper_stop();
 void set_stepper_speed(uint16_t speed);//
 

@@ -3,8 +3,6 @@
 [d edition pro ]
 [d chip 16F18877 ]
 [d frameptr 6 ]
-"5 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\printf.c
-[v _printf printf `(i  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\Umul8_16.c
@@ -13,7 +11,11 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"5 C:\Users\user\MPLABXProjects\Mek_robot.X\I2C_MSSP1_driver.c
+"2 C:\Users\user\Git_repos\Mek_HGR_V2\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\dc.c
+[v _DC_stop DC_stop `(v  1 e 1 0 ]
+"5
+[v _DC_move DC_move `(v  1 e 1 0 ]
+"5 C:\Users\user\Git_repos\Mek_HGR_V2\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\I2C_MSSP1_driver.c
 [v _I2C_init I2C_init `(v  1 e 1 0 ]
 "26
 [v _I2C_Start I2C_Start `(v  1 e 1 0 ]
@@ -23,11 +25,17 @@
 [v _I2C_Stop I2C_Stop `(v  1 e 1 0 ]
 "57
 [v _I2C_Write I2C_Write `(v  1 e 1 0 ]
-"25 C:\Users\user\MPLABXProjects\Mek_robot.X\Main.c
+"24 C:\Users\user\Git_repos\Mek_HGR_V2\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\Main.c
 [v _main main `(v  1 e 1 0 ]
-"6 C:\Users\user\MPLABXProjects\Mek_robot.X\PCA9685_driver.c
+"6 C:\Users\user\Git_repos\Mek_HGR_V2\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\PCA9685_driver.c
 [v _PCA_Init PCA_Init `(v  1 e 1 0 ]
-"12 C:\Users\user\MPLABXProjects\Mek_robot.X\system_init.c
+"3 C:\Users\user\Git_repos\Mek_HGR_V2\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\Stepper.c
+[v _stepper_init stepper_init `(v  1 e 1 0 ]
+"18
+[v _stepper_move stepper_move `(v  1 e 1 0 ]
+"29
+[v _stepper_stop stepper_stop `(v  1 e 1 0 ]
+"12 C:\Users\user\Git_repos\Mek_HGR_V2\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\system_init.c
 [v _system_init system_init `(v  1 e 1 0 ]
 "21
 [v _clock_init clock_init `(v  1 e 1 0 ]
@@ -35,25 +43,25 @@
 [v _pin_init pin_init `(v  1 e 1 0 ]
 "135
 [v _int_init int_init `(v  1 e 1 0 ]
-"5 C:\Users\user\MPLABXProjects\Mek_robot.X\uart.c
+"5 C:\Users\user\Git_repos\Mek_HGR_V2\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\uart.c
 [v _uart_init uart_init `(v  1 e 1 0 ]
-"24
+"18
 [v _uart_Write uart_Write `(v  1 e 1 0 ]
-"47 C:\Users\user\MPLABXProjects\Mek_robot.X/PCA9685_driver.h
+"47 C:\Users\user\Git_repos\Mek_HGR_V2\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X/PCA9685_driver.h
 [v _pca_address pca_address `uc  1 e 1 0 ]
-[s S632 . 1 `uc 1 INTEDG 1 0 :1:0 
+[s S650 . 1 `uc 1 INTEDG 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
 "371 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
-[u S637 . 1 `S632 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES637  1 e 1 @11 ]
+[u S655 . 1 `S650 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES655  1 e 1 @11 ]
 "677
 [v _TRISA TRISA `VEuc  1 e 1 @17 ]
 "739
 [v _TRISB TRISB `VEuc  1 e 1 @18 ]
-[s S483 . 1 `uc 1 TRISB0 1 0 :1:0 
+[s S487 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -63,8 +71,8 @@
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "756
-[u S492 . 1 `S483 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES492  1 e 1 @18 ]
+[u S496 . 1 `S487 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES496  1 e 1 @18 ]
 "801
 [v _TRISC TRISC `VEuc  1 e 1 @19 ]
 [s S31 . 1 `uc 1 TRISC0 1 0 :1:0 
@@ -103,7 +111,7 @@
 [v _LATC LATC `VEuc  1 e 1 @24 ]
 "1143
 [v _LATD LATD `VEuc  1 e 1 @25 ]
-[s S660 . 1 `uc 1 LATD0 1 0 :1:0 
+[s S678 . 1 `uc 1 LATD0 1 0 :1:0 
 `uc 1 LATD1 1 0 :1:1 
 `uc 1 LATD2 1 0 :1:2 
 `uc 1 LATD3 1 0 :1:3 
@@ -113,25 +121,19 @@
 `uc 1 LATD7 1 0 :1:7 
 ]
 "1160
-[u S669 . 1 `S660 1 . 1 0 ]
-[v _LATDbits LATDbits `VES669  1 e 1 @25 ]
+[u S687 . 1 `S678 1 . 1 0 ]
+[v _LATDbits LATDbits `VES687  1 e 1 @25 ]
 "1205
 [v _LATE LATE `VEuc  1 e 1 @26 ]
 "3819
 [v _TX1REG TX1REG `VEuc  1 e 1 @282 ]
 "3828
 [v _TXREG TXREG `VEuc  1 e 1 @282 ]
-"3880
-[v _SP1BRGL SP1BRGL `VEuc  1 e 1 @283 ]
 "3893
 [v _SPBRGL SPBRGL `VEuc  1 e 1 @283 ]
-"3950
-[v _SP1BRGH SP1BRGH `VEuc  1 e 1 @284 ]
 "3955
 [v _SPBRGH SPBRGH `VEuc  1 e 1 @284 ]
-"4004
-[v _RC1STA RC1STA `VEuc  1 e 1 @285 ]
-[s S902 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S897 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -141,11 +143,9 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "4030
-[u S911 . 1 `S902 1 . 1 0 ]
-[v _RC1STAbits RC1STAbits `VES911  1 e 1 @285 ]
-"4184
-[v _TX1STA TX1STA `VEuc  1 e 1 @286 ]
-[s S860 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S906 . 1 `S897 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES906  1 e 1 @285 ]
+[s S855 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -155,11 +155,9 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "4210
-[u S869 . 1 `S860 1 . 1 0 ]
-[v _TX1STAbits TX1STAbits `VES869  1 e 1 @286 ]
-"4364
-[v _BAUD1CON BAUD1CON `VEuc  1 e 1 @287 ]
-[s S839 . 1 `uc 1 ABDEN 1 0 :1:0 
+[u S864 . 1 `S855 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES864  1 e 1 @286 ]
+[s S834 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -169,10 +167,10 @@
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "4398
-[u S848 . 1 `S839 1 . 1 0 ]
-[v _BAUD1CONbits BAUD1CONbits `VES848  1 e 1 @287 ]
+[u S843 . 1 `S834 1 . 1 0 ]
+[v _BAUD1CONbits BAUD1CONbits `VES843  1 e 1 @287 ]
 "4531
-[v _BAUDCONbits BAUDCONbits `VES848  1 e 1 @287 ]
+[v _BAUDCONbits BAUDCONbits `VES843  1 e 1 @287 ]
 "4610
 [v _SSP1BUF SSP1BUF `VEuc  1 e 1 @396 ]
 "4630
@@ -336,30 +334,30 @@
 [v _SSP1CON2bits SSP1CON2bits `VES132  1 e 1 @401 ]
 "5491
 [v _SSP1CON3 SSP1CON3 `VEuc  1 e 1 @402 ]
-[s S541 . 1 `uc 1 ON 1 0 :1:0 
+[s S559 . 1 `uc 1 ON 1 0 :1:0 
 `uc 1 RD16 1 0 :1:1 
 `uc 1 nSYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 CKPS 1 0 :2:4 
 ]
 "6824
-[s S547 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S565 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 T1RD16 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T1CKPS0 1 0 :1:4 
 `uc 1 T1CKPS1 1 0 :1:5 
 ]
-[s S554 . 1 `uc 1 . 1 0 :4:0 
+[s S572 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 CKPS0 1 0 :1:4 
 `uc 1 CKPS1 1 0 :1:5 
 ]
-[s S558 . 1 `uc 1 . 1 0 :1:0 
+[s S576 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RD161 1 0 :1:1 
 ]
-[u S561 . 1 `S541 1 . 1 0 `S547 1 . 1 0 `S554 1 . 1 0 `S558 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES561  1 e 1 @526 ]
-[s S587 . 1 `uc 1 . 1 0 :2:0 
+[u S579 . 1 `S559 1 . 1 0 `S565 1 . 1 0 `S572 1 . 1 0 `S576 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES579  1 e 1 @526 ]
+[s S605 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 GVAL 1 0 :1:2 
 `uc 1 GGO_nDONE 1 0 :1:3 
 `uc 1 GSPM 1 0 :1:4 
@@ -368,7 +366,7 @@
 `uc 1 GE 1 0 :1:7 
 ]
 "6923
-[s S595 . 1 `uc 1 . 1 0 :2:0 
+[s S613 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1GVAL 1 0 :1:2 
 `uc 1 T1GGO_nDONE 1 0 :1:3 
 `uc 1 T1GSPM 1 0 :1:4 
@@ -376,11 +374,11 @@
 `uc 1 T1GPOL 1 0 :1:6 
 `uc 1 T1GE 1 0 :1:7 
 ]
-[s S603 . 1 `uc 1 . 1 0 :3:0 
+[s S621 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 T1GGO 1 0 :1:3 
 ]
-[u S606 . 1 `S587 1 . 1 0 `S595 1 . 1 0 `S603 1 . 1 0 ]
-[v _T1GCONbits T1GCONbits `VES606  1 e 1 @527 ]
+[u S624 . 1 `S605 1 . 1 0 `S613 1 . 1 0 `S621 1 . 1 0 ]
+[v _T1GCONbits T1GCONbits `VES624  1 e 1 @527 ]
 "7251
 [v _T1CLK T1CLK `VEuc  1 e 1 @529 ]
 "11152
@@ -399,15 +397,15 @@
 "21382
 [u S212 . 1 `S205 1 . 1 0 ]
 [v _PIR3bits PIR3bits `VES212  1 e 1 @1807 ]
-[s S645 . 1 `uc 1 CCP1IE 1 0 :1:0 
+[s S663 . 1 `uc 1 CCP1IE 1 0 :1:0 
 `uc 1 CCP2IE 1 0 :1:1 
 `uc 1 CCP3IE 1 0 :1:2 
 `uc 1 CCP4IE 1 0 :1:3 
 `uc 1 CCP5IE 1 0 :1:4 
 ]
 "21960
-[u S651 . 1 `S645 1 . 1 0 ]
-[v _PIE6bits PIE6bits `VES651  1 e 1 @1820 ]
+[u S669 . 1 `S663 1 . 1 0 ]
+[v _PIE6bits PIE6bits `VES669  1 e 1 @1820 ]
 "23443
 [v _OSCCON1 OSCCON1 `VEuc  1 e 1 @2189 ]
 "23513
@@ -517,22 +515,22 @@
 [v _CCP1IF CCP1IF `VEb  1 e 0 @14480 ]
 "44429
 [v _TXIF TXIF `VEb  1 e 0 @14460 ]
-"25 C:\Users\user\MPLABXProjects\Mek_robot.X\Main.c
+"24 C:\Users\user\Git_repos\Mek_HGR_V2\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\Main.c
 [v _main main `(v  1 e 1 0 ]
 {
 "34
 } 0
-"12 C:\Users\user\MPLABXProjects\Mek_robot.X\system_init.c
+"12 C:\Users\user\Git_repos\Mek_HGR_V2\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\system_init.c
 [v _system_init system_init `(v  1 e 1 0 ]
 {
 "18
 } 0
-"5 C:\Users\user\MPLABXProjects\Mek_robot.X\uart.c
+"5 C:\Users\user\Git_repos\Mek_HGR_V2\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\uart.c
 [v _uart_init uart_init `(v  1 e 1 0 ]
 {
-"22
+"16
 } 0
-"38 C:\Users\user\MPLABXProjects\Mek_robot.X\system_init.c
+"38 C:\Users\user\Git_repos\Mek_HGR_V2\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\system_init.c
 [v _pin_init pin_init `(v  1 e 1 0 ]
 {
 "133
@@ -547,12 +545,17 @@
 {
 "36
 } 0
-"5 C:\Users\user\MPLABXProjects\Mek_robot.X\I2C_MSSP1_driver.c
+"5 C:\Users\user\Git_repos\Mek_HGR_V2\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\I2C_MSSP1_driver.c
 [v _I2C_init I2C_init `(v  1 e 1 0 ]
 {
 "23
 } 0
-"6 C:\Users\user\MPLABXProjects\Mek_robot.X\PCA9685_driver.c
+"3 C:\Users\user\Git_repos\Mek_HGR_V2\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\Stepper.c
+[v _stepper_init stepper_init `(v  1 e 1 0 ]
+{
+"16
+} 0
+"6 C:\Users\user\Git_repos\Mek_HGR_V2\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\PCA9685_driver.c
 [v _PCA_Init PCA_Init `(v  1 e 1 0 ]
 {
 [v PCA_Init@prescalar prescalar `uc  1 a 1 wreg ]
@@ -561,7 +564,7 @@
 [v PCA_Init@prescalar prescalar `uc  1 a 1 5 ]
 "26
 } 0
-"57 C:\Users\user\MPLABXProjects\Mek_robot.X\I2C_MSSP1_driver.c
+"57 C:\Users\user\Git_repos\Mek_HGR_V2\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\I2C_MSSP1_driver.c
 [v _I2C_Write I2C_Write `(v  1 e 1 0 ]
 {
 [v I2C_Write@data data `uc  1 a 1 wreg ]

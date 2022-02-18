@@ -20725,14 +20725,14 @@ extern __bank0 __bit __timeout;
 
 
 void stepper_init();
-void stepper_start(uint8_t direction);
+void stepper_move(uint8_t direction);
 void stepper_stop();
 void set_stepper_speed(uint16_t speed);
 # 1 "Stepper.c" 2
 
 
 void stepper_init() {
-    TRISD = 0b00000000;
+
     CCP1IF = 0;
     T1CONbits.CKPS1 = 1;
     T1CONbits.CKPS0 = 1;
@@ -20746,7 +20746,7 @@ void stepper_init() {
     PIE6bits.CCP1IE = 1;
 }
 
-void stepper_start(uint8_t direction) {
+void stepper_move(uint8_t direction) {
 
 
     T1CONbits.ON = 1;

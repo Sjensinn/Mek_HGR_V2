@@ -6,6 +6,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "66 ./PCA9685_driver.h
 [; ;./PCA9685_driver.h: 66: void PCA_Init(uint8_t prescalar, uint8_t pca_addr);
 [v _PCA_Init `(v ~T0 @X0 0 ef2`uc`uc ]
+"7 ./stepper.h
+[; ;./stepper.h: 7: void stepper_init();
+[v _stepper_init `(v ~T0 @X0 0 e? ]
 "55 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 55: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -1691,18 +1694,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./PCA9685_driver.h: 47:     uint8_t pca_address;
 [v _pca_address `uc ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"25 Main.c
-[; ;Main.c: 25: void main(void) {
+"24 Main.c
+[; ;Main.c: 24: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"26
-[; ;Main.c: 26:     system_init();
+"25
+[; ;Main.c: 25:     system_init();
 [e ( _system_init ..  ]
-"27
-[; ;Main.c: 27:     PCA_Init(130, 0x08);
+"26
+[; ;Main.c: 26:     PCA_Init(130, 0x08);
 [e ( _PCA_Init (2 , -> -> 130 `i `uc -> -> 8 `i `uc ]
+"27
+[; ;Main.c: 27:     stepper_init();
+[e ( _stepper_init ..  ]
 "29
 [; ;Main.c: 29:     while(1){
 [e :U 1617 ]

@@ -20736,26 +20736,27 @@ void uart_Write(unsigned char data);
 
 
 void uart_Write_String(char* buf);
+
+
+
+
+
+
+void putch(char data);
 # 3 "uart.c" 2
 
 
 void uart_init(void){
-
-
-
-    BAUD1CON = 0x48;
-
-
-    RC1STA = 0x90;
-
-
-    TX1STA = 0x26;
-
-
-    SP1BRGL = 0x9F;
-
-
-    SP1BRGH = 0x1;
+    RC6PPS = 0x10;
+    SPBRGL = 25;
+    SPBRGH = 0;
+    BAUDCONbits.BRG16 = 0;
+    TX1STAbits.BRGH = 0;
+    BAUD1CONbits.SCKP = 0;
+    RC1STAbits.SPEN = 1;
+    TX1STAbits.SYNC = 0;
+    RC1STAbits.CREN = 1;
+    TX1STAbits.TXEN = 1;
 }
 
 void uart_Write(unsigned char data){
@@ -20769,4 +20770,10 @@ void uart_Write_String(char* buf){
     while(buf[i] != '\0'){
         uart_Write(buf[i++]);
     }
+}
+
+void putch(char data) {
+    while (!TXIF)
+        continue;
+    TXREG = data;
 }

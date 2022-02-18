@@ -1,8 +1,5 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"863 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 863: extern volatile unsigned char TRISD __attribute__((address(0x014)));
-[v _TRISD `Vuc ~T0 @X0 0 e@20 ]
-"37667
+"37667 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 37667: extern volatile __bit CCP1IF __attribute__((address(0x3890)));
 [v _CCP1IF `Vb ~T0 @X0 0 e@14480 ]
 "6799
@@ -1733,9 +1730,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _stepper_init ]
 [f ]
-"4
-[; ;Stepper.c: 4:     TRISD = 0b00000000;
-[e = _TRISD -> -> 0 `i `uc ]
 "5
 [; ;Stepper.c: 5:     CCP1IF = 0;
 [e = _CCP1IF -> -> 0 `i `b ]
@@ -1771,10 +1765,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 1613 ]
 }
 "18
-[; ;Stepper.c: 18: void stepper_start(uint8_t direction) {
-[v _stepper_start `(v ~T0 @X0 1 ef1`uc ]
+[; ;Stepper.c: 18: void stepper_move(uint8_t direction) {
+[v _stepper_move `(v ~T0 @X0 1 ef1`uc ]
 {
-[e :U _stepper_start ]
+[e :U _stepper_move ]
 [v _direction `uc ~T0 @X0 1 r1 ]
 [f ]
 "21

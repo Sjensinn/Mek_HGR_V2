@@ -1,7 +1,7 @@
 #include "stepper.h"
 
 void stepper_init() {
-    TRISD = 0b00000000;
+    //TRISD = 0b00000000;
     CCP1IF = 0; //Clear flag
     T1CONbits.CKPS1 = 1;
     T1CONbits.CKPS0 = 1; // 11 = 8ps
@@ -15,7 +15,7 @@ void stepper_init() {
     PIE6bits.CCP1IE = 1; //CCP1 interrupt is enabled
 }
 
-void stepper_start(uint8_t direction) { //add speed
+void stepper_move(uint8_t direction) { //add speed
     //add formula for speed
     //PCA_write(CH, 2095, 4095-2095);         //4095 is max resolution, On for 4000/4095, off for 95/4095
     T1CONbits.ON = 1;

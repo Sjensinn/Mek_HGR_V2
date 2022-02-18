@@ -20913,6 +20913,13 @@ void uart_Write(unsigned char data);
 
 
 void uart_Write_String(char* buf);
+
+
+
+
+
+
+void putch(char data);
 # 16 "./system_init.h" 2
 # 32 "./system_init.h"
 void system_init(void);
@@ -20960,11 +20967,6 @@ void I2C_Stop(void);
 int8_t I2C_Read(int8_t ackbit);
 # 19 "Main.c" 2
 
-# 1 "./xbee.h" 1
-void eusart_init();
-void uart_send(uint8_t data);
-# 20 "Main.c" 2
-
 
 # 1 "./stepper.h" 1
 
@@ -20974,16 +20976,17 @@ void uart_send(uint8_t data);
 
 
 void stepper_init();
-void stepper_start(uint8_t direction);
+void stepper_move(uint8_t direction);
 void stepper_stop();
 void set_stepper_speed(uint16_t speed);
-# 22 "Main.c" 2
+# 21 "Main.c" 2
 
 
 
 void main(void) {
     system_init();
     PCA_Init(130, 0x08);
+    stepper_init();
 
     while(1){
 

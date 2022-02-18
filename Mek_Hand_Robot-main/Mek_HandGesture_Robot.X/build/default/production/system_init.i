@@ -68,6 +68,13 @@ void uart_Write(unsigned char data);
 
 
 void uart_Write_String(char* buf);
+
+
+
+
+
+
+void putch(char data);
 # 16 "./system_init.h" 2
 # 32 "./system_init.h"
 void system_init(void);

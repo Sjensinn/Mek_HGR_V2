@@ -20719,15 +20719,6 @@ extern __bank0 __bit __timeout;
 # 29 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\\pic\\include\\xc.h" 2 3
 # 2 "robot.c" 2
 
-# 1 "./PCA9685_driver.h" 1
-# 47 "./PCA9685_driver.h"
-    uint8_t pca_address;
-# 66 "./PCA9685_driver.h"
-void PCA_Init(uint8_t prescalar, uint8_t pca_addr);
-# 87 "./PCA9685_driver.h"
-void PCA_write(uint8_t ChannelN, uint16_t on, uint16_t off);
-# 3 "robot.c" 2
-
 # 1 "./I2C_MSSP1_driver.h" 1
 # 40 "./I2C_MSSP1_driver.h"
 void I2C_init(void);
@@ -20753,8 +20744,123 @@ void I2C_RepeatedStart();
 void I2C_Stop(void);
 # 139 "./I2C_MSSP1_driver.h"
 int8_t I2C_Read(int8_t ackbit);
+# 3 "robot.c" 2
+
+# 1 "./uart.h" 1
+# 26 "./uart.h"
+void uart_init(void);
+
+
+
+
+
+
+void uart_Write(unsigned char data);
+
+
+
+
+
+
+void uart_Write_String(char* buf);
+
+
+
+
+
+
+void putch(char data);
 # 4 "robot.c" 2
 
-# 1 "./robot.h" 1
+# 1 "./PCA9685_driver.h" 1
+# 47 "./PCA9685_driver.h"
+    uint8_t pca_address;
+# 66 "./PCA9685_driver.h"
+void PCA_Init(uint8_t prescalar, uint8_t pca_addr);
+# 87 "./PCA9685_driver.h"
+void PCA_write(uint8_t ChannelN, uint16_t on, uint16_t off);
 # 5 "robot.c" 2
 
+# 1 "./dc.h" 1
+
+void DC_stop();
+void DC_move(uint8_t direction);
+# 6 "robot.c" 2
+
+# 1 "./stepper.h" 1
+
+
+
+
+
+
+void stepper_init();
+void stepper_move(uint8_t direction);
+void stepper_stop();
+void set_stepper_speed(uint16_t speed);
+# 7 "robot.c" 2
+
+
+
+void process(uint8_t data) {
+# 23 "robot.c"
+    if ((data & 1) == 11) {
+
+    }
+
+    if ((data & 2) == 2) {
+        stepper_stop();
+        if ((data & 64) == 64) {
+            if ((data & 128) == 128) {
+                DC_move(0);
+            } else {
+                DC_move(1);
+            }
+        }
+        if ((data & 16) == 16) {
+            if ((data & 32) == 32) {
+                DC_move(2);
+            } else {
+                DC_move(3);
+            }
+        }
+    } else if ((data & 4) == 4) {
+        DC_stop();
+        if ((data & 64) == 64) {
+            if ((data & 128) == 128) {
+
+            } else {
+
+            }
+        }
+        if ((data & 16) == 16) {
+            if ((data & 32) == 32) {
+                stepper_move(0);
+            } else {
+                stepper_move(1);
+            }
+        }
+    } else if ((data & 8) == 8) {
+        stepper_stop();
+        DC_stop();
+        if ((data & 64) == 64) {
+            if ((data & 128) == 128) {
+
+            } else {
+
+            }
+        }
+        if ((data & 16) == 16) {
+            if ((data & 32) == 32) {
+
+            } else {
+
+            }
+        }
+
+    } else {
+        stepper_stop();
+        DC_stop();
+    }
+
+}

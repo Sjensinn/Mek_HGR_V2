@@ -17,7 +17,6 @@
 #include "system_init.h"
 #include "PCA9685_driver.h"
 #include "I2C_MSSP1_driver.h"
-#include "xbee.h"
 #include "uart.h"
 #include "stepper.h"
 
