@@ -32,11 +32,11 @@ void gy_init(uint8_t gyAdd){
     I2C_Write(0x00);                //don't use external inputs
     I2C_Stop();
     
-    //Configure gyro to 2000°/s and accel to -+2g
+    //Configure gyro to 2000ï¿½/s and accel to -+2g
     I2C_Start();                    //Send start signal
     I2C_Write(gy_address);          //Write address and R/W bit cleared
     I2C_Write(GYRO_CONFIG);         //Gyro config register
-    I2C_Write(0x00);                //250 deg per sec (0x00), no self test (0x18 for 2000°/sec))
+    I2C_Write(0x00);                //250 deg per sec (0x00), no self test (0x18 for 2000ï¿½/sec))
     I2C_Write(0x00);                //Accel config to 0x00 for +-2g
     I2C_Stop();
     
@@ -48,73 +48,34 @@ void gy_init(uint8_t gyAdd){
     I2C_Stop();
 }
 
-void gy_Read(int16_t* Ax, int16_t* Ay, int16_t* Az, int16_t* Gx, int16_t* Gy, int16_t* Gz, int16_t* Temp){
+void gy_Read(int16_t* Ax, int16_t* Ay){
+    uint8_t axl, axh, ayl, ayh;
+
     I2C_Start();
     I2C_Write(gy_address);          //Address in write
     I2C_Write(ACCEL_XOUT_H);        //First register to read
-    //I2C_Stop();
     
     //Reading values from the sensor and asigning to pointer
     I2C_Start();
     I2C_Write(gy_address + 0x01);   //Address in read
-    //  I2C_Read(0); //Error??
-    &Ax = (I2C_Read(0)<<8) | (I2C_Read(0)); //| I2C_Read(0);
-    &Ay = (I2C_Read(0)<<8) | I2C_Read(0);
-    &Az = (I2C_Read(0)<<8) | I2C_Read(0);
-    &Temp  = (I2C_Read(0)<<8) | I2C_Read(0);
-    &Gx = (I2C_Read(0)<<8) | I2C_Read(0);
-    &Gy = (I2C_Read(0)<<8) | I2C_Read(0);
-    &Gz = (I2C_Read(0)<<8)   | I2C_Read(1);
+    axh = I2C_Read(0);
+    axl = I2C_Read(0);
+    ayh = I2C_Read(0);
+    ayl = I2C_Read(1);
     I2C_Stop();
-        
+
+    *Ax = (axh << 8) | axl;
+    *Ay = (ayh << 8) | ayh;
+
     return;
 }
 
+void gy_test(void){
+    int16_t ax, ay;
+    char buffer[50];
 
-    //Troubleshooting Code
-    /*
-     * 
-        //char buffer[40];
-        //int8_t axtu, axtl, aytu, aytl ,aztu, aztl, gxtu, gxtl, gytu, gytl,  gztu, gztl, ttu, ttl;
-        //short axtf, aytf, aztf, gxtf, gytf, gztf, ttf;
-     * 
-     *     //Data transform
-    axtf = (float)axtu/16384.0;	
-    aytf = (float)aytu/16384.0;
-    aztf = (float)aztu/16384.0;
-    gxtf = (float)gxtu/131.0;
-    gytf = (float)gytu/131.0;
-    gztf = (float)gztu/131.0;
-    ttf = ((float)ttu/340.00)+36.53; /* Convert temperature in °/c */
-     * 
-      // Print The Results UART
-    sprintf(buffer,"Ax = %.2f \t",axtf);	
-    uart_Write_String(buffer);
+    gy_Read(&ax, &ay);
 
-    sprintf(buffer," Ay = %.2f \t",aytf);
+    sprintf(buffer, "AX: %d\t AY:%d \r\n", ax, ay);
     uart_Write_String(buffer);
-
-    sprintf(buffer," Az = %.2f \t",aztf);
-    uart_Write_String(buffer);
-
-    sprintf(buffer," T = %.2f  ",ttf);
-    uart_Write_String(buffer);
-
-    sprintf(buffer," Gx = %.2f \t",gxtf);
-    uart_Write_String(buffer);
-
-    sprintf(buffer," Gy = %.2f \t",gytf);
-    uart_Write_String(buffer);
-
-    sprintf(buffer," Gz = %.2f\r\n",gztf);
-    uart_Write_String(buffer);
-    */
-    /*
-    sprintf(buffer, "Gx:%.2f y:%.2f z:%.2f", gxtf, gytf, gztf );
-    LCD_Set_Cursor(1,1);
-    LCD_write_string(buffer);
-    
-    sprintf(buffer, "Ax:%.2f y:%.2f z:%.2f", axtf, aytf, aztf);
-    LCD_Set_Cursor(2,1);
-    LCD_write_string(buffer);
-   */
+}

@@ -39,6 +39,13 @@ void uart_Write(unsigned char data);
  */
 void uart_Write_String(char* buf);
 
+/*
+ * @brief   This function writes to TXREG
+ * @param   data: characted to write           
+ * @return  void 
+*/
+void putch(char data);
+
 
 #ifdef	__cplusplus
 }

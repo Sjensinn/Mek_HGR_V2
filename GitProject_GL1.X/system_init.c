@@ -133,6 +133,8 @@ void pin_init(){
 }
 
 void int_init(void){
+    PIE3bits.TXIE = 0;          //transmit interrupt disabled
+    PIE3bits.RCIE = 1;          //receive interrupt enable
     INTCONbits.GIE = 1;         //Enable Global interrupts
     INTCONbits.PEIE = 1;        //Enable Pheripheral Interrupts
 }

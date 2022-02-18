@@ -155,8 +155,9 @@ void gy_init(uint8_t gyAdd);
  *          ptr to Temp variables        
  * @return  Readings returned via pointers
  */    
-void gy_Read(int16_t* Ax, int16_t* Ay, int16_t* Az, int16_t* Gx, int16_t* Gy, int16_t* Gz, int16_t* Temp);
+void gy_Read(int16_t* Ax, int16_t* Ay);
     
+void gy_test(void);
 
 #ifdef	__cplusplus
 }

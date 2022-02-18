@@ -136,7 +136,7 @@ void I2C_Stop(void);
  *  }
  * @endcode
  */
-int8_t I2C_Read(int8_t ackbit);
+uint8_t I2C_Read(int8_t ackbit);
 
 
 #ifdef	__cplusplus
