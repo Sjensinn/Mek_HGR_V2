@@ -5,6 +5,7 @@
  #include "PCA9685_driver.h"
  #include "dc.h"
  #include "stepper.h"
+#include "robot.h"
 
 
 void process(uint8_t data) {
@@ -80,4 +81,20 @@ void process(uint8_t data) {
     }
 
 }
-//PCA_write(CH,on,4095-on); 
+
+void move_servo1_up(uint8_t n){
+    //Check if we are at limit for servo
+    if(servo1_stat =< (SERVO1MAX - 10)){
+        servo1_stat =+ 10;
+    }
+    
+    PCA_write(n, 0x00, servo1_stat);
+}
+
+void move_servo1_down(uint8_t n){
+    if( servo1_stat >= (SERVO1MIN + 10) ){
+        servo1_stat =- 10;
+    }
+
+    PCA_write(n, 0x00, servo1_stat);
+}
