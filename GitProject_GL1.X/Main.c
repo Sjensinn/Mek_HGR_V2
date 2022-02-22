@@ -43,11 +43,13 @@ void main(void) {
     int16_t flex;
 
     while(1){
-        //gy_Read(&accelo_x, &accelo_y); //Fetch data from Gyro
-        //get_Flex_Data(&flex);            //Fetch data from ADC
-        //get_Finger_Data(&finger1, &finger2, &finger3);          //Fetch data from Fingers
+        gy_Read(&accelo_x, &accelo_y); //Fetch data from Gyro
+        finger1 = 1;
+        finger2 = 0;
+        finger3 = 0;
+        data_Transform(0, finger1, finger2, finger3, accelo_x, accelo_y); //Flex, f1, f2, f3, ax, ay
         
-        gy_test();
+        //gy_test();
 
     }
     return;
