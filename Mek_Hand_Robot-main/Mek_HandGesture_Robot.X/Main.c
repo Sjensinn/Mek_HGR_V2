@@ -20,6 +20,7 @@
 #include "uart.h"
 #include "stepper.h"
 
+volatile uint8_t data_in;
 
 void main(void) {
     system_init();                  //Initiate clock, pins, uart, i2c, timer1 and interrupts
@@ -27,11 +28,15 @@ void main(void) {
     stepper_init();
     
     while(1){
-        
+        process(data_in);
     }
 
     return;
 }
 
-
+void __interrupt() receive_isr() { //lesa gögnin með þessu
+    while (RCIF == 1) {
+        data_in = RCREG;
+    }
+}
 
