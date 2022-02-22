@@ -27,8 +27,9 @@
 #include "I2C_MSSP1_driver.h"
 #include "gy_521.h"
 #include "uart.h"
+#include "control_glove.h"
 
-void __interrupt() isr();
+//void __interrupt() isr();
 volatile uint8_t data_in;
 
 void main(void) {
@@ -47,14 +48,15 @@ void main(void) {
         finger1 = 1;
         finger2 = 0;
         finger3 = 0;
-        data_Transform(0, finger1, finger2, finger3, accelo_x, accelo_y); //Flex, f1, f2, f3, ax, ay
-        
+        printf("%c", data_Transform(0, finger1, finger2, finger3, accelo_x, accelo_y)); //Flex, f1, f2, f3, ax, ay
+        __delay_ms(100);
+        //printf("%c", 0b00000000);
         //gy_test();
 
     }
     return;
 }
-
+/*
 void __interrupt() isr() { //lesa gögnin með þessu
     while (RCIF == 1) {
         data_in = RCREG;
@@ -73,7 +75,7 @@ void __interrupt() isr() { //lesa gögnin með þessu
         CCPR1H = 0x01;
         CCPR1L = 0x34; //0.0005s 500us 0x134 = 0.616ms@(((16Mhz)/4)/8)
     }
-}
+}*/
 
 
 

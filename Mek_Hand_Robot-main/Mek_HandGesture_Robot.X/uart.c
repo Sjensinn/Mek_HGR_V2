@@ -13,6 +13,7 @@ void uart_init(void){
     TX1STAbits.SYNC = 0; //asynchronous 
     RC1STAbits.CREN = 1; //RX on
     TX1STAbits.TXEN = 1; //transmit enabled
+    PIE3bits.RCIE = 1;
 }
 
 void uart_Write(unsigned char data){

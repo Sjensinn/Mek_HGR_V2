@@ -4,4 +4,5 @@ config_bits.h  \
 system_init.h  \
 uart.h  \
 I2C_MSSP1_driver.h  \
-gy_521.h 
+gy_521.h  \
+control_glove.h 

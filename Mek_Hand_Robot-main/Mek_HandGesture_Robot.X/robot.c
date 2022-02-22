@@ -40,6 +40,8 @@ void process(uint8_t data) {
             } else {
                 DC_move(3);
             }
+        } else{
+            DC_stop();
         }
     } else if ((data & 4) == 4) { //if finger 2 (shoulder)
         DC_stop();
@@ -84,8 +86,8 @@ void process(uint8_t data) {
 
 void move_servo1_up(uint8_t n){
     //Check if we are at limit for servo
-    if(servo1_stat =< (SERVO1MAX - 10)){
-        servo1_stat =+ 10;
+    if(servo1_stat <= (SERVO1MAX - 10)){
+        servo1_stat += 10;
     }
     
     PCA_write(n, 0x00, servo1_stat);
@@ -93,7 +95,7 @@ void move_servo1_up(uint8_t n){
 
 void move_servo1_down(uint8_t n){
     if( servo1_stat >= (SERVO1MIN + 10) ){
-        servo1_stat =- 10;
+        servo1_stat -= 10;
     }
 
     PCA_write(n, 0x00, servo1_stat);

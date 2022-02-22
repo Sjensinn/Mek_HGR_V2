@@ -1,0 +1,646 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F18877 ]
+[d frameptr 6 ]
+"259 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\doprnt.c
+[v _ctoa ctoa `(i  1 s 2 ctoa ]
+"692
+[v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
+"1390
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\nf_fputs.c
+[v _fputs fputs `(i  1 e 2 0 ]
+"9 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\nf_sprintf.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\printf.c
+[v _printf printf `(i  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\strlen.c
+[v _strlen strlen `(ui  1 e 2 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"38 C:\Users\Danio\git_repos\Mek\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+[v _data_Transform data_Transform `(uc  1 e 1 0 ]
+"9 C:\Users\Danio\git_repos\Mek\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+[v _gy_init gy_init `(v  1 e 1 0 ]
+"50
+[v _gy_Read gy_Read `(v  1 e 1 0 ]
+"5 C:\Users\Danio\git_repos\Mek\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+[v _I2C_init I2C_init `(v  1 e 1 0 ]
+"26
+[v _I2C_Start I2C_Start `(v  1 e 1 0 ]
+"31
+[v _I2C_Wait I2C_Wait `(v  1 e 1 0 ]
+"45
+[v _I2C_Stop I2C_Stop `(v  1 e 1 0 ]
+"51
+[v _I2C_Write I2C_Write `(v  1 e 1 0 ]
+"57
+[v _I2C_Read I2C_Read `(uc  1 e 1 0 ]
+"35 C:\Users\Danio\git_repos\Mek\Mek_HGR_V2\GitProject_GL1.X\Main.c
+[v _main main `(v  1 e 1 0 ]
+"12 C:\Users\Danio\git_repos\Mek\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+[v _system_init system_init `(v  1 e 1 0 ]
+"21
+[v _clock_init clock_init `(v  1 e 1 0 ]
+"38
+[v _pin_init pin_init `(v  1 e 1 0 ]
+"135
+[v _int_init int_init `(v  1 e 1 0 ]
+"5 C:\Users\Danio\git_repos\Mek\Mek_HGR_V2\GitProject_GL1.X\uart.c
+[v _uart_init uart_init `(v  1 e 1 0 ]
+"18
+[v _uart_Write uart_Write `(v  1 e 1 0 ]
+"24
+[v _uart_Write_String uart_Write_String `(v  1 e 1 0 ]
+"31
+[v _putch putch `(v  1 e 1 0 ]
+"132 C:\Users\Danio\git_repos\Mek\Mek_HGR_V2\GitProject_GL1.X/gy_521.h
+[v _gy_address gy_address `uc  1 e 1 0 ]
+[s S649 . 1 `uc 1 INTEDG 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"371 C:/Users/Danio/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
+[u S654 . 1 `S649 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES654  1 e 1 @11 ]
+[s S22 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"470
+[u S31 . 1 `S22 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES31  1 e 1 @13 ]
+"677
+[v _TRISA TRISA `VEuc  1 e 1 @17 ]
+"739
+[v _TRISB TRISB `VEuc  1 e 1 @18 ]
+"801
+[v _TRISC TRISC `VEuc  1 e 1 @19 ]
+[s S122 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"818
+[u S131 . 1 `S122 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES131  1 e 1 @19 ]
+"863
+[v _TRISD TRISD `VEuc  1 e 1 @20 ]
+"925
+[v _TRISE TRISE `VEuc  1 e 1 @21 ]
+"957
+[v _LATA LATA `VEuc  1 e 1 @22 ]
+"1019
+[v _LATB LATB `VEuc  1 e 1 @23 ]
+"1081
+[v _LATC LATC `VEuc  1 e 1 @24 ]
+"1143
+[v _LATD LATD `VEuc  1 e 1 @25 ]
+"1205
+[v _LATE LATE `VEuc  1 e 1 @26 ]
+"3819
+[v _TX1REG TX1REG `VEuc  1 e 1 @282 ]
+"3828
+[v _TXREG TXREG `VEuc  1 e 1 @282 ]
+"3893
+[v _SPBRGL SPBRGL `VEuc  1 e 1 @283 ]
+"3955
+[v _SPBRGH SPBRGH `VEuc  1 e 1 @284 ]
+[s S743 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"4030
+[u S752 . 1 `S743 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES752  1 e 1 @285 ]
+[s S701 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"4210
+[u S710 . 1 `S701 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES710  1 e 1 @286 ]
+[s S680 . 1 `uc 1 ABDEN 1 0 :1:0 
+`uc 1 WUE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG16 1 0 :1:3 
+`uc 1 SCKP 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 RCIDL 1 0 :1:6 
+`uc 1 ABDOVF 1 0 :1:7 
+]
+"4398
+[u S689 . 1 `S680 1 . 1 0 ]
+[v _BAUD1CONbits BAUD1CONbits `VES689  1 e 1 @287 ]
+"4531
+[v _BAUDCONbits BAUDCONbits `VES689  1 e 1 @287 ]
+"4610
+[v _SSP1BUF SSP1BUF `VEuc  1 e 1 @396 ]
+"4630
+[v _SSP1ADD SSP1ADD `VEuc  1 e 1 @397 ]
+"4820
+[v _SSP1STAT SSP1STAT `VEuc  1 e 1 @399 ]
+[s S287 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+"4929
+[s S296 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D_A 1 0 :1:5 
+]
+[s S301 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nW 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nA 1 0 :1:5 
+]
+[s S306 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nWRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nADDRESS 1 0 :1:5 
+]
+[s S311 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 READ_WRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 DATA_ADDRESS 1 0 :1:5 
+]
+[s S316 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 I2C_READ 1 0 :1:2 
+`uc 1 I2C_START 1 0 :1:3 
+`uc 1 I2C_STOP 1 0 :1:4 
+`uc 1 I2C_DAT 1 0 :1:5 
+]
+[s S322 . 1 `uc 1 BF1 1 0 :1:0 
+`uc 1 UA1 1 0 :1:1 
+`uc 1 R 1 0 :1:2 
+`uc 1 START 1 0 :1:3 
+`uc 1 STOP 1 0 :1:4 
+`uc 1 D 1 0 :1:5 
+`uc 1 CKE1 1 0 :1:6 
+`uc 1 SMP1 1 0 :1:7 
+]
+[s S331 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 RW 1 0 :1:2 
+`uc 1 START1 1 0 :1:3 
+`uc 1 STOP1 1 0 :1:4 
+`uc 1 DA 1 0 :1:5 
+]
+[s S337 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 RW1 1 0 :1:2 
+`uc 1 I2C_START1 1 0 :1:3 
+`uc 1 I2C_STOP2 1 0 :1:4 
+`uc 1 DA1 1 0 :1:5 
+]
+[s S343 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 I2C_READ1 1 0 :1:2 
+`uc 1 S2 1 0 :1:3 
+`uc 1 P2 1 0 :1:4 
+`uc 1 DATA_ADDRESS1 1 0 :1:5 
+]
+[s S349 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 READ_WRITE1 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D_A1 1 0 :1:5 
+]
+[s S354 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_W1 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D_nA1 1 0 :1:5 
+]
+[s S359 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_nW1 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 I2C_DAT1 1 0 :1:5 
+]
+[s S364 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nW2 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nA2 1 0 :1:5 
+]
+[s S369 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nWRITE1 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nADDRESS1 1 0 :1:5 
+]
+[u S374 . 1 `S287 1 . 1 0 `S296 1 . 1 0 `S301 1 . 1 0 `S306 1 . 1 0 `S311 1 . 1 0 `S316 1 . 1 0 `S322 1 . 1 0 `S331 1 . 1 0 `S337 1 . 1 0 `S343 1 . 1 0 `S349 1 . 1 0 `S354 1 . 1 0 `S359 1 . 1 0 `S364 1 . 1 0 `S369 1 . 1 0 ]
+[v _SSP1STATbits SSP1STATbits `VES374  1 e 1 @399 ]
+"5184
+[v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @400 ]
+[s S143 . 1 `uc 1 SSPM 1 0 :4:0 
+`uc 1 CKP 1 0 :1:4 
+`uc 1 SSPEN 1 0 :1:5 
+`uc 1 SSPOV 1 0 :1:6 
+`uc 1 WCOL 1 0 :1:7 
+]
+"5214
+[s S149 . 1 `uc 1 SSPM0 1 0 :1:0 
+`uc 1 SSPM1 1 0 :1:1 
+`uc 1 SSPM2 1 0 :1:2 
+`uc 1 SSPM3 1 0 :1:3 
+]
+[s S154 . 1 `uc 1 SSPM01 1 0 :1:0 
+`uc 1 SSPM11 1 0 :1:1 
+`uc 1 SSPM21 1 0 :1:2 
+`uc 1 SSPM31 1 0 :1:3 
+`uc 1 CKP1 1 0 :1:4 
+`uc 1 SSPEN1 1 0 :1:5 
+`uc 1 SSPOV1 1 0 :1:6 
+`uc 1 WCOL1 1 0 :1:7 
+]
+[u S163 . 1 `S143 1 . 1 0 `S149 1 . 1 0 `S154 1 . 1 0 ]
+[v _SSP1CON1bits SSP1CON1bits `VES163  1 e 1 @400 ]
+"5304
+[v _SSP1CON2 SSP1CON2 `VEuc  1 e 1 @401 ]
+[s S188 . 1 `uc 1 SEN 1 0 :1:0 
+`uc 1 RSEN 1 0 :1:1 
+`uc 1 PEN 1 0 :1:2 
+`uc 1 RCEN 1 0 :1:3 
+`uc 1 ACKEN 1 0 :1:4 
+`uc 1 ACKDT 1 0 :1:5 
+`uc 1 ACKSTAT 1 0 :1:6 
+`uc 1 GCEN 1 0 :1:7 
+]
+"5351
+[s S197 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 ADMSK 1 0 :5:1 
+]
+[s S200 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 ADMSK1 1 0 :1:1 
+`uc 1 ADMSK2 1 0 :1:2 
+`uc 1 ADMSK3 1 0 :1:3 
+`uc 1 ADMSK4 1 0 :1:4 
+`uc 1 ADMSK5 1 0 :1:5 
+]
+[s S207 . 1 `uc 1 SEN1 1 0 :1:0 
+`uc 1 ADMSK11 1 0 :1:1 
+`uc 1 ADMSK21 1 0 :1:2 
+`uc 1 ADMSK31 1 0 :1:3 
+`uc 1 ACKEN1 1 0 :1:4 
+`uc 1 ACKDT1 1 0 :1:5 
+`uc 1 ACKSTAT1 1 0 :1:6 
+`uc 1 GCEN1 1 0 :1:7 
+]
+[s S216 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RSEN1 1 0 :1:1 
+`uc 1 PEN1 1 0 :1:2 
+`uc 1 RCEN1 1 0 :1:3 
+`uc 1 ADMSK41 1 0 :1:4 
+`uc 1 ADMSK51 1 0 :1:5 
+]
+[u S223 . 1 `S188 1 . 1 0 `S197 1 . 1 0 `S200 1 . 1 0 `S207 1 . 1 0 `S216 1 . 1 0 ]
+[v _SSP1CON2bits SSP1CON2bits `VES223  1 e 1 @401 ]
+"5491
+[v _SSP1CON3 SSP1CON3 `VEuc  1 e 1 @402 ]
+[s S269 . 1 `uc 1 SSP1IF 1 0 :1:0 
+`uc 1 BCL1IF 1 0 :1:1 
+`uc 1 SSP2IF 1 0 :1:2 
+`uc 1 BCL2IF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+]
+"21382
+[u S276 . 1 `S269 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES276  1 e 1 @1807 ]
+[s S632 . 1 `uc 1 SSP1IE 1 0 :1:0 
+`uc 1 BCL1IE 1 0 :1:1 
+`uc 1 SSP2IE 1 0 :1:2 
+`uc 1 BCL2IE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+]
+"21804
+[u S639 . 1 `S632 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES639  1 e 1 @1817 ]
+"23443
+[v _OSCCON1 OSCCON1 `VEuc  1 e 1 @2189 ]
+"23513
+[v _OSCCON2 OSCCON2 `VEuc  1 e 1 @2190 ]
+"23583
+[v _OSCCON3 OSCCON3 `VEuc  1 e 1 @2191 ]
+"23623
+[v _OSCSTAT OSCSTAT `VEuc  1 e 1 @2192 ]
+"23680
+[v _OSCEN OSCEN `VEuc  1 e 1 @2193 ]
+"23731
+[v _OSCTUNE OSCTUNE `VEuc  1 e 1 @2194 ]
+"23789
+[v _OSCFRQ OSCFRQ `VEuc  1 e 1 @2195 ]
+"29814
+[v _T1CKIPPS T1CKIPPS `VEuc  1 e 1 @7826 ]
+"29866
+[v _T1GPPS T1GPPS `VEuc  1 e 1 @7827 ]
+"31328
+[v _SSP1CLKPPS SSP1CLKPPS `VEuc  1 e 1 @7877 ]
+"31380
+[v _SSP1DATPPS SSP1DATPPS `VEuc  1 e 1 @7878 ]
+"31640
+[v _RXPPS RXPPS `VEuc  1 e 1 @7883 ]
+"32694
+[v _RC3PPS RC3PPS `VEuc  1 e 1 @7971 ]
+"32744
+[v _RC4PPS RC4PPS `VEuc  1 e 1 @7972 ]
+"32844
+[v _RC6PPS RC6PPS `VEuc  1 e 1 @7974 ]
+"33494
+[v _ANSELA ANSELA `VEuc  1 e 1 @7992 ]
+"33556
+[v _WPUA WPUA `VEuc  1 e 1 @7993 ]
+"33618
+[v _ODCONA ODCONA `VEuc  1 e 1 @7994 ]
+"33680
+[v _SLRCONA SLRCONA `VEuc  1 e 1 @7995 ]
+"33742
+[v _INLVLA INLVLA `VEuc  1 e 1 @7996 ]
+"33804
+[v _IOCAP IOCAP `VEuc  1 e 1 @7997 ]
+"33866
+[v _IOCAN IOCAN `VEuc  1 e 1 @7998 ]
+"33928
+[v _IOCAF IOCAF `VEuc  1 e 1 @7999 ]
+"34114
+[v _ANSELB ANSELB `VEuc  1 e 1 @8003 ]
+"34176
+[v _WPUB WPUB `VEuc  1 e 1 @8004 ]
+"34238
+[v _ODCONB ODCONB `VEuc  1 e 1 @8005 ]
+"34300
+[v _SLRCONB SLRCONB `VEuc  1 e 1 @8006 ]
+"34362
+[v _INLVLB INLVLB `VEuc  1 e 1 @8007 ]
+"34424
+[v _IOCBP IOCBP `VEuc  1 e 1 @8008 ]
+"34486
+[v _IOCBN IOCBN `VEuc  1 e 1 @8009 ]
+"34548
+[v _IOCBF IOCBF `VEuc  1 e 1 @8010 ]
+"34734
+[v _ANSELC ANSELC `VEuc  1 e 1 @8014 ]
+"34796
+[v _WPUC WPUC `VEuc  1 e 1 @8015 ]
+"34858
+[v _ODCONC ODCONC `VEuc  1 e 1 @8016 ]
+"34920
+[v _SLRCONC SLRCONC `VEuc  1 e 1 @8017 ]
+"34982
+[v _INLVLC INLVLC `VEuc  1 e 1 @8018 ]
+"35044
+[v _IOCCP IOCCP `VEuc  1 e 1 @8019 ]
+"35106
+[v _IOCCN IOCCN `VEuc  1 e 1 @8020 ]
+"35168
+[v _IOCCF IOCCF `VEuc  1 e 1 @8021 ]
+"35354
+[v _ANSELD ANSELD `VEuc  1 e 1 @8025 ]
+"35416
+[v _WPUD WPUD `VEuc  1 e 1 @8026 ]
+"35478
+[v _ODCOND ODCOND `VEuc  1 e 1 @8027 ]
+"35540
+[v _SLRCOND SLRCOND `VEuc  1 e 1 @8028 ]
+"35602
+[v _INLVLD INLVLD `VEuc  1 e 1 @8029 ]
+"35788
+[v _ANSELE ANSELE `VEuc  1 e 1 @8036 ]
+"35820
+[v _WPUE WPUE `VEuc  1 e 1 @8037 ]
+"35858
+[v _ODCONE ODCONE `VEuc  1 e 1 @8038 ]
+"35890
+[v _SLRCONE SLRCONE `VEuc  1 e 1 @8039 ]
+"35922
+[v _INLVLE INLVLE `VEuc  1 e 1 @8040 ]
+"35960
+[v _IOCEP IOCEP `VEuc  1 e 1 @8041 ]
+"35981
+[v _IOCEN IOCEN `VEuc  1 e 1 @8042 ]
+"36002
+[v _IOCEF IOCEF `VEuc  1 e 1 @8043 ]
+"44429
+"44429
+[v _TXIF TXIF `VEb  1 e 0 @14460 ]
+"55 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\doprnt.c
+[v _flags flags `i  1 s 2 flags ]
+[v _prec prec `i  1 s 2 prec ]
+[v _width width `i  1 s 2 width ]
+"69
+[v _nout nout `i  1 s 2 nout ]
+"33 C:\Users\Danio\git_repos\Mek\Mek_HGR_V2\GitProject_GL1.X\Main.c
+[v _data_in data_in `VEuc  1 e 1 0 ]
+"35
+[v _main main `(v  1 e 1 0 ]
+{
+"40
+[v main@accelo_y accelo_y `s  1 a 2 32 ]
+[v main@accelo_x accelo_x `s  1 a 2 30 ]
+"58
+} 0
+"12 C:\Users\Danio\git_repos\Mek\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+[v _system_init system_init `(v  1 e 1 0 ]
+{
+"18
+} 0
+"5 C:\Users\Danio\git_repos\Mek\Mek_HGR_V2\GitProject_GL1.X\uart.c
+[v _uart_init uart_init `(v  1 e 1 0 ]
+{
+"16
+} 0
+"38 C:\Users\Danio\git_repos\Mek\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+[v _pin_init pin_init `(v  1 e 1 0 ]
+{
+"133
+} 0
+"135
+[v _int_init int_init `(v  1 e 1 0 ]
+{
+"140
+} 0
+"21
+[v _clock_init clock_init `(v  1 e 1 0 ]
+{
+"36
+} 0
+"5 C:\Users\Danio\git_repos\Mek\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+[v _I2C_init I2C_init `(v  1 e 1 0 ]
+{
+"23
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\printf.c
+[v _printf printf `(i  1 e 2 0 ]
+{
+"8
+[v printf@ap ap `[1]*.4v  1 a 1 27 ]
+"5
+[v printf@fmt fmt `*.25DCuc  1 p 2 22 ]
+"13
+} 0
+"1390 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\doprnt.c
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
+{
+[s S1276 _IO_FILE 0 ]
+[v vfprintf@fp fp `*.1S1276  1 a 1 wreg ]
+"1393
+[v vfprintf@cfmt cfmt `*.25uc  1 a 2 20 ]
+"1390
+[v vfprintf@fp fp `*.1S1276  1 a 1 wreg ]
+[v vfprintf@fmt fmt `*.25DCuc  1 p 2 14 ]
+[v vfprintf@ap ap `*.4*.4v  1 p 1 16 ]
+"1395
+"1390
+[v vfprintf@fp fp `*.1S1276  1 a 1 19 ]
+"1404
+} 0
+"692
+[v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
+{
+[s S1276 _IO_FILE 0 ]
+[v vfpfcnvrt@fp fp `*.1S1276  1 a 1 wreg ]
+"694
+[v vfpfcnvrt@c c `uc  1 a 1 12 ]
+"692
+[v vfpfcnvrt@fp fp `*.1S1276  1 a 1 wreg ]
+[v vfpfcnvrt@fmt fmt `*.4*.25uc  1 p 1 5 ]
+[v vfpfcnvrt@ap ap `*.4*.4v  1 p 1 6 ]
+"702
+"692
+[v vfpfcnvrt@fp fp `*.1S1276  1 a 1 13 ]
+"1387
+} 0
+"259
+[v _ctoa ctoa `(i  1 s 2 ctoa ]
+{
+[s S1276 _IO_FILE 0 ]
+[v ctoa@fp fp `*.1S1276  1 a 1 wreg ]
+"261
+[v ctoa@w w `i  1 a 2 2 ]
+[v ctoa@l l `i  1 a 2 0 ]
+"259
+[v ctoa@fp fp `*.1S1276  1 a 1 wreg ]
+[v ctoa@c c `uc  1 p 1 9 ]
+"264
+"259
+[v ctoa@fp fp `*.1S1276  1 a 1 4 ]
+"283
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+{
+[v fputc@c c `i  1 p 2 1 ]
+[s S1250 _IO_FILE 5 `*.4uc 1 buffer 1 0 `i 1 count 2 1 `i 1 limit 2 3 ]
+[v fputc@fp fp `*.1S1250  1 p 1 3 ]
+"24
+} 0
+"31 C:\Users\Danio\git_repos\Mek\Mek_HGR_V2\GitProject_GL1.X\uart.c
+[v _putch putch `(v  1 e 1 0 ]
+{
+[v putch@data data `uc  1 a 1 wreg ]
+[v putch@data data `uc  1 a 1 wreg ]
+[v putch@data data `uc  1 a 1 0 ]
+"35
+} 0
+"9 C:\Users\Danio\git_repos\Mek\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+[v _gy_init gy_init `(v  1 e 1 0 ]
+{
+[v gy_init@gyAdd gyAdd `uc  1 a 1 wreg ]
+[v gy_init@gyAdd gyAdd `uc  1 a 1 wreg ]
+[v gy_init@gyAdd gyAdd `uc  1 a 1 3 ]
+"48
+} 0
+"50
+[v _gy_Read gy_Read `(v  1 e 1 0 ]
+{
+[v gy_Read@Ax Ax `*.4s  1 a 1 wreg ]
+"51
+[v gy_Read@ayh ayh `uc  1 a 1 8 ]
+[v gy_Read@axh axh `uc  1 a 1 6 ]
+[v gy_Read@axl axl `uc  1 a 1 5 ]
+"50
+[v gy_Read@Ax Ax `*.4s  1 a 1 wreg ]
+[v gy_Read@Ay Ay `*.4s  1 p 1 3 ]
+"53
+[v gy_Read@Ax Ax `*.4s  1 a 1 7 ]
+"70
+} 0
+"51 C:\Users\Danio\git_repos\Mek\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+[v _I2C_Write I2C_Write `(v  1 e 1 0 ]
+{
+[v I2C_Write@data data `uc  1 a 1 wreg ]
+[v I2C_Write@data data `uc  1 a 1 wreg ]
+[v I2C_Write@data data `uc  1 a 1 0 ]
+"54
+} 0
+"45
+[v _I2C_Stop I2C_Stop `(v  1 e 1 0 ]
+{
+"48
+} 0
+"26
+[v _I2C_Start I2C_Start `(v  1 e 1 0 ]
+{
+"29
+} 0
+"57
+[v _I2C_Read I2C_Read `(uc  1 e 1 0 ]
+{
+[v I2C_Read@ackbit ackbit `c  1 a 1 wreg ]
+"58
+[v I2C_Read@tempreadbuffer tempreadbuffer `uc  1 a 1 2 ]
+"57
+[v I2C_Read@ackbit ackbit `c  1 a 1 wreg ]
+"60
+[v I2C_Read@ackbit ackbit `c  1 a 1 1 ]
+"71
+} 0
+"31
+[v _I2C_Wait I2C_Wait `(v  1 e 1 0 ]
+{
+"36
+} 0
+"38 C:\Users\Danio\git_repos\Mek\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+[v _data_Transform data_Transform `(uc  1 e 1 0 ]
+{
+"39
+[v data_Transform@transferData transferData `uc  1 a 1 10 ]
+"38
+[v data_Transform@flex flex `s  1 p 2 0 ]
+[v data_Transform@f1 f1 `uc  1 p 1 2 ]
+[v data_Transform@f2 f2 `uc  1 p 1 3 ]
+[v data_Transform@f3 f3 `uc  1 p 1 4 ]
+[v data_Transform@ax ax `s  1 p 2 5 ]
+[v data_Transform@ay ay `s  1 p 2 7 ]
+"110
+} 0

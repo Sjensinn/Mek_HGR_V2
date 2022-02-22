@@ -3,8 +3,8 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>GitProject_GL1</name>
-            <creation-uuid>eb18f0ce-4c08-436b-947f-e7c0a8613d16</creation-uuid>
+            <name>mek_hand</name>
+            <creation-uuid>a3894b8b-b872-4016-bb1d-cafb72d5b23e</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>
             <cpp-extensions/>
