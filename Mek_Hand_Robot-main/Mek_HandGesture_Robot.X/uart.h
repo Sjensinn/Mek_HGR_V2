@@ -16,6 +16,8 @@
 extern "C" {
 #endif
 
+#define READYSIGNAL 10101010
+
 /**
  * @brief   This function intitiates the USART module in asynchronous mode
  * @param   void             
@@ -45,6 +47,33 @@ void uart_Write_String(char* buf);
  * @return  void 
 */
 void putch(char data);
+
+/**
+ * @brief   This function sends Ready signal
+ * @param   void             
+ * @return  void
+ * 
+ */
+void send_ready(void);
+
+/**
+ * @brief   This function verifies Ready signal
+ * @param   data: Data rx from UART             
+ * @return  Returns 0 for NReady
+ *                  1 for Ready
+ */
+uint8_t is_ready(uint8_t data);
+
+/**
+ * @brief   This function sends commands from control to robot
+ * @param   *data: pointer to Data to tx to robot            
+ * @return  void
+ * 
+ * Call: send_commands(data); 
+ * Where data is the array containing the four bytes
+ * 
+ */
+void send_commands(uint8_t* data);
 
 #ifdef	__cplusplus
 }
