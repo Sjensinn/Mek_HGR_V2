@@ -11,12 +11,18 @@
 
 #ifndef UART_H
 #define	UART_H
+#include <xc.h>
 
 #ifdef	__cplusplus
 extern "C" {
 #endif
+    
+#ifndef _XTAL_FREQ
+#define _XTAL_FREQ 16000000
+#endif
+    
 
-#define READYSIGNAL 10101010
+#define READYSIGNAL 0xAA
 
 /**
  * @brief   This function intitiates the USART module in asynchronous mode

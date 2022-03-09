@@ -20,6 +20,10 @@
 #define _XTAL_FREQ 16000000
 #endif
 
+#define F1_getVal() PORTBbits.RB0
+#define F2_getVal() PORTBbits.RB1
+#define F3_getVal() PORTBbits.RB2
+
 #include "config_bits.h"
 #include "system_init.h"
 #include <xc.h>
@@ -29,53 +33,53 @@
 #include "uart.h"
 #include "control_glove.h"
 
-//void __interrupt() isr();
+void __interrupt() isr();
+
 volatile uint8_t data_in;
+volatile uint8_t ready_flag = 0;
 
 void main(void) {
     system_init();                  //Initiate clock, pins, uart, i2c, timer1 and interrupts
     gy_init(0x68);                  //Initiate MPU6050 with I2C address: 0x68
     
-    //Variables for Accelerometer
+    //Variables
     int16_t accelo_x, accelo_y;
-    //Variables for contact bit
-    uint8_t finger1, finger2, finger3;
-    //Variable for flex 
-    int16_t flex;
+    uint8_t axd, ayd;
+    uint16_t flex;
+    uint8_t tx_data[4];
 
     while(1){
-        gy_Read(&accelo_x, &accelo_y); //Fetch data from Gyro
-        finger1 = 1;
-        finger2 = 0;
-        finger3 = 0;
-        printf("%c", data_Transform(0, finger1, finger2, finger3, accelo_x, accelo_y)); //Flex, f1, f2, f3, ax, ay
-        __delay_ms(100);
-        //printf("%c", 0b00000000);
-        //gy_test();
+        if(ready_flag == 1){
+            //Fetch data
+            gy_Read(&accelo_x, &accelo_y); //Fetch data from Gyro
+            flex = get_Flex_Data();         //Fetch data from flex
+            axd = accelo_x >> 0;
+            ayd = accelo_y >> 0;
 
+            //Format data
+            tx_data[0] = format_data_b1(flex);
+            tx_data[1] = format_data_b2(F1_getVal(), F2_getVal(), F3_getVal(), axd, ayd);
+            tx_data[2] = format_data_b3(accelo_x);
+            tx_data[3] = format_data_b4(accelo_y);
+
+            //Send data
+            send_commands(tx_data);
+
+            //Reset Ready flag
+            ready_flag = 0;
+        }
     }
     return;
 }
-/*
+
 void __interrupt() isr() { //lesa gögnin með þessu
     while (RCIF == 1) {
         data_in = RCREG;
     }
-    if (RC1STAbits.OERR) { //overflow
-        RC1STAbits.CREN = 0;
-        NOP();
-        RC1STAbits.CREN = 1;
+    if (is_ready(data_in) == 1) { 
+        ready_flag = 1;
     }
-
-    if (CCP1IF == 1) { //compare flag
-        CCP1IF = 0;
-        LATDbits.LATD5 ^= 1; //toggle pin for A4988
-        //CCPR1H = 0x00;
-        //CCPR1L = 0xFA; //0.0005s 500us 0xFA = 0.5ms@16Mhz
-        CCPR1H = 0x01;
-        CCPR1L = 0x34; //0.0005s 500us 0x134 = 0.616ms@(((16Mhz)/4)/8)
-    }
-}*/
+}
 
 
 

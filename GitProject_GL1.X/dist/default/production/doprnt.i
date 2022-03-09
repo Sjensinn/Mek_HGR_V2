@@ -4,7 +4,7 @@
 # 288 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "C:/Users/Danio/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\\pic\\include\\language_support.h" 1 3
+# 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\sources\\c99\\common\\doprnt.c" 2
 
@@ -812,7 +812,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 10 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\sources\\c99\\common\\doprnt.c" 2
 
-# 1 "C:/Users/Danio/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\\pic\\include\\inline.h" 1 3
+# 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\\pic\\include\\inline.h" 1 3
 # 11 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\sources\\c99\\common\\doprnt.c" 2
 # 55 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\sources\\c99\\common\\doprnt.c"
 static int flags, prec, width;
@@ -847,31 +847,48 @@ static int pad(FILE *fp, char *buf, int p)
 
     return (int)(strlen(buf) + (size_t)w);
 }
-# 259 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\sources\\c99\\common\\doprnt.c"
-static int ctoa(FILE *fp, char c)
+# 287 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\sources\\c99\\common\\doprnt.c"
+static int dtoa(FILE *fp, long long d)
 {
-    int l, w;
+    int i, p, s, w;
+    long long n;
 
 
-    w = width ? width - 1 : width;
-
-
-    if (flags & (1 << 0)) {
-        fputc(c, fp);
+    n = d;
+    s = n < 0 ? 1 : 0;
+    if (s) {
+        n = -n;
     }
 
-    w = (w < 0) ? 0 : w;
-    l = 0;
-    while (l < w) {
-        fputc(' ', fp);
-        ++l;
+
+    if (!(prec < 0)) {
+        flags &= ~(1 << 1);
+    }
+    p = (0 < prec) ? prec : 1;
+    w = width;
+    if (s || (flags & (1 << 2))) {
+        --w;
     }
 
-    if (!(flags & (1 << 0))) {
-        fputc(c, fp);
+
+    i = sizeof(dbuf) - 1;
+    dbuf[i] = '\0';
+    while (!(i < 1) && (n || (0 < p) || ((0 < w) && (flags & (1 << 1))))) {
+        --i;
+        dbuf[i] = (char)((int)'0' + abs(n % 10));
+        --p;
+        --w;
+        n = n / 10;
     }
 
-    return l+1;
+
+    if (s || (flags & (1 << 2))) {
+        --i;
+        dbuf[i] = s ? '-' : '+';
+    }
+
+
+    return pad(fp, &dbuf[i], w);
 }
 # 692 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\sources\\c99\\common\\doprnt.c"
 static int vfpfcnvrt(FILE *fp, char *fmt[], va_list ap)
@@ -889,11 +906,13 @@ static int vfpfcnvrt(FILE *fp, char *fmt[], va_list ap)
 
         flags = width = 0;
         prec = -1;
-# 814 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\sources\\c99\\common\\doprnt.c"
-        if (*fmt[0] == 'c') {
+# 847 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\sources\\c99\\common\\doprnt.c"
+        if ((*fmt[0] == 'd') || (*fmt[0] == 'i')) {
+
             ++*fmt;
-            c = (unsigned char)(*(int *)__va_arg(*(int **)ap, (int)0));
-            return ctoa(fp, c);
+            ll = (long long)(*(int *)__va_arg(*(int **)ap, (int)0));
+
+            return dtoa(fp, ll);
         }
 # 1372 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\sources\\c99\\common\\doprnt.c"
         if ((*fmt)[0] == '%') {

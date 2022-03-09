@@ -5,106 +5,62 @@
  * Created on February 14, 2022, 4:17 PM
  */
 
-/*
- * Data to transfer: 76543210
-        bit     function
- *      7   -   Ay_direction : 1= fwd, 0 = bkwd
- *      6   -   Ay_enable : 
- *      5   -   Ax_direction : 1 = right 0 = left
- *      4   -   Ax_enable : 1 = enable | 0 = disable
- *      3   -   Finger 3: 
- *      2   -   finger 2:
- *      1   -   Finger 1: 
- *      0   -   Flex:            
- */
+
 
 
 #include <xc.h>
+#include <stdlib.h>
 #include "control_glove.h"
 #include "gy_521.h"
 
-    void get_Finger_Data(uint8_t *F1, uint8_t *F2, uint8_t *F3){
-        *F1 = PORTBbits.RB0;
-        *F2 = PORTBbits.RB1;
-        *F3 = PORTBbits.RB2;
-
-        return;
-    }
     
-    void get_Flex_Data(uint8_t *Flex){
+    uint16_t get_Flex_Data(){
         //*Flex = PORTAbits
+        return 0;
     }
 
-    uint8_t data_Transform(int16_t flex, uint8_t f1, uint8_t f2, uint8_t f3, int16_t ax, int16_t ay){
-        uint8_t transferData = 0;
+    uint8_t format_data_b1(uint16_t flex){
+        uint8_t b = 0;          //Variable to return
 
-        if(flex == 1){ //If flex sensor is active
-            transferData += 1; 
-        }    
+        b = (flex/1024) << 2;   //Maximum resolution of 64
+        b = b & 11111100;       //make sure address is correct
+        return b;               //Return the formatted data
+    }
 
-        if(f1 == 1){ //If finger 1 touch is active
-            transferData += 2;
+    uint8_t format_data_b2(uint8_t f1, uint8_t f2, uint8_t f3, uint8_t axd, uint8_t ayd){
+        uint8_t b = 0;
 
-            if(ax < ax_min || ax > ax_max){ //If accel X value is below min or above max threshold
-                transferData += 16;
-                if(ax > ax_max){
-                    transferData += 32;
-                }
-            }
+        //Fingers
+        if (f1 == 1)
+            b = (b|00100000);
+        else if(f2 == 1)
+            b = (b|01000000);
+        else if(f3 == 1)
+            b = (b|10000000);
 
-            if(ay < ay_min || ay > ay_max){ //If accel Y value is below min or above max threshold
-                transferData += 64;
-                if(ay > ay_max){
-                    transferData += 128;
-                }
-            }
-            return transferData;
-        }
+        //Accel X dir
+        if (axd == 1)
+            b = (b | 00010000);
+        //Accel Y dir
+        if(ayd == 1)
+            b = (b|00001000);
+        //Address
+        b = b | 00000001;       //make sure address is correct
+        return b;               //Return the formatted data
+    }
 
-        //Finger 2
-        if(f2 == 1){
-            //For finger 1
-            transferData += 4;
+    uint8_t format_data_b3(int16_t ax){
+        uint8_t b = 0;
 
-            //Ax
-            if(ax < ax_min || ax > ax_max){ //If accel X value is below min or above max threshold
-                transferData += 16;
-                if(ax > ax_max){
-                    transferData += 32;
-                }
-            }
+        b = (abs(ax)/512) << 2; //Try 512, because normal data ranges from -10k to +10k
+        b = b | 00000010;
+        return b;
+    }
 
-            //Ay
-            if(ay < ay_min || ay > ay_max){ //If accel Y value is below min or above max threshold
-                transferData += 64;
-                if(ay > ay_max){
-                    transferData += 128;
-                }
-            }
-            return transferData;
-        }
+    uint8_t format_data_b4(int16_t ay){
+        uint8_t b = 0;
 
-        //Finger 3
-        if(f3 == 1){
-            transferData += 8;
-            //Ax
-            if(ax < ax_min || ax > ax_max){ //If accel X value is below min or above max threshold
-                transferData += 16;
-                if(ax > ax_max){
-                    transferData += 32;
-                }
-            }
-
-            //Ay
-            if(ay < ay_min || ay > ay_max){ //If accel Y value is below min or above max threshold
-                transferData += 64;
-                if(ay > ay_max){
-                    transferData += 128;
-                }
-            }
-            return transferData;
-        }
-        
-
-        return transferData; //If only flex sensor is active
+        b = (abs(ay)/512) << 2; //Try 512, because normal data ranges from -10k to +10k
+        b = b | 00000011;
+        return b;
     }
