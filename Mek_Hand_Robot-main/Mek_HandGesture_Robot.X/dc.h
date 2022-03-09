@@ -4,7 +4,7 @@
 
 #include <xc.h>
 
-void DC_stop();
-void DC_move(uint8_t direction);
+void dc_stop();
+void dc_move(uint8_t direction);
 
 #endif

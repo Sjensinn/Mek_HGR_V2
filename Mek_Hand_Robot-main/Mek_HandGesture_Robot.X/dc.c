@@ -1,8 +1,8 @@
 #include <xc.h>
-void DC_stop(){
+void dc_stop(){
     LATB &= 0b11100001;           
 }
-void DC_move(uint8_t direction) {
+void dc_move(uint8_t direction) {
     //Add PCA code for speed
     switch (direction) {
         case 0: //forward

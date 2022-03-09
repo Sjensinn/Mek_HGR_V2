@@ -17,17 +17,16 @@ void stepper_init() {
 
 void stepper_move(uint8_t direction) { //add speed
     //add formula for speed
-    //PCA_write(CH, 2095, 4095-2095);         //4095 is max resolution, On for 4000/4095, off for 95/4095
-    T1CONbits.ON = 1;
+    T1CONbits.ON = 1; //start timer
     if (direction==1) {
-        LATDbits.LATD4 = 1;
+        LATDbits.LATD4 = 1; //dir pin on A4988
     } else {
         LATDbits.LATD4 = 0;
     }
 }
 
 void stepper_stop() {
-    T1CONbits.ON = 0;
+    T1CONbits.ON = 0; //stop timer
 }
 
 void set_stepper_speed(uint16_t speed) {
