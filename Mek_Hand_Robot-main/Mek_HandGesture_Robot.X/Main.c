@@ -18,73 +18,74 @@
 #include "PCA9685_driver.h"
 #include "I2C_MSSP1_driver.h"
 #include "uart.h"
-#include "stepper.h"
+#include "Stepper.h"
 #include "robot.h"
 #include "dc.h"
 
-volatile uint8_t data_in;
-volatile uint8_t data_flex; //XXXXXX-00
-volatile uint8_t data_fingers; //----XX-01
-volatile uint8_t data_x; //XXXXX-dir-10
-volatile uint8_t data_y; //XXXXX-dir-11 
+volatile uint8_t data_in; //each byte transmission
+volatile uint8_t data_flex; //00XXXXXX was XXXXXX-00
+volatile uint8_t data_fingers; //f3 | f2 | f1 | Axdir | Aydir | NA | NA | ADDR1 | ADDR0  (01)
+volatile uint8_t data_x; //00XXXXXX was XXXXXX-10
+volatile uint8_t data_y; //00XXXXXX was XXXXXX-11 
+volatile uint8_t ready = 0;
+
 
 void __interrupt() receive_isr();
 
 void main(void) {
+    int8_t x;
+    int8_t y;
     system_init(); //Initiate clock, pins, uart, i2c, timer1 and interrupts
     //PCA_Init(130, 0x08);            //Initiate PCA9685 unit with I2C address: 0x80 and prescalar of 130
     stepper_init();
 
     while (1) {
+        //Gætum disablað uart interrupts á köflum ef við þurfum heil datasett.(?)
         //flex(data_flex>>2); //Grabber servo(0)
-        switch (data_fingers >> 2) {
-            case 0: //all off
-                hold();
-                break;
-            case 1: //DC on, Stepper off
+        switch (data_fingers & 0b11100000) {
+                int8_t x = (data_x) + (data_fingers << 3 & 0b10000000); //convert to signed
+                int8_t y = (data_y) + (data_fingers << 4 & 0b10000000); //sign-0-XXXXXX
+            case 0b00100000: //DC on, Stepper off
                 drive(data_x, data_y);
                 break;
-            case 2: //Stepper on, Shoulder servo(3) on, DC off
-                shoulder(data_x >> 2, data_y >> 2);
+            case 0b01000000: //Stepper on, Shoulder servo(3) on, DC off
+                shoulder(data_x, data_y);
                 break;
-            case 3: //Elbow servo(2) on, Wrist servo(1) on, DC off, Stepper off 
-                front_arm(data_x >> 2, data_y >> 2);
+            case 0b10000000: //Elbow servo(2) on, Wrist servo(1) on, DC off, Stepper off 
+                front_arm(data_x, data_y);
                 break;
             default:
                 break;
         }
-        //process(0b11000010);
-        //LATB = 0b00010100;
-        
-        //if(flag){ //sjá receive_isr() data_in->case 3
-        printf("könnte ich noch eins haben"); //request an update (t.d. 0b00101010)
-        printf("Bitte"); //Manners
+
+        if (ready) { //from receive_isr() data_in->data_y 
+            ready = 0;
+            printf(0xAA); //má senda beint hex?
+        }
     }
 
     return;
 }
 
-void __interrupt() receive_isr() {
+void __interrupt() receive_isr() {//bæta counter á þetta ef það er eitthvað vesen
 
     while (RCIF == 1) {
         data_in = RCREG;
     }
     switch (data_in & 0b11) {
         case 0:
-            data_flex = data_in;
+            data_flex = data_in >> 2;
             break;
         case 1:
             data_fingers = data_in;
             break;
         case 2:
-            data_x = data_in;
+            data_x = data_in >> 2;
             break;
         case 3:
-            data_y = data_in;
+            data_y = data_in >> 2;
             if (CCP1IF == 0) {
-                //Setja flag fyrir request update hérna? 
-                //fer bara í ef stepper kallaði ekki á interrupt
-
+                ready = 1;
             }
             break;
         default:

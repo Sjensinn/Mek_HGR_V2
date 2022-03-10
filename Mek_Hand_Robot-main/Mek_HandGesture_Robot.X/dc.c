@@ -2,8 +2,11 @@
 void dc_stop(){
     LATB &= 0b11100001;           
 }
-void dc_move(uint8_t direction) {
+void dc_move(uint8_t data_x, uint8_t data_y) { //0b---XXXX- these four pins control direction of spin
     //Add PCA code for speed
+    //PCA_write() EN A 
+    //PCA_write() EN B 
+    
     switch (direction) {
         case 0: //forward
             LATB &= 0b11110100;
@@ -24,7 +27,6 @@ void dc_move(uint8_t direction) {
         default:
             LATB &= 0b11100000;
             LATB |= 0b00000000;
-            
     }
     //RB0,1,2,3
 }

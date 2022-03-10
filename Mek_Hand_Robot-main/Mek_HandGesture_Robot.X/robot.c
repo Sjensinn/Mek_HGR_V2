@@ -29,7 +29,7 @@ void front_arm(uint8_t data_x, uint8_t data_y) {
     move_servo(2, data_x, &servo2_stat);
 }
 
-void move_servo(uint8_t servo, uint8_t data, uint8_t *servo_stat){
+void move_servo(uint8_t servo, uint8_t data, uint16_t *servo_stat){
     *servo_stat += data;
      if (*servo_stat <= (SERVO1MAX - 10)) {
         *servo_stat += 10;
@@ -38,7 +38,18 @@ void move_servo(uint8_t servo, uint8_t data, uint8_t *servo_stat){
      if (*servo_stat >= (SERVO1MIN + 10)) {
         *servo_stat -= 10;
     }
-     PCA_write(servo, 0x00, );
+     PCA_write(servo, 0x00, *servo_stat);
+}
+void dc_pwm(uint8_t servo, uint8_t data, uint16_t *EN_stat){
+    *EN_stat += data;
+     if (*EN_stat <= (SERVO1MAX - 10)) { //redefine min/max
+        *EN_stat += 10;
+    }
+     
+     if (*EN_stat >= (SERVO1MIN + 10)) {
+        *EN_stat -= 10;
+    }
+     PCA_write(servo, 0x00, *EN_stat);
 }
 
 void move_servo1_up(uint8_t n) {

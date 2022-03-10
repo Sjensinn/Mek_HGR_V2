@@ -5,6 +5,6 @@ system_init.h  \
 uart.h  \
 PCA9685_driver.h  \
 I2C_MSSP1_driver.h  \
-stepper.h  \
+Stepper.h  \
 robot.h  \
 dc.h 
