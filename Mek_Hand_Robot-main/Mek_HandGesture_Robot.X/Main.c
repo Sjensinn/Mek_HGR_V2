@@ -21,6 +21,7 @@
 #include "Stepper.h"
 #include "robot.h"
 #include "dc.h"
+#include "LCD.h"
 
 volatile uint8_t data_in; //each byte transmission
 volatile uint8_t data_flex; //00XXXXXX was XXXXXX-00
@@ -38,10 +39,16 @@ void main(void) {
     system_init(); //Initiate clock, pins, uart, i2c, timer1 and interrupts
     //PCA_Init(130, 0x08);            //Initiate PCA9685 unit with I2C address: 0x80 and prescalar of 130
     stepper_init();
+    LCD_init(0x4E);
 
     while (1) {
         if (ready) { //from receive_isr() data_in->data_y 
             ready = 0;
+
+            LCD_Set_Cursor(1,1);
+            LCD_write_string("%d", data_fingers);
+            LCD_Set_Cursor(2,1);
+            LCD_write_string("%d%d", data_x, data_y);
 
             switch (data_fingers & 0b11100000) {
                     x = (data_x) + (data_fingers << 3 & 0b10000000); //convert to signed
@@ -59,9 +66,9 @@ void main(void) {
                     break;
             }
 
-            printf(0xAA); //biðja um update //má senda beint hex?
+            printf(0xAA); //biï¿½ja um update //mï¿½ senda beint hex?
         }
-        //Gætum disablað uart interrupts á köflum ef við þurfum heil datasett.(?)
+        //Gï¿½tum disablaï¿½ uart interrupts ï¿½ kï¿½flum ef viï¿½ ï¿½urfum heil datasett.(?)
         //flex(data_flex>>2); //Grabber servo(0)
 
 
@@ -72,7 +79,7 @@ void main(void) {
     return;
 }
 
-void __interrupt() receive_isr() {//bæta counter á þetta ef það er eitthvað vesen
+void __interrupt() receive_isr() {//bï¿½ta counter ï¿½ ï¿½etta ef ï¿½aï¿½ er eitthvaï¿½ vesen
 
     while (RCIF == 1) {
         data_in = RCREG;
@@ -91,7 +98,7 @@ void __interrupt() receive_isr() {//bæta counter á þetta ef það er eitthvað vese
             data_y = data_in >> 2;
             //if (CCP1IF == 0) {
             ready = 1;
-            //setja data_in = 0b00000100 eða eitthvað sem triggerar default?
+            //setja data_in = 0b00000100 eï¿½a eitthvaï¿½ sem triggerar default?
             //}
             break;
         default:
@@ -105,7 +112,7 @@ void __interrupt() receive_isr() {//bæta counter á þetta ef það er eitthvað vese
         LATDbits.LATD5 ^= 1; //toggle pin for A4988
         //CCPR1H = 0x00;
         //CCPR1L = 0xFA; //0.0005s 500us 0xFA = 0.5ms@16Mhz
-        CCPR1H = 0x01; //Finna út úr því hvernig er best að breyta þessari breytu
+        CCPR1H = 0x01; //Finna ï¿½t ï¿½r ï¿½vï¿½ hvernig er best aï¿½ breyta ï¿½essari breytu
         CCPR1L = 0x34; //0.0005s 500us 0x134 = 0.616ms@(((16Mhz)/4)/8)
     }
 
