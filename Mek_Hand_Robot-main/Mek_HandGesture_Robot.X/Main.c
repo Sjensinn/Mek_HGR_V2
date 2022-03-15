@@ -40,28 +40,33 @@ void main(void) {
     stepper_init();
 
     while (1) {
-        //Gætum disablağ uart interrupts á köflum ef viğ şurfum heil datasett.(?)
-        //flex(data_flex>>2); //Grabber servo(0)
-        switch (data_fingers & 0b11100000) {
-                int8_t x = (data_x) + (data_fingers << 3 & 0b10000000); //convert to signed
-                int8_t y = (data_y) + (data_fingers << 4 & 0b10000000); //sign-0-XXXXXX
-            case 0b00100000: //DC on, Stepper off
-                drive(data_x, data_y);
-                break;
-            case 0b01000000: //Stepper on, Shoulder servo(3) on, DC off
-                shoulder(data_x, data_y);
-                break;
-            case 0b10000000: //Elbow servo(2) on, Wrist servo(1) on, DC off, Stepper off 
-                front_arm(data_x, data_y);
-                break;
-            default:
-                break;
-        }
-
         if (ready) { //from receive_isr() data_in->data_y 
             ready = 0;
-            printf(0xAA); //má senda beint hex?
+
+            switch (data_fingers & 0b11100000) {
+                    x = (data_x) + (data_fingers << 3 & 0b10000000); //convert to signed
+                    y = (data_y) + (data_fingers << 4 & 0b10000000); //sign-0-XXXXXX
+                case 0b00100000: //DC on, Stepper off
+                    drive(x, y);
+                    break;
+                case 0b01000000: //Stepper on, Shoulder servo(3) on, DC off
+                    shoulder(x, y);
+                    break;
+                case 0b10000000: //Elbow servo(2) on, Wrist servo(1) on, DC off, Stepper off 
+                    front_arm(x, y);
+                    break;
+                default:
+                    break;
+            }
+
+            printf(0xAA); //biğja um update //má senda beint hex?
         }
+        //Gætum disablağ uart interrupts á köflum ef viğ şurfum heil datasett.(?)
+        //flex(data_flex>>2); //Grabber servo(0)
+
+
+
+
     }
 
     return;
@@ -84,9 +89,10 @@ void __interrupt() receive_isr() {//bæta counter á şetta ef şağ er eitthvağ vese
             break;
         case 3:
             data_y = data_in >> 2;
-            if (CCP1IF == 0) {
-                ready = 1;
-            }
+            //if (CCP1IF == 0) {
+            ready = 1;
+            //setja data_in = 0b00000100 eğa eitthvağ sem triggerar default?
+            //}
             break;
         default:
             break;

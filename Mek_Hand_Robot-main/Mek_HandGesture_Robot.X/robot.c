@@ -20,7 +20,6 @@ void drive(uint8_t data_x, uint8_t data_y) {
 }
 
 void shoulder(uint8_t data_x, uint8_t data_y) {
-    
     move_servo(3, data_y, &servo3_stat);
 }
 
