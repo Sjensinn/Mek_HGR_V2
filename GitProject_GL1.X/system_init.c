@@ -49,7 +49,7 @@ void pin_init(){
     TRISx registers
     */
     TRISA = 0x30;
-    TRISB = 0xF1;
+    TRISB = 0xF0;
     TRISC = 0xBF;
     TRISD = 0x0;
     TRISE = 0x7;

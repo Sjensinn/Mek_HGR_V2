@@ -41,6 +41,9 @@ void main(void) {
     stepper_init();
     LCD_init(0x4E);
 
+    __delay_ms(1000);   //Finish init
+    printf(0xAA);       //Send ready byte
+
     while (1) {
         if (ready) { //from receive_isr() data_in->data_y 
             ready = 0;
