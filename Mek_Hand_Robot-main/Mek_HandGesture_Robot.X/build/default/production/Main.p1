@@ -1825,109 +1825,113 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Main.c: 38:     int8_t y;
 [v _y `c ~T0 @X0 1 a ]
 "39
-[; ;Main.c: 39:     system_init();
+[; ;Main.c: 39:     uint8_t Rnum = 42;
+[v _Rnum `uc ~T0 @X0 1 a ]
+[e = _Rnum -> -> 42 `i `uc ]
+"40
+[; ;Main.c: 40:     system_init();
 [e ( _system_init ..  ]
-"41
-[; ;Main.c: 41:     stepper_init();
-[e ( _stepper_init ..  ]
 "42
-[; ;Main.c: 42:     LCD_init(0x4E);
+[; ;Main.c: 42:     stepper_init();
+[e ( _stepper_init ..  ]
+"43
+[; ;Main.c: 43:     LCD_init(0x4E);
 [e ( _LCD_init (1 -> -> 78 `i `uc ]
-"44
-[; ;Main.c: 44:     char buffer[20];
-[v _buffer `uc ~T0 @X0 -> 20 `i a ]
 "45
-[; ;Main.c: 45:     LCD_Set_Cursor(1,1);
-[e ( _LCD_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+[; ;Main.c: 45:     char buffer[20];
+[v _buffer `uc ~T0 @X0 -> 20 `i a ]
 "46
-[; ;Main.c: 46:     LCD_write_string("Hello I am");
-[e ( _LCD_write_string (1 :s 1C ]
+[; ;Main.c: 46:     LCD_Set_Cursor(1,1);
+[e ( _LCD_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "47
-[; ;Main.c: 47:     LCD_Set_Cursor(2,1);
-[e ( _LCD_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+[; ;Main.c: 47:     LCD_write_string("Hello I am");
+[e ( _LCD_write_string (1 :s 1C ]
 "48
-[; ;Main.c: 48:     LCD_write_string("Robot");
-[e ( _LCD_write_string (1 :s 2C ]
+[; ;Main.c: 48:     LCD_Set_Cursor(2,1);
+[e ( _LCD_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
 "49
-[; ;Main.c: 49:     _delay((unsigned long)((5000)*(16000000/4000.0)));
+[; ;Main.c: 49:     LCD_write_string("Robot");
+[e ( _LCD_write_string (1 :s 2C ]
+"51
+[; ;Main.c: 51:     _delay((unsigned long)((5000)*(16000000/4000.0)));
 [e ( __delay (1 -> * -> -> 5000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"50
-[; ;Main.c: 50:     printf(0xAA);
-[e ( _printf -> -> 170 `i `*Cuc ]
 "52
-[; ;Main.c: 52:     while (1) {
+[; ;Main.c: 52:     printf("%d", Rnum);
+[e ( _printf , (. :s 3C -> _Rnum `i ]
+"54
+[; ;Main.c: 54:     while (1) {
 [e :U 1617 ]
 {
-"53
-[; ;Main.c: 53:         if (ready) {
+"55
+[; ;Main.c: 55:         if (ready) {
 [e $ ! != -> _ready `i -> 0 `i 1619  ]
 {
-"54
-[; ;Main.c: 54:             ready = 0;
-[e = _ready -> -> 0 `i `uc ]
 "56
-[; ;Main.c: 56:             LCD_Set_Cursor(1,1);
-[e ( _LCD_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"57
-[; ;Main.c: 57:             sprintf(buffer, "Fin: %d", data_fingers);
-[e ( _sprintf (1 , (. , &U _buffer :s 3C -> _data_fingers `i ]
+[; ;Main.c: 56:             ready = 0;
+[e = _ready -> -> 0 `i `uc ]
 "58
-[; ;Main.c: 58:             LCD_write_string(buffer);
-[e ( _LCD_write_string (1 &U _buffer ]
+[; ;Main.c: 58:             LCD_Set_Cursor(1,1);
+[e ( _LCD_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"59
+[; ;Main.c: 59:             sprintf(buffer, "Fin: %d", data_fingers);
+[e ( _sprintf (1 , (. , &U _buffer :s 4C -> _data_fingers `i ]
 "60
-[; ;Main.c: 60:             LCD_Set_Cursor(2,1);
-[e ( _LCD_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
-"61
-[; ;Main.c: 61:             sprintf(buffer, "Accel: %d %d", data_x, data_y);
-[e ( _sprintf (1 , , (. , &U _buffer :s 4C -> _data_x `i -> _data_y `i ]
-"62
-[; ;Main.c: 62:             LCD_write_string(buffer);
+[; ;Main.c: 60:             LCD_write_string(buffer);
 [e ( _LCD_write_string (1 &U _buffer ]
+"62
+[; ;Main.c: 62:             LCD_Set_Cursor(2,1);
+[e ( _LCD_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"63
+[; ;Main.c: 63:             sprintf(buffer, "Accel: %d %d", data_x, data_y);
+[e ( _sprintf (1 , , (. , &U _buffer :s 5C -> _data_x `i -> _data_y `i ]
 "64
-[; ;Main.c: 64:             switch (data_fingers & 0b11100000) {
+[; ;Main.c: 64:             LCD_write_string(buffer);
+[e ( _LCD_write_string (1 &U _buffer ]
+"66
+[; ;Main.c: 66:             switch (data_fingers & 0b11100000) {
 [e $U 1621  ]
 {
-"65
-[; ;Main.c: 65:                     x = (data_x) + (data_fingers << 3 & 0b10000000);
-[e = _x -> + -> _data_x `i & << -> _data_fingers `i -> 3 `i -> 128 `i `c ]
-"66
-[; ;Main.c: 66:                     y = (data_y) + (data_fingers << 4 & 0b10000000);
-[e = _y -> + -> _data_y `i & << -> _data_fingers `i -> 4 `i -> 128 `i `c ]
 "67
-[; ;Main.c: 67:                 case 0b00100000:
-[e :U 1622 ]
+[; ;Main.c: 67:                     x = (data_x) + (data_fingers << 3 & 0b10000000);
+[e = _x -> + -> _data_x `i & << -> _data_fingers `i -> 3 `i -> 128 `i `c ]
 "68
-[; ;Main.c: 68:                     drive(x, y);
-[e ( _drive (2 , -> _x `uc -> _y `uc ]
+[; ;Main.c: 68:                     y = (data_y) + (data_fingers << 4 & 0b10000000);
+[e = _y -> + -> _data_y `i & << -> _data_fingers `i -> 4 `i -> 128 `i `c ]
 "69
-[; ;Main.c: 69:                     break;
-[e $U 1620  ]
+[; ;Main.c: 69:                 case 0b00100000:
+[e :U 1622 ]
 "70
-[; ;Main.c: 70:                 case 0b01000000:
-[e :U 1623 ]
+[; ;Main.c: 70:                     drive(x, y);
+[e ( _drive (2 , -> _x `uc -> _y `uc ]
 "71
-[; ;Main.c: 71:                     shoulder(x, y);
-[e ( _shoulder (2 , -> _x `uc -> _y `uc ]
+[; ;Main.c: 71:                     break;
+[e $U 1620  ]
 "72
-[; ;Main.c: 72:                     break;
-[e $U 1620  ]
+[; ;Main.c: 72:                 case 0b01000000:
+[e :U 1623 ]
 "73
-[; ;Main.c: 73:                 case 0b10000000:
-[e :U 1624 ]
+[; ;Main.c: 73:                     shoulder(x, y);
+[e ( _shoulder (2 , -> _x `uc -> _y `uc ]
 "74
-[; ;Main.c: 74:                     front_arm(x, y);
-[e ( _front_arm (2 , -> _x `uc -> _y `uc ]
-"75
-[; ;Main.c: 75:                     break;
+[; ;Main.c: 74:                     break;
 [e $U 1620  ]
+"75
+[; ;Main.c: 75:                 case 0b10000000:
+[e :U 1624 ]
 "76
-[; ;Main.c: 76:                 default:
-[e :U 1625 ]
+[; ;Main.c: 76:                     front_arm(x, y);
+[e ( _front_arm (2 , -> _x `uc -> _y `uc ]
 "77
 [; ;Main.c: 77:                     break;
 [e $U 1620  ]
 "78
-[; ;Main.c: 78:             }
+[; ;Main.c: 78:                 default:
+[e :U 1625 ]
+"79
+[; ;Main.c: 79:                     break;
+[e $U 1620  ]
+"80
+[; ;Main.c: 80:             }
 }
 [e $U 1620  ]
 [e :U 1621 ]
@@ -1936,100 +1940,100 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 128 `i 1624
  1625 ]
 [e :U 1620 ]
-"80
-[; ;Main.c: 80:             printf(0xAA);
-[e ( _printf -> -> 170 `i `*Cuc ]
-"81
-[; ;Main.c: 81:         }
+"82
+[; ;Main.c: 82:             printf("%d", Rnum);
+[e ( _printf , (. :s 6C -> _Rnum `i ]
+"83
+[; ;Main.c: 83:         }
 }
 [e :U 1619 ]
-"88
-[; ;Main.c: 88:     }
+"90
+[; ;Main.c: 90:     }
 }
 [e :U 1616 ]
 [e $U 1617  ]
 [e :U 1618 ]
-"90
-[; ;Main.c: 90:     return;
+"92
+[; ;Main.c: 92:     return;
 [e $UE 1615  ]
-"91
-[; ;Main.c: 91: }
+"93
+[; ;Main.c: 93: }
 [e :UE 1615 ]
 }
 [v $root$_receive_isr `(v ~T0 @X0 0 e ]
-"93
-[; ;Main.c: 93: void __attribute__((picinterrupt(("")))) receive_isr() {
+"95
+[; ;Main.c: 95: void __attribute__((picinterrupt(("")))) receive_isr() {
 [v _receive_isr `(v ~T2 @X0 1 ef ]
 {
 [e :U _receive_isr ]
 [f ]
-"95
-[; ;Main.c: 95:     while (RCIF == 1) {
+"97
+[; ;Main.c: 97:     while (RCIF == 1) {
 [e $U 1627  ]
 [e :U 1628 ]
 {
-"96
-[; ;Main.c: 96:         data_in = RCREG;
+"98
+[; ;Main.c: 98:         data_in = RCREG;
 [e = _data_in _RCREG ]
-"97
-[; ;Main.c: 97:     }
+"99
+[; ;Main.c: 99:     }
 }
 [e :U 1627 ]
-"95
-[; ;Main.c: 95:     while (RCIF == 1) {
+"97
+[; ;Main.c: 97:     while (RCIF == 1) {
 [e $ == -> _RCIF `i -> 1 `i 1628  ]
 [e :U 1629 ]
-"98
-[; ;Main.c: 98:     switch (data_in & 0b11) {
+"100
+[; ;Main.c: 100:     switch (data_in & 0b11) {
 [e $U 1631  ]
 {
-"99
-[; ;Main.c: 99:         case 0:
-[e :U 1632 ]
-"100
-[; ;Main.c: 100:             data_flex = data_in >> 2;
-[e = _data_flex -> >> -> _data_in `i -> 2 `i `uc ]
 "101
-[; ;Main.c: 101:             break;
-[e $U 1630  ]
+[; ;Main.c: 101:         case 0:
+[e :U 1632 ]
 "102
-[; ;Main.c: 102:         case 1:
-[e :U 1633 ]
+[; ;Main.c: 102:             data_flex = data_in >> 2;
+[e = _data_flex -> >> -> _data_in `i -> 2 `i `uc ]
 "103
-[; ;Main.c: 103:             data_fingers = data_in;
-[e = _data_fingers _data_in ]
+[; ;Main.c: 103:             break;
+[e $U 1630  ]
 "104
-[; ;Main.c: 104:             break;
-[e $U 1630  ]
+[; ;Main.c: 104:         case 1:
+[e :U 1633 ]
 "105
-[; ;Main.c: 105:         case 2:
-[e :U 1634 ]
+[; ;Main.c: 105:             data_fingers = data_in;
+[e = _data_fingers _data_in ]
 "106
-[; ;Main.c: 106:             data_x = data_in >> 2;
-[e = _data_x -> >> -> _data_in `i -> 2 `i `uc ]
+[; ;Main.c: 106:             break;
+[e $U 1630  ]
 "107
-[; ;Main.c: 107:             break;
-[e $U 1630  ]
+[; ;Main.c: 107:         case 2:
+[e :U 1634 ]
 "108
-[; ;Main.c: 108:         case 3:
-[e :U 1635 ]
+[; ;Main.c: 108:             data_x = data_in >> 2;
+[e = _data_x -> >> -> _data_in `i -> 2 `i `uc ]
 "109
-[; ;Main.c: 109:             data_y = data_in >> 2;
-[e = _data_y -> >> -> _data_in `i -> 2 `i `uc ]
-"111
-[; ;Main.c: 111:             ready = 1;
-[e = _ready -> -> 1 `i `uc ]
-"114
-[; ;Main.c: 114:             break;
+[; ;Main.c: 109:             break;
 [e $U 1630  ]
-"115
-[; ;Main.c: 115:         default:
-[e :U 1636 ]
+"110
+[; ;Main.c: 110:         case 3:
+[e :U 1635 ]
+"111
+[; ;Main.c: 111:             data_y = data_in >> 2;
+[e = _data_y -> >> -> _data_in `i -> 2 `i `uc ]
+"113
+[; ;Main.c: 113:             ready = 1;
+[e = _ready -> -> 1 `i `uc ]
 "116
 [; ;Main.c: 116:             break;
 [e $U 1630  ]
 "117
-[; ;Main.c: 117:     }
+[; ;Main.c: 117:         default:
+[e :U 1636 ]
+"118
+[; ;Main.c: 118:             break;
+[e $U 1630  ]
+"119
+[; ;Main.c: 119:     }
 }
 [e $U 1630  ]
 [e :U 1631 ]
@@ -2039,33 +2043,35 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 3 `i 1635
  1636 ]
 [e :U 1630 ]
-"121
-[; ;Main.c: 121:     if (CCP1IF == 1) {
+"123
+[; ;Main.c: 123:     if (CCP1IF == 1) {
 [e $ ! == -> _CCP1IF `i -> 1 `i 1637  ]
 {
-"122
-[; ;Main.c: 122:         CCP1IF = 0;
+"124
+[; ;Main.c: 124:         CCP1IF = 0;
 [e = _CCP1IF -> -> 0 `i `b ]
-"123
-[; ;Main.c: 123:         LATDbits.LATD5 ^= 1;
+"125
+[; ;Main.c: 125:         LATDbits.LATD5 ^= 1;
 [e =^ . . _LATDbits 0 5 -> -> 1 `i `Vuc ]
-"126
-[; ;Main.c: 126:         CCPR1H = 0x01;
-[e = _CCPR1H -> -> 1 `i `uc ]
-"127
-[; ;Main.c: 127:         CCPR1L = 0x34;
-[e = _CCPR1L -> -> 52 `i `uc ]
 "128
-[; ;Main.c: 128:     }
+[; ;Main.c: 128:         CCPR1H = 0x01;
+[e = _CCPR1H -> -> 1 `i `uc ]
+"129
+[; ;Main.c: 129:         CCPR1L = 0x34;
+[e = _CCPR1L -> -> 52 `i `uc ]
+"130
+[; ;Main.c: 130:     }
 }
 [e :U 1637 ]
-"130
-[; ;Main.c: 130: }
+"132
+[; ;Main.c: 132: }
 [e :UE 1626 ]
 }
+[p f _printf 8388736 ]
 [p f _sprintf 8388736 ]
-[p f _printf 9437696 ]
 [a 2C 82 111 98 111 116 0 ]
 [a 1C 72 101 108 108 111 32 73 32 97 109 0 ]
-[a 4C 65 99 99 101 108 58 32 37 100 32 37 100 0 ]
-[a 3C 70 105 110 58 32 37 100 0 ]
+[a 5C 65 99 99 101 108 58 32 37 100 32 37 100 0 ]
+[a 4C 70 105 110 58 32 37 100 0 ]
+[a 3C 37 100 0 ]
+[a 6C 37 100 0 ]

@@ -36,6 +36,7 @@ void __interrupt() receive_isr();
 void main(void) {
     int8_t x;
     int8_t y;
+    uint8_t Rnum = 42;
     system_init(); //Initiate clock, pins, uart, i2c, timer1 and interrupts
     //PCA_Init(130, 0x08);            //Initiate PCA9685 unit with I2C address: 0x80 and prescalar of 130
     stepper_init();
@@ -46,8 +47,9 @@ void main(void) {
     LCD_write_string("Hello I am");
     LCD_Set_Cursor(2,1); 
     LCD_write_string("Robot");
+    
     __delay_ms(5000);   //Finish init
-    printf(0xAA);       //Send ready byte
+    printf("%d", Rnum);       //Send ready byte
 
     while (1) {
         if (ready) { //from receive_isr() data_in->data_y 
@@ -77,7 +79,7 @@ void main(void) {
                     break;
             }
 
-            printf(0xAA); //bi�ja um update //m� senda beint hex?
+            printf("%d", Rnum); //bi�ja um update //m� senda beint hex?
         }
         //G�tum disabla� uart interrupts � k�flum ef vi� �urfum heil datasett.(?)
         //flex(data_flex>>2); //Grabber servo(0)

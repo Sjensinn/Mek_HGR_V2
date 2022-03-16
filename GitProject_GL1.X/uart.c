@@ -43,7 +43,7 @@ void send_ready(void){
 
 
 uint8_t is_ready(uint8_t data){
-    if (data == READYSIGNAL)
+    if (data == 42)
         return 1;
     
     else

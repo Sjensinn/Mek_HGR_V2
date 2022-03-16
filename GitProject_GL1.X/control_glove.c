@@ -32,20 +32,20 @@
 
         //Fingers
         if (f1 == 1)
-            b = (b|00100000);
+            b = b+32;
         else if(f2 == 1)
-            b = (b|01000000);
+            b = b+64;
         else if(f3 == 1)
-            b = (b|10000000);
+            b = b+128;
 
         //Accel X dir
         if (axd == 1)
-            b = (b | 00010000);
+            b = b + 16;
         //Accel Y dir
         if(ayd == 1)
-            b = (b|00001000);
+            b = b + 8;
         //Address
-        b = b | 00000001;       //make sure address is correct
+        b = b + 1;       //make sure address is correct
         return b;               //Return the formatted data
     }
 
@@ -53,7 +53,7 @@
         uint8_t b = 0;
 
         b = (abs(ax)/512) << 2; //Try 512, because normal data ranges from -10k to +10k
-        b = b | 00000010;
+        b = b + 2;
         return b;
     }
 
@@ -61,6 +61,6 @@
         uint8_t b = 0;
 
         b = (abs(ay)/512) << 2; //Try 512, because normal data ranges from -10k to +10k
-        b = b | 00000011;
+        b = b + 3;
         return b;
     }

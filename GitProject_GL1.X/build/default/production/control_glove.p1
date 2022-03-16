@@ -1698,24 +1698,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;control_glove.c: 34:         if (f1 == 1)
 [e $ ! == -> _f1 `i -> 1 `i 1616  ]
 "35
-[; ;control_glove.c: 35:             b = (b|00100000);
-[e = _b -> | -> _b `ui -> 32768 `ui `uc ]
+[; ;control_glove.c: 35:             b = b+32;
+[e = _b -> + -> _b `i -> 32 `i `uc ]
 [e $U 1617  ]
 "36
 [; ;control_glove.c: 36:         else if(f2 == 1)
 [e :U 1616 ]
 [e $ ! == -> _f2 `i -> 1 `i 1618  ]
 "37
-[; ;control_glove.c: 37:             b = (b|01000000);
-[e = _b -> | -> _b `l -> 262144 `l `uc ]
+[; ;control_glove.c: 37:             b = b+64;
+[e = _b -> + -> _b `i -> 64 `i `uc ]
 [e $U 1619  ]
 "38
 [; ;control_glove.c: 38:         else if(f3 == 1)
 [e :U 1618 ]
 [e $ ! == -> _f3 `i -> 1 `i 1620  ]
 "39
-[; ;control_glove.c: 39:             b = (b|10000000);
-[e = _b -> | -> _b `l -> 10000000 `l `uc ]
+[; ;control_glove.c: 39:             b = b+128;
+[e = _b -> + -> _b `i -> 128 `i `uc ]
 [e :U 1620 ]
 [e :U 1619 ]
 [e :U 1617 ]
@@ -1723,19 +1723,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;control_glove.c: 42:         if (axd == 1)
 [e $ ! == -> _axd `i -> 1 `i 1621  ]
 "43
-[; ;control_glove.c: 43:             b = (b | 00010000);
-[e = _b -> | -> _b `i -> 4096 `i `uc ]
+[; ;control_glove.c: 43:             b = b + 16;
+[e = _b -> + -> _b `i -> 16 `i `uc ]
 [e :U 1621 ]
 "45
 [; ;control_glove.c: 45:         if(ayd == 1)
 [e $ ! == -> _ayd `i -> 1 `i 1622  ]
 "46
-[; ;control_glove.c: 46:             b = (b|00001000);
-[e = _b -> | -> _b `i -> 512 `i `uc ]
+[; ;control_glove.c: 46:             b = b + 8;
+[e = _b -> + -> _b `i -> 8 `i `uc ]
 [e :U 1622 ]
 "48
-[; ;control_glove.c: 48:         b = b | 00000001;
-[e = _b -> | -> _b `i -> 1 `i `uc ]
+[; ;control_glove.c: 48:         b = b + 1;
+[e = _b -> + -> _b `i -> 1 `i `uc ]
 "49
 [; ;control_glove.c: 49:         return b;
 [e ) _b ]
@@ -1759,8 +1759,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;control_glove.c: 55:         b = (abs(ax)/512) << 2;
 [e = _b -> << / ( _abs (1 -> _ax `i -> 512 `i -> 2 `i `uc ]
 "56
-[; ;control_glove.c: 56:         b = b | 00000010;
-[e = _b -> | -> _b `i -> 8 `i `uc ]
+[; ;control_glove.c: 56:         b = b + 2;
+[e = _b -> + -> _b `i -> 2 `i `uc ]
 "57
 [; ;control_glove.c: 57:         return b;
 [e ) _b ]
@@ -1784,8 +1784,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;control_glove.c: 63:         b = (abs(ay)/512) << 2;
 [e = _b -> << / ( _abs (1 -> _ay `i -> 512 `i -> 2 `i `uc ]
 "64
-[; ;control_glove.c: 64:         b = b | 00000011;
-[e = _b -> | -> _b `i -> 9 `i `uc ]
+[; ;control_glove.c: 64:         b = b + 3;
+[e = _b -> + -> _b `i -> 3 `i `uc ]
 "65
 [; ;control_glove.c: 65:         return b;
 [e ) _b ]

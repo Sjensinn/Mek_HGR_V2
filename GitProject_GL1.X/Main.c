@@ -48,6 +48,7 @@ void main(void) {
     uint16_t flex;
     uint8_t tx_data[4];
 
+    ready_flag = 1;
     while(1){
         if(ready_flag == 1){
             //Fetch data

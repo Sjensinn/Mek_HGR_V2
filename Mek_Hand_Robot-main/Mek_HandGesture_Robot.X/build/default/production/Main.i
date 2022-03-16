@@ -21114,6 +21114,7 @@ void __attribute__((picinterrupt(("")))) receive_isr();
 void main(void) {
     int8_t x;
     int8_t y;
+    uint8_t Rnum = 42;
     system_init();
 
     stepper_init();
@@ -21124,8 +21125,9 @@ void main(void) {
     LCD_write_string("Hello I am");
     LCD_Set_Cursor(2,1);
     LCD_write_string("Robot");
+
     _delay((unsigned long)((5000)*(16000000/4000.0)));
-    printf(0xAA);
+    printf("%d", Rnum);
 
     while (1) {
         if (ready) {
@@ -21155,7 +21157,7 @@ void main(void) {
                     break;
             }
 
-            printf(0xAA);
+            printf("%d", Rnum);
         }
 
 

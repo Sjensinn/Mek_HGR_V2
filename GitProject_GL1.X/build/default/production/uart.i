@@ -20939,12 +20939,12 @@ void putch(char data) {
 
 
 void send_ready(void){
-    printf("%d", 0xAA);
+    printf("%d", 42);
 }
 
 
 uint8_t is_ready(uint8_t data){
-    if (data == 0xAA)
+    if (data == 42)
         return 1;
 
     else

@@ -20767,20 +20767,20 @@ void gy_test(void);
 
 
         if (f1 == 1)
-            b = (b|00100000);
+            b = b+32;
         else if(f2 == 1)
-            b = (b|01000000);
+            b = b+64;
         else if(f3 == 1)
-            b = (b|10000000);
+            b = b+128;
 
 
         if (axd == 1)
-            b = (b | 00010000);
+            b = b + 16;
 
         if(ayd == 1)
-            b = (b|00001000);
+            b = b + 8;
 
-        b = b | 00000001;
+        b = b + 1;
         return b;
     }
 
@@ -20788,7 +20788,7 @@ void gy_test(void);
         uint8_t b = 0;
 
         b = (abs(ax)/512) << 2;
-        b = b | 00000010;
+        b = b + 2;
         return b;
     }
 
@@ -20796,6 +20796,6 @@ void gy_test(void);
         uint8_t b = 0;
 
         b = (abs(ay)/512) << 2;
-        b = b | 00000011;
+        b = b + 3;
         return b;
     }

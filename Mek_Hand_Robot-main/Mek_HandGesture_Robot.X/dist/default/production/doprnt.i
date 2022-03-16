@@ -914,13 +914,6 @@ static int vfpfcnvrt(FILE *fp, char *fmt[], va_list ap)
 
             return dtoa(fp, ll);
         }
-# 1099 "C:\\Program Files\\Microchip\\pic\\sources\\c99\\common\\doprnt.c"
-        if (*fmt[0] == 'n') {
-            ++*fmt;
-            vp = (void *)(*(int * *)__va_arg(*(int * **)ap, (int *)0));
-            *(int *)vp = nout;
-            return 0;
-        }
 # 1372 "C:\\Program Files\\Microchip\\pic\\sources\\c99\\common\\doprnt.c"
         if ((*fmt)[0] == '%') {
             ++*fmt;

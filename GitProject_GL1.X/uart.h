@@ -22,7 +22,7 @@ extern "C" {
 #endif
     
 
-#define READYSIGNAL 0xAA
+#define READYSIGNAL 42
 
 /**
  * @brief   This function intitiates the USART module in asynchronous mode
