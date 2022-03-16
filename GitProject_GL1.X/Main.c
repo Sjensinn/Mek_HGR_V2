@@ -48,8 +48,9 @@ void main(void) {
     uint16_t flex;
     uint8_t tx_data[4];
 
-    ready_flag = 1;
+
     while(1){
+        ready_flag = 1;
         if(ready_flag == 1){
             //Fetch data
             gy_Read(&accelo_x, &accelo_y); //Fetch data from Gyro
@@ -58,20 +59,33 @@ void main(void) {
             ayd = accelo_y >> 0;
 
             //Format data
-            tx_data[0] = format_data_b1(flex);
-            tx_data[1] = format_data_b2(F1_getVal(), F2_getVal(), F3_getVal(), axd, ayd);
-            tx_data[2] = format_data_b3(accelo_x);
-            tx_data[3] = format_data_b4(accelo_y);
+            tx_data[0] = 4 + 0;//format_data_b1(flex);
+            tx_data[1] = 8 + 1;//format_data_b2(F1_getVal(), F2_getVal(), F3_getVal(), axd, ayd);
+            tx_data[2] = 16 + 2; //format_data_b3(accelo_x);
+            tx_data[3] = 32 + 3; //format_data_b4(accelo_y);
 
             //Send data
             send_commands(tx_data);
 
             //Reset Ready flag
             ready_flag = 0;
+            __delay_ms(1000);
         }
     }
     return;
 }
+
+/*
+void main(void){
+    system_init();                  //Initiate clock, pins, uart, i2c, timer1 and interrupts
+    gy_init(0x68);                  //Initiate MPU6050 with I2C address: 0x68
+    
+    while(1){
+        send_ready();
+        __delay_ms(100);
+    }
+}
+ * */
 
 void __interrupt() isr() { //lesa gögnin með þessu
     while (RCIF == 1) {

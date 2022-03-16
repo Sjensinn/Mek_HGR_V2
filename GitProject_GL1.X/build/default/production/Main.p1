@@ -12,32 +12,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "25 ./control_glove.h
 [; ;./control_glove.h: 25: uint16_t get_Flex_Data();
 [v _get_Flex_Data `(us ~T0 @X0 0 e? ]
-"40
-[; ;./control_glove.h: 40: uint8_t format_data_b1(uint16_t flex);
-[v _format_data_b1 `(uc ~T0 @X0 0 ef1`us ]
-"52
-[; ;./control_glove.h: 52: uint8_t format_data_b2(uint8_t f1, uint8_t f2, uint8_t f3, uint8_t axd, uint8_t ayd);
-[v _format_data_b2 `(uc ~T0 @X0 0 ef5`uc`uc`uc`uc`uc ]
-"459 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 459:     struct {
-[s S35 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S35 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"458
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 458: typedef union {
-[u S34 `S35 1 ]
-[n S34 . . ]
-"470
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 470: extern volatile PORTBbits_t PORTBbits __attribute__((address(0x00D)));
-[v _PORTBbits `VS34 ~T0 @X0 0 e@13 ]
-"64 ./control_glove.h
-[; ;./control_glove.h: 64: uint8_t format_data_b3(int16_t ax);
-[v _format_data_b3 `(uc ~T0 @X0 0 ef1`s ]
-"76
-[; ;./control_glove.h: 76: uint8_t format_data_b4(int16_t ay);
-[v _format_data_b4 `(uc ~T0 @X0 0 ef1`s ]
 "82 ./uart.h
 [; ;./uart.h: 82: void send_commands(uint8_t* data);
 [v _send_commands `(v ~T0 @X0 0 ef1`*uc ]
+[v F183 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\builtins.h
+[v __delay `JF183 ~T0 @X0 0 e ]
+[p i __delay ]
 [t ~ __interrupt . k ]
 [t T2 __interrupt ]
 "3770 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
@@ -1769,99 +1750,102 @@ Version 4.0 HI-TECH Software Intermediate Code
 "49
 [; ;Main.c: 49:     uint8_t tx_data[4];
 [v _tx_data `uc ~T0 @X0 -> 4 `i a ]
-"51
-[; ;Main.c: 51:     ready_flag = 1;
-[e = _ready_flag -> -> 1 `i `uc ]
 "52
 [; ;Main.c: 52:     while(1){
 [e :U 1617 ]
 {
 "53
-[; ;Main.c: 53:         if(ready_flag == 1){
+[; ;Main.c: 53:         ready_flag = 1;
+[e = _ready_flag -> -> 1 `i `uc ]
+"54
+[; ;Main.c: 54:         if(ready_flag == 1){
 [e $ ! == -> _ready_flag `i -> 1 `i 1619  ]
 {
-"55
-[; ;Main.c: 55:             gy_Read(&accelo_x, &accelo_y);
-[e ( _gy_Read (2 , &U _accelo_x &U _accelo_y ]
 "56
-[; ;Main.c: 56:             flex = get_Flex_Data();
-[e = _flex ( _get_Flex_Data ..  ]
+[; ;Main.c: 56:             gy_Read(&accelo_x, &accelo_y);
+[e ( _gy_Read (2 , &U _accelo_x &U _accelo_y ]
 "57
-[; ;Main.c: 57:             axd = accelo_x >> 0;
-[e = _axd -> >> -> _accelo_x `i -> 0 `i `uc ]
+[; ;Main.c: 57:             flex = get_Flex_Data();
+[e = _flex ( _get_Flex_Data ..  ]
 "58
-[; ;Main.c: 58:             ayd = accelo_y >> 0;
+[; ;Main.c: 58:             axd = accelo_x >> 0;
+[e = _axd -> >> -> _accelo_x `i -> 0 `i `uc ]
+"59
+[; ;Main.c: 59:             ayd = accelo_y >> 0;
 [e = _ayd -> >> -> _accelo_y `i -> 0 `i `uc ]
-"61
-[; ;Main.c: 61:             tx_data[0] = format_data_b1(flex);
-[e = *U + &U _tx_data * -> -> -> 0 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b1 (1 _flex ]
 "62
-[; ;Main.c: 62:             tx_data[1] = format_data_b2(PORTBbits.RB0, PORTBbits.RB1, PORTBbits.RB2, axd, ayd);
-[e = *U + &U _tx_data * -> -> -> 1 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b2 (4 , , , , . . _PORTBbits 0 0 . . _PORTBbits 0 1 . . _PORTBbits 0 2 _axd _ayd ]
+[; ;Main.c: 62:             tx_data[0] = 4 + 0;
+[e = *U + &U _tx_data * -> -> -> 0 `i `ui `ux -> -> # *U &U _tx_data `ui `ux -> + -> 4 `i -> 0 `i `uc ]
 "63
-[; ;Main.c: 63:             tx_data[2] = format_data_b3(accelo_x);
-[e = *U + &U _tx_data * -> -> -> 2 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b3 (1 _accelo_x ]
+[; ;Main.c: 63:             tx_data[1] = 8 + 1;
+[e = *U + &U _tx_data * -> -> -> 1 `i `ui `ux -> -> # *U &U _tx_data `ui `ux -> + -> 8 `i -> 1 `i `uc ]
 "64
-[; ;Main.c: 64:             tx_data[3] = format_data_b4(accelo_y);
-[e = *U + &U _tx_data * -> -> -> 3 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b4 (1 _accelo_y ]
-"67
-[; ;Main.c: 67:             send_commands(tx_data);
+[; ;Main.c: 64:             tx_data[2] = 16 + 2;
+[e = *U + &U _tx_data * -> -> -> 2 `i `ui `ux -> -> # *U &U _tx_data `ui `ux -> + -> 16 `i -> 2 `i `uc ]
+"65
+[; ;Main.c: 65:             tx_data[3] = 32 + 3;
+[e = *U + &U _tx_data * -> -> -> 3 `i `ui `ux -> -> # *U &U _tx_data `ui `ux -> + -> 32 `i -> 3 `i `uc ]
+"68
+[; ;Main.c: 68:             send_commands(tx_data);
 [e ( _send_commands (1 &U _tx_data ]
-"70
-[; ;Main.c: 70:             ready_flag = 0;
-[e = _ready_flag -> -> 0 `i `uc ]
 "71
-[; ;Main.c: 71:         }
+[; ;Main.c: 71:             ready_flag = 0;
+[e = _ready_flag -> -> 0 `i `uc ]
+"72
+[; ;Main.c: 72:             _delay((unsigned long)((1000)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"73
+[; ;Main.c: 73:         }
 }
 [e :U 1619 ]
-"72
-[; ;Main.c: 72:     }
+"74
+[; ;Main.c: 74:     }
 }
 [e :U 1616 ]
 [e $U 1617  ]
 [e :U 1618 ]
-"73
-[; ;Main.c: 73:     return;
+"75
+[; ;Main.c: 75:     return;
 [e $UE 1615  ]
-"74
-[; ;Main.c: 74: }
+"76
+[; ;Main.c: 76: }
 [e :UE 1615 ]
 }
 [v $root$_isr `(v ~T0 @X0 0 e ]
-"76
-[; ;Main.c: 76: void __attribute__((picinterrupt(("")))) isr() {
+"90
+[; ;Main.c: 90: void __attribute__((picinterrupt(("")))) isr() {
 [v _isr `(v ~T2 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"77
-[; ;Main.c: 77:     while (RCIF == 1) {
+"91
+[; ;Main.c: 91:     while (RCIF == 1) {
 [e $U 1621  ]
 [e :U 1622 ]
 {
-"78
-[; ;Main.c: 78:         data_in = RCREG;
+"92
+[; ;Main.c: 92:         data_in = RCREG;
 [e = _data_in _RCREG ]
-"79
-[; ;Main.c: 79:     }
+"93
+[; ;Main.c: 93:     }
 }
 [e :U 1621 ]
-"77
-[; ;Main.c: 77:     while (RCIF == 1) {
+"91
+[; ;Main.c: 91:     while (RCIF == 1) {
 [e $ == -> _RCIF `i -> 1 `i 1622  ]
 [e :U 1623 ]
-"80
-[; ;Main.c: 80:     if (is_ready(data_in) == 1) {
+"94
+[; ;Main.c: 94:     if (is_ready(data_in) == 1) {
 [e $ ! == -> ( _is_ready (1 _data_in `i -> 1 `i 1624  ]
 {
-"81
-[; ;Main.c: 81:         ready_flag = 1;
+"95
+[; ;Main.c: 95:         ready_flag = 1;
 [e = _ready_flag -> -> 1 `i `uc ]
-"82
-[; ;Main.c: 82:     }
+"96
+[; ;Main.c: 96:     }
 }
 [e :U 1624 ]
-"83
-[; ;Main.c: 83: }
+"97
+[; ;Main.c: 97: }
 [e :UE 1620 ]
 }

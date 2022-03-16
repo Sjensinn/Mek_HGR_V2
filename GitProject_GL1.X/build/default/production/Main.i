@@ -21021,8 +21021,9 @@ void main(void) {
     uint16_t flex;
     uint8_t tx_data[4];
 
-    ready_flag = 1;
+
     while(1){
+        ready_flag = 1;
         if(ready_flag == 1){
 
             gy_Read(&accelo_x, &accelo_y);
@@ -21031,21 +21032,22 @@ void main(void) {
             ayd = accelo_y >> 0;
 
 
-            tx_data[0] = format_data_b1(flex);
-            tx_data[1] = format_data_b2(PORTBbits.RB0, PORTBbits.RB1, PORTBbits.RB2, axd, ayd);
-            tx_data[2] = format_data_b3(accelo_x);
-            tx_data[3] = format_data_b4(accelo_y);
+            tx_data[0] = 4 + 0;
+            tx_data[1] = 8 + 1;
+            tx_data[2] = 16 + 2;
+            tx_data[3] = 32 + 3;
 
 
             send_commands(tx_data);
 
 
             ready_flag = 0;
+            _delay((unsigned long)((1000)*(16000000/4000.0)));
         }
     }
     return;
 }
-
+# 90 "Main.c"
 void __attribute__((picinterrupt(("")))) isr() {
     while (RCIF == 1) {
         data_in = RCREG;

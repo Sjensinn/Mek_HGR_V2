@@ -20956,7 +20956,7 @@ void send_commands(uint8_t* data){
     for (int i = 0; i < 4; i++){
         printf("%d", *data);
         data++;
-        _delay((unsigned long)((1)*(16000000/4000.0)));
+        _delay((unsigned long)((5)*(16000000/4000.0)));
     }
 
 }

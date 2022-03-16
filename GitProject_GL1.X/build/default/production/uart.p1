@@ -1917,8 +1917,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;uart.c: 57:         data++;
 [e ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
 "58
-[; ;uart.c: 58:         _delay((unsigned long)((1)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+[; ;uart.c: 58:         _delay((unsigned long)((5)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
 "59
 [; ;uart.c: 59:     }
 }

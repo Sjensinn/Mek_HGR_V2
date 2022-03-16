@@ -55,7 +55,7 @@ void send_commands(uint8_t* data){
     for (int i = 0; i < 4; i++){
         printf("%d", *data);
         data++;
-        __delay_ms(1);
+        __delay_ms(5);
     }
     
 }
