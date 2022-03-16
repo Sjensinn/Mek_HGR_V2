@@ -25,7 +25,7 @@
 
 volatile uint8_t data_in; //each byte transmission
 volatile uint8_t data_flex; //00XXXXXX was XXXXXX-00
-volatile uint8_t data_fingers; //f3 | f2 | f1 | Axdir | Aydir | NA | NA | ADDR1 | ADDR0  (01)
+volatile uint8_t data_fingers; //f3 | f2 | f1 | Axdir | Aydir | NA | ADDR1 | ADDR0  (01)
 volatile uint8_t data_x; //00XXXXXX was XXXXXX-10
 volatile uint8_t data_y; //00XXXXXX was XXXXXX-11 
 volatile uint8_t ready = 0;
@@ -41,17 +41,25 @@ void main(void) {
     stepper_init();
     LCD_init(0x4E);
 
-    __delay_ms(1000);   //Finish init
+    char buffer[20];
+    LCD_Set_Cursor(1,1);
+    LCD_write_string("Hello I am");
+    LCD_Set_Cursor(2,1); 
+    LCD_write_string("Robot");
+    __delay_ms(5000);   //Finish init
     printf(0xAA);       //Send ready byte
 
     while (1) {
         if (ready) { //from receive_isr() data_in->data_y 
             ready = 0;
 
-            LCD_Set_Cursor(1,1);
-            LCD_write_string("%d", data_fingers);
-            LCD_Set_Cursor(2,1);
-            LCD_write_string("%d%d", data_x, data_y);
+            LCD_Set_Cursor(1,1);        //line 1
+            sprintf(buffer, "Fin: %d", data_fingers);
+            LCD_write_string(buffer);
+            
+            LCD_Set_Cursor(2,1);        //line 2
+            sprintf(buffer, "Accel: %d %d", data_x, data_y);
+            LCD_write_string(buffer);
 
             switch (data_fingers & 0b11100000) {
                     x = (data_x) + (data_fingers << 3 & 0b10000000); //convert to signed

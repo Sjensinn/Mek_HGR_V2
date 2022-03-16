@@ -1,4 +1,5 @@
 #include <xc.h>
+#include "dc.h"
 
 void dc_stop() {
     LATB &= 0b11100001;
@@ -21,11 +22,11 @@ void dc_move(uint8_t data_x, uint8_t data_y) { //0b---XXXX- these four pins cont
 
     //nýtt fall í stað move_servo svo að pwm nái frá 0-100.
     if (data_x >> 8) {  //left tilt
-        move_servo(5, (data_y - data_x), &ENA_stat); //(-) because negative x is added (could be data_y + (data_x & 0b00111111))
-        move_servo(5, (data_y), &ENB_stat);
+       // move_servo(5, (data_y - data_x), ENA_stat); //(-) because negative x is added (could be data_y + (data_x & 0b00111111))
+       // move_servo(5, (data_y), ENB_stat);
     } else {            //right tilt
-        move_servo(5, data_y, &ENA_stat);
-        move_servo(5, data_y + data_x, &ENB_stat);
+       // move_servo(5, data_y, ENA_stat);
+       // move_servo(5, data_y + data_x, ENB_stat);
     }
 
     if (data_y >> 8) { //forward tilt

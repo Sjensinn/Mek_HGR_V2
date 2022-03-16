@@ -1,4 +1,4 @@
-#include "stepper.h"
+#include "Stepper.h"
 
 void stepper_init() {
     //TRISD = 0b00000000;

@@ -15,10 +15,6 @@ extern "C" {
 #include "config_bits.h"
 #include "uart.h"
     
-//Pin macros
-#ifndef LED_TOGGLE()            
-#define LED_TOGGLE() do { LATBbits.LATB2 = ~LATBbits.LATB2; } while(0)
-#endif
 
 /**
  * @brief   This function initializes clock, pins, i2c, and interrupts

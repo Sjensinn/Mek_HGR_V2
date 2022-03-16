@@ -15,7 +15,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "134
 [; ;./I2C_MSSP1_driver.h: 134: uint8_t I2C_Read(int8_t ackbit);
 [v _I2C_Read `(uc ~T0 @X0 0 ef1`c ]
-"113 C:\Program Files\Microchip\xc8\v2.32\pic\include\c99\stdio.h
+"113 C:\Program Files\Microchip\pic\include\c99\stdio.h
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
 "48 ./uart.h
 [; ;./uart.h: 48: void uart_Write_String(char* buf);

@@ -1,6 +1,6 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"51 C:\Program Files\Microchip\xc8\v2.32\pic\include\c99\stdlib.h
-[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\c99\stdlib.h: 51: int abs (int);
+"51 C:\Program Files\Microchip\pic\include\c99\stdlib.h
+[; ;C:\Program Files\Microchip\pic\include\c99\stdlib.h: 51: int abs (int);
 [v _abs `(i ~T0 @X0 0 ef1`i ]
 "55 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 55: __asm("INDF0 equ 00h");

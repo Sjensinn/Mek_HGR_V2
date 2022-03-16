@@ -1,11 +1,28 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"32 ./system_init.h
-[; ;./system_init.h: 32: void system_init(void);
+"28 ./system_init.h
+[; ;./system_init.h: 28: void system_init(void);
 [v _system_init `(v ~T0 @X0 0 ef ]
 "7 ./Stepper.h
 [; ;./Stepper.h: 7: void stepper_init();
 [v _stepper_init `(v ~T0 @X0 0 e? ]
+"48 ./LCD.h
+[; ;./LCD.h: 48: void LCD_init(uint8_t lcd_addr);
+[v _LCD_init `(v ~T0 @X0 0 ef1`uc ]
+"98
+[; ;./LCD.h: 98: void LCD_Set_Cursor(unsigned char ROW, unsigned char COL);
+[v _LCD_Set_Cursor `(v ~T0 @X0 0 ef2`uc`uc ]
+"90
+[; ;./LCD.h: 90: void LCD_write_string(char* str);
+[v _LCD_write_string `(v ~T0 @X0 0 ef1`*uc ]
+[v F183 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\builtins.h
+[v __delay `JF183 ~T0 @X0 0 e ]
+[p i __delay ]
+"111 C:\Program Files\Microchip\pic\include\c99\stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+"113
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
 "24 ./robot.h
 [; ;./robot.h: 24: void drive(uint8_t data_x, uint8_t data_y);
 [v _drive `(v ~T0 @X0 0 ef2`uc`uc ]
@@ -15,9 +32,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "26
 [; ;./robot.h: 26: void front_arm(uint8_t data_x, uint8_t data_y);
 [v _front_arm `(v ~T0 @X0 0 ef2`uc`uc ]
-"105 C:\Program Files\Microchip\xc8\v2.35\pic\include\c99\stdio.h
-[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\c99\stdio.h: 105: int printf(const char *restrict, ...);
-[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 [t ~ __interrupt . k ]
 [t T2 __interrupt ]
 "3770 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
@@ -1754,214 +1768,268 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _servo3_stat
 -> -> 300 `i `us
 ]
-"25 Main.c
-[; ;Main.c: 25: volatile uint8_t data_in;
+"6 ./dc.h
+[; ;./dc.h: 6: uint16_t ENA_stat = 100;
+[v _ENA_stat `us ~T0 @X0 1 e ]
+[i _ENA_stat
+-> -> 100 `i `us
+]
+"7
+[; ;./dc.h: 7: uint16_t ENB_stat = 100;
+[v _ENB_stat `us ~T0 @X0 1 e ]
+[i _ENB_stat
+-> -> 100 `i `us
+]
+"38 ./LCD.h
+[; ;./LCD.h: 38: uint8_t lcd_address, RS;
+[v _lcd_address `uc ~T0 @X0 1 e ]
+[v _RS `uc ~T0 @X0 1 e ]
+"39
+[; ;./LCD.h: 39: uint8_t BackLight_State = 0x08;
+[v _BackLight_State `uc ~T0 @X0 1 e ]
+[i _BackLight_State
+-> -> 8 `i `uc
+]
+"26 Main.c
+[; ;Main.c: 26: volatile uint8_t data_in;
 [v _data_in `Vuc ~T0 @X0 1 e ]
-"26
-[; ;Main.c: 26: volatile uint8_t data_flex;
-[v _data_flex `Vuc ~T0 @X0 1 e ]
 "27
-[; ;Main.c: 27: volatile uint8_t data_fingers;
-[v _data_fingers `Vuc ~T0 @X0 1 e ]
+[; ;Main.c: 27: volatile uint8_t data_flex;
+[v _data_flex `Vuc ~T0 @X0 1 e ]
 "28
-[; ;Main.c: 28: volatile uint8_t data_x;
-[v _data_x `Vuc ~T0 @X0 1 e ]
+[; ;Main.c: 28: volatile uint8_t data_fingers;
+[v _data_fingers `Vuc ~T0 @X0 1 e ]
 "29
-[; ;Main.c: 29: volatile uint8_t data_y;
-[v _data_y `Vuc ~T0 @X0 1 e ]
+[; ;Main.c: 29: volatile uint8_t data_x;
+[v _data_x `Vuc ~T0 @X0 1 e ]
 "30
-[; ;Main.c: 30: volatile uint8_t ready = 0;
+[; ;Main.c: 30: volatile uint8_t data_y;
+[v _data_y `Vuc ~T0 @X0 1 e ]
+"31
+[; ;Main.c: 31: volatile uint8_t ready = 0;
 [v _ready `Vuc ~T0 @X0 1 e ]
 [i _ready
 -> -> 0 `i `uc
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"35
-[; ;Main.c: 35: void main(void) {
+"36
+[; ;Main.c: 36: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"36
-[; ;Main.c: 36:     int8_t x;
-[v _x `c ~T0 @X0 1 a ]
 "37
-[; ;Main.c: 37:     int8_t y;
-[v _y `c ~T0 @X0 1 a ]
+[; ;Main.c: 37:     int8_t x;
+[v _x `c ~T0 @X0 1 a ]
 "38
-[; ;Main.c: 38:     system_init();
+[; ;Main.c: 38:     int8_t y;
+[v _y `c ~T0 @X0 1 a ]
+"39
+[; ;Main.c: 39:     system_init();
 [e ( _system_init ..  ]
-"40
-[; ;Main.c: 40:     stepper_init();
+"41
+[; ;Main.c: 41:     stepper_init();
 [e ( _stepper_init ..  ]
 "42
-[; ;Main.c: 42:     while (1) {
+[; ;Main.c: 42:     LCD_init(0x4E);
+[e ( _LCD_init (1 -> -> 78 `i `uc ]
+"44
+[; ;Main.c: 44:     char buffer[20];
+[v _buffer `uc ~T0 @X0 -> 20 `i a ]
+"45
+[; ;Main.c: 45:     LCD_Set_Cursor(1,1);
+[e ( _LCD_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"46
+[; ;Main.c: 46:     LCD_write_string("Hello I am");
+[e ( _LCD_write_string (1 :s 1C ]
+"47
+[; ;Main.c: 47:     LCD_Set_Cursor(2,1);
+[e ( _LCD_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"48
+[; ;Main.c: 48:     LCD_write_string("Robot");
+[e ( _LCD_write_string (1 :s 2C ]
+"49
+[; ;Main.c: 49:     _delay((unsigned long)((5000)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"50
+[; ;Main.c: 50:     printf(0xAA);
+[e ( _printf -> -> 170 `i `*Cuc ]
+"52
+[; ;Main.c: 52:     while (1) {
 [e :U 1617 ]
 {
-"44
-[; ;Main.c: 44:         switch (data_fingers & 0b11100000) {
-[e $U 1620  ]
-{
-"45
-[; ;Main.c: 45:             int8_t x = (data_x) + (data_fingers<<3 | 0b10000000);
-[v _x `c ~T0 @X0 1 a ]
-[e = _x -> + -> _data_x `i | << -> _data_fingers `i -> 3 `i -> 128 `i `c ]
-"46
-[; ;Main.c: 46:             int8_t y = (data_y) + (data_fingers<<4 | 0b10000000);
-[v _y `c ~T0 @X0 1 a ]
-[e = _y -> + -> _data_y `i | << -> _data_fingers `i -> 4 `i -> 128 `i `c ]
-"47
-[; ;Main.c: 47:             case 0b00100000:
-[e :U 1621 ]
-"48
-[; ;Main.c: 48:                 drive(data_x, data_y);
-[e ( _drive (2 , _data_x _data_y ]
-"49
-[; ;Main.c: 49:                 break;
-[e $U 1619  ]
-"50
-[; ;Main.c: 50:             case 0b01000000:
-[e :U 1622 ]
-"51
-[; ;Main.c: 51:                 shoulder(data_x, data_y);
-[e ( _shoulder (2 , _data_x _data_y ]
-"52
-[; ;Main.c: 52:                 break;
-[e $U 1619  ]
 "53
-[; ;Main.c: 53:             case 0b10000000:
-[e :U 1623 ]
-"54
-[; ;Main.c: 54:                 front_arm(data_x, data_y);
-[e ( _front_arm (2 , _data_x _data_y ]
-"55
-[; ;Main.c: 55:                 break;
-[e $U 1619  ]
-"56
-[; ;Main.c: 56:             default:
-[e :U 1624 ]
-"57
-[; ;Main.c: 57:                 break;
-[e $U 1619  ]
-"58
-[; ;Main.c: 58:         }
-}
-[e $U 1619  ]
-[e :U 1620 ]
-[e [\ & -> _data_fingers `i -> 224 `i , $ -> 32 `i 1621
- , $ -> 64 `i 1622
- , $ -> 128 `i 1623
- 1624 ]
-[e :U 1619 ]
-"60
-[; ;Main.c: 60:         if(ready){
-[e $ ! != -> _ready `i -> 0 `i 1625  ]
+[; ;Main.c: 53:         if (ready) {
+[e $ ! != -> _ready `i -> 0 `i 1619  ]
 {
-"61
-[; ;Main.c: 61:             ready = 0;
+"54
+[; ;Main.c: 54:             ready = 0;
 [e = _ready -> -> 0 `i `uc ]
+"56
+[; ;Main.c: 56:             LCD_Set_Cursor(1,1);
+[e ( _LCD_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"57
+[; ;Main.c: 57:             sprintf(buffer, "Fin: %d", data_fingers);
+[e ( _sprintf (1 , (. , &U _buffer :s 3C -> _data_fingers `i ]
+"58
+[; ;Main.c: 58:             LCD_write_string(buffer);
+[e ( _LCD_write_string (1 &U _buffer ]
+"60
+[; ;Main.c: 60:             LCD_Set_Cursor(2,1);
+[e ( _LCD_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"61
+[; ;Main.c: 61:             sprintf(buffer, "Accel: %d %d", data_x, data_y);
+[e ( _sprintf (1 , , (. , &U _buffer :s 4C -> _data_x `i -> _data_y `i ]
 "62
-[; ;Main.c: 62:             printf(0xAA);
-[e ( _printf -> -> 170 `i `*Cuc ]
-"63
-[; ;Main.c: 63:         }
-}
-[e :U 1625 ]
+[; ;Main.c: 62:             LCD_write_string(buffer);
+[e ( _LCD_write_string (1 &U _buffer ]
 "64
-[; ;Main.c: 64:     }
+[; ;Main.c: 64:             switch (data_fingers & 0b11100000) {
+[e $U 1621  ]
+{
+"65
+[; ;Main.c: 65:                     x = (data_x) + (data_fingers << 3 & 0b10000000);
+[e = _x -> + -> _data_x `i & << -> _data_fingers `i -> 3 `i -> 128 `i `c ]
+"66
+[; ;Main.c: 66:                     y = (data_y) + (data_fingers << 4 & 0b10000000);
+[e = _y -> + -> _data_y `i & << -> _data_fingers `i -> 4 `i -> 128 `i `c ]
+"67
+[; ;Main.c: 67:                 case 0b00100000:
+[e :U 1622 ]
+"68
+[; ;Main.c: 68:                     drive(x, y);
+[e ( _drive (2 , -> _x `uc -> _y `uc ]
+"69
+[; ;Main.c: 69:                     break;
+[e $U 1620  ]
+"70
+[; ;Main.c: 70:                 case 0b01000000:
+[e :U 1623 ]
+"71
+[; ;Main.c: 71:                     shoulder(x, y);
+[e ( _shoulder (2 , -> _x `uc -> _y `uc ]
+"72
+[; ;Main.c: 72:                     break;
+[e $U 1620  ]
+"73
+[; ;Main.c: 73:                 case 0b10000000:
+[e :U 1624 ]
+"74
+[; ;Main.c: 74:                     front_arm(x, y);
+[e ( _front_arm (2 , -> _x `uc -> _y `uc ]
+"75
+[; ;Main.c: 75:                     break;
+[e $U 1620  ]
+"76
+[; ;Main.c: 76:                 default:
+[e :U 1625 ]
+"77
+[; ;Main.c: 77:                     break;
+[e $U 1620  ]
+"78
+[; ;Main.c: 78:             }
+}
+[e $U 1620  ]
+[e :U 1621 ]
+[e [\ & -> _data_fingers `i -> 224 `i , $ -> 32 `i 1622
+ , $ -> 64 `i 1623
+ , $ -> 128 `i 1624
+ 1625 ]
+[e :U 1620 ]
+"80
+[; ;Main.c: 80:             printf(0xAA);
+[e ( _printf -> -> 170 `i `*Cuc ]
+"81
+[; ;Main.c: 81:         }
+}
+[e :U 1619 ]
+"88
+[; ;Main.c: 88:     }
 }
 [e :U 1616 ]
 [e $U 1617  ]
 [e :U 1618 ]
-"66
-[; ;Main.c: 66:     return;
+"90
+[; ;Main.c: 90:     return;
 [e $UE 1615  ]
-"67
-[; ;Main.c: 67: }
+"91
+[; ;Main.c: 91: }
 [e :UE 1615 ]
 }
 [v $root$_receive_isr `(v ~T0 @X0 0 e ]
-"69
-[; ;Main.c: 69: void __attribute__((picinterrupt(("")))) receive_isr() {
+"93
+[; ;Main.c: 93: void __attribute__((picinterrupt(("")))) receive_isr() {
 [v _receive_isr `(v ~T2 @X0 1 ef ]
 {
 [e :U _receive_isr ]
 [f ]
-"71
-[; ;Main.c: 71:     while (RCIF == 1) {
+"95
+[; ;Main.c: 95:     while (RCIF == 1) {
 [e $U 1627  ]
 [e :U 1628 ]
 {
-"72
-[; ;Main.c: 72:         data_in = RCREG;
+"96
+[; ;Main.c: 96:         data_in = RCREG;
 [e = _data_in _RCREG ]
-"73
-[; ;Main.c: 73:     }
+"97
+[; ;Main.c: 97:     }
 }
 [e :U 1627 ]
-"71
-[; ;Main.c: 71:     while (RCIF == 1) {
+"95
+[; ;Main.c: 95:     while (RCIF == 1) {
 [e $ == -> _RCIF `i -> 1 `i 1628  ]
 [e :U 1629 ]
-"74
-[; ;Main.c: 74:     switch (data_in & 0b11) {
+"98
+[; ;Main.c: 98:     switch (data_in & 0b11) {
 [e $U 1631  ]
 {
-"75
-[; ;Main.c: 75:         case 0:
+"99
+[; ;Main.c: 99:         case 0:
 [e :U 1632 ]
-"76
-[; ;Main.c: 76:             data_flex = data_in>>2;
+"100
+[; ;Main.c: 100:             data_flex = data_in >> 2;
 [e = _data_flex -> >> -> _data_in `i -> 2 `i `uc ]
-"77
-[; ;Main.c: 77:             break;
+"101
+[; ;Main.c: 101:             break;
 [e $U 1630  ]
-"78
-[; ;Main.c: 78:         case 1:
+"102
+[; ;Main.c: 102:         case 1:
 [e :U 1633 ]
-"79
-[; ;Main.c: 79:             data_fingers = data_in>>2;
-[e = _data_fingers -> >> -> _data_in `i -> 2 `i `uc ]
-"80
-[; ;Main.c: 80:             break;
+"103
+[; ;Main.c: 103:             data_fingers = data_in;
+[e = _data_fingers _data_in ]
+"104
+[; ;Main.c: 104:             break;
 [e $U 1630  ]
-"81
-[; ;Main.c: 81:         case 2:
+"105
+[; ;Main.c: 105:         case 2:
 [e :U 1634 ]
-"82
-[; ;Main.c: 82:             data_x = data_in>>2;
+"106
+[; ;Main.c: 106:             data_x = data_in >> 2;
 [e = _data_x -> >> -> _data_in `i -> 2 `i `uc ]
-"83
-[; ;Main.c: 83:             break;
+"107
+[; ;Main.c: 107:             break;
 [e $U 1630  ]
-"84
-[; ;Main.c: 84:         case 3:
+"108
+[; ;Main.c: 108:         case 3:
 [e :U 1635 ]
-"85
-[; ;Main.c: 85:             data_y = data_in>>2;
+"109
+[; ;Main.c: 109:             data_y = data_in >> 2;
 [e = _data_y -> >> -> _data_in `i -> 2 `i `uc ]
-"86
-[; ;Main.c: 86:             if (CCP1IF == 0) {
-[e $ ! == -> _CCP1IF `i -> 0 `i 1636  ]
-{
-"87
-[; ;Main.c: 87:                 ready = 1;
+"111
+[; ;Main.c: 111:             ready = 1;
 [e = _ready -> -> 1 `i `uc ]
-"88
-[; ;Main.c: 88:             }
-}
+"114
+[; ;Main.c: 114:             break;
+[e $U 1630  ]
+"115
+[; ;Main.c: 115:         default:
 [e :U 1636 ]
-"89
-[; ;Main.c: 89:             break;
+"116
+[; ;Main.c: 116:             break;
 [e $U 1630  ]
-"90
-[; ;Main.c: 90:         default:
-[e :U 1637 ]
-"91
-[; ;Main.c: 91:             break;
-[e $U 1630  ]
-"92
-[; ;Main.c: 92:     }
+"117
+[; ;Main.c: 117:     }
 }
 [e $U 1630  ]
 [e :U 1631 ]
@@ -1969,30 +2037,35 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 1 `i 1633
  , $ -> 2 `i 1634
  , $ -> 3 `i 1635
- 1637 ]
+ 1636 ]
 [e :U 1630 ]
-"96
-[; ;Main.c: 96:     if (CCP1IF == 1) {
-[e $ ! == -> _CCP1IF `i -> 1 `i 1638  ]
+"121
+[; ;Main.c: 121:     if (CCP1IF == 1) {
+[e $ ! == -> _CCP1IF `i -> 1 `i 1637  ]
 {
-"97
-[; ;Main.c: 97:         CCP1IF = 0;
+"122
+[; ;Main.c: 122:         CCP1IF = 0;
 [e = _CCP1IF -> -> 0 `i `b ]
-"98
-[; ;Main.c: 98:         LATDbits.LATD5 ^= 1;
+"123
+[; ;Main.c: 123:         LATDbits.LATD5 ^= 1;
 [e =^ . . _LATDbits 0 5 -> -> 1 `i `Vuc ]
-"101
-[; ;Main.c: 101:         CCPR1H = 0x01;
+"126
+[; ;Main.c: 126:         CCPR1H = 0x01;
 [e = _CCPR1H -> -> 1 `i `uc ]
-"102
-[; ;Main.c: 102:         CCPR1L = 0x34;
+"127
+[; ;Main.c: 127:         CCPR1L = 0x34;
 [e = _CCPR1L -> -> 52 `i `uc ]
-"103
-[; ;Main.c: 103:     }
+"128
+[; ;Main.c: 128:     }
 }
-[e :U 1638 ]
-"105
-[; ;Main.c: 105: }
+[e :U 1637 ]
+"130
+[; ;Main.c: 130: }
 [e :UE 1626 ]
 }
+[p f _sprintf 8388736 ]
 [p f _printf 9437696 ]
+[a 2C 82 111 98 111 116 0 ]
+[a 1C 72 101 108 108 111 32 73 32 97 109 0 ]
+[a 4C 65 99 99 101 108 58 32 37 100 32 37 100 0 ]
+[a 3C 70 105 110 58 32 37 100 0 ]

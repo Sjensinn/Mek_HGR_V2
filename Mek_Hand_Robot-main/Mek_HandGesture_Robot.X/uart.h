@@ -15,7 +15,12 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
+    
+#ifndef _XTAL_FREQ
+#define _XTAL_FREQ 16000000
+#endif
 
+#include <xc.h>
 #define READYSIGNAL 10101010
 
 /**

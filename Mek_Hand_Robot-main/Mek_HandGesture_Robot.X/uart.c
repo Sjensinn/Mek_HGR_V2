@@ -37,12 +37,12 @@ void putch(char data) {
 
 
 void send_ready(void){
-    printf(READYSIGNAL);
+    printf(0xAA);
 }
 
 
 uint8_t is_ready(uint8_t data){
-    if (data == READYSIGNAL)
+    if (data == 0xAA)
         return 1;
     
     else

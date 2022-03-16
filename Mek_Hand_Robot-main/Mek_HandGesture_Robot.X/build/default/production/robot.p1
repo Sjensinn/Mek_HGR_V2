@@ -1,16 +1,16 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"7 ./dc.h
-[; ;./dc.h: 7: void dc_stop();
+"9 ./dc.h
+[; ;./dc.h: 9: void dc_stop();
 [v _dc_stop `(v ~T0 @X0 0 e? ]
 "9 ./stepper.h
 [; ;./stepper.h: 9: void stepper_stop();
 [v _stepper_stop `(v ~T0 @X0 0 e? ]
-"8 ./dc.h
-[; ;./dc.h: 8: void dc_move(uint8_t data_x, uint8_t data_y);
+"10 ./dc.h
+[; ;./dc.h: 10: void dc_move(uint8_t data_x, uint8_t data_y);
 [v _dc_move `(v ~T0 @X0 0 ef2`uc`uc ]
 "27 ./robot.h
-[; ;./robot.h: 27: void move_servo(uint8_t servo, uint8_t data, uint16_t *servo_stat);
-[v _move_servo `(v ~T0 @X0 0 ef3`uc`uc`*us ]
+[; ;./robot.h: 27: void move_servo(uint8_t servo, uint8_t data, uint16_t servo_stat);
+[v _move_servo `(v ~T0 @X0 0 ef3`uc`uc`us ]
 "87 ./PCA9685_driver.h
 [; ;./PCA9685_driver.h: 87: void PCA_write(uint8_t ChannelN, uint16_t on, uint16_t off);
 [v _PCA_write `(v ~T0 @X0 0 ef3`uc`us`us ]
@@ -1652,6 +1652,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "47 ./PCA9685_driver.h
 [; ;./PCA9685_driver.h: 47:     uint8_t pca_address;
 [v _pca_address `uc ~T0 @X0 1 e ]
+"6 ./dc.h
+[; ;./dc.h: 6: uint16_t ENA_stat = 100;
+[v _ENA_stat `us ~T0 @X0 1 e ]
+[i _ENA_stat
+-> -> 100 `i `us
+]
+"7
+[; ;./dc.h: 7: uint16_t ENB_stat = 100;
+[v _ENB_stat `us ~T0 @X0 1 e ]
+[i _ENB_stat
+-> -> 100 `i `us
+]
 "18 ./robot.h
 [; ;./robot.h: 18: uint16_t servo0_stat = 300;
 [v _servo0_stat `us ~T0 @X0 1 e ]
@@ -1718,119 +1730,132 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _data_x `uc ~T0 @X0 1 r1 ]
 [v _data_y `uc ~T0 @X0 1 r2 ]
 [f ]
+"23
+[; ;robot.c: 23:     move_servo(3, data_y, &servo3_stat);
+[e ( _move_servo (3 , , -> -> 3 `i `uc _data_y -> &U _servo3_stat `us ]
 "24
-[; ;robot.c: 24:     move_servo(3, data_y, &servo3_stat);
-[e ( _move_servo (3 , , -> -> 3 `i `uc _data_y &U _servo3_stat ]
-"25
-[; ;robot.c: 25: }
+[; ;robot.c: 24: }
 [e :UE 1615 ]
 }
-"27
-[; ;robot.c: 27: void front_arm(uint8_t data_x, uint8_t data_y) {
+"26
+[; ;robot.c: 26: void front_arm(uint8_t data_x, uint8_t data_y) {
 [v _front_arm `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _front_arm ]
 [v _data_x `uc ~T0 @X0 1 r1 ]
 [v _data_y `uc ~T0 @X0 1 r2 ]
 [f ]
+"27
+[; ;robot.c: 27:     move_servo(1, data_y, &servo1_stat);
+[e ( _move_servo (3 , , -> -> 1 `i `uc _data_y -> &U _servo1_stat `us ]
 "28
-[; ;robot.c: 28:     move_servo(1, data_y, &servo1_stat);
-[e ( _move_servo (3 , , -> -> 1 `i `uc _data_y &U _servo1_stat ]
+[; ;robot.c: 28:     move_servo(2, data_x, &servo2_stat);
+[e ( _move_servo (3 , , -> -> 2 `i `uc _data_x -> &U _servo2_stat `us ]
 "29
-[; ;robot.c: 29:     move_servo(2, data_x, &servo2_stat);
-[e ( _move_servo (3 , , -> -> 2 `i `uc _data_x &U _servo2_stat ]
-"30
-[; ;robot.c: 30: }
+[; ;robot.c: 29: }
 [e :UE 1616 ]
 }
-"32
-[; ;robot.c: 32: void move_servo(uint8_t servo, uint8_t data, uint16_t *servo_stat){
-[v _move_servo `(v ~T0 @X0 1 ef3`uc`uc`*us ]
+"31
+[; ;robot.c: 31: void move_servo(uint8_t servo, uint8_t data, uint16_t servo_stat){
+[v _move_servo `(v ~T0 @X0 1 ef3`uc`uc`us ]
 {
 [e :U _move_servo ]
 [v _servo `uc ~T0 @X0 1 r1 ]
 [v _data `uc ~T0 @X0 1 r2 ]
-[v _servo_stat `*us ~T0 @X0 1 r3 ]
+[v _servo_stat `us ~T0 @X0 1 r3 ]
 [f ]
-"33
-[; ;robot.c: 33:     *servo_stat += data;
-[e =+ *U _servo_stat -> _data `us ]
-"34
-[; ;robot.c: 34:      if (*servo_stat <= (500 - 10)) {
-[e $ ! <= -> *U _servo_stat `ui -> - -> 500 `i -> 10 `i `ui 1618  ]
-{
-"35
-[; ;robot.c: 35:         *servo_stat += 10;
-[e =+ *U _servo_stat -> -> 10 `i `us ]
-"36
-[; ;robot.c: 36:     }
-}
-[e :U 1618 ]
-"38
-[; ;robot.c: 38:      if (*servo_stat >= (100 + 10)) {
-[e $ ! >= -> *U _servo_stat `ui -> + -> 100 `i -> 10 `i `ui 1619  ]
-{
-"39
-[; ;robot.c: 39:         *servo_stat -= 10;
-[e =- *U _servo_stat -> -> 10 `i `us ]
-"40
-[; ;robot.c: 40:     }
-}
-[e :U 1619 ]
-"41
-[; ;robot.c: 41:      PCA_write(servo, 0x00, *servo_stat);
-[e ( _PCA_write (3 , , _servo -> -> 0 `i `us *U _servo_stat ]
-"42
-[; ;robot.c: 42: }
+"43
+[; ;robot.c: 43: }
 [e :UE 1617 ]
 }
 "44
-[; ;robot.c: 44: void move_servo1_up(uint8_t n) {
+[; ;robot.c: 44: void dc_pwm(uint8_t servo, uint8_t data, uint16_t *EN_stat){
+[v _dc_pwm `(v ~T0 @X0 1 ef3`uc`uc`*us ]
+{
+[e :U _dc_pwm ]
+[v _servo `uc ~T0 @X0 1 r1 ]
+[v _data `uc ~T0 @X0 1 r2 ]
+[v _EN_stat `*us ~T0 @X0 1 r3 ]
+[f ]
+"45
+[; ;robot.c: 45:     *EN_stat += data;
+[e =+ *U _EN_stat -> _data `us ]
+"46
+[; ;robot.c: 46:      if (*EN_stat <= (500 - 10)) {
+[e $ ! <= -> *U _EN_stat `ui -> - -> 500 `i -> 10 `i `ui 1619  ]
+{
+"47
+[; ;robot.c: 47:         *EN_stat += 10;
+[e =+ *U _EN_stat -> -> 10 `i `us ]
+"48
+[; ;robot.c: 48:     }
+}
+[e :U 1619 ]
+"50
+[; ;robot.c: 50:      if (*EN_stat >= (100 + 10)) {
+[e $ ! >= -> *U _EN_stat `ui -> + -> 100 `i -> 10 `i `ui 1620  ]
+{
+"51
+[; ;robot.c: 51:         *EN_stat -= 10;
+[e =- *U _EN_stat -> -> 10 `i `us ]
+"52
+[; ;robot.c: 52:     }
+}
+[e :U 1620 ]
+"53
+[; ;robot.c: 53:      PCA_write(servo, 0x00, *EN_stat);
+[e ( _PCA_write (3 , , _servo -> -> 0 `i `us *U _EN_stat ]
+"54
+[; ;robot.c: 54: }
+[e :UE 1618 ]
+}
+"56
+[; ;robot.c: 56: void move_servo1_up(uint8_t n) {
 [v _move_servo1_up `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _move_servo1_up ]
 [v _n `uc ~T0 @X0 1 r1 ]
 [f ]
-"51
-[; ;robot.c: 51:     if (servo1_stat <= (500 - 10)) {
-[e $ ! <= -> _servo1_stat `ui -> - -> 500 `i -> 10 `i `ui 1621  ]
+"63
+[; ;robot.c: 63:     if (servo1_stat <= (500 - 10)) {
+[e $ ! <= -> _servo1_stat `ui -> - -> 500 `i -> 10 `i `ui 1622  ]
 {
-"52
-[; ;robot.c: 52:         servo1_stat += 10;
+"64
+[; ;robot.c: 64:         servo1_stat += 10;
 [e =+ _servo1_stat -> -> 10 `i `us ]
-"53
-[; ;robot.c: 53:     }
+"65
+[; ;robot.c: 65:     }
 }
-[e :U 1621 ]
-"55
-[; ;robot.c: 55:     PCA_write(n, 0x00, servo1_stat);
+[e :U 1622 ]
+"67
+[; ;robot.c: 67:     PCA_write(n, 0x00, servo1_stat);
 [e ( _PCA_write (3 , , _n -> -> 0 `i `us _servo1_stat ]
-"56
-[; ;robot.c: 56: }
-[e :UE 1620 ]
+"68
+[; ;robot.c: 68: }
+[e :UE 1621 ]
 }
-"58
-[; ;robot.c: 58: void move_servo1_down(uint8_t n) {
+"70
+[; ;robot.c: 70: void move_servo1_down(uint8_t n) {
 [v _move_servo1_down `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _move_servo1_down ]
 [v _n `uc ~T0 @X0 1 r1 ]
 [f ]
-"59
-[; ;robot.c: 59:     if (servo1_stat >= (100 + 10)) {
-[e $ ! >= -> _servo1_stat `ui -> + -> 100 `i -> 10 `i `ui 1623  ]
+"71
+[; ;robot.c: 71:     if (servo1_stat >= (100 + 10)) {
+[e $ ! >= -> _servo1_stat `ui -> + -> 100 `i -> 10 `i `ui 1624  ]
 {
-"60
-[; ;robot.c: 60:         servo1_stat -= 10;
+"72
+[; ;robot.c: 72:         servo1_stat -= 10;
 [e =- _servo1_stat -> -> 10 `i `us ]
-"61
-[; ;robot.c: 61:     }
+"73
+[; ;robot.c: 73:     }
 }
-[e :U 1623 ]
-"63
-[; ;robot.c: 63:     PCA_write(n, 0x00, servo1_stat);
+[e :U 1624 ]
+"75
+[; ;robot.c: 75:     PCA_write(n, 0x00, servo1_stat);
 [e ( _PCA_write (3 , , _n -> -> 0 `i `us _servo1_stat ]
-"64
-[; ;robot.c: 64: }
-[e :UE 1622 ]
+"76
+[; ;robot.c: 76: }
+[e :UE 1623 ]
 }

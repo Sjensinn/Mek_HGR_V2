@@ -705,7 +705,7 @@ text23 1E36 1E41 CODE 1E36 0
 text26 1E30 1E35 CODE 1E30 0
 %locals
 dist/default/production\GitProject_GL1.X.production.o
-C:\Users\user\AppData\Local\Temp\xcAsmts.s
+C:\Users\SINDRI~1\AppData\Local\Temp\xcAsbmg.s
 8028 25 0 CODE 0
 8031 25 0 CODE 0
 8076 25 0 CODE 0
@@ -859,12 +859,12 @@ uart.c
 59 720 0 CODE 0
 59 724 0 CODE 0
 61 728 0 CODE 0
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\printf.c
+C:\Program Files\Microchip\pic\sources\c99\common\printf.c
 5 F9B 0 CODE 0
 9 F9B 0 CODE 0
 10 FA0 0 CODE 0
 13 FB1 0 CODE 0
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\doprnt.c
+C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
 1390 729 0 CODE 0
 1395 72B 0 CODE 0
 1396 72F 0 CODE 0
@@ -956,7 +956,7 @@ C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\doprnt.c
 91 645 0 CODE 0
 94 64E 0 CODE 0
 95 65A 0 CODE 0
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\strlen.c
+C:\Program Files\Microchip\pic\sources\c99\common\strlen.c
 5 FB2 0 CODE 0
 7 FB3 0 CODE 0
 8 FB7 0 CODE 0
@@ -964,7 +964,7 @@ C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\strlen.c
 8 FBC 0 CODE 0
 11 FC4 0 CODE 0
 12 FCA 0 CODE 0
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\nf_fputs.c
+C:\Program Files\Microchip\pic\sources\c99\common\nf_fputs.c
 8 75A 0 CODE 0
 13 75C 0 CODE 0
 14 75E 0 CODE 0
@@ -972,7 +972,7 @@ C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\nf_fputs.c
 16 76D 0 CODE 0
 14 772 0 CODE 0
 19 781 0 CODE 0
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\nf_fputc.c
+C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
 8 65B 0 CODE 0
 12 65B 0 CODE 0
 13 665 0 CODE 0
@@ -991,7 +991,7 @@ uart.c
 34 F43 0 CODE 0
 36 F48 0 CODE 0
 37 F4B 0 CODE 0
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\aomod.c
+C:\Program Files\Microchip\pic\sources\c99\common\aomod.c
 7 29E 0 CODE 0
 14 29E 0 CODE 0
 15 29F 0 CODE 0
@@ -1043,7 +1043,7 @@ C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\aomod.c
 34 373 0 CODE 0
 35 376 0 CODE 0
 36 387 0 CODE 0
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\aodiv.c
+C:\Program Files\Microchip\pic\sources\c99\common\aodiv.c
 7 19A 0 CODE 0
 15 19A 0 CODE 0
 16 19C 0 CODE 0
@@ -1193,14 +1193,14 @@ control_glove.c
 56 7C9 0 CODE 0
 57 7CE 0 CODE 0
 58 7CF 0 CODE 0
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\abs.c
+C:\Program Files\Microchip\pic\sources\c99\common\abs.c
 1 FCB 0 CODE 0
 3 FCB 0 CODE 0
 3 FD0 0 CODE 0
 3 FD4 0 CODE 0
 3 FDD 0 CODE 0
 4 FE4 0 CODE 0
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\awdiv.c
+C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
 5 54A 0 CODE 0
 13 54A 0 CODE 0
 14 54C 0 CODE 0

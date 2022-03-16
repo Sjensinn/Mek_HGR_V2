@@ -2,10 +2,10 @@ Microchip MPLAB XC8 Compiler V2.32
 
 Linker command line:
 
--W-3 --edf=C:\Program Files\Microchip\xc8\v2.32\pic\dat\en_msgs.txt -cn \
+-W-3 --edf=C:\Program Files\Microchip\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\GitProject_GL1.X.production.sym \
   --cmf=dist/default/production\GitProject_GL1.X.production.cmf -z \
-  -Q16F18877 -oC:\Users\user\AppData\Local\Temp\xcAsmts.4 \
+  -Q16F18877 -oC:\Users\SINDRI~1\AppData\Local\Temp\xcAsbmg.4 \
   --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/GitProject_GL1.X.production.map -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ASTACK=02093h-02FEFh -pstack=STACK \
@@ -56,7 +56,7 @@ Linker command line:
   -AEEDATA=00h-0FFh/0F000h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k C:\Users\user\AppData\Local\Temp\xcAsmts.o \
+  -pfunctab=ENTRY -k C:\Users\SINDRI~1\AppData\Local\Temp\xcAsbmg.o \
   dist/default/production\GitProject_GL1.X.production.o 
 
 Object code version is 3.11
@@ -66,7 +66,7 @@ Machine type is 16F18877
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\user\AppData\Local\Temp\xcAsmts.o
+C:\Users\SINDRI~1\AppData\Local\Temp\xcAsbmg.o
                 end_init                             23       23        2        8       0
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        5        0       4
@@ -1357,11 +1357,6 @@ wtemp0                   (abs)        0007E
 MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\awdiv.c
-		___awdiv       		CODE           	054A	0000	96
-
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\awdiv.c estimated size: 96
-
 system_init.c
 		_clock_init    		CODE           	0F57	0000	13
 		_system_init   		CODE           	07F0	0000	16
@@ -1370,13 +1365,10 @@ system_init.c
 
 system_init.c estimated size: 126
 
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\doprnt.c
-		_vfpfcnvrt     		CODE           	0388	0000	219
-		_pad           		CODE           	0605	0000	86
-		_dtoa          		CODE           	0033	0000	359
-		_vfprintf      		CODE           	0729	0000	49
+C:\Program Files\Microchip\pic\sources\c99\common\printf.c
+		_printf        		CODE           	0F9B	0000	23
 
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\doprnt.c estimated size: 713
+C:\Program Files\Microchip\pic\sources\c99\common\printf.c estimated size: 23
 
 uart.c
 		_is_ready      		CODE           	0F4C	0000	11
@@ -1386,11 +1378,26 @@ uart.c
 
 uart.c estimated size: 93
 
+C:\Program Files\Microchip\pic\sources\c99\common\strlen.c
+		_strlen        		CODE           	0FB2	0000	25
+
+C:\Program Files\Microchip\pic\sources\c99\common\strlen.c estimated size: 25
+
+C:\Program Files\Microchip\pic\sources\c99\common\aodiv.c
+		___aodiv       		CODE           	019A	0000	260
+
+C:\Program Files\Microchip\pic\sources\c99\common\aodiv.c estimated size: 260
+
 gy_521.c
 		_gy_Read       		CODE           	06AC	0000	70
 		_gy_init       		CODE           	0463	0000	118
 
 gy_521.c estimated size: 188
+
+C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
+		_fputc         		CODE           	065B	0000	81
+
+C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c estimated size: 81
 
 control_glove.c
 		_get_Flex_Data 		CODE           	0F18	0000	3
@@ -1401,6 +1408,11 @@ control_glove.c
 
 control_glove.c estimated size: 140
 
+C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+		___awdiv       		CODE           	054A	0000	96
+
+C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c estimated size: 96
+
 I2C_MSSP1_driver.c
 		_I2C_init      		CODE           	0F64	0000	15
 		_I2C_Write     		CODE           	0F3A	0000	8
@@ -1410,21 +1422,6 @@ I2C_MSSP1_driver.c
 		_I2C_Start     		CODE           	0F1B	0000	6
 
 I2C_MSSP1_driver.c estimated size: 65
-
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\nf_fputs.c
-		_fputs         		CODE           	075A	0000	40
-
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\nf_fputs.c estimated size: 40
-
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\abs.c
-		_abs           		CODE           	0FCB	0000	26
-
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\abs.c estimated size: 26
-
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\aomod.c
-		___aomod       		CODE           	029E	0000	234
-
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\aomod.c estimated size: 234
 
 Main.c
 		_main          		CODE           	04D9	0000	113
@@ -1437,23 +1434,26 @@ shared
 
 shared estimated size: 10
 
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\printf.c
-		_printf        		CODE           	0F9B	0000	23
+C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
+		_vfpfcnvrt     		CODE           	0388	0000	219
+		_pad           		CODE           	0605	0000	86
+		_dtoa          		CODE           	0033	0000	359
+		_vfprintf      		CODE           	0729	0000	49
 
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\printf.c estimated size: 23
+C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c estimated size: 713
 
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\nf_fputc.c
-		_fputc         		CODE           	065B	0000	81
+C:\Program Files\Microchip\pic\sources\c99\common\abs.c
+		_abs           		CODE           	0FCB	0000	26
 
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\nf_fputc.c estimated size: 81
+C:\Program Files\Microchip\pic\sources\c99\common\abs.c estimated size: 26
 
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\aodiv.c
-		___aodiv       		CODE           	019A	0000	260
+C:\Program Files\Microchip\pic\sources\c99\common\aomod.c
+		___aomod       		CODE           	029E	0000	234
 
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\aodiv.c estimated size: 260
+C:\Program Files\Microchip\pic\sources\c99\common\aomod.c estimated size: 234
 
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\strlen.c
-		_strlen        		CODE           	0FB2	0000	25
+C:\Program Files\Microchip\pic\sources\c99\common\nf_fputs.c
+		_fputs         		CODE           	075A	0000	40
 
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\strlen.c estimated size: 25
+C:\Program Files\Microchip\pic\sources\c99\common\nf_fputs.c estimated size: 40
 
