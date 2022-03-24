@@ -20,9 +20,9 @@
 #define _XTAL_FREQ 16000000
 #endif
 
-#define F1_getVal() PORTBbits.RB0
-#define F2_getVal() PORTBbits.RB1
-#define F3_getVal() PORTBbits.RB2
+#define F1_getVal() 1 //PORTBbits.RB0
+#define F2_getVal() 0 //PORTBbits.RB1
+#define F3_getVal() 0 //PORTBbits.RB2
 
 #include "config_bits.h"
 #include "system_init.h"
@@ -54,7 +54,7 @@ void main(void) {
         if(ready_flag == 1){
             //Fetch data
             gy_Read(&accelo_x, &accelo_y); //Fetch data from Gyro
-            flex = get_Flex_Data();         //Fetch data from flex
+            flex = 10; //get_Flex_Data();         //Fetch data from flex
             axd = accelo_x >> 0;
             ayd = accelo_y >> 0;
 
