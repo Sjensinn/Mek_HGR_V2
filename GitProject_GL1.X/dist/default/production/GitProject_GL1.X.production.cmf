@@ -14,52 +14,51 @@
 $dist/default/production\GitProject_GL1.X.production.o
 cinit CODE 0 25 25 E 2
 idloc IDLOC 5 8000 8000 4 2
-text1 CODE 0 F3C F3C 10 2
-text2 CODE 0 F4C F4C 11 2
-text3 CODE 0 5BB 5BB 5B 2
-text4 CODE 0 EF8 EF8 6 2
-text5 CODE 0 F20 F20 D 2
-text6 CODE 0 F2D F2D F 2
-text7 CODE 0 740 740 37 2
-text8 CODE 0 F74 F74 17 2
-text9 CODE 0 777 777 31 2
+text1 CODE 0 F56 F56 10 2
+text2 CODE 0 F66 F66 11 2
+text3 CODE 0 5AA 5AA 5B 2
+text4 CODE 0 F0A F0A 6 2
+text5 CODE 0 F3A F3A D 2
+text6 CODE 0 F47 F47 F 2
+text7 CODE 0 72F 72F 37 2
+text8 CODE 0 F8E F8E 17 2
+text9 CODE 0 766 766 31 2
 text10 CODE 0 388 388 DB 2
 text11 CODE 0 33 33 167 2
-text12 CODE 0 616 616 56 2
-text13 CODE 0 F8B F8B 19 2
-text14 CODE 0 7A8 7A8 28 2
-text15 CODE 0 66C 66C 51 2
-text16 CODE 0 F0B F0B A 2
+text12 CODE 0 605 605 56 2
+text13 CODE 0 FA5 FA5 19 2
+text14 CODE 0 797 797 28 2
+text15 CODE 0 65B 65B 51 2
+text16 CODE 0 F25 F25 A 2
 text17 CODE 0 29E 29E EA 2
 text18 CODE 0 19A 19A 104 2
-text19 CODE 0 4E5 4E5 76 2
-text20 CODE 0 6BD 6BD 46 2
-text21 CODE 0 7F7 7F7 8 2
-text22 CODE 0 EF2 EF2 6 2
-text23 CODE 0 EEC EEC 6 2
-text24 CODE 0 F5D F5D 17 2
-text25 CODE 0 F04 F04 7 2
-text26 CODE 0 EE9 EE9 3 2
-text27 CODE 0 7D0 7D0 27 2
-text28 CODE 0 FD9 FD9 27 2
-text29 CODE 0 FA4 FA4 1A 2
-text30 CODE 0 55B 55B 60 2
-text31 CODE 0 703 703 3D 2
-text32 CODE 0 FBE FBE 1B 2
-text34 CODE 0 F15 F15 B 2
-nvBANK1 BANK1 1 E2 E2 1 1
-maintext CODE 0 463 463 82 2
+text19 CODE 0 463 463 76 2
+text20 CODE 0 6AC 6AC 46 2
+text21 CODE 0 F1D F1D 8 2
+text22 CODE 0 F04 F04 6 2
+text23 CODE 0 EFE EFE 6 2
+text24 CODE 0 F77 F77 17 2
+text25 CODE 0 F16 F16 7 2
+text26 CODE 0 7BF 7BF 27 2
+text27 CODE 0 FD9 FD9 27 2
+text28 CODE 0 7E6 7E6 1A 2
+text29 CODE 0 54A 54A 60 2
+text30 CODE 0 6F2 6F2 3D 2
+text31 CODE 0 FBE FBE 1B 2
+text33 CODE 0 F2F F2F B 2
+nvBANK1 BANK1 1 E0 E0 1 1
+maintext CODE 0 4D9 4D9 71 2
 cstackCOMMON COMMON 1 70 70 A 1
 cstackBANK0 BANK0 1 20 20 50 1
-cstackBANK1 BANK1 1 C8 C8 1A 1
+cstackBANK1 BANK1 1 C8 C8 18 1
 stringtext1 STRCODE 0 1000 1000 11 2
 stringtext2 STRCODE 0 1011 1011 3 2
 intentry CODE 0 4 4 1F 2
 bssBANK1 BANK1 1 A0 A0 28 1
-clrtext CODE 0 EFE EFE 6 2
+clrtext CODE 0 F10 F10 6 2
 bssCOMMON COMMON 1 7A 7A 2 1
 config CONFIG 4 8007 8007 5 2
-$C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.o
+$C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.o
 idloc IDLOC 5 8000 8000 4 2
 reset_vec CODE 0 0 0 2 2
 end_init CODE 0 23 23 2 2
@@ -70,7 +69,7 @@ config CONFIG 4 8007 8007 5 2
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM E3-EF 1
+RAM E1-EF 1
 RAM 120-16F 1
 RAM 1A0-1EF 1
 RAM 220-26F 1
@@ -120,7 +119,7 @@ RAM 17A0-17EF 1
 RAM 1820-186F 1
 RAM 18A0-18EF 1
 RAM 1920-196F 1
-BANK1 E3-EF 1
+BANK1 E1-EF 1
 BANK2 120-16F 1
 BANK3 1A0-1EF 1
 BANK4 220-26F 1
@@ -130,10 +129,10 @@ BANK7 3A0-3EF 1
 BANK8 420-46F 1
 BANK9 4A0-4EF 1
 CONST 2-3 2
-CONST 7FF-EE8 2
+CONST 800-EFD 2
 CONST 1014-7FFF 2
 ENTRY 2-3 2
-ENTRY 7FF-EE8 2
+ENTRY 800-EFD 2
 ENTRY 1014-7FFF 2
 SFR10 500-51F 1
 SFR11 580-59F 1
@@ -189,9 +188,9 @@ SFR60 1E00-1E6F 1
 SFR61 1E80-1EEF 1
 SFR62 1F00-1F6F 1
 SFR63 1F80-1FEF 1
-STACK 2093-2FEF 1
+STACK 2091-2FEF 1
 CODE 2-3 2
-CODE 7FF-EE8 2
+CODE 800-EFD 2
 CODE 1014-7FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
@@ -248,10 +247,10 @@ BIGRAM 2000-2FEF 1
 COMMON 7C-7D 1
 EEDATA F000-F0FF 2
 STRCODE 2-3 2
-STRCODE 7FF-EE8 2
+STRCODE 800-EFD 2
 STRCODE 1014-7FFF 2
 STRING 2-3 2
-STRING 7FF-EE8 2
+STRING 800-EFD 2
 STRING 1014-7FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -267,181 +266,178 @@ STRING 1014-7FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\GitProject_GL1.X.production.o
-25 cinit CODE >8028:C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.s
-25 cinit CODE >8031:C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.s
-25 cinit CODE >8076:C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.s
-26 cinit CODE >8077:C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.s
-27 cinit CODE >8081:C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.s
-28 cinit CODE >8082:C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.s
-29 cinit CODE >8083:C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.s
-2A cinit CODE >8084:C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.s
-2B cinit CODE >8085:C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.s
-2C cinit CODE >8086:C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.s
-2F cinit CODE >8092:C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.s
-2F cinit CODE >8094:C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.s
-30 cinit CODE >8095:C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.s
-31 cinit CODE >8096:C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.s
-4 intentry CODE >90:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
-6 intentry CODE >91:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
-7 intentry CODE >92:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
-D intentry CODE >91:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
-12 intentry CODE >94:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
-18 intentry CODE >94:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
-1C intentry CODE >95:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
-21 intentry CODE >97:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
-F15 text34 CODE >45:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-F16 text34 CODE >46:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-F1C text34 CODE >47:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-F1E text34 CODE >50:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-F1F text34 CODE >51:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-FBE text32 CODE >22:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-FBE text32 CODE >23:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-FBE text32 CODE >25:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-FCC text32 CODE >25:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-FD2 text32 CODE >26:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-FD7 text32 CODE >27:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-FD8 text32 CODE >28:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-703 text31 CODE >30:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-704 text31 CODE >31:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-705 text31 CODE >34:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-70A text31 CODE >35:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-710 text31 CODE >36:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-715 text31 CODE >37:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-71B text31 CODE >38:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-720 text31 CODE >39:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-725 text31 CODE >42:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-72A text31 CODE >43:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-72F text31 CODE >45:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-734 text31 CODE >46:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-739 text31 CODE >48:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-73E text31 CODE >49:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-73F text31 CODE >50:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-55B text30 CODE >5:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-55B text30 CODE >13:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-55D text30 CODE >14:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-561 text30 CODE >15:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-564 text30 CODE >15:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-566 text30 CODE >16:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-568 text30 CODE >18:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-56C text30 CODE >19:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-56F text30 CODE >19:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-571 text30 CODE >20:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-575 text30 CODE >22:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-577 text30 CODE >23:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-57D text30 CODE >24:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-57F text30 CODE >25:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-580 text30 CODE >26:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-585 text30 CODE >27:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-589 text30 CODE >25:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-58D text30 CODE >30:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-592 text30 CODE >31:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-594 text30 CODE >31:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-598 text30 CODE >31:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-59C text30 CODE >32:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-5A0 text30 CODE >33:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-5A1 text30 CODE >35:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-5A6 text30 CODE >36:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-5AC text30 CODE >38:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-5B1 text30 CODE >39:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-5B4 text30 CODE >39:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-5B6 text30 CODE >40:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-5BA text30 CODE >41:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
-FA4 text29 CODE >1:C:\Program Files\Microchip\pic\sources\c99\common\abs.c
-FA4 text29 CODE >3:C:\Program Files\Microchip\pic\sources\c99\common\abs.c
-FA9 text29 CODE >3:C:\Program Files\Microchip\pic\sources\c99\common\abs.c
-FAD text29 CODE >3:C:\Program Files\Microchip\pic\sources\c99\common\abs.c
-FB6 text29 CODE >3:C:\Program Files\Microchip\pic\sources\c99\common\abs.c
-FBD text29 CODE >4:C:\Program Files\Microchip\pic\sources\c99\common\abs.c
-FD9 text28 CODE >52:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-FD9 text28 CODE >53:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-FD9 text28 CODE >55:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-FF3 text28 CODE >55:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-FF9 text28 CODE >56:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-FFE text28 CODE >57:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-FFF text28 CODE >58:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-7D0 text27 CODE >60:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-7D0 text27 CODE >61:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-7D0 text27 CODE >63:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-7EA text27 CODE >63:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-7F0 text27 CODE >64:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-7F5 text27 CODE >65:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-7F6 text27 CODE >66:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-EE9 text26 CODE >17:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-EE9 text26 CODE >19:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-EEB text26 CODE >20:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-F04 text25 CODE >31:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F04 text25 CODE >32:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F04 text25 CODE >34:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F09 text25 CODE >35:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F0A text25 CODE >36:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F5D text24 CODE >57:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F5E text24 CODE >60:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F60 text24 CODE >61:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F63 text24 CODE >63:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F68 text24 CODE >64:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F69 text24 CODE >66:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F6A text24 CODE >66:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F6C text24 CODE >66:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F6E text24 CODE >67:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F6F text24 CODE >68:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F72 text24 CODE >70:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F73 text24 CODE >71:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-EEC text23 CODE >26:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-EEC text23 CODE >27:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-EEE text23 CODE >28:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-EF1 text23 CODE >29:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-EF2 text22 CODE >45:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-EF2 text22 CODE >46:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-EF4 text22 CODE >47:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-EF7 text22 CODE >48:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-7F7 text21 CODE >51:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-7F8 text21 CODE >52:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-7FB text21 CODE >53:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-7FE text21 CODE >54:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-6BD text20 CODE >50:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-6BF text20 CODE >53:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-6C2 text20 CODE >54:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-6C7 text20 CODE >55:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-6CB text20 CODE >58:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-6CE text20 CODE >59:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-6D4 text20 CODE >60:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-6DC text20 CODE >61:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-6E4 text20 CODE >62:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-6EC text20 CODE >63:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-6F0 text20 CODE >64:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-6F3 text20 CODE >66:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-6FB text20 CODE >67:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-702 text20 CODE >70:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-4E5 text19 CODE >9:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-4E6 text19 CODE >10:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-4EB text19 CODE >11:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-4F7 text19 CODE >14:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-4FA text19 CODE >15:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-4FF text19 CODE >16:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-503 text19 CODE >17:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-507 text19 CODE >18:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-50A text19 CODE >21:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-50D text19 CODE >22:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-512 text19 CODE >23:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-516 text19 CODE >24:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-51A text19 CODE >25:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-51D text19 CODE >28:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-520 text19 CODE >29:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-525 text19 CODE >30:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-529 text19 CODE >31:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-52D text19 CODE >32:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-530 text19 CODE >35:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-533 text19 CODE >36:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-538 text19 CODE >37:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-53C text19 CODE >38:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-540 text19 CODE >39:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-544 text19 CODE >40:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-547 text19 CODE >43:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-54A text19 CODE >44:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-54F text19 CODE >45:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-553 text19 CODE >46:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-557 text19 CODE >47:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
-55A text19 CODE >48:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+25 cinit CODE >8025:C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.s
+25 cinit CODE >8028:C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.s
+25 cinit CODE >8073:C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.s
+26 cinit CODE >8074:C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.s
+27 cinit CODE >8078:C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.s
+28 cinit CODE >8079:C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.s
+29 cinit CODE >8080:C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.s
+2A cinit CODE >8081:C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.s
+2B cinit CODE >8082:C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.s
+2C cinit CODE >8083:C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.s
+2F cinit CODE >8089:C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.s
+2F cinit CODE >8091:C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.s
+30 cinit CODE >8092:C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.s
+31 cinit CODE >8093:C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.s
+4 intentry CODE >91:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+6 intentry CODE >92:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+7 intentry CODE >93:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+D intentry CODE >92:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+12 intentry CODE >95:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+18 intentry CODE >95:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+1C intentry CODE >96:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+21 intentry CODE >98:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+F2F text33 CODE >45:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+F30 text33 CODE >46:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+F36 text33 CODE >47:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+F38 text33 CODE >50:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+F39 text33 CODE >51:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+FBE text31 CODE >22:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+FBE text31 CODE >23:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+FBE text31 CODE >25:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+FCC text31 CODE >25:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+FD2 text31 CODE >26:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+FD7 text31 CODE >27:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+FD8 text31 CODE >28:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+6F2 text30 CODE >30:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+6F3 text30 CODE >31:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+6F4 text30 CODE >34:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+6F9 text30 CODE >35:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+6FF text30 CODE >36:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+704 text30 CODE >37:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+70A text30 CODE >38:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+70F text30 CODE >39:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+714 text30 CODE >42:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+719 text30 CODE >43:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+71E text30 CODE >45:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+723 text30 CODE >46:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+728 text30 CODE >48:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+72D text30 CODE >49:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+72E text30 CODE >50:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+54A text29 CODE >5:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+54A text29 CODE >13:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+54C text29 CODE >14:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+550 text29 CODE >15:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+553 text29 CODE >15:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+555 text29 CODE >16:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+557 text29 CODE >18:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+55B text29 CODE >19:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+55E text29 CODE >19:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+560 text29 CODE >20:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+564 text29 CODE >22:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+566 text29 CODE >23:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+56C text29 CODE >24:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+56E text29 CODE >25:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+56F text29 CODE >26:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+574 text29 CODE >27:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+578 text29 CODE >25:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+57C text29 CODE >30:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+581 text29 CODE >31:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+583 text29 CODE >31:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+587 text29 CODE >31:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+58B text29 CODE >32:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+58F text29 CODE >33:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+590 text29 CODE >35:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+595 text29 CODE >36:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+59B text29 CODE >38:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+5A0 text29 CODE >39:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+5A3 text29 CODE >39:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+5A5 text29 CODE >40:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+5A9 text29 CODE >41:C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
+7E6 text28 CODE >1:C:\Program Files\Microchip\pic\sources\c99\common\abs.c
+7E6 text28 CODE >3:C:\Program Files\Microchip\pic\sources\c99\common\abs.c
+7EB text28 CODE >3:C:\Program Files\Microchip\pic\sources\c99\common\abs.c
+7EF text28 CODE >3:C:\Program Files\Microchip\pic\sources\c99\common\abs.c
+7F8 text28 CODE >3:C:\Program Files\Microchip\pic\sources\c99\common\abs.c
+7FF text28 CODE >4:C:\Program Files\Microchip\pic\sources\c99\common\abs.c
+FD9 text27 CODE >52:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+FD9 text27 CODE >53:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+FD9 text27 CODE >55:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+FF3 text27 CODE >55:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+FF9 text27 CODE >56:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+FFE text27 CODE >57:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+FFF text27 CODE >58:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+7BF text26 CODE >60:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+7BF text26 CODE >61:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+7BF text26 CODE >63:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+7D9 text26 CODE >63:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+7DF text26 CODE >64:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+7E4 text26 CODE >65:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+7E5 text26 CODE >66:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+F16 text25 CODE >31:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F16 text25 CODE >32:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F16 text25 CODE >34:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F1B text25 CODE >35:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F1C text25 CODE >36:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F77 text24 CODE >57:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F78 text24 CODE >60:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F7A text24 CODE >61:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F7D text24 CODE >63:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F82 text24 CODE >64:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F83 text24 CODE >66:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F84 text24 CODE >66:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F86 text24 CODE >66:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F88 text24 CODE >67:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F89 text24 CODE >68:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F8C text24 CODE >70:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F8D text24 CODE >71:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+EFE text23 CODE >26:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+EFE text23 CODE >27:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F00 text23 CODE >28:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F03 text23 CODE >29:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F04 text22 CODE >45:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F04 text22 CODE >46:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F06 text22 CODE >47:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F09 text22 CODE >48:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F1D text21 CODE >51:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F1E text21 CODE >52:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F21 text21 CODE >53:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F24 text21 CODE >54:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+6AC text20 CODE >50:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+6AE text20 CODE >53:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+6B1 text20 CODE >54:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+6B6 text20 CODE >55:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+6BA text20 CODE >58:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+6BD text20 CODE >59:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+6C3 text20 CODE >60:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+6CB text20 CODE >61:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+6D3 text20 CODE >62:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+6DB text20 CODE >63:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+6DF text20 CODE >64:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+6E2 text20 CODE >66:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+6EA text20 CODE >67:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+6F1 text20 CODE >70:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+463 text19 CODE >9:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+464 text19 CODE >10:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+469 text19 CODE >11:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+475 text19 CODE >14:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+478 text19 CODE >15:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+47D text19 CODE >16:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+481 text19 CODE >17:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+485 text19 CODE >18:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+488 text19 CODE >21:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+48B text19 CODE >22:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+490 text19 CODE >23:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+494 text19 CODE >24:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+498 text19 CODE >25:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+49B text19 CODE >28:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+49E text19 CODE >29:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+4A3 text19 CODE >30:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+4A7 text19 CODE >31:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+4AB text19 CODE >32:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+4AE text19 CODE >35:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+4B1 text19 CODE >36:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+4B6 text19 CODE >37:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+4BA text19 CODE >38:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+4BE text19 CODE >39:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+4C2 text19 CODE >40:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+4C5 text19 CODE >43:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+4C8 text19 CODE >44:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+4CD text19 CODE >45:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+4D1 text19 CODE >46:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+4D5 text19 CODE >47:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+4D8 text19 CODE >48:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
 19A text18 CODE >7:C:\Program Files\Microchip\pic\sources\c99\common\aodiv.c
 19A text18 CODE >15:C:\Program Files\Microchip\pic\sources\c99\common\aodiv.c
 19C text18 CODE >16:C:\Program Files\Microchip\pic\sources\c99\common\aodiv.c
@@ -548,51 +544,51 @@ EF7 text22 CODE >48:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I
 373 text17 CODE >34:C:\Program Files\Microchip\pic\sources\c99\common\aomod.c
 376 text17 CODE >35:C:\Program Files\Microchip\pic\sources\c99\common\aomod.c
 387 text17 CODE >36:C:\Program Files\Microchip\pic\sources\c99\common\aomod.c
-F0B text16 CODE >33:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-F0C text16 CODE >34:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-F0C text16 CODE >35:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-F11 text16 CODE >36:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-F14 text16 CODE >37:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-66C text15 CODE >8:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
-66C text15 CODE >12:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
-676 text15 CODE >13:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
-67A text15 CODE >14:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
-67B text15 CODE >15:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
-69B text15 CODE >15:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
-69F text15 CODE >15:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
-6A3 text15 CODE >18:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
-6B4 text15 CODE >20:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
-6BA text15 CODE >20:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
-6BC text15 CODE >24:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
-7A8 text14 CODE >8:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputs.c
-7AA text14 CODE >13:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputs.c
-7AC text14 CODE >14:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputs.c
-7AD text14 CODE >15:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputs.c
-7BB text14 CODE >16:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputs.c
-7C0 text14 CODE >14:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputs.c
-7CF text14 CODE >19:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputs.c
-F8B text13 CODE >5:C:\Program Files\Microchip\pic\sources\c99\common\strlen.c
-F8C text13 CODE >7:C:\Program Files\Microchip\pic\sources\c99\common\strlen.c
-F90 text13 CODE >8:C:\Program Files\Microchip\pic\sources\c99\common\strlen.c
-F91 text13 CODE >9:C:\Program Files\Microchip\pic\sources\c99\common\strlen.c
-F95 text13 CODE >8:C:\Program Files\Microchip\pic\sources\c99\common\strlen.c
-F9D text13 CODE >11:C:\Program Files\Microchip\pic\sources\c99\common\strlen.c
-FA3 text13 CODE >12:C:\Program Files\Microchip\pic\sources\c99\common\strlen.c
-616 text12 CODE >72:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-618 text12 CODE >77:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-61C text12 CODE >78:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-624 text12 CODE >82:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-630 text12 CODE >83:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-632 text12 CODE >84:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-633 text12 CODE >85:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-63F text12 CODE >86:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-644 text12 CODE >84:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-64A text12 CODE >84:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-64E text12 CODE >84:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-652 text12 CODE >90:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-656 text12 CODE >91:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-65F text12 CODE >94:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-66B text12 CODE >95:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
+F25 text16 CODE >33:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+F26 text16 CODE >34:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+F26 text16 CODE >35:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+F2B text16 CODE >36:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+F2E text16 CODE >37:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+65B text15 CODE >8:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
+65B text15 CODE >12:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
+665 text15 CODE >13:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
+669 text15 CODE >14:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
+66A text15 CODE >15:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
+68A text15 CODE >15:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
+68E text15 CODE >15:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
+692 text15 CODE >18:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
+6A3 text15 CODE >20:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
+6A9 text15 CODE >20:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
+6AB text15 CODE >24:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
+797 text14 CODE >8:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputs.c
+799 text14 CODE >13:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputs.c
+79B text14 CODE >14:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputs.c
+79C text14 CODE >15:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputs.c
+7AA text14 CODE >16:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputs.c
+7AF text14 CODE >14:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputs.c
+7BE text14 CODE >19:C:\Program Files\Microchip\pic\sources\c99\common\nf_fputs.c
+FA5 text13 CODE >5:C:\Program Files\Microchip\pic\sources\c99\common\strlen.c
+FA6 text13 CODE >7:C:\Program Files\Microchip\pic\sources\c99\common\strlen.c
+FAA text13 CODE >8:C:\Program Files\Microchip\pic\sources\c99\common\strlen.c
+FAB text13 CODE >9:C:\Program Files\Microchip\pic\sources\c99\common\strlen.c
+FAF text13 CODE >8:C:\Program Files\Microchip\pic\sources\c99\common\strlen.c
+FB7 text13 CODE >11:C:\Program Files\Microchip\pic\sources\c99\common\strlen.c
+FBD text13 CODE >12:C:\Program Files\Microchip\pic\sources\c99\common\strlen.c
+605 text12 CODE >72:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
+607 text12 CODE >77:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
+60B text12 CODE >78:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
+613 text12 CODE >82:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
+61F text12 CODE >83:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
+621 text12 CODE >84:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
+622 text12 CODE >85:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
+62E text12 CODE >86:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
+633 text12 CODE >84:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
+639 text12 CODE >84:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
+63D text12 CODE >84:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
+641 text12 CODE >90:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
+645 text12 CODE >91:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
+64E text12 CODE >94:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
+65A text12 CODE >95:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
 33 text11 CODE >287:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
 35 text11 CODE >293:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
 45 text11 CODE >294:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
@@ -661,153 +657,153 @@ FA text11 CODE >317:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
 458 text10 CODE >1385:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
 45F text10 CODE >1385:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
 462 text10 CODE >1387:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-777 text9 CODE >1390:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-779 text9 CODE >1395:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-77D text9 CODE >1396:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-780 text9 CODE >1397:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-781 text9 CODE >1398:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-795 text9 CODE >1397:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-79F text9 CODE >1400:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-7A7 text9 CODE >1404:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-F74 text8 CODE >5:C:\Program Files\Microchip\pic\sources\c99\common\printf.c
-F74 text8 CODE >9:C:\Program Files\Microchip\pic\sources\c99\common\printf.c
-F79 text8 CODE >10:C:\Program Files\Microchip\pic\sources\c99\common\printf.c
-F8A text8 CODE >13:C:\Program Files\Microchip\pic\sources\c99\common\printf.c
-740 text7 CODE >54:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-742 text7 CODE >55:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-744 text7 CODE >56:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-756 text7 CODE >57:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-75B text7 CODE >58:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-764 text7 CODE >59:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-76E text7 CODE >59:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-772 text7 CODE >59:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-776 text7 CODE >61:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-F2D text6 CODE >5:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F2D text6 CODE >7:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F30 text6 CODE >9:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F32 text6 CODE >11:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F33 text6 CODE >13:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F34 text6 CODE >17:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F36 text6 CODE >19:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F38 text6 CODE >20:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F39 text6 CODE >22:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F3B text6 CODE >23:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
-F20 text5 CODE >21:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-F20 text5 CODE >24:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-F23 text5 CODE >25:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-F25 text5 CODE >27:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-F26 text5 CODE >29:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-F28 text5 CODE >31:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-F2A text5 CODE >33:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-F2B text5 CODE >35:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-F2C text5 CODE >36:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-EF8 text4 CODE >135:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-EF8 text4 CODE >136:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-EFA text4 CODE >137:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-EFB text4 CODE >138:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-EFC text4 CODE >139:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-EFD text4 CODE >140:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5BB text3 CODE >38:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5BB text3 CODE >42:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5BD text3 CODE >43:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5BE text3 CODE >44:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5C0 text3 CODE >45:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5C1 text3 CODE >46:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5C2 text3 CODE >51:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5C4 text3 CODE >52:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5C6 text3 CODE >53:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5C8 text3 CODE >54:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5C9 text3 CODE >55:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5CB text3 CODE >60:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5CE text3 CODE >61:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5D0 text3 CODE >62:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5D2 text3 CODE >63:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5D3 text3 CODE >64:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5D5 text3 CODE >69:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5D6 text3 CODE >70:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5D7 text3 CODE >71:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5D8 text3 CODE >72:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5D9 text3 CODE >73:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5DA text3 CODE >84:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5DB text3 CODE >85:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5DC text3 CODE >86:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5DD text3 CODE >87:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5DE text3 CODE >88:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5DF text3 CODE >92:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5E1 text3 CODE >93:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5E3 text3 CODE >94:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5E5 text3 CODE >95:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5E7 text3 CODE >96:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5E9 text3 CODE >100:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5EB text3 CODE >101:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5ED text3 CODE >102:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5EF text3 CODE >103:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5F1 text3 CODE >104:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5F3 text3 CODE >109:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5F6 text3 CODE >110:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5F8 text3 CODE >111:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5FA text3 CODE >112:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-5FD text3 CODE >113:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-600 text3 CODE >114:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-603 text3 CODE >115:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-606 text3 CODE >116:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-609 text3 CODE >121:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-60A text3 CODE >122:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-60B text3 CODE >123:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-60C text3 CODE >124:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-60D text3 CODE >125:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-60E text3 CODE >126:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-60F text3 CODE >127:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-610 text3 CODE >128:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-611 text3 CODE >129:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-612 text3 CODE >130:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-613 text3 CODE >131:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-614 text3 CODE >132:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-615 text3 CODE >133:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-F4C text2 CODE >6:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-F4C text2 CODE >7:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-F4F text2 CODE >8:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-F52 text2 CODE >9:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-F53 text2 CODE >10:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-F54 text2 CODE >11:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-F55 text2 CODE >12:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-F56 text2 CODE >13:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-F57 text2 CODE >14:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-F58 text2 CODE >15:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-F59 text2 CODE >16:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-F5A text2 CODE >17:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-F5C text2 CODE >18:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-F3C text1 CODE >12:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-F3C text1 CODE >13:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-F3F text1 CODE >14:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-F42 text1 CODE >15:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-F45 text1 CODE >16:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-F48 text1 CODE >17:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-F4B text1 CODE >18:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
-463 maintext CODE >41:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
-463 maintext CODE >42:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
-466 maintext CODE >43:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
-46A maintext CODE >53:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
-46F maintext CODE >54:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
-474 maintext CODE >56:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
-47C maintext CODE >57:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
-484 maintext CODE >58:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
-488 maintext CODE >59:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
-48C maintext CODE >62:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
-497 maintext CODE >63:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
-4B3 maintext CODE >64:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
-4C1 maintext CODE >65:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
-4CF maintext CODE >68:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
-4D3 maintext CODE >71:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
-4D5 maintext CODE >72:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
-EFE clrtext CODE >8065:C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.s
-EFE clrtext CODE >8066:C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.s
-EFF clrtext CODE >8067:C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.s
-EFF clrtext CODE >8068:C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.s
-F00 clrtext CODE >8069:C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.s
-F01 clrtext CODE >8070:C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.s
-F02 clrtext CODE >8071:C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.s
-F03 clrtext CODE >8072:C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.s
+766 text9 CODE >1390:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
+768 text9 CODE >1395:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
+76C text9 CODE >1396:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
+76F text9 CODE >1397:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
+770 text9 CODE >1398:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
+784 text9 CODE >1397:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
+78E text9 CODE >1400:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
+796 text9 CODE >1404:C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
+F8E text8 CODE >5:C:\Program Files\Microchip\pic\sources\c99\common\printf.c
+F8E text8 CODE >9:C:\Program Files\Microchip\pic\sources\c99\common\printf.c
+F93 text8 CODE >10:C:\Program Files\Microchip\pic\sources\c99\common\printf.c
+FA4 text8 CODE >13:C:\Program Files\Microchip\pic\sources\c99\common\printf.c
+72F text7 CODE >54:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+731 text7 CODE >55:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+733 text7 CODE >56:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+745 text7 CODE >57:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+74A text7 CODE >58:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+753 text7 CODE >59:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+75D text7 CODE >59:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+761 text7 CODE >59:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+765 text7 CODE >61:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+F47 text6 CODE >5:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F47 text6 CODE >7:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F4A text6 CODE >9:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F4C text6 CODE >11:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F4D text6 CODE >13:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F4E text6 CODE >17:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F50 text6 CODE >19:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F52 text6 CODE >20:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F53 text6 CODE >22:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F55 text6 CODE >23:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+F3A text5 CODE >21:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+F3A text5 CODE >24:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+F3D text5 CODE >25:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+F3F text5 CODE >27:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+F40 text5 CODE >29:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+F42 text5 CODE >31:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+F44 text5 CODE >33:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+F45 text5 CODE >35:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+F46 text5 CODE >36:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+F0A text4 CODE >135:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+F0A text4 CODE >136:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+F0C text4 CODE >137:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+F0D text4 CODE >138:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+F0E text4 CODE >139:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+F0F text4 CODE >140:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5AA text3 CODE >38:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5AA text3 CODE >42:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5AC text3 CODE >43:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5AD text3 CODE >44:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5AF text3 CODE >45:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5B0 text3 CODE >46:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5B1 text3 CODE >51:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5B3 text3 CODE >52:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5B5 text3 CODE >53:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5B7 text3 CODE >54:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5B8 text3 CODE >55:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5BA text3 CODE >60:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5BD text3 CODE >61:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5BF text3 CODE >62:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5C1 text3 CODE >63:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5C2 text3 CODE >64:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5C4 text3 CODE >69:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5C5 text3 CODE >70:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5C6 text3 CODE >71:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5C7 text3 CODE >72:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5C8 text3 CODE >73:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5C9 text3 CODE >84:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5CA text3 CODE >85:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5CB text3 CODE >86:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5CC text3 CODE >87:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5CD text3 CODE >88:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5CE text3 CODE >92:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5D0 text3 CODE >93:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5D2 text3 CODE >94:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5D4 text3 CODE >95:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5D6 text3 CODE >96:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5D8 text3 CODE >100:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5DA text3 CODE >101:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5DC text3 CODE >102:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5DE text3 CODE >103:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5E0 text3 CODE >104:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5E2 text3 CODE >109:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5E5 text3 CODE >110:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5E7 text3 CODE >111:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5E9 text3 CODE >112:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5EC text3 CODE >113:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5EF text3 CODE >114:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5F2 text3 CODE >115:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5F5 text3 CODE >116:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5F8 text3 CODE >121:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5F9 text3 CODE >122:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5FA text3 CODE >123:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5FB text3 CODE >124:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5FC text3 CODE >125:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5FD text3 CODE >126:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5FE text3 CODE >127:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+5FF text3 CODE >128:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+600 text3 CODE >129:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+601 text3 CODE >130:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+602 text3 CODE >131:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+603 text3 CODE >132:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+604 text3 CODE >133:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+F66 text2 CODE >6:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+F66 text2 CODE >7:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+F69 text2 CODE >8:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+F6C text2 CODE >9:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+F6D text2 CODE >10:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+F6E text2 CODE >11:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+F6F text2 CODE >12:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+F70 text2 CODE >13:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+F71 text2 CODE >14:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+F72 text2 CODE >15:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+F73 text2 CODE >16:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+F74 text2 CODE >17:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+F76 text2 CODE >18:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+F56 text1 CODE >12:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+F56 text1 CODE >13:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+F59 text1 CODE >14:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+F5C text1 CODE >15:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+F5F text1 CODE >16:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+F62 text1 CODE >17:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+F65 text1 CODE >18:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+4D9 maintext CODE >41:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+4D9 maintext CODE >42:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+4DC maintext CODE >43:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+4E0 maintext CODE >53:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+4E5 maintext CODE >55:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+4EA maintext CODE >57:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+4F2 maintext CODE >58:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+4F2 maintext CODE >59:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+4F7 maintext CODE >60:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+4FB maintext CODE >63:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+506 maintext CODE >64:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+518 maintext CODE >65:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+526 maintext CODE >66:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+534 maintext CODE >69:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+538 maintext CODE >72:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+53A maintext CODE >73:C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+F10 clrtext CODE >8062:C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.s
+F10 clrtext CODE >8063:C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.s
+F11 clrtext CODE >8064:C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.s
+F11 clrtext CODE >8065:C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.s
+F12 clrtext CODE >8066:C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.s
+F13 clrtext CODE >8067:C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.s
+F14 clrtext CODE >8068:C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.s
+F15 clrtext CODE >8069:C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -824,7 +820,7 @@ ___latbits 4 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 ___awdiv@counter 34 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
 putch@data 72 0 COMMON 1 cstackCOMMON dist/default/production\GitProject_GL1.X.production.o
 __Hspace_0 1014 0 ABS 0 - -
-__Hspace_1 E3 0 ABS 0 - -
+__Hspace_1 E1 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 10013 0 ABS 0 - -
@@ -833,8 +829,8 @@ _SSP1STATbits 18F 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 ?_abs 75 0 COMMON 1 cstackCOMMON dist/default/production\GitProject_GL1.X.production.o
 ?_pad 29 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
-__end_of_I2C_Start 1DE4 0 CODE 0 text23 dist/default/production\GitProject_GL1.X.production.o
-__end_of_I2C_Write FFE 0 CODE 0 text21 dist/default/production\GitProject_GL1.X.production.o
+__end_of_I2C_Start 1E08 0 CODE 0 text23 dist/default/production\GitProject_GL1.X.production.o
+__end_of_I2C_Write 1E4A 0 CODE 0 text21 dist/default/production\GitProject_GL1.X.production.o
 __Hstrings 0 0 ABS 0 strings -
 ?_vfprintf 68 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
 _LATA 16 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
@@ -849,10 +845,10 @@ _WPUB 1F44 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _WPUC 1F4F 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _WPUD 1F5A 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _WPUE 1F65 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.o
+___sp 0 0 STACK 2 stack C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.o
 _dbuf A8 0 BANK1 1 bssBANK1 dist/default/production\GitProject_GL1.X.production.o
 _dtoa 66 0 CODE 0 text11 dist/default/production\GitProject_GL1.X.production.o
-_main 8C6 0 CODE 0 maintext dist/default/production\GitProject_GL1.X.production.o
+_main 9B2 0 CODE 0 maintext dist/default/production\GitProject_GL1.X.production.o
 _nout A0 0 BANK1 1 bssBANK1 dist/default/production\GitProject_GL1.X.production.o
 _prec A4 0 BANK1 1 bssBANK1 dist/default/production\GitProject_GL1.X.production.o
 abs@a 75 0 COMMON 1 cstackCOMMON dist/default/production\GitProject_GL1.X.production.o
@@ -863,7 +859,7 @@ _T1CKIPPS 1E92 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 pad@i 2D 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
 pad@p 2A 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
 pad@w 2F 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
-start 46 0 CODE 0 init C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.o
+start 46 0 CODE 0 init C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.o
 ___aomod@counter 73 0 COMMON 1 cstackCOMMON dist/default/production\GitProject_GL1.X.production.o
 __size_of___aodiv 0 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 __size_of___aomod 0 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
@@ -879,27 +875,27 @@ __size_of_I2C_Read 0 0 ABS 0 - dist/default/production\GitProject_GL1.X.producti
 __size_of_I2C_Stop 0 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 __size_of_I2C_Wait 0 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 __size_of_I2C_init 0 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
-_system_init 1E78 0 CODE 0 text1 dist/default/production\GitProject_GL1.X.production.o
-_I2C_Start 1DD8 0 CODE 0 text23 dist/default/production\GitProject_GL1.X.production.o
+_system_init 1EAC 0 CODE 0 text1 dist/default/production\GitProject_GL1.X.production.o
+_I2C_Start 1DFC 0 CODE 0 text23 dist/default/production\GitProject_GL1.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-_I2C_Write FEE 0 CODE 0 text21 dist/default/production\GitProject_GL1.X.production.o
+_I2C_Write 1E3A 0 CODE 0 text21 dist/default/production\GitProject_GL1.X.production.o
 __size_of_int_init 0 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 __end_of_vfpfcnvrt 8C6 0 CODE 0 text10 dist/default/production\GitProject_GL1.X.production.o
 __size_of_vfpfcnvrt 0 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
-_pin_init B76 0 CODE 0 text3 dist/default/production\GitProject_GL1.X.production.o
+_pin_init B54 0 CODE 0 text3 dist/default/production\GitProject_GL1.X.production.o
 _data_in A7 0 BANK1 1 bssBANK1 dist/default/production\GitProject_GL1.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 _RC1STAbits 11D 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
-__end_of_send_commands EEE 0 CODE 0 text7 dist/default/production\GitProject_GL1.X.production.o
-__end_of_pin_init C2C 0 CODE 0 text3 dist/default/production\GitProject_GL1.X.production.o
+__end_of_send_commands ECC 0 CODE 0 text7 dist/default/production\GitProject_GL1.X.production.o
+__end_of_pin_init C0A 0 CODE 0 text3 dist/default/production\GitProject_GL1.X.production.o
 ___awdiv@sign 35 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext -
 _vfpfcnvrt 710 0 CODE 0 text10 dist/default/production\GitProject_GL1.X.production.o
@@ -912,29 +908,28 @@ _ANSELC 1F4E 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _ANSELD 1F59 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _ANSELE 1F64 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 ___awdiv@dividend 32 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
-_I2C_Read 1EBA 0 CODE 0 text24 dist/default/production\GitProject_GL1.X.production.o
-_I2C_Stop 1DE4 0 CODE 0 text22 dist/default/production\GitProject_GL1.X.production.o
-_I2C_Wait 1E08 0 CODE 0 text25 dist/default/production\GitProject_GL1.X.production.o
-_I2C_init 1E5A 0 CODE 0 text6 dist/default/production\GitProject_GL1.X.production.o
-_get_Flex_Data 1DD2 0 CODE 0 text26 dist/default/production\GitProject_GL1.X.production.o
-main@axd DC 0 BANK1 1 cstackBANK1 dist/default/production\GitProject_GL1.X.production.o
-main@ayd DD 0 BANK1 1 cstackBANK1 dist/default/production\GitProject_GL1.X.production.o
-_int_init 1DF0 0 CODE 0 text4 dist/default/production\GitProject_GL1.X.production.o
+_I2C_Read 1EEE 0 CODE 0 text24 dist/default/production\GitProject_GL1.X.production.o
+_I2C_Stop 1E08 0 CODE 0 text22 dist/default/production\GitProject_GL1.X.production.o
+_I2C_Wait 1E2C 0 CODE 0 text25 dist/default/production\GitProject_GL1.X.production.o
+_I2C_init 1E8E 0 CODE 0 text6 dist/default/production\GitProject_GL1.X.production.o
+main@axd DA 0 BANK1 1 cstackBANK1 dist/default/production\GitProject_GL1.X.production.o
+main@ayd DB 0 BANK1 1 cstackBANK1 dist/default/production\GitProject_GL1.X.production.o
+_int_init 1E14 0 CODE 0 text4 dist/default/production\GitProject_GL1.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
 _BAUDCONbits 11F 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 ?_printf C8 0 BANK1 1 cstackBANK1 dist/default/production\GitProject_GL1.X.production.o
-__end_of_I2C_Read 1EE8 0 CODE 0 text24 dist/default/production\GitProject_GL1.X.production.o
-__end_of_I2C_Stop 1DF0 0 CODE 0 text22 dist/default/production\GitProject_GL1.X.production.o
-__end_of_I2C_Wait 1E16 0 CODE 0 text25 dist/default/production\GitProject_GL1.X.production.o
-__end_of_I2C_init 1E78 0 CODE 0 text6 dist/default/production\GitProject_GL1.X.production.o
+__end_of_I2C_Read 1F1C 0 CODE 0 text24 dist/default/production\GitProject_GL1.X.production.o
+__end_of_I2C_Stop 1E14 0 CODE 0 text22 dist/default/production\GitProject_GL1.X.production.o
+__end_of_I2C_Wait 1E3A 0 CODE 0 text25 dist/default/production\GitProject_GL1.X.production.o
+__end_of_I2C_init 1EAC 0 CODE 0 text6 dist/default/production\GitProject_GL1.X.production.o
 __LnvBANK1 0 0 ABS 0 nvBANK1 -
 ___awdiv@divisor 30 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
 __end_of___aodiv 53C 0 CODE 0 text18 dist/default/production\GitProject_GL1.X.production.o
 __end_of___aomod 710 0 CODE 0 text17 dist/default/production\GitProject_GL1.X.production.o
-__end_of___awdiv B76 0 CODE 0 text30 dist/default/production\GitProject_GL1.X.production.o
-_gy_Read D7A 0 CODE 0 text20 dist/default/production\GitProject_GL1.X.production.o
-_gy_init 9CA 0 CODE 0 text19 dist/default/production\GitProject_GL1.X.production.o
-__end_of_int_init 1DFC 0 CODE 0 text4 dist/default/production\GitProject_GL1.X.production.o
+__end_of___awdiv B54 0 CODE 0 text29 dist/default/production\GitProject_GL1.X.production.o
+_gy_Read D58 0 CODE 0 text20 dist/default/production\GitProject_GL1.X.production.o
+_gy_init 8C6 0 CODE 0 text19 dist/default/production\GitProject_GL1.X.production.o
+__end_of_int_init 1E20 0 CODE 0 text4 dist/default/production\GitProject_GL1.X.production.o
 ___aodiv@quotient 32 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
 _INLVLA 1F3C 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _INLVLB 1F47 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
@@ -942,8 +937,8 @@ _INLVLC 1F52 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _INLVLD 1F5D 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _INLVLE 1F68 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 ?_strlen 72 0 COMMON 1 cstackCOMMON dist/default/production\GitProject_GL1.X.production.o
-___stackhi 2FEF 0 ABS 0 - C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.o
-___stacklo 2093 0 ABS 0 - C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.o
+___stackhi 2FEF 0 ABS 0 - C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.o
+___stacklo 2091 0 ABS 0 - C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.o
 ___aomod@dividend 28 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
 __size_of_fputc 0 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 __size_of_fputs 0 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
@@ -960,23 +955,23 @@ _ODCONC 1F50 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _ODCOND 1F5B 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _ODCONE 1F66 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _OSCFRQ 893 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
-_clock_init 1E40 0 CODE 0 text5 dist/default/production\GitProject_GL1.X.production.o
+_clock_init 1E74 0 CODE 0 text5 dist/default/production\GitProject_GL1.X.production.o
 _TRISCbits 13 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _RC3PPS 1F23 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _RC4PPS 1F24 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _RC6PPS 1F26 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
-clear_ram0 1DFC 0 CODE 0 clrtext dist/default/production\GitProject_GL1.X.production.o
+clear_ram0 1E20 0 CODE 0 clrtext dist/default/production\GitProject_GL1.X.production.o
 _SPBRGH 11C 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _SPBRGL 11B 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
 __pcstackBANK1 C8 0 BANK1 1 cstackBANK1 dist/default/production\GitProject_GL1.X.production.o
 _T1GPPS 1E93 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _TX1REG 11A 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
-__end_of_printf 1F16 0 CODE 0 text8 dist/default/production\GitProject_GL1.X.production.o
+__end_of_printf 1F4A 0 CODE 0 text8 dist/default/production\GitProject_GL1.X.production.o
 fputc@fp 75 0 COMMON 1 cstackCOMMON dist/default/production\GitProject_GL1.X.production.o
 send_commands@i D1 0 BANK1 1 cstackBANK1 dist/default/production\GitProject_GL1.X.production.o
 fputs@fp 76 0 COMMON 1 cstackCOMMON dist/default/production\GitProject_GL1.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.o
+___int_sp 0 0 STACK 2 stack C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -988,7 +983,7 @@ __Hbank7 0 0 ABS 0 bank7 -
 __Hbank8 0 0 ABS 0 bank8 -
 __Hbank9 0 0 ABS 0 bank9 -
 __Hcinit 66 0 CODE 0 cinit -
-__end_of_strlen 1F48 0 CODE 0 text13 dist/default/production\GitProject_GL1.X.production.o
+__end_of_strlen 1F7C 0 CODE 0 text13 dist/default/production\GitProject_GL1.X.production.o
 __Hidloc 10008 0 IDLOC 5 idloc -
 __Hsfr10 0 0 ABS 0 sfr10 -
 __Hsfr11 0 0 ABS 0 sfr11 -
@@ -1101,7 +1096,6 @@ __Hbank62 0 0 BANK62 1 bank62 -
 __Hbank63 0 0 BANK63 1 bank63 -
 __Hbigram 0 0 ABS 0 bigram -
 __Hmaintext 0 0 ABS 0 maintext -
-__size_of_get_Flex_Data 0 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 10018 0 CONFIG 4 config -
 __size_of_is_ready 0 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
@@ -1172,8 +1166,7 @@ __Lsfr61 0 0 ABS 0 sfr61 -
 __Lsfr62 0 0 ABS 0 sfr62 -
 __Lsfr63 0 0 ABS 0 sfr63 -
 __Lstack 0 0 STACK 2 stack -
-__end_of_clock_init 1E5A 0 CODE 0 text5 dist/default/production\GitProject_GL1.X.production.o
-_PORTBbits D 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
+__end_of_clock_init 1E8E 0 CODE 0 text5 dist/default/production\GitProject_GL1.X.production.o
 _INTCONbits B 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
@@ -1206,7 +1199,7 @@ __Ltext 0 0 ABS 0 text -
 __pstringtext1 2000 0 STRCODE 0 stringtext1 dist/default/production\GitProject_GL1.X.production.o
 __pstringtext2 2022 0 STRCODE 0 stringtext2 dist/default/production\GitProject_GL1.X.production.o
 __pstringtext3 0 0 STRCODE 0 stringtext3 dist/default/production\GitProject_GL1.X.production.o
-__pnvBANK1 E2 0 BANK1 1 nvBANK1 dist/default/production\GitProject_GL1.X.production.o
+__pnvBANK1 E0 0 BANK1 1 nvBANK1 dist/default/production\GitProject_GL1.X.production.o
 ___aodiv@counter 30 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
 _SSP1CON1 190 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _SSP1CON2 191 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
@@ -1219,31 +1212,30 @@ int$flags 7E 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 send_commands@data D0 0 BANK1 1 cstackBANK1 dist/default/production\GitProject_GL1.X.production.o
 __S0 1014 0 ABS 0 - -
-__S1 E3 0 ABS 0 - -
+__S1 E1 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-_abs 1F48 0 CODE 0 text29 dist/default/production\GitProject_GL1.X.production.o
+_abs FCC 0 CODE 0 text28 dist/default/production\GitProject_GL1.X.production.o
 _isr 8 0 CODE 0 intentry dist/default/production\GitProject_GL1.X.production.o
-_pad C2C 0 CODE 0 text12 dist/default/production\GitProject_GL1.X.production.o
-main@tx_data D8 0 BANK1 1 cstackBANK1 dist/default/production\GitProject_GL1.X.production.o
-__end_of_system_init 1E98 0 CODE 0 text1 dist/default/production\GitProject_GL1.X.production.o
-__end_of_get_Flex_Data 1DD8 0 CODE 0 text26 dist/default/production\GitProject_GL1.X.production.o
+_pad C0A 0 CODE 0 text12 dist/default/production\GitProject_GL1.X.production.o
+main@tx_data D6 0 BANK1 1 cstackBANK1 dist/default/production\GitProject_GL1.X.production.o
+__end_of_system_init 1ECC 0 CODE 0 text1 dist/default/production\GitProject_GL1.X.production.o
 ___aodiv@sign 31 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
-_dtoa$1374 46 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
-__end_of_abs 1F7C 0 CODE 0 text29 dist/default/production\GitProject_GL1.X.production.o
+_dtoa$1343 46 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
+__end_of_abs 1000 0 CODE 0 text28 dist/default/production\GitProject_GL1.X.production.o
 __end_of_isr 46 0 CODE 0 intentry dist/default/production\GitProject_GL1.X.production.o
-__end_of_pad CD8 0 CODE 0 text12 dist/default/production\GitProject_GL1.X.production.o
-main@accelo_x DE 0 BANK1 1 cstackBANK1 dist/default/production\GitProject_GL1.X.production.o
-main@accelo_y E0 0 BANK1 1 cstackBANK1 dist/default/production\GitProject_GL1.X.production.o
-_is_ready 1E2A 0 CODE 0 text34 dist/default/production\GitProject_GL1.X.production.o
+__end_of_pad CB6 0 CODE 0 text12 dist/default/production\GitProject_GL1.X.production.o
+main@accelo_x DC 0 BANK1 1 cstackBANK1 dist/default/production\GitProject_GL1.X.production.o
+main@accelo_y DE 0 BANK1 1 cstackBANK1 dist/default/production\GitProject_GL1.X.production.o
+_is_ready 1E5E 0 CODE 0 text33 dist/default/production\GitProject_GL1.X.production.o
 __HnvBANK1 0 0 ABS 0 nvBANK1 -
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\SINDRI~1\AppData\Local\Temp\xcAs644.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\SINDRI~1\AppData\Local\Temp\xcAscgc.o
 I2C_Read@ackbit 73 0 COMMON 1 cstackCOMMON dist/default/production\GitProject_GL1.X.production.o
 strlen@a 75 0 COMMON 1 cstackCOMMON dist/default/production\GitProject_GL1.X.production.o
 strlen@s 76 0 COMMON 1 cstackCOMMON dist/default/production\GitProject_GL1.X.production.o
 __LbssBANK1 0 0 ABS 0 bssBANK1 -
-__end_of_is_ready 1E40 0 CODE 0 text34 dist/default/production\GitProject_GL1.X.production.o
+__end_of_is_ready 1E74 0 CODE 0 text33 dist/default/production\GitProject_GL1.X.production.o
 __Lstringtext1 0 0 ABS 0 stringtext1 -
 __Lstringtext2 0 0 ABS 0 stringtext2 -
 __Lstringtext3 0 0 ABS 0 stringtext3 -
@@ -1252,31 +1244,30 @@ _PIE3bits 719 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 pad@buf 29 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
 __ptext10 710 0 CODE 0 text10 dist/default/production\GitProject_GL1.X.production.o
 __ptext11 66 0 CODE 0 text11 dist/default/production\GitProject_GL1.X.production.o
-__ptext12 C2C 0 CODE 0 text12 dist/default/production\GitProject_GL1.X.production.o
-__ptext13 1F16 0 CODE 0 text13 dist/default/production\GitProject_GL1.X.production.o
-__ptext14 F50 0 CODE 0 text14 dist/default/production\GitProject_GL1.X.production.o
-__ptext15 CD8 0 CODE 0 text15 dist/default/production\GitProject_GL1.X.production.o
-__ptext16 1E16 0 CODE 0 text16 dist/default/production\GitProject_GL1.X.production.o
+__ptext12 C0A 0 CODE 0 text12 dist/default/production\GitProject_GL1.X.production.o
+__ptext13 1F4A 0 CODE 0 text13 dist/default/production\GitProject_GL1.X.production.o
+__ptext14 F2E 0 CODE 0 text14 dist/default/production\GitProject_GL1.X.production.o
+__ptext15 CB6 0 CODE 0 text15 dist/default/production\GitProject_GL1.X.production.o
+__ptext16 1E4A 0 CODE 0 text16 dist/default/production\GitProject_GL1.X.production.o
 __ptext17 53C 0 CODE 0 text17 dist/default/production\GitProject_GL1.X.production.o
 __ptext18 334 0 CODE 0 text18 dist/default/production\GitProject_GL1.X.production.o
-__ptext19 9CA 0 CODE 0 text19 dist/default/production\GitProject_GL1.X.production.o
-__ptext20 D7A 0 CODE 0 text20 dist/default/production\GitProject_GL1.X.production.o
-__ptext21 FEE 0 CODE 0 text21 dist/default/production\GitProject_GL1.X.production.o
-__ptext22 1DE4 0 CODE 0 text22 dist/default/production\GitProject_GL1.X.production.o
-__ptext23 1DD8 0 CODE 0 text23 dist/default/production\GitProject_GL1.X.production.o
-__ptext24 1EBA 0 CODE 0 text24 dist/default/production\GitProject_GL1.X.production.o
-__ptext25 1E08 0 CODE 0 text25 dist/default/production\GitProject_GL1.X.production.o
-__ptext26 1DD2 0 CODE 0 text26 dist/default/production\GitProject_GL1.X.production.o
-__ptext27 FA0 0 CODE 0 text27 dist/default/production\GitProject_GL1.X.production.o
-__ptext28 1FB2 0 CODE 0 text28 dist/default/production\GitProject_GL1.X.production.o
-__ptext29 1F48 0 CODE 0 text29 dist/default/production\GitProject_GL1.X.production.o
-__ptext30 AB6 0 CODE 0 text30 dist/default/production\GitProject_GL1.X.production.o
-__ptext31 E06 0 CODE 0 text31 dist/default/production\GitProject_GL1.X.production.o
-__ptext32 1F7C 0 CODE 0 text32 dist/default/production\GitProject_GL1.X.production.o
-__ptext34 1E2A 0 CODE 0 text34 dist/default/production\GitProject_GL1.X.production.o
+__ptext19 8C6 0 CODE 0 text19 dist/default/production\GitProject_GL1.X.production.o
+__ptext20 D58 0 CODE 0 text20 dist/default/production\GitProject_GL1.X.production.o
+__ptext21 1E3A 0 CODE 0 text21 dist/default/production\GitProject_GL1.X.production.o
+__ptext22 1E08 0 CODE 0 text22 dist/default/production\GitProject_GL1.X.production.o
+__ptext23 1DFC 0 CODE 0 text23 dist/default/production\GitProject_GL1.X.production.o
+__ptext24 1EEE 0 CODE 0 text24 dist/default/production\GitProject_GL1.X.production.o
+__ptext25 1E2C 0 CODE 0 text25 dist/default/production\GitProject_GL1.X.production.o
+__ptext26 F7E 0 CODE 0 text26 dist/default/production\GitProject_GL1.X.production.o
+__ptext27 1FB2 0 CODE 0 text27 dist/default/production\GitProject_GL1.X.production.o
+__ptext28 FCC 0 CODE 0 text28 dist/default/production\GitProject_GL1.X.production.o
+__ptext29 A94 0 CODE 0 text29 dist/default/production\GitProject_GL1.X.production.o
+__ptext30 DE4 0 CODE 0 text30 dist/default/production\GitProject_GL1.X.production.o
+__ptext31 1F7C 0 CODE 0 text31 dist/default/production\GitProject_GL1.X.production.o
+__ptext33 1E5E 0 CODE 0 text33 dist/default/production\GitProject_GL1.X.production.o
 ___aodiv 334 0 CODE 0 text18 dist/default/production\GitProject_GL1.X.production.o
 ___aomod 53C 0 CODE 0 text17 dist/default/production\GitProject_GL1.X.production.o
-___awdiv AB6 0 CODE 0 text30 dist/default/production\GitProject_GL1.X.production.o
+___awdiv A94 0 CODE 0 text29 dist/default/production\GitProject_GL1.X.production.o
 __Lbank10 0 0 ABS 0 bank10 -
 __Lbank11 0 0 ABS 0 bank11 -
 __Lbank12 0 0 ABS 0 bank12 -
@@ -1331,14 +1322,13 @@ __Lbank60 0 0 BANK60 1 bank60 -
 __Lbank61 0 0 BANK61 1 bank61 -
 __Lbank62 0 0 BANK62 1 bank62 -
 __Lbank63 0 0 BANK63 1 bank63 -
-__pmaintext 8C6 0 CODE 0 maintext dist/default/production\GitProject_GL1.X.production.o
+__pmaintext 9B2 0 CODE 0 maintext dist/default/production\GitProject_GL1.X.production.o
 __Lbigram 0 0 ABS 0 bigram -
 ?_dtoa 3A 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
-_printf 1EE8 0 CODE 0 text8 dist/default/production\GitProject_GL1.X.production.o
-main@flex D6 0 BANK1 1 cstackBANK1 dist/default/production\GitProject_GL1.X.production.o
-_strlen 1F16 0 CODE 0 text13 dist/default/production\GitProject_GL1.X.production.o
+_printf 1F1C 0 CODE 0 text8 dist/default/production\GitProject_GL1.X.production.o
+_strlen 1F4A 0 CODE 0 text13 dist/default/production\GitProject_GL1.X.production.o
 gy_Read@axh 21 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
 gy_Read@axl 20 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
 gy_Read@ayh 23 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
@@ -1386,25 +1376,25 @@ __Hreset_vec 4 0 CODE 0 reset_vec -
 _BAUD1CONbits 11F 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 __HbssBANK1 0 0 ABS 0 bssBANK1 -
 __size_of_strlen 0 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
-_format_data_b1 1F7C 0 CODE 0 text32 dist/default/production\GitProject_GL1.X.production.o
-_format_data_b2 E06 0 CODE 0 text31 dist/default/production\GitProject_GL1.X.production.o
-_format_data_b3 1FB2 0 CODE 0 text28 dist/default/production\GitProject_GL1.X.production.o
-_format_data_b4 FA0 0 CODE 0 text27 dist/default/production\GitProject_GL1.X.production.o
+_format_data_b1 1F7C 0 CODE 0 text31 dist/default/production\GitProject_GL1.X.production.o
+_format_data_b2 DE4 0 CODE 0 text30 dist/default/production\GitProject_GL1.X.production.o
+_format_data_b3 1FB2 0 CODE 0 text27 dist/default/production\GitProject_GL1.X.production.o
+_format_data_b4 F7E 0 CODE 0 text26 dist/default/production\GitProject_GL1.X.production.o
 __size_of_clock_init 0 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 __size_of_system_init 0 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
-__end_of_uart_init 1EBA 0 CODE 0 text2 dist/default/production\GitProject_GL1.X.production.o
+__end_of_uart_init 1EEE 0 CODE 0 text2 dist/default/production\GitProject_GL1.X.production.o
 vfpfcnvrt@ap 59 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
 vfpfcnvrt@fp 67 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
 vfpfcnvrt@ll 5F 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
-__ptext1 1E78 0 CODE 0 text1 dist/default/production\GitProject_GL1.X.production.o
-__ptext2 1E98 0 CODE 0 text2 dist/default/production\GitProject_GL1.X.production.o
-__ptext3 B76 0 CODE 0 text3 dist/default/production\GitProject_GL1.X.production.o
-__ptext4 1DF0 0 CODE 0 text4 dist/default/production\GitProject_GL1.X.production.o
-__ptext5 1E40 0 CODE 0 text5 dist/default/production\GitProject_GL1.X.production.o
-__ptext6 1E5A 0 CODE 0 text6 dist/default/production\GitProject_GL1.X.production.o
-__ptext7 E80 0 CODE 0 text7 dist/default/production\GitProject_GL1.X.production.o
-__ptext8 1EE8 0 CODE 0 text8 dist/default/production\GitProject_GL1.X.production.o
-__ptext9 EEE 0 CODE 0 text9 dist/default/production\GitProject_GL1.X.production.o
+__ptext1 1EAC 0 CODE 0 text1 dist/default/production\GitProject_GL1.X.production.o
+__ptext2 1ECC 0 CODE 0 text2 dist/default/production\GitProject_GL1.X.production.o
+__ptext3 B54 0 CODE 0 text3 dist/default/production\GitProject_GL1.X.production.o
+__ptext4 1E14 0 CODE 0 text4 dist/default/production\GitProject_GL1.X.production.o
+__ptext5 1E74 0 CODE 0 text5 dist/default/production\GitProject_GL1.X.production.o
+__ptext6 1E8E 0 CODE 0 text6 dist/default/production\GitProject_GL1.X.production.o
+__ptext7 E5E 0 CODE 0 text7 dist/default/production\GitProject_GL1.X.production.o
+__ptext8 1F1C 0 CODE 0 text8 dist/default/production\GitProject_GL1.X.production.o
+__ptext9 ECC 0 CODE 0 text9 dist/default/production\GitProject_GL1.X.production.o
 vfprintf@ap 6A 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
 vfprintf@fp 6D 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
 __size_of_uart_init 0 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
@@ -1414,15 +1404,15 @@ format_data_b2@f2 72 0 COMMON 1 cstackCOMMON dist/default/production\GitProject_
 format_data_b2@f3 73 0 COMMON 1 cstackCOMMON dist/default/production\GitProject_GL1.X.production.o
 format_data_b3@ax 38 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
 format_data_b4@ay 38 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
-_vfprintf EEE 0 CODE 0 text9 dist/default/production\GitProject_GL1.X.production.o
+_vfprintf ECC 0 CODE 0 text9 dist/default/production\GitProject_GL1.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
 __Hstringtext1 0 0 ABS 0 stringtext1 -
 __Hstringtext2 0 0 ABS 0 stringtext2 -
 __Hstringtext3 0 0 ABS 0 stringtext3 -
-__end_of_vfprintf F50 0 CODE 0 text9 dist/default/production\GitProject_GL1.X.production.o
-_uart_init 1E98 0 CODE 0 text2 dist/default/production\GitProject_GL1.X.production.o
+__end_of_vfprintf F2E 0 CODE 0 text9 dist/default/production\GitProject_GL1.X.production.o
+_uart_init 1ECC 0 CODE 0 text2 dist/default/production\GitProject_GL1.X.production.o
 _SLRCONA 1F3B 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _SLRCONB 1F46 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _SLRCONC 1F51 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
@@ -1439,22 +1429,22 @@ format_data_b1@b 78 0 COMMON 1 cstackCOMMON dist/default/production\GitProject_G
 format_data_b2@b 78 0 COMMON 1 cstackCOMMON dist/default/production\GitProject_GL1.X.production.o
 format_data_b3@b 3C 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
 format_data_b4@b 3C 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
-_gy_address E2 0 BANK1 1 nvBANK1 dist/default/production\GitProject_GL1.X.production.o
-_send_commands E80 0 CODE 0 text7 dist/default/production\GitProject_GL1.X.production.o
+_gy_address E0 0 BANK1 1 nvBANK1 dist/default/production\GitProject_GL1.X.production.o
+_send_commands E5E 0 CODE 0 text7 dist/default/production\GitProject_GL1.X.production.o
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\GitProject_GL1.X.production.o
 _ready_flag A6 0 BANK1 1 bssBANK1 dist/default/production\GitProject_GL1.X.production.o
-__end_of_format_data_b1 1FB2 0 CODE 0 text32 dist/default/production\GitProject_GL1.X.production.o
-__end_of_format_data_b2 E80 0 CODE 0 text31 dist/default/production\GitProject_GL1.X.production.o
-__end_of_format_data_b3 2000 0 CODE 0 text28 dist/default/production\GitProject_GL1.X.production.o
-__end_of_format_data_b4 FEE 0 CODE 0 text27 dist/default/production\GitProject_GL1.X.production.o
+__end_of_format_data_b1 1FB2 0 CODE 0 text31 dist/default/production\GitProject_GL1.X.production.o
+__end_of_format_data_b2 E5E 0 CODE 0 text30 dist/default/production\GitProject_GL1.X.production.o
+__end_of_format_data_b3 2000 0 CODE 0 text27 dist/default/production\GitProject_GL1.X.production.o
+__end_of_format_data_b4 FCC 0 CODE 0 text26 dist/default/production\GitProject_GL1.X.production.o
 format_data_b1@flex 72 0 COMMON 1 cstackCOMMON dist/default/production\GitProject_GL1.X.production.o
 _SSP1ADD 18D 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _SSP1BUF 18C 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
-__end_of_gy_Read E06 0 CODE 0 text20 dist/default/production\GitProject_GL1.X.production.o
-__end_of_gy_init AB6 0 CODE 0 text19 dist/default/production\GitProject_GL1.X.production.o
+__end_of_gy_Read DE4 0 CODE 0 text20 dist/default/production\GitProject_GL1.X.production.o
+__end_of_gy_init 9B2 0 CODE 0 text19 dist/default/production\GitProject_GL1.X.production.o
 __Hend_init 4A 0 CODE 0 end_init -
 __end_of_dtoa 334 0 CODE 0 text11 dist/default/production\GitProject_GL1.X.production.o
-__end_of_main 9CA 0 CODE 0 maintext dist/default/production\GitProject_GL1.X.production.o
+__end_of_main A94 0 CODE 0 maintext dist/default/production\GitProject_GL1.X.production.o
 printf@fmt C8 0 BANK1 1 cstackBANK1 dist/default/production\GitProject_GL1.X.production.o
 _IOCAF 1F3F 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _IOCAN 1F3E 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
@@ -1468,8 +1458,8 @@ _IOCCP 1F53 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _IOCEF 1F6B 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _IOCEN 1F6A 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _IOCEP 1F69 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
-__end_of_fputc D7A 0 CODE 0 text15 dist/default/production\GitProject_GL1.X.production.o
-__end_of_fputs FA0 0 CODE 0 text14 dist/default/production\GitProject_GL1.X.production.o
+__end_of_fputc D58 0 CODE 0 text15 dist/default/production\GitProject_GL1.X.production.o
+__end_of_fputs F7E 0 CODE 0 text14 dist/default/production\GitProject_GL1.X.production.o
 _OSCEN 891 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _RCREG 119 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _RXPPS 1ECB 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
@@ -1479,21 +1469,20 @@ _TRISC 13 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _TRISD 14 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _TRISE 15 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 _TXREG 11A 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
-__end_of_putch 1E2A 0 CODE 0 text16 dist/default/production\GitProject_GL1.X.production.o
+__end_of_putch 1E5E 0 CODE 0 text16 dist/default/production\GitProject_GL1.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 _flags 7A 0 COMMON 1 bssCOMMON dist/default/production\GitProject_GL1.X.production.o
-_fputc CD8 0 CODE 0 text15 dist/default/production\GitProject_GL1.X.production.o
-_fputs F50 0 CODE 0 text14 dist/default/production\GitProject_GL1.X.production.o
+_fputc CB6 0 CODE 0 text15 dist/default/production\GitProject_GL1.X.production.o
+_fputs F2E 0 CODE 0 text14 dist/default/production\GitProject_GL1.X.production.o
 is_ready@data 70 0 COMMON 1 cstackCOMMON dist/default/production\GitProject_GL1.X.production.o
-_putch 1E16 0 CODE 0 text16 dist/default/production\GitProject_GL1.X.production.o
+_putch 1E4A 0 CODE 0 text16 dist/default/production\GitProject_GL1.X.production.o
 _width A2 0 BANK1 1 bssBANK1 dist/default/production\GitProject_GL1.X.production.o
 __pintentry 8 0 CODE 0 intentry dist/default/production\GitProject_GL1.X.production.o
 __size_of_abs 0 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 __size_of_isr 0 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 __size_of_pad 0 0 ABS 0 - dist/default/production\GitProject_GL1.X.production.o
 __initialization 4A 0 CODE 0 cinit dist/default/production\GitProject_GL1.X.production.o
-?_get_Flex_Data 72 0 COMMON 1 cstackCOMMON dist/default/production\GitProject_GL1.X.production.o
 __pbssBANK1 A0 0 BANK1 1 bssBANK1 dist/default/production\GitProject_GL1.X.production.o
 dtoa@d 3A 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
 dtoa@i 56 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.production.o
@@ -1526,30 +1515,29 @@ dtoa@w 4A 0 BANK0 1 cstackBANK0 dist/default/production\GitProject_GL1.X.product
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text1 0 F3C 1E78 10 2
-text2 0 F4C 1E98 11 2
-text4 0 EF8 1DF0 6 2
-text5 0 F20 1E40 D 2
-text6 0 F2D 1E5A F 2
-text8 0 F74 1EE8 17 2
-text13 0 F8B 1F16 19 2
-text16 0 F0B 1E16 A 2
-text22 0 EF2 1DE4 6 2
-text23 0 EEC 1DD8 6 2
-text24 0 F5D 1EBA 17 2
-text25 0 F04 1E08 7 2
-text26 0 EE9 1DD2 3 2
-text28 0 FD9 1FB2 27 2
-text29 0 FA4 1F48 1A 2
-text32 0 FBE 1F7C 1B 2
-text34 0 F15 1E2A B 2
+text1 0 F56 1EAC 10 2
+text2 0 F66 1ECC 11 2
+text4 0 F0A 1E14 6 2
+text5 0 F3A 1E74 D 2
+text6 0 F47 1E8E F 2
+text8 0 F8E 1F1C 17 2
+text13 0 FA5 1F4A 19 2
+text16 0 F25 1E4A A 2
+text21 0 F1D 1E3A 8 2
+text22 0 F04 1E08 6 2
+text23 0 EFE 1DFC 6 2
+text24 0 F77 1EEE 17 2
+text25 0 F16 1E2C 7 2
+text27 0 FD9 1FB2 27 2
+text31 0 FBE 1F7C 1B 2
+text33 0 F2F 1E5E B 2
 cstackCOMMON 1 70 70 C 1
 cstackBANK0 1 20 20 50 1
 stringtext1 0 1000 2000 14 2
-intentry 0 4 8 7FB 2
+intentry 0 4 8 7FC 2
 reset_vec 0 0 0 2 2
-bssBANK1 1 A0 A0 43 1
-clrtext 0 EFE 1DFC 6 2
+bssBANK1 1 A0 A0 41 1
+clrtext 0 F10 1E20 6 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

@@ -9,27 +9,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "158
 [; ;./gy_521.h: 158: void gy_Read(int16_t* Ax, int16_t* Ay);
 [v _gy_Read `(v ~T0 @X0 0 ef2`*s`*s ]
-"25 ./control_glove.h
-[; ;./control_glove.h: 25: uint16_t get_Flex_Data();
-[v _get_Flex_Data `(us ~T0 @X0 0 e? ]
-"40
+"40 ./control_glove.h
 [; ;./control_glove.h: 40: uint8_t format_data_b1(uint16_t flex);
 [v _format_data_b1 `(uc ~T0 @X0 0 ef1`us ]
 "52
 [; ;./control_glove.h: 52: uint8_t format_data_b2(uint8_t f1, uint8_t f2, uint8_t f3, uint8_t axd, uint8_t ayd);
 [v _format_data_b2 `(uc ~T0 @X0 0 ef5`uc`uc`uc`uc`uc ]
-"459 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 459:     struct {
-[s S35 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S35 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"458
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 458: typedef union {
-[u S34 `S35 1 ]
-[n S34 . . ]
-"470
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 470: extern volatile PORTBbits_t PORTBbits __attribute__((address(0x00D)));
-[v _PORTBbits `VS34 ~T0 @X0 0 e@13 ]
-"64 ./control_glove.h
+"64
 [; ;./control_glove.h: 64: uint8_t format_data_b3(int16_t ax);
 [v _format_data_b3 `(uc ~T0 @X0 0 ef1`s ]
 "76
@@ -1780,95 +1766,95 @@ Version 4.0 HI-TECH Software Intermediate Code
 "53
 [; ;Main.c: 53:         ready_flag = 1;
 [e = _ready_flag -> -> 1 `i `uc ]
-"54
-[; ;Main.c: 54:         if(ready_flag == 1){
+"55
+[; ;Main.c: 55:         if(ready_flag == 1){
 [e $ ! == -> _ready_flag `i -> 1 `i 1619  ]
 {
-"56
-[; ;Main.c: 56:             gy_Read(&accelo_x, &accelo_y);
-[e ( _gy_Read (2 , &U _accelo_x &U _accelo_y ]
 "57
-[; ;Main.c: 57:             flex = get_Flex_Data();
-[e = _flex ( _get_Flex_Data ..  ]
+[; ;Main.c: 57:             gy_Read(&accelo_x, &accelo_y);
+[e ( _gy_Read (2 , &U _accelo_x &U _accelo_y ]
 "58
-[; ;Main.c: 58:             axd = accelo_x >> 0;
-[e = _axd -> >> -> _accelo_x `i -> 0 `i `uc ]
+[; ;Main.c: 58:             flex = 10000;
+[e = _flex -> -> 10000 `i `us ]
 "59
-[; ;Main.c: 59:             ayd = accelo_y >> 0;
+[; ;Main.c: 59:             axd = accelo_x >> 0;
+[e = _axd -> >> -> _accelo_x `i -> 0 `i `uc ]
+"60
+[; ;Main.c: 60:             ayd = accelo_y >> 0;
 [e = _ayd -> >> -> _accelo_y `i -> 0 `i `uc ]
-"62
-[; ;Main.c: 62:             tx_data[0] = format_data_b1(flex);
-[e = *U + &U _tx_data * -> -> -> 0 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b1 (1 _flex ]
 "63
-[; ;Main.c: 63:             tx_data[1] = format_data_b2(PORTBbits.RB0, PORTBbits.RB1, PORTBbits.RB2, axd, ayd);
-[e = *U + &U _tx_data * -> -> -> 1 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b2 (4 , , , , . . _PORTBbits 0 0 . . _PORTBbits 0 1 . . _PORTBbits 0 2 _axd _ayd ]
+[; ;Main.c: 63:             tx_data[0] = format_data_b1(flex);
+[e = *U + &U _tx_data * -> -> -> 0 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b1 (1 _flex ]
 "64
-[; ;Main.c: 64:             tx_data[2] = format_data_b3(accelo_x);
-[e = *U + &U _tx_data * -> -> -> 2 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b3 (1 _accelo_x ]
+[; ;Main.c: 64:             tx_data[1] = format_data_b2(1, 0, 0, axd, ayd);
+[e = *U + &U _tx_data * -> -> -> 1 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b2 (4 , , , , -> -> 1 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc _axd _ayd ]
 "65
-[; ;Main.c: 65:             tx_data[3] = format_data_b4(accelo_y);
+[; ;Main.c: 65:             tx_data[2] = format_data_b3(accelo_x);
+[e = *U + &U _tx_data * -> -> -> 2 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b3 (1 _accelo_x ]
+"66
+[; ;Main.c: 66:             tx_data[3] = format_data_b4(accelo_y);
 [e = *U + &U _tx_data * -> -> -> 3 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b4 (1 _accelo_y ]
-"68
-[; ;Main.c: 68:             send_commands(tx_data);
+"69
+[; ;Main.c: 69:             send_commands(tx_data);
 [e ( _send_commands (1 &U _tx_data ]
-"71
-[; ;Main.c: 71:             ready_flag = 0;
-[e = _ready_flag -> -> 0 `i `uc ]
 "72
-[; ;Main.c: 72:             _delay((unsigned long)((1000)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+[; ;Main.c: 72:             ready_flag = 0;
+[e = _ready_flag -> -> 0 `i `uc ]
 "73
-[; ;Main.c: 73:         }
+[; ;Main.c: 73:             _delay((unsigned long)((1000)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"74
+[; ;Main.c: 74:         }
 }
 [e :U 1619 ]
-"74
-[; ;Main.c: 74:     }
+"75
+[; ;Main.c: 75:     }
 }
 [e :U 1616 ]
 [e $U 1617  ]
 [e :U 1618 ]
-"75
-[; ;Main.c: 75:     return;
-[e $UE 1615  ]
 "76
-[; ;Main.c: 76: }
+[; ;Main.c: 76:     return;
+[e $UE 1615  ]
+"77
+[; ;Main.c: 77: }
 [e :UE 1615 ]
 }
 [v $root$_isr `(v ~T0 @X0 0 e ]
-"90
-[; ;Main.c: 90: void __attribute__((picinterrupt(("")))) isr() {
+"91
+[; ;Main.c: 91: void __attribute__((picinterrupt(("")))) isr() {
 [v _isr `(v ~T2 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"91
-[; ;Main.c: 91:     while (RCIF == 1) {
+"92
+[; ;Main.c: 92:     while (RCIF == 1) {
 [e $U 1621  ]
 [e :U 1622 ]
 {
-"92
-[; ;Main.c: 92:         data_in = RCREG;
-[e = _data_in _RCREG ]
 "93
-[; ;Main.c: 93:     }
+[; ;Main.c: 93:         data_in = RCREG;
+[e = _data_in _RCREG ]
+"94
+[; ;Main.c: 94:     }
 }
 [e :U 1621 ]
-"91
-[; ;Main.c: 91:     while (RCIF == 1) {
+"92
+[; ;Main.c: 92:     while (RCIF == 1) {
 [e $ == -> _RCIF `i -> 1 `i 1622  ]
 [e :U 1623 ]
-"94
-[; ;Main.c: 94:     if (is_ready(data_in) == 1) {
+"95
+[; ;Main.c: 95:     if (is_ready(data_in) == 1) {
 [e $ ! == -> ( _is_ready (1 _data_in `i -> 1 `i 1624  ]
 {
-"95
-[; ;Main.c: 95:         ready_flag = 1;
-[e = _ready_flag -> -> 1 `i `uc ]
 "96
-[; ;Main.c: 96:     }
+[; ;Main.c: 96:         ready_flag = 1;
+[e = _ready_flag -> -> 1 `i `uc ]
+"97
+[; ;Main.c: 97:     }
 }
 [e :U 1624 ]
-"97
-[; ;Main.c: 97: }
+"98
+[; ;Main.c: 98: }
 [e :UE 1620 ]
 }

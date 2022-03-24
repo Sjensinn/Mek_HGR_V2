@@ -51,10 +51,11 @@ void main(void) {
 
     while(1){
         ready_flag = 1;
+        
         if(ready_flag == 1){
             //Fetch data
             gy_Read(&accelo_x, &accelo_y); //Fetch data from Gyro
-            flex = 10; //get_Flex_Data();         //Fetch data from flex
+            flex = 10000; //get_Flex_Data();         //Fetch data from flex
             axd = accelo_x >> 0;
             ayd = accelo_y >> 0;
 

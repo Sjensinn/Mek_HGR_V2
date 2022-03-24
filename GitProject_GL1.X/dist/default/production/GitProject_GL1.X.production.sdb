@@ -37,9 +37,7 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"17 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-[v _get_Flex_Data get_Flex_Data `(us  1 e 2 0 ]
-"22
+"22 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
 [v _format_data_b1 format_data_b1 `(uc  1 e 1 0 ]
 "30
 [v _format_data_b2 format_data_b2 `(uc  1 e 1 0 ]
@@ -65,7 +63,7 @@
 [v _I2C_Read I2C_Read `(uc  1 e 1 0 ]
 "41 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
 [v _main main `(v  1 e 1 0 ]
-"90
+"91
 [v _isr isr `II(v  1 e 1 0 ]
 "12 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
 [v _system_init system_init `(v  1 e 1 0 ]
@@ -89,26 +87,14 @@
 [v _send_commands send_commands `(v  1 e 1 0 ]
 "132 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X/gy_521.h
 [v _gy_address gy_address `uc  1 e 1 0 ]
-[s S677 . 1 `uc 1 INTEDG 1 0 :1:0 
+[s S646 . 1 `uc 1 INTEDG 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
 "371 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
-[u S682 . 1 `S677 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES682  1 e 1 @11 ]
-[s S511 . 1 `uc 1 RB0 1 0 :1:0 
-`uc 1 RB1 1 0 :1:1 
-`uc 1 RB2 1 0 :1:2 
-`uc 1 RB3 1 0 :1:3 
-`uc 1 RB4 1 0 :1:4 
-`uc 1 RB5 1 0 :1:5 
-`uc 1 RB6 1 0 :1:6 
-`uc 1 RB7 1 0 :1:7 
-]
-"470
-[u S520 . 1 `S511 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES520  1 e 1 @13 ]
+[u S651 . 1 `S646 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES651  1 e 1 @11 ]
 "677
 [v _TRISA TRISA `VEuc  1 e 1 @17 ]
 "739
@@ -151,7 +137,7 @@
 [v _SPBRGL SPBRGL `VEuc  1 e 1 @283 ]
 "3955
 [v _SPBRGH SPBRGH `VEuc  1 e 1 @284 ]
-[s S771 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S740 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -161,9 +147,9 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "4030
-[u S780 . 1 `S771 1 . 1 0 ]
-[v _RC1STAbits RC1STAbits `VES780  1 e 1 @285 ]
-[s S729 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S749 . 1 `S740 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES749  1 e 1 @285 ]
+[s S698 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -173,9 +159,9 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "4210
-[u S738 . 1 `S729 1 . 1 0 ]
-[v _TX1STAbits TX1STAbits `VES738  1 e 1 @286 ]
-[s S708 . 1 `uc 1 ABDEN 1 0 :1:0 
+[u S707 . 1 `S698 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES707  1 e 1 @286 ]
+[s S677 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -185,10 +171,10 @@
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "4398
-[u S717 . 1 `S708 1 . 1 0 ]
-[v _BAUD1CONbits BAUD1CONbits `VES717  1 e 1 @287 ]
+[u S686 . 1 `S677 1 . 1 0 ]
+[v _BAUD1CONbits BAUD1CONbits `VES686  1 e 1 @287 ]
 "4531
-[v _BAUDCONbits BAUDCONbits `VES717  1 e 1 @287 ]
+[v _BAUDCONbits BAUDCONbits `VES686  1 e 1 @287 ]
 "4610
 [v _SSP1BUF SSP1BUF `VEuc  1 e 1 @396 ]
 "4630
@@ -362,7 +348,7 @@
 "21382
 [u S255 . 1 `S248 1 . 1 0 ]
 [v _PIR3bits PIR3bits `VES255  1 e 1 @1807 ]
-[s S660 . 1 `uc 1 SSP1IE 1 0 :1:0 
+[s S629 . 1 `uc 1 SSP1IE 1 0 :1:0 
 `uc 1 BCL1IE 1 0 :1:1 
 `uc 1 SSP2IE 1 0 :1:2 
 `uc 1 BCL2IE 1 0 :1:3 
@@ -370,8 +356,8 @@
 `uc 1 RCIE 1 0 :1:5 
 ]
 "21804
-[u S667 . 1 `S660 1 . 1 0 ]
-[v _PIE3bits PIE3bits `VES667  1 e 1 @1817 ]
+[u S636 . 1 `S629 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES636  1 e 1 @1817 ]
 "23443
 [v _OSCCON1 OSCCON1 `VEuc  1 e 1 @2189 ]
 "23513
@@ -497,16 +483,14 @@
 [v _main main `(v  1 e 1 0 ]
 {
 "49
-[v main@tx_data tx_data `[4]uc  1 a 4 16 ]
+[v main@tx_data tx_data `[4]uc  1 a 4 14 ]
 "46
-[v main@accelo_y accelo_y `s  1 a 2 24 ]
-[v main@accelo_x accelo_x `s  1 a 2 22 ]
-"48
-[v main@flex flex `us  1 a 2 14 ]
+[v main@accelo_y accelo_y `s  1 a 2 22 ]
+[v main@accelo_x accelo_x `s  1 a 2 20 ]
 "47
-[v main@ayd ayd `uc  1 a 1 21 ]
-[v main@axd axd `uc  1 a 1 20 ]
-"76
+[v main@ayd ayd `uc  1 a 1 19 ]
+[v main@axd axd `uc  1 a 1 18 ]
+"77
 } 0
 "12 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
 [v _system_init system_init `(v  1 e 1 0 ]
@@ -561,40 +545,40 @@
 "1390 C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
 [v _vfprintf vfprintf `(i  1 e 2 0 ]
 {
-[s S1331 _IO_FILE 0 ]
-[v vfprintf@fp fp `*.1S1331  1 a 1 wreg ]
+[s S1300 _IO_FILE 0 ]
+[v vfprintf@fp fp `*.1S1300  1 a 1 wreg ]
 "1393
 [v vfprintf@cfmt cfmt `*.25uc  1 a 2 78 ]
 "1390
-[v vfprintf@fp fp `*.1S1331  1 a 1 wreg ]
+[v vfprintf@fp fp `*.1S1300  1 a 1 wreg ]
 [v vfprintf@fmt fmt `*.25DCuc  1 p 2 72 ]
 [v vfprintf@ap ap `*.4*.4v  1 p 1 74 ]
 "1395
 "1390
-[v vfprintf@fp fp `*.1S1331  1 a 1 77 ]
+[v vfprintf@fp fp `*.1S1300  1 a 1 77 ]
 "1404
 } 0
 "692
 [v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
 {
-[s S1331 _IO_FILE 0 ]
-[v vfpfcnvrt@fp fp `*.1S1331  1 a 1 wreg ]
+[s S1300 _IO_FILE 0 ]
+[v vfpfcnvrt@fp fp `*.1S1300  1 a 1 wreg ]
 "696
 [v vfpfcnvrt@ll ll `o  1 a 8 63 ]
 "692
-[v vfpfcnvrt@fp fp `*.1S1331  1 a 1 wreg ]
+[v vfpfcnvrt@fp fp `*.1S1300  1 a 1 wreg ]
 [v vfpfcnvrt@fmt fmt `*.4*.25uc  1 p 1 56 ]
 [v vfpfcnvrt@ap ap `*.4*.4v  1 p 1 57 ]
 "702
 "692
-[v vfpfcnvrt@fp fp `*.1S1331  1 a 1 71 ]
+[v vfpfcnvrt@fp fp `*.1S1300  1 a 1 71 ]
 "1387
 } 0
 "287
 [v _dtoa dtoa `(i  1 s 2 dtoa ]
 {
-[s S1331 _IO_FILE 0 ]
-[v dtoa@fp fp `*.1S1331  1 a 1 wreg ]
+[s S1300 _IO_FILE 0 ]
+[v dtoa@fp fp `*.1S1300  1 a 1 wreg ]
 "290
 [v dtoa@n n `o  1 a 8 46 ]
 "289
@@ -603,28 +587,28 @@
 [v dtoa@w w `i  1 a 2 42 ]
 [v dtoa@p p `i  1 a 2 40 ]
 "287
-[v dtoa@fp fp `*.1S1331  1 a 1 wreg ]
+[v dtoa@fp fp `*.1S1300  1 a 1 wreg ]
 [v dtoa@d d `o  1 p 8 26 ]
 "293
 "287
-[v dtoa@fp fp `*.1S1331  1 a 1 37 ]
+[v dtoa@fp fp `*.1S1300  1 a 1 37 ]
 "328
 } 0
 "72
 [v _pad pad `(i  1 s 2 pad ]
 {
-[s S1331 _IO_FILE 0 ]
-[v pad@fp fp `*.1S1331  1 a 1 wreg ]
+[s S1300 _IO_FILE 0 ]
+[v pad@fp fp `*.1S1300  1 a 1 wreg ]
 "74
 [v pad@w w `i  1 a 2 15 ]
 [v pad@i i `i  1 a 2 13 ]
 "72
-[v pad@fp fp `*.1S1331  1 a 1 wreg ]
+[v pad@fp fp `*.1S1300  1 a 1 wreg ]
 [v pad@buf buf `*.4uc  1 p 1 9 ]
 [v pad@p p `i  1 p 2 10 ]
 "77
 "72
-[v pad@fp fp `*.1S1331  1 a 1 17 ]
+[v pad@fp fp `*.1S1300  1 a 1 17 ]
 "95
 } 0
 "5 C:\Program Files\Microchip\pic\sources\c99\common\strlen.c
@@ -649,8 +633,8 @@
 [v fputs@c c `uc  1 a 1 5 ]
 "8
 [v fputs@s s `*.4DCuc  1 a 1 wreg ]
-[s S1305 _IO_FILE 5 `*.4uc 1 buffer 1 0 `i 1 count 2 1 `i 1 limit 2 3 ]
-[v fputs@fp fp `*.1S1305  1 p 1 6 ]
+[s S1274 _IO_FILE 5 `*.4uc 1 buffer 1 0 `i 1 count 2 1 `i 1 limit 2 3 ]
+[v fputs@fp fp `*.1S1274  1 p 1 6 ]
 "13
 [v fputs@s s `*.4DCuc  1 a 1 8 ]
 "19
@@ -659,8 +643,8 @@
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 3 ]
-[s S1305 _IO_FILE 5 `*.4uc 1 buffer 1 0 `i 1 count 2 1 `i 1 limit 2 3 ]
-[v fputc@fp fp `*.1S1305  1 p 1 5 ]
+[s S1274 _IO_FILE 5 `*.4uc 1 buffer 1 0 `i 1 count 2 1 `i 1 limit 2 3 ]
+[v fputc@fp fp `*.1S1274  1 p 1 5 ]
 "24
 } 0
 "33 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
@@ -753,12 +737,7 @@
 {
 "36
 } 0
-"17 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
-[v _get_Flex_Data get_Flex_Data `(us  1 e 2 0 ]
-{
-"20
-} 0
-"60
+"60 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
 [v _format_data_b4 format_data_b4 `(uc  1 e 1 0 ]
 {
 "61
@@ -819,10 +798,10 @@
 [v format_data_b1@flex flex `us  1 p 2 2 ]
 "28
 } 0
-"90 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+"91 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"97
+"98
 } 0
 "45 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
 [v _is_ready is_ready `(uc  1 e 1 0 ]
