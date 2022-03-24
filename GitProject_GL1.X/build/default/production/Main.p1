@@ -12,6 +12,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 "25 ./control_glove.h
 [; ;./control_glove.h: 25: uint16_t get_Flex_Data();
 [v _get_Flex_Data `(us ~T0 @X0 0 e? ]
+"40
+[; ;./control_glove.h: 40: uint8_t format_data_b1(uint16_t flex);
+[v _format_data_b1 `(uc ~T0 @X0 0 ef1`us ]
+"52
+[; ;./control_glove.h: 52: uint8_t format_data_b2(uint8_t f1, uint8_t f2, uint8_t f3, uint8_t axd, uint8_t ayd);
+[v _format_data_b2 `(uc ~T0 @X0 0 ef5`uc`uc`uc`uc`uc ]
+"459 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 459:     struct {
+[s S35 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S35 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"458
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 458: typedef union {
+[u S34 `S35 1 ]
+[n S34 . . ]
+"470
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 470: extern volatile PORTBbits_t PORTBbits __attribute__((address(0x00D)));
+[v _PORTBbits `VS34 ~T0 @X0 0 e@13 ]
+"64 ./control_glove.h
+[; ;./control_glove.h: 64: uint8_t format_data_b3(int16_t ax);
+[v _format_data_b3 `(uc ~T0 @X0 0 ef1`s ]
+"76
+[; ;./control_glove.h: 76: uint8_t format_data_b4(int16_t ay);
+[v _format_data_b4 `(uc ~T0 @X0 0 ef1`s ]
 "82 ./uart.h
 [; ;./uart.h: 82: void send_commands(uint8_t* data);
 [v _send_commands `(v ~T0 @X0 0 ef1`*uc ]
@@ -1774,17 +1797,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Main.c: 59:             ayd = accelo_y >> 0;
 [e = _ayd -> >> -> _accelo_y `i -> 0 `i `uc ]
 "62
-[; ;Main.c: 62:             tx_data[0] = 4 + 0;
-[e = *U + &U _tx_data * -> -> -> 0 `i `ui `ux -> -> # *U &U _tx_data `ui `ux -> + -> 4 `i -> 0 `i `uc ]
+[; ;Main.c: 62:             tx_data[0] = format_data_b1(flex);
+[e = *U + &U _tx_data * -> -> -> 0 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b1 (1 _flex ]
 "63
-[; ;Main.c: 63:             tx_data[1] = 8 + 1;
-[e = *U + &U _tx_data * -> -> -> 1 `i `ui `ux -> -> # *U &U _tx_data `ui `ux -> + -> 8 `i -> 1 `i `uc ]
+[; ;Main.c: 63:             tx_data[1] = format_data_b2(PORTBbits.RB0, PORTBbits.RB1, PORTBbits.RB2, axd, ayd);
+[e = *U + &U _tx_data * -> -> -> 1 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b2 (4 , , , , . . _PORTBbits 0 0 . . _PORTBbits 0 1 . . _PORTBbits 0 2 _axd _ayd ]
 "64
-[; ;Main.c: 64:             tx_data[2] = 16 + 2;
-[e = *U + &U _tx_data * -> -> -> 2 `i `ui `ux -> -> # *U &U _tx_data `ui `ux -> + -> 16 `i -> 2 `i `uc ]
+[; ;Main.c: 64:             tx_data[2] = format_data_b3(accelo_x);
+[e = *U + &U _tx_data * -> -> -> 2 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b3 (1 _accelo_x ]
 "65
-[; ;Main.c: 65:             tx_data[3] = 32 + 3;
-[e = *U + &U _tx_data * -> -> -> 3 `i `ui `ux -> -> # *U &U _tx_data `ui `ux -> + -> 32 `i -> 3 `i `uc ]
+[; ;Main.c: 65:             tx_data[3] = format_data_b4(accelo_y);
+[e = *U + &U _tx_data * -> -> -> 3 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b4 (1 _accelo_y ]
 "68
 [; ;Main.c: 68:             send_commands(tx_data);
 [e ( _send_commands (1 &U _tx_data ]
