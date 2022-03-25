@@ -20993,9 +20993,9 @@ int8_t I2C_Read(int8_t ackbit);
 
 
 
-void stepper_init();
+void stepper_init(void);
 void stepper_move(uint8_t direction);
-void stepper_stop();
+void stepper_stop(void);
 void set_stepper_speed(uint16_t speed);
 # 21 "Main.c" 2
 
@@ -21108,63 +21108,30 @@ volatile uint8_t data_x;
 volatile uint8_t data_y;
 volatile uint8_t ready = 0;
 
-
 void __attribute__((picinterrupt(("")))) receive_isr();
 
 void main(void) {
-    int8_t x;
-    int8_t y;
-    uint8_t Rnum = 42;
+    int8_t x, y;
+    uint8_t init_ready;
     system_init();
 
     stepper_init();
-    LCD_init(0x4E);
 
-    char buffer[20];
-    LCD_Set_Cursor(1,1);
-    LCD_write_string("Hello I am");
-    LCD_Set_Cursor(2,1);
-    LCD_write_string("Robot");
 
-    _delay((unsigned long)((5000)*(16000000/4000.0)));
-    printf("%d", Rnum);
-
-    while (1) {
-        if (ready) {
-            ready = 0;
-
-            LCD_Set_Cursor(1,1);
-            sprintf(buffer, "Fin: %d", data_fingers);
-            LCD_write_string(buffer);
-
-            LCD_Set_Cursor(2,1);
-            sprintf(buffer, "Accel: %d %d", data_x, data_y);
-            LCD_write_string(buffer);
-
-            switch (data_fingers & 0b11100000) {
-                    x = (data_x) + (data_fingers << 3 & 0b10000000);
-                    y = (data_y) + (data_fingers << 4 & 0b10000000);
-                case 0b00100000:
-                    drive(x, y);
-                    break;
-                case 0b01000000:
-                    shoulder(x, y);
-                    break;
-                case 0b10000000:
-                    front_arm(x, y);
-                    break;
-                default:
-                    break;
+    while(1){
+        init_ready = 1;
+        while(PORTAbits.RA0){
+            if(init_ready == 1){
+                send_ready();
+                init_ready = 0;
             }
+            if(ready == 1){
+                ready = 0;
 
-            printf("%d", Rnum);
+                _delay((unsigned long)((100)*(16000000/4000.0)));
+                 send_ready();
+            }
         }
-
-
-
-
-
-
     }
 
     return;

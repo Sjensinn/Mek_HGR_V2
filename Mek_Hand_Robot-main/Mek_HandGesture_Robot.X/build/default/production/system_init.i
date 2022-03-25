@@ -20883,7 +20883,7 @@ void pin_init(){
 
 
 
-    TRISA = 0x30;
+    TRISA = 0x31;
 
     TRISB = 0xE1;
     TRISC = 0xBF;

@@ -20812,16 +20812,16 @@ void dc_stop();
 void dc_move(uint8_t data_x, uint8_t data_y);
 # 6 "robot.c" 2
 
-# 1 "./stepper.h" 1
+# 1 "./Stepper.h" 1
 
 
 
 
 
 
-void stepper_init();
+void stepper_init(void);
 void stepper_move(uint8_t direction);
-void stepper_stop();
+void stepper_stop(void);
 void set_stepper_speed(uint16_t speed);
 # 7 "robot.c" 2
 

@@ -83,9 +83,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3828
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 3828: extern volatile unsigned char TXREG __attribute__((address(0x11A)));
 [v _TXREG `Vuc ~T0 @X0 0 e@282 ]
-"40 uart.c
-[; ;uart.c: 40:     printf(0xAA);
-[v _printf `(i ~T0 @X0 0 e? ]
+"111 C:\Program Files\Microchip\pic\include\c99\stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 [v F183 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\builtins.h
 [v __delay `JF183 ~T0 @X0 0 e ]
@@ -1725,209 +1724,211 @@ Version 4.0 HI-TECH Software Intermediate Code
 "36301
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 36301: __asm("TOSH equ 01FEFh");
 [; <" TOSH equ 01FEFh ;# ">
-"5 uart.c
-[; ;uart.c: 5: void uart_init(void){
+"6 uart.c
+[; ;uart.c: 6: void uart_init(void){
 [v _uart_init `(v ~T0 @X0 1 ef ]
 {
 [e :U _uart_init ]
 [f ]
-"6
-[; ;uart.c: 6:     RC6PPS = 0x10;
-[e = _RC6PPS -> -> 16 `i `uc ]
 "7
-[; ;uart.c: 7:     SPBRGL = 25;
-[e = _SPBRGL -> -> 25 `i `uc ]
+[; ;uart.c: 7:     RC6PPS = 0x10;
+[e = _RC6PPS -> -> 16 `i `uc ]
 "8
-[; ;uart.c: 8:     SPBRGH = 0;
-[e = _SPBRGH -> -> 0 `i `uc ]
+[; ;uart.c: 8:     SPBRGL = 25;
+[e = _SPBRGL -> -> 25 `i `uc ]
 "9
-[; ;uart.c: 9:     BAUDCONbits.BRG16 = 0;
-[e = . . _BAUDCONbits 0 3 -> -> 0 `i `uc ]
+[; ;uart.c: 9:     SPBRGH = 0;
+[e = _SPBRGH -> -> 0 `i `uc ]
 "10
-[; ;uart.c: 10:     TX1STAbits.BRGH = 0;
-[e = . . _TX1STAbits 0 2 -> -> 0 `i `uc ]
+[; ;uart.c: 10:     BAUDCONbits.BRG16 = 0;
+[e = . . _BAUDCONbits 0 3 -> -> 0 `i `uc ]
 "11
-[; ;uart.c: 11:     BAUD1CONbits.SCKP = 0;
-[e = . . _BAUD1CONbits 0 4 -> -> 0 `i `uc ]
+[; ;uart.c: 11:     TX1STAbits.BRGH = 0;
+[e = . . _TX1STAbits 0 2 -> -> 0 `i `uc ]
 "12
-[; ;uart.c: 12:     RC1STAbits.SPEN = 1;
-[e = . . _RC1STAbits 0 7 -> -> 1 `i `uc ]
+[; ;uart.c: 12:     BAUD1CONbits.SCKP = 0;
+[e = . . _BAUD1CONbits 0 4 -> -> 0 `i `uc ]
 "13
-[; ;uart.c: 13:     TX1STAbits.SYNC = 0;
-[e = . . _TX1STAbits 0 4 -> -> 0 `i `uc ]
+[; ;uart.c: 13:     RC1STAbits.SPEN = 1;
+[e = . . _RC1STAbits 0 7 -> -> 1 `i `uc ]
 "14
-[; ;uart.c: 14:     RC1STAbits.CREN = 1;
-[e = . . _RC1STAbits 0 4 -> -> 1 `i `uc ]
+[; ;uart.c: 14:     TX1STAbits.SYNC = 0;
+[e = . . _TX1STAbits 0 4 -> -> 0 `i `uc ]
 "15
-[; ;uart.c: 15:     TX1STAbits.TXEN = 1;
-[e = . . _TX1STAbits 0 5 -> -> 1 `i `uc ]
+[; ;uart.c: 15:     RC1STAbits.CREN = 1;
+[e = . . _RC1STAbits 0 4 -> -> 1 `i `uc ]
 "16
-[; ;uart.c: 16:     PIE3bits.RCIE = 1;
-[e = . . _PIE3bits 0 5 -> -> 1 `i `uc ]
+[; ;uart.c: 16:     TX1STAbits.TXEN = 1;
+[e = . . _TX1STAbits 0 5 -> -> 1 `i `uc ]
 "17
-[; ;uart.c: 17: }
-[e :UE 1613 ]
+[; ;uart.c: 17:     PIE3bits.RCIE = 1;
+[e = . . _PIE3bits 0 5 -> -> 1 `i `uc ]
+"18
+[; ;uart.c: 18: }
+[e :UE 1615 ]
 }
-"19
-[; ;uart.c: 19: void uart_Write(unsigned char data){
+"20
+[; ;uart.c: 20: void uart_Write(unsigned char data){
 [v _uart_Write `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _uart_Write ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [f ]
-"20
-[; ;uart.c: 20:     while(0 == PIR3bits.TXIF){
-[e $U 1615  ]
-[e :U 1616 ]
-{
 "21
-[; ;uart.c: 21:         continue;
-[e $U 1615  ]
+[; ;uart.c: 21:     while(0 == PIR3bits.TXIF){
+[e $U 1617  ]
+[e :U 1618 ]
+{
 "22
-[; ;uart.c: 22:     }
-}
-[e :U 1615 ]
-"20
-[; ;uart.c: 20:     while(0 == PIR3bits.TXIF){
-[e $ == -> 0 `i -> . . _PIR3bits 0 4 `i 1616  ]
-[e :U 1617 ]
+[; ;uart.c: 22:         continue;
+[e $U 1617  ]
 "23
-[; ;uart.c: 23:     TX1REG = data;
-[e = _TX1REG _data ]
-"24
-[; ;uart.c: 24: }
-[e :UE 1614 ]
+[; ;uart.c: 23:     }
 }
+[e :U 1617 ]
+"21
+[; ;uart.c: 21:     while(0 == PIR3bits.TXIF){
+[e $ == -> 0 `i -> . . _PIR3bits 0 4 `i 1618  ]
+[e :U 1619 ]
+"24
+[; ;uart.c: 24:     TX1REG = data;
+[e = _TX1REG _data ]
 "25
-[; ;uart.c: 25: void uart_Write_String(char* buf){
+[; ;uart.c: 25: }
+[e :UE 1616 ]
+}
+"26
+[; ;uart.c: 26: void uart_Write_String(char* buf){
 [v _uart_Write_String `(v ~T0 @X0 1 ef1`*uc ]
 {
 [e :U _uart_Write_String ]
 [v _buf `*uc ~T0 @X0 1 r1 ]
 [f ]
-"26
-[; ;uart.c: 26:     int i=0;
+"27
+[; ;uart.c: 27:     int i=0;
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-"27
-[; ;uart.c: 27:     while(buf[i] != '\0'){
-[e $U 1619  ]
-[e :U 1620 ]
-{
 "28
-[; ;uart.c: 28:         uart_Write(buf[i++]);
-[e ( _uart_Write (1 -> *U + _buf * -> ++ _i -> 1 `i `x -> -> # *U _buf `i `x `uc ]
+[; ;uart.c: 28:     while(buf[i] != '\0'){
+[e $U 1621  ]
+[e :U 1622 ]
+{
 "29
-[; ;uart.c: 29:     }
-}
-[e :U 1619 ]
-"27
-[; ;uart.c: 27:     while(buf[i] != '\0'){
-[e $ != -> *U + _buf * -> _i `x -> -> # *U _buf `i `x `ui -> 0 `ui 1620  ]
-[e :U 1621 ]
+[; ;uart.c: 29:         uart_Write(buf[i++]);
+[e ( _uart_Write (1 -> *U + _buf * -> ++ _i -> 1 `i `x -> -> # *U _buf `i `x `uc ]
 "30
-[; ;uart.c: 30: }
-[e :UE 1618 ]
+[; ;uart.c: 30:     }
 }
-"32
-[; ;uart.c: 32: void putch(char data) {
+[e :U 1621 ]
+"28
+[; ;uart.c: 28:     while(buf[i] != '\0'){
+[e $ != -> *U + _buf * -> _i `x -> -> # *U _buf `i `x `ui -> 0 `ui 1622  ]
+[e :U 1623 ]
+"31
+[; ;uart.c: 31: }
+[e :UE 1620 ]
+}
+"33
+[; ;uart.c: 33: void putch(char data) {
 [v _putch `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _putch ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [f ]
-"33
-[; ;uart.c: 33:     while (!TXIF)
-[e $U 1623  ]
-[e :U 1624 ]
 "34
-[; ;uart.c: 34:         continue;
-[e $U 1623  ]
-[e :U 1623 ]
-"33
-[; ;uart.c: 33:     while (!TXIF)
-[e $ ! _TXIF 1624  ]
-[e :U 1625 ]
+[; ;uart.c: 34:     while (!TXIF)
+[e $U 1625  ]
+[e :U 1626 ]
 "35
-[; ;uart.c: 35:     TXREG = data;
-[e = _TXREG -> _data `uc ]
+[; ;uart.c: 35:         continue;
+[e $U 1625  ]
+[e :U 1625 ]
+"34
+[; ;uart.c: 34:     while (!TXIF)
+[e $ ! _TXIF 1626  ]
+[e :U 1627 ]
 "36
-[; ;uart.c: 36: }
-[e :UE 1622 ]
+[; ;uart.c: 36:     TXREG = data;
+[e = _TXREG -> _data `uc ]
+"37
+[; ;uart.c: 37: }
+[e :UE 1624 ]
 }
-"39
-[; ;uart.c: 39: void send_ready(void){
+"40
+[; ;uart.c: 40: void send_ready(void){
 [v _send_ready `(v ~T0 @X0 1 ef ]
 {
 [e :U _send_ready ]
 [f ]
-"40
-[; ;uart.c: 40:     printf(0xAA);
-[e ( _printf -> 170 `i ]
 "41
-[; ;uart.c: 41: }
-[e :UE 1626 ]
+[; ;uart.c: 41:     printf("%hhu", 0xAA);
+[e ( _printf , (. :s 1C -> 170 `i ]
+"42
+[; ;uart.c: 42: }
+[e :UE 1628 ]
 }
-"44
-[; ;uart.c: 44: uint8_t is_ready(uint8_t data){
+"45
+[; ;uart.c: 45: uint8_t is_ready(uint8_t data){
 [v _is_ready `(uc ~T0 @X0 1 ef1`uc ]
 {
 [e :U _is_ready ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [f ]
-"45
-[; ;uart.c: 45:     if (data == 0xAA)
-[e $ ! == -> _data `i -> 170 `i 1628  ]
 "46
-[; ;uart.c: 46:         return 1;
+[; ;uart.c: 46:     if (data == 0xAA)
+[e $ ! == -> _data `i -> 170 `i 1630  ]
+"47
+[; ;uart.c: 47:         return 1;
 [e ) -> -> 1 `i `uc ]
-[e $UE 1627  ]
-[e $U 1629  ]
-"48
-[; ;uart.c: 48:     else
-[e :U 1628 ]
+[e $UE 1629  ]
+[e $U 1631  ]
 "49
-[; ;uart.c: 49:         return 0;
-[e ) -> -> 0 `i `uc ]
-[e $UE 1627  ]
-[e :U 1629 ]
+[; ;uart.c: 49:     else
+[e :U 1630 ]
 "50
-[; ;uart.c: 50: }
-[e :UE 1627 ]
+[; ;uart.c: 50:         return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 1629  ]
+[e :U 1631 ]
+"51
+[; ;uart.c: 51: }
+[e :UE 1629 ]
 }
-"53
-[; ;uart.c: 53: void send_commands(uint8_t* data){
+"54
+[; ;uart.c: 54: void send_commands(uint8_t* data){
 [v _send_commands `(v ~T0 @X0 1 ef1`*uc ]
 {
 [e :U _send_commands ]
 [v _data `*uc ~T0 @X0 1 r1 ]
 [f ]
-"54
-[; ;uart.c: 54:     for (int i = 0; i < 4; i++){
+"55
+[; ;uart.c: 55:     for (int i = 0; i < 4; i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 4 `i 1631  ]
-[e $U 1632  ]
-[e :U 1631 ]
+[e $ < _i -> 4 `i 1633  ]
+[e $U 1634  ]
+[e :U 1633 ]
 {
-"55
-[; ;uart.c: 55:         printf(*data);
-[e ( _printf -> *U _data `i ]
 "56
-[; ;uart.c: 56:         data++;
-[e ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
+[; ;uart.c: 56:         printf(*data);
+[e ( _printf -> *U _data `*Cuc ]
 "57
-[; ;uart.c: 57:         _delay((unsigned long)((1)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+[; ;uart.c: 57:         data++;
+[e ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
 "58
-[; ;uart.c: 58:     }
+[; ;uart.c: 58:         _delay((unsigned long)((1)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"59
+[; ;uart.c: 59:     }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 4 `i 1631  ]
-[e :U 1632 ]
+[e $ < _i -> 4 `i 1633  ]
+[e :U 1634 ]
 }
-"60
-[; ;uart.c: 60: }
-[e :UE 1630 ]
+"61
+[; ;uart.c: 61: }
+[e :UE 1632 ]
 }
+[p f _printf 42993152 ]
+[a 1C 37 104 104 117 0 ]

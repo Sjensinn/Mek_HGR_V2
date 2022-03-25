@@ -1,6 +1,6 @@
 #include "Stepper.h"
 
-void stepper_init() {
+void stepper_init(void) {
     //TRISD = 0b00000000;
     CCP1IF = 0; //Clear flag
     T1CONbits.CKPS1 = 1;
@@ -25,7 +25,7 @@ void stepper_move(uint8_t direction) { //add speed
     }
 }
 
-void stepper_stop() {
+void stepper_stop(void) {
     T1CONbits.ON = 0; //stop timer
 }
 

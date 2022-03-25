@@ -1970,8 +1970,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;system_init.c: 46:     LATE = 0x0;
 [e = _LATE -> -> 0 `i `uc ]
 "51
-[; ;system_init.c: 51:     TRISA = 0x30;
-[e = _TRISA -> -> 48 `i `uc ]
+[; ;system_init.c: 51:     TRISA = 0x31;
+[e = _TRISA -> -> 49 `i `uc ]
 "53
 [; ;system_init.c: 53:     TRISB = 0xE1;
 [e = _TRISB -> -> 225 `i `uc ]

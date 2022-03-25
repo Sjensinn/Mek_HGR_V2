@@ -46,9 +46,9 @@ void pin_init(){
     LATE = 0x0;
 
     /**
-    TRISx registers
+    TRISx registers 1 as input
     */
-    TRISA = 0x30;
+    TRISA = 0x31; //00110001 
     //TRISB = 0xF1;
     TRISB = 0xE1;
     TRISC = 0xBF;

@@ -20724,14 +20724,14 @@ extern __bank0 __bit __timeout;
 # 5 "./Stepper.h" 2
 
 
-void stepper_init();
+void stepper_init(void);
 void stepper_move(uint8_t direction);
-void stepper_stop();
+void stepper_stop(void);
 void set_stepper_speed(uint16_t speed);
 # 1 "Stepper.c" 2
 
 
-void stepper_init() {
+void stepper_init(void) {
 
     CCP1IF = 0;
     T1CONbits.CKPS1 = 1;
@@ -20756,7 +20756,7 @@ void stepper_move(uint8_t direction) {
     }
 }
 
-void stepper_stop() {
+void stepper_stop(void) {
     T1CONbits.ON = 0;
 }
 

@@ -4,7 +4,7 @@
 #include "uart.h"
 #include "PCA9685_driver.h"
 #include "dc.h"
-#include "stepper.h"
+#include "Stepper.h"
 #include "robot.h"
 
 

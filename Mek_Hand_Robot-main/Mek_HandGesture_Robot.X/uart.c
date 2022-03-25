@@ -1,6 +1,7 @@
 
 #include <xc.h>
 #include "uart.h"
+#include "stdio.h"
 
 void uart_init(void){
     RC6PPS = 0x10;
@@ -37,7 +38,7 @@ void putch(char data) {
 
 
 void send_ready(void){
-    printf(0xAA);
+    printf("%hhu", READYSIGNAL);
 }
 
 

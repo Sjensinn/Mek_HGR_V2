@@ -30,32 +30,29 @@ volatile uint8_t data_x; //00XXXXXX was XXXXXX-10
 volatile uint8_t data_y; //00XXXXXX was XXXXXX-11 
 volatile uint8_t ready = 0;
 
-
 void __interrupt() receive_isr();
 
 void main(void) {
-    int8_t x;
-    int8_t y;
-    uint8_t Rnum = 0xAA;
+    int8_t x, y;
+    uint8_t init_ready;
     system_init(); //Initiate clock, pins, uart, i2c, timer1 and interrupts
     //PCA_Init(130, 0x08);            //Initiate PCA9685 unit with I2C address: 0x80 and prescalar of 130
     stepper_init();
-    LCD_init(0x4E);
-
-    char buffer[20];
-    LCD_Set_Cursor(1,1);
-    LCD_write_string("Hello I am");
-    LCD_Set_Cursor(2,1); 
-    LCD_write_string("Robot");
-    
-    __delay_ms(5000);   //Finish init
-    printf("%d", Rnum); //Send ready byte
-
-    while (1) {
-        if (ready) { //from receive_isr() data_in->data_y 
-            ready = 0;
-
-            printf("%d", Rnum); //bi�ja um update //m� senda beint hex?
+    //LCD_init(0x4E);
+  
+    while(1){
+        init_ready = 1;     //Ready for initial communications
+        while(PORTAbits.RA0){ 
+            if(init_ready == 1){
+                send_ready(); //send ready signal
+                init_ready = 0; //Clear the initial ready
+            }
+            if(ready == 1){ 
+                ready = 0; //Reset ready status
+                //Do stuff here
+                //process();
+                 send_ready();
+            }
         }
     }
 

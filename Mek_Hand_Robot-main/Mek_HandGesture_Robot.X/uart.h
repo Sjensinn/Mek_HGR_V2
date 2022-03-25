@@ -21,7 +21,7 @@ extern "C" {
 #endif
 
 #include <xc.h>
-#define READYSIGNAL 10101010
+#define READYSIGNAL 0xAA
 
 /**
  * @brief   This function intitiates the USART module in asynchronous mode

@@ -4,5 +4,5 @@ I2C_MSSP1_driver.h  \
 uart.h  \
 PCA9685_driver.h  \
 dc.h  \
-stepper.h  \
+Stepper.h  \
 robot.h 
