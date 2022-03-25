@@ -9,18 +9,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "158
 [; ;./gy_521.h: 158: void gy_Read(int16_t* Ax, int16_t* Ay);
 [v _gy_Read `(v ~T0 @X0 0 ef2`*s`*s ]
-"40 ./control_glove.h
-[; ;./control_glove.h: 40: uint8_t format_data_b1(uint16_t flex);
-[v _format_data_b1 `(uc ~T0 @X0 0 ef1`us ]
-"52
-[; ;./control_glove.h: 52: uint8_t format_data_b2(uint8_t f1, uint8_t f2, uint8_t f3, uint8_t axd, uint8_t ayd);
-[v _format_data_b2 `(uc ~T0 @X0 0 ef5`uc`uc`uc`uc`uc ]
-"64
-[; ;./control_glove.h: 64: uint8_t format_data_b3(int16_t ax);
-[v _format_data_b3 `(uc ~T0 @X0 0 ef1`s ]
-"76
-[; ;./control_glove.h: 76: uint8_t format_data_b4(int16_t ay);
-[v _format_data_b4 `(uc ~T0 @X0 0 ef1`s ]
 "82 ./uart.h
 [; ;./uart.h: 82: void send_commands(uint8_t* data);
 [v _send_commands `(v ~T0 @X0 0 ef1`*uc ]
@@ -1783,17 +1771,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Main.c: 60:             ayd = accelo_y >> 0;
 [e = _ayd -> >> -> _accelo_y `i -> 0 `i `uc ]
 "63
-[; ;Main.c: 63:             tx_data[0] = format_data_b1(flex);
-[e = *U + &U _tx_data * -> -> -> 0 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b1 (1 _flex ]
+[; ;Main.c: 63:             tx_data[0] = 4;
+[e = *U + &U _tx_data * -> -> -> 0 `i `ui `ux -> -> # *U &U _tx_data `ui `ux -> -> 4 `i `uc ]
 "64
-[; ;Main.c: 64:             tx_data[1] = format_data_b2(1, 0, 0, axd, ayd);
-[e = *U + &U _tx_data * -> -> -> 1 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b2 (4 , , , , -> -> 1 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc _axd _ayd ]
+[; ;Main.c: 64:             tx_data[1] = 9;
+[e = *U + &U _tx_data * -> -> -> 1 `i `ui `ux -> -> # *U &U _tx_data `ui `ux -> -> 9 `i `uc ]
 "65
-[; ;Main.c: 65:             tx_data[2] = format_data_b3(accelo_x);
-[e = *U + &U _tx_data * -> -> -> 2 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b3 (1 _accelo_x ]
+[; ;Main.c: 65:             tx_data[2] = 18;
+[e = *U + &U _tx_data * -> -> -> 2 `i `ui `ux -> -> # *U &U _tx_data `ui `ux -> -> 18 `i `uc ]
 "66
-[; ;Main.c: 66:             tx_data[3] = format_data_b4(accelo_y);
-[e = *U + &U _tx_data * -> -> -> 3 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b4 (1 _accelo_y ]
+[; ;Main.c: 66:             tx_data[3] = 35;
+[e = *U + &U _tx_data * -> -> -> 3 `i `ui `ux -> -> # *U &U _tx_data `ui `ux -> -> 35 `i `uc ]
 "69
 [; ;Main.c: 69:             send_commands(tx_data);
 [e ( _send_commands (1 &U _tx_data ]

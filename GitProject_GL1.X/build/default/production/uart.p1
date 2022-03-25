@@ -1829,7 +1829,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 1620 ]
 }
 "33
-[; ;uart.c: 33: void putch(char data) {
+[; ;uart.c: 33: void putch(uint8_t data) {
 [v _putch `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _putch ]
@@ -1849,7 +1849,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1627 ]
 "36
 [; ;uart.c: 36:     TXREG = data;
-[e = _TXREG -> _data `uc ]
+[e = _TXREG _data ]
 "37
 [; ;uart.c: 37: }
 [e :UE 1624 ]
@@ -1861,8 +1861,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _send_ready ]
 [f ]
 "41
-[; ;uart.c: 41:     printf("%d", 42);
-[e ( _printf , (. :s 1C -> 42 `i ]
+[; ;uart.c: 41:     printf("%d", 0xAA);
+[e ( _printf , (. :s 1C -> 170 `i ]
 "42
 [; ;uart.c: 42: }
 [e :UE 1628 ]
@@ -1875,8 +1875,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _data `uc ~T0 @X0 1 r1 ]
 [f ]
 "46
-[; ;uart.c: 46:     if (data == 42)
-[e $ ! == -> _data `i -> 42 `i 1630  ]
+[; ;uart.c: 46:     if (data == 0xAA)
+[e $ ! == -> _data `i -> 170 `i 1630  ]
 "47
 [; ;uart.c: 47:         return 1;
 [e ) -> -> 1 `i `uc ]
@@ -1917,8 +1917,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;uart.c: 57:         data++;
 [e ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
 "58
-[; ;uart.c: 58:         _delay((unsigned long)((5)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+[; ;uart.c: 58:         _delay((unsigned long)((100)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
 "59
 [; ;uart.c: 59:     }
 }

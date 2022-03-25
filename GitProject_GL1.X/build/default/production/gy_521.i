@@ -20920,7 +20920,7 @@ void uart_Write_String(char* buf);
 
 
 
-void putch(char data);
+void putch(uint8_t data);
 
 
 

@@ -20742,7 +20742,7 @@ void uart_Write_String(char* buf);
 
 
 
-void putch(char data);
+void putch(uint8_t data);
 
 
 
@@ -20931,7 +20931,7 @@ void uart_Write_String(char* buf){
     }
 }
 
-void putch(char data) {
+void putch(uint8_t data) {
     while (!TXIF)
         continue;
     TXREG = data;
@@ -20939,12 +20939,12 @@ void putch(char data) {
 
 
 void send_ready(void){
-    printf("%d", 42);
+    printf("%d", 0xAA);
 }
 
 
 uint8_t is_ready(uint8_t data){
-    if (data == 42)
+    if (data == 0xAA)
         return 1;
 
     else
@@ -20956,7 +20956,7 @@ void send_commands(uint8_t* data){
     for (int i = 0; i < 4; i++){
         printf("%d", *data);
         data++;
-        _delay((unsigned long)((5)*(16000000/4000.0)));
+        _delay((unsigned long)((100)*(16000000/4000.0)));
     }
 
 }

@@ -20779,7 +20779,7 @@ void uart_Write_String(char* buf);
 
 
 
-void putch(char data);
+void putch(uint8_t data);
 
 
 
@@ -21033,10 +21033,10 @@ void main(void) {
             ayd = accelo_y >> 0;
 
 
-            tx_data[0] = format_data_b1(flex);
-            tx_data[1] = format_data_b2(1, 0, 0, axd, ayd);
-            tx_data[2] = format_data_b3(accelo_x);
-            tx_data[3] = format_data_b4(accelo_y);
+            tx_data[0] = 4;
+            tx_data[1] = 9;
+            tx_data[2] = 18;
+            tx_data[3] = 35;
 
 
             send_commands(tx_data);

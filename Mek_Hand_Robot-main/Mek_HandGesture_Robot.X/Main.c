@@ -36,7 +36,7 @@ void __interrupt() receive_isr();
 void main(void) {
     int8_t x;
     int8_t y;
-    uint8_t Rnum = 42;
+    uint8_t Rnum = 0xAA;
     system_init(); //Initiate clock, pins, uart, i2c, timer1 and interrupts
     //PCA_Init(130, 0x08);            //Initiate PCA9685 unit with I2C address: 0x80 and prescalar of 130
     stepper_init();
@@ -49,44 +49,14 @@ void main(void) {
     LCD_write_string("Robot");
     
     __delay_ms(5000);   //Finish init
-    printf("%d", Rnum);       //Send ready byte
+    printf("%d", Rnum); //Send ready byte
 
     while (1) {
         if (ready) { //from receive_isr() data_in->data_y 
             ready = 0;
 
-            LCD_Set_Cursor(1,1);        //line 1
-            sprintf(buffer, "Fin: %d", data_fingers);
-            LCD_write_string(buffer);
-            
-            LCD_Set_Cursor(2,1);        //line 2
-            sprintf(buffer, "Accel: %d %d", data_x, data_y);
-            LCD_write_string(buffer);
-
-            switch (data_fingers & 0b11100000) {
-                    x = (data_x) + (data_fingers << 3 & 0b10000000); //convert to signed
-                    y = (data_y) + (data_fingers << 4 & 0b10000000); //sign-0-XXXXXX
-                case 0b00100000: //DC on, Stepper off
-                    drive(x, y);
-                    break;
-                case 0b01000000: //Stepper on, Shoulder servo(3) on, DC off
-                    shoulder(x, y);
-                    break;
-                case 0b10000000: //Elbow servo(2) on, Wrist servo(1) on, DC off, Stepper off 
-                    front_arm(x, y);
-                    break;
-                default:
-                    break;
-            }
-
             printf("%d", Rnum); //bi�ja um update //m� senda beint hex?
         }
-        //G�tum disabla� uart interrupts � k�flum ef vi� �urfum heil datasett.(?)
-        //flex(data_flex>>2); //Grabber servo(0)
-
-
-
-
     }
 
     return;

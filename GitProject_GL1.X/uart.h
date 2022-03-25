@@ -22,7 +22,7 @@ extern "C" {
 #endif
     
 
-#define READYSIGNAL 42
+#define READYSIGNAL 0xAA
 
 /**
  * @brief   This function intitiates the USART module in asynchronous mode
@@ -52,7 +52,7 @@ void uart_Write_String(char* buf);
  * @param   data: characted to write           
  * @return  void 
 */
-void putch(char data);
+void putch(uint8_t data);
 
 /**
  * @brief   This function sends Ready signal

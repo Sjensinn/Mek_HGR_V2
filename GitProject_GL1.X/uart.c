@@ -30,7 +30,7 @@ void uart_Write_String(char* buf){
     }
 }
 
-void putch(char data) {
+void putch(uint8_t data) {
     while (!TXIF) // check buffer
         continue; // wait till ready
     TXREG = data; // send data
@@ -43,7 +43,7 @@ void send_ready(void){
 
 
 uint8_t is_ready(uint8_t data){
-    if (data == 42)
+    if (data == READYSIGNAL)
         return 1;
     
     else
@@ -55,7 +55,7 @@ void send_commands(uint8_t* data){
     for (int i = 0; i < 4; i++){
         printf("%d", *data);
         data++;
-        __delay_ms(5);
+        __delay_ms(100);
     }
     
 }
