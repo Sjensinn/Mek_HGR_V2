@@ -38,7 +38,8 @@ void putch(uint8_t data) {
 
 
 void send_ready(void){
-    printf("%d", READYSIGNAL);
+    //printf("%d", READYSIGNAL);
+    uart_Write(READYSIGNAL);
 }
 
 
@@ -53,7 +54,8 @@ uint8_t is_ready(uint8_t data){
 
 void send_commands(uint8_t* data){
     for (int i = 0; i < 4; i++){
-        printf("%d", *data);
+        //printf("%d", *data);
+        uart_Write(*data);
         data++;
         __delay_ms(100);
     }

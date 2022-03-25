@@ -61,9 +61,9 @@ void main(void) {
 
             //Format data
             tx_data[0] = 4;//format_data_b1(flex);
-            tx_data[1] = 9;//format_data_b2(F1_getVal(), F2_getVal(), F3_getVal(), axd, ayd);
-            tx_data[2] = 18;//format_data_b3(accelo_x);
-            tx_data[3] = 35;//format_data_b4(accelo_y);
+            tx_data[1] = 17;//format_data_b2(F1_getVal(), F2_getVal(), F3_getVal(), axd, ayd);
+            tx_data[2] = format_data_b3(accelo_x);
+            tx_data[3] = format_data_b4(accelo_y);
 
             //Send data
             send_commands(tx_data);

@@ -50,7 +50,7 @@ void pin_init(){
     */
     TRISA = 0x31; //00110001 
     //TRISB = 0xF1;
-    TRISB = 0xE1;
+    TRISB = 0b11000001;//0xE1;
     TRISC = 0xBF;
     TRISD = 0x0;
     TRISE = 0x7;
