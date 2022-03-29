@@ -12,8 +12,8 @@
 #endif
 
 #ifndef STEPPER_LIMITS
-#define STEP_MAX 50     //Maximum number of steps 
-#define STEP_MIN -50    //Minimum number of steps
+#define STEP_MAX 500     //Maximum number of steps 
+#define STEP_MIN -500    //Minimum number of steps
 #endif
 
 #include <xc.h>
@@ -58,6 +58,8 @@ void main(void) {
                 //process(data_flex, data_fingers, data_x, data_y);
                 
                 stepper_move(1);
+                __delay_ms(500);
+                stepper_stop();
                 __delay_ms(500);
                 stepper_move(0);
                 __delay_ms(500);

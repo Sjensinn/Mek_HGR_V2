@@ -3,30 +3,10 @@
 [d edition pro ]
 [d chip 16F18877 ]
 [d frameptr 6 ]
-"1 C:\Program Files\Microchip\pic\sources\c99\common\abs.c
-[v _abs abs `(i  1 e 2 0 ]
-"7 C:\Program Files\Microchip\pic\sources\c99\common\aodiv.c
-[v ___aodiv __aodiv `(o  1 e 8 0 ]
-"7 C:\Program Files\Microchip\pic\sources\c99\common\aomod.c
-[v ___aomod __aomod `(o  1 e 8 0 ]
-"72 C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-[v _pad pad `(i  1 s 2 pad ]
-"287
-[v _dtoa dtoa `(i  1 s 2 dtoa ]
-"692
-[v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
-"1390
-[v _vfprintf vfprintf `(i  1 e 2 0 ]
-"8 C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
-[v _fputc fputc `(i  1 e 2 0 ]
-"8 C:\Program Files\Microchip\pic\sources\c99\common\nf_fputs.c
-[v _fputs fputs `(i  1 e 2 0 ]
 "5 C:\Program Files\Microchip\pic\sources\c99\common\printf.c
 [v _printf printf `(i  1 e 2 0 ]
 "10 C:\Program Files\Microchip\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
-"5 C:\Program Files\Microchip\pic\sources\c99\common\strlen.c
-[v _strlen strlen `(ui  1 e 2 0 ]
 "15 C:\Program Files\Microchip\pic\sources\c99\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 "4 C:\Program Files\Microchip\pic\sources\c99\common\Umul8_16.c
@@ -59,24 +39,26 @@
 [v _LCD_write_char LCD_write_char `(v  1 e 1 0 ]
 "42 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\Main.c
 [v _main main `(v  1 e 1 0 ]
-"72
+"78
 [v _receive_isr receive_isr `II(v  1 e 1 0 ]
-"120
+"126
 [v _initial_transmission initial_transmission `(v  1 e 1 0 ]
 "6 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\PCA9685_driver.c
 [v _PCA_Init PCA_Init `(v  1 e 1 0 ]
 "28
 [v _PCA_write PCA_write `(v  1 e 1 0 ]
-"15 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\robot.c
-[v _process process `(v  1 e 1 0 ]
 "3 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\Stepper.c
 [v _stepper_init stepper_init `(v  1 e 1 0 ]
+"18
+[v _stepper_move stepper_move `(v  1 e 1 0 ]
 "45
 [v _stepper_stop stepper_stop `(v  1 e 1 0 ]
+[v i1_stepper_stop stepper_stop `(v  1 e 1 0 ]
 "55
 [v _step_enable step_enable `(v  1 e 1 0 ]
 "61
 [v _step_disable step_disable `(v  1 e 1 0 ]
+[v i1_step_disable step_disable `(v  1 e 1 0 ]
 "67
 [v _step_inc_dec step_inc_dec `(v  1 e 1 0 ]
 "74
@@ -97,8 +79,6 @@
 [v _uart_Write uart_Write `(v  1 e 1 0 ]
 "27
 [v _uart_Write_uint8 uart_Write_uint8 `(v  1 e 1 0 ]
-"40
-[v _putch putch `(v  1 e 1 0 ]
 "47
 [v _send_ready send_ready `(v  1 e 1 0 ]
 "9 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X/dc.h
@@ -118,14 +98,14 @@
 [v _step_dir step_dir `uc  1 e 1 0 ]
 "11
 [v _step_count step_count `i  1 e 2 0 ]
-[s S798 . 1 `uc 1 INTEDG 1 0 :1:0 
+[s S801 . 1 `uc 1 INTEDG 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
 "371 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
-[u S803 . 1 `S798 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES803  1 e 1 @11 ]
+[u S806 . 1 `S801 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES806  1 e 1 @11 ]
 [s S463 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
@@ -140,7 +120,7 @@
 [v _PORTAbits PORTAbits `VES472  1 e 1 @12 ]
 "677
 [v _TRISA TRISA `VEuc  1 e 1 @17 ]
-[s S848 . 1 `uc 1 TRISA0 1 0 :1:0 
+[s S851 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -150,11 +130,11 @@
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "694
-[u S857 . 1 `S848 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES857  1 e 1 @17 ]
+[u S860 . 1 `S851 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES860  1 e 1 @17 ]
 "739
 [v _TRISB TRISB `VEuc  1 e 1 @18 ]
-[s S593 . 1 `uc 1 TRISB0 1 0 :1:0 
+[s S596 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -164,8 +144,8 @@
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "756
-[u S602 . 1 `S593 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES602  1 e 1 @18 ]
+[u S605 . 1 `S596 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES605  1 e 1 @18 ]
 "801
 [v _TRISC TRISC `VEuc  1 e 1 @19 ]
 [s S48 . 1 `uc 1 TRISC0 1 0 :1:0 
@@ -188,7 +168,7 @@
 [v _LATA LATA `VEuc  1 e 1 @22 ]
 "1019
 [v _LATB LATB `VEuc  1 e 1 @23 ]
-[s S614 . 1 `uc 1 LATB0 1 0 :1:0 
+[s S617 . 1 `uc 1 LATB0 1 0 :1:0 
 `uc 1 LATB1 1 0 :1:1 
 `uc 1 LATB2 1 0 :1:2 
 `uc 1 LATB3 1 0 :1:3 
@@ -198,13 +178,13 @@
 `uc 1 LATB7 1 0 :1:7 
 ]
 "1036
-[u S623 . 1 `S614 1 . 1 0 ]
-[v _LATBbits LATBbits `VES623  1 e 1 @23 ]
+[u S626 . 1 `S617 1 . 1 0 ]
+[v _LATBbits LATBbits `VES626  1 e 1 @23 ]
 "1081
 [v _LATC LATC `VEuc  1 e 1 @24 ]
 "1143
 [v _LATD LATD `VEuc  1 e 1 @25 ]
-[s S516 . 1 `uc 1 LATD0 1 0 :1:0 
+[s S519 . 1 `uc 1 LATD0 1 0 :1:0 
 `uc 1 LATD1 1 0 :1:1 
 `uc 1 LATD2 1 0 :1:2 
 `uc 1 LATD3 1 0 :1:3 
@@ -214,8 +194,8 @@
 `uc 1 LATD7 1 0 :1:7 
 ]
 "1160
-[u S525 . 1 `S516 1 . 1 0 ]
-[v _LATDbits LATDbits `VES525  1 e 1 @25 ]
+[u S528 . 1 `S519 1 . 1 0 ]
+[v _LATDbits LATDbits `VES528  1 e 1 @25 ]
 "1205
 [v _LATE LATE `VEuc  1 e 1 @26 ]
 "3770
@@ -228,7 +208,7 @@
 [v _SPBRGL SPBRGL `VEuc  1 e 1 @283 ]
 "3955
 [v _SPBRGH SPBRGH `VEuc  1 e 1 @284 ]
-[s S1072 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S1075 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -238,9 +218,9 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "4030
-[u S1081 . 1 `S1072 1 . 1 0 ]
-[v _RC1STAbits RC1STAbits `VES1081  1 e 1 @285 ]
-[s S1030 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S1084 . 1 `S1075 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES1084  1 e 1 @285 ]
+[s S1033 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -250,9 +230,9 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "4210
-[u S1039 . 1 `S1030 1 . 1 0 ]
-[v _TX1STAbits TX1STAbits `VES1039  1 e 1 @286 ]
-[s S1009 . 1 `uc 1 ABDEN 1 0 :1:0 
+[u S1042 . 1 `S1033 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES1042  1 e 1 @286 ]
+[s S1012 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -262,10 +242,10 @@
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "4398
-[u S1018 . 1 `S1009 1 . 1 0 ]
-[v _BAUD1CONbits BAUD1CONbits `VES1018  1 e 1 @287 ]
+[u S1021 . 1 `S1012 1 . 1 0 ]
+[v _BAUD1CONbits BAUD1CONbits `VES1021  1 e 1 @287 ]
 "4531
-[v _BAUDCONbits BAUDCONbits `VES1018  1 e 1 @287 ]
+[v _BAUDCONbits BAUDCONbits `VES1021  1 e 1 @287 ]
 "4610
 [v _SSP1BUF SSP1BUF `VEuc  1 e 1 @396 ]
 "4630
@@ -429,30 +409,30 @@
 [v _SSP1CON2bits SSP1CON2bits `VES149  1 e 1 @401 ]
 "5491
 [v _SSP1CON3 SSP1CON3 `VEuc  1 e 1 @402 ]
-[s S707 . 1 `uc 1 ON 1 0 :1:0 
+[s S710 . 1 `uc 1 ON 1 0 :1:0 
 `uc 1 RD16 1 0 :1:1 
 `uc 1 nSYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 CKPS 1 0 :2:4 
 ]
 "6824
-[s S713 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S716 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 T1RD16 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T1CKPS0 1 0 :1:4 
 `uc 1 T1CKPS1 1 0 :1:5 
 ]
-[s S720 . 1 `uc 1 . 1 0 :4:0 
+[s S723 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 CKPS0 1 0 :1:4 
 `uc 1 CKPS1 1 0 :1:5 
 ]
-[s S724 . 1 `uc 1 . 1 0 :1:0 
+[s S727 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RD161 1 0 :1:1 
 ]
-[u S727 . 1 `S707 1 . 1 0 `S713 1 . 1 0 `S720 1 . 1 0 `S724 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES727  1 e 1 @526 ]
-[s S753 . 1 `uc 1 . 1 0 :2:0 
+[u S730 . 1 `S710 1 . 1 0 `S716 1 . 1 0 `S723 1 . 1 0 `S727 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES730  1 e 1 @526 ]
+[s S756 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 GVAL 1 0 :1:2 
 `uc 1 GGO_nDONE 1 0 :1:3 
 `uc 1 GSPM 1 0 :1:4 
@@ -461,7 +441,7 @@
 `uc 1 GE 1 0 :1:7 
 ]
 "6923
-[s S761 . 1 `uc 1 . 1 0 :2:0 
+[s S764 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1GVAL 1 0 :1:2 
 `uc 1 T1GGO_nDONE 1 0 :1:3 
 `uc 1 T1GSPM 1 0 :1:4 
@@ -469,11 +449,11 @@
 `uc 1 T1GPOL 1 0 :1:6 
 `uc 1 T1GE 1 0 :1:7 
 ]
-[s S769 . 1 `uc 1 . 1 0 :3:0 
+[s S772 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 T1GGO 1 0 :1:3 
 ]
-[u S772 . 1 `S753 1 . 1 0 `S761 1 . 1 0 `S769 1 . 1 0 ]
-[v _T1GCONbits T1GCONbits `VES772  1 e 1 @527 ]
+[u S775 . 1 `S756 1 . 1 0 `S764 1 . 1 0 `S772 1 . 1 0 ]
+[v _T1GCONbits T1GCONbits `VES775  1 e 1 @527 ]
 "7251
 [v _T1CLK T1CLK `VEuc  1 e 1 @529 ]
 "11152
@@ -492,7 +472,7 @@
 "21382
 [u S202 . 1 `S195 1 . 1 0 ]
 [v _PIR3bits PIR3bits `VES202  1 e 1 @1807 ]
-[s S1093 . 1 `uc 1 SSP1IE 1 0 :1:0 
+[s S1096 . 1 `uc 1 SSP1IE 1 0 :1:0 
 `uc 1 BCL1IE 1 0 :1:1 
 `uc 1 SSP2IE 1 0 :1:2 
 `uc 1 BCL2IE 1 0 :1:3 
@@ -500,17 +480,17 @@
 `uc 1 RCIE 1 0 :1:5 
 ]
 "21804
-[u S1100 . 1 `S1093 1 . 1 0 ]
-[v _PIE3bits PIE3bits `VES1100  1 e 1 @1817 ]
-[s S811 . 1 `uc 1 CCP1IE 1 0 :1:0 
+[u S1103 . 1 `S1096 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES1103  1 e 1 @1817 ]
+[s S814 . 1 `uc 1 CCP1IE 1 0 :1:0 
 `uc 1 CCP2IE 1 0 :1:1 
 `uc 1 CCP3IE 1 0 :1:2 
 `uc 1 CCP4IE 1 0 :1:3 
 `uc 1 CCP5IE 1 0 :1:4 
 ]
 "21960
-[u S817 . 1 `S811 1 . 1 0 ]
-[v _PIE6bits PIE6bits `VES817  1 e 1 @1820 ]
+[u S820 . 1 `S814 1 . 1 0 ]
+[v _PIE6bits PIE6bits `VES820  1 e 1 @1820 ]
 "23443
 [v _OSCCON1 OSCCON1 `VEuc  1 e 1 @2189 ]
 "23513
@@ -622,14 +602,6 @@
 [v _RCIF RCIF `VEb  1 e 0 @14461 ]
 "44429
 [v _TXIF TXIF `VEb  1 e 0 @14460 ]
-"55 C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-[v _flags flags `i  1 s 2 flags ]
-[v _prec prec `i  1 s 2 prec ]
-[v _width width `i  1 s 2 width ]
-"66
-[v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
-"69
-[v _nout nout `i  1 s 2 nout ]
 "31 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\Main.c
 [v _data_in data_in `VEuc  1 e 1 0 ]
 "32
@@ -648,8 +620,8 @@
 [v _main main `(v  1 e 1 0 ]
 {
 "44
-[v main@init_ready init_ready `uc  1 a 1 21 ]
-"70
+[v main@init_ready init_ready `uc  1 a 1 6 ]
+"76
 } 0
 "12 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\system_init.c
 [v _system_init system_init `(v  1 e 1 0 ]
@@ -681,211 +653,41 @@
 {
 "23
 } 0
-"3 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\Stepper.c
+"45 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\Stepper.c
+[v _stepper_stop stepper_stop `(v  1 e 1 0 ]
+{
+"48
+} 0
+"18
+[v _stepper_move stepper_move `(v  1 e 1 0 ]
+{
+[v stepper_move@direction direction `uc  1 a 1 wreg ]
+[v stepper_move@direction direction `uc  1 a 1 wreg ]
+[v stepper_move@direction direction `uc  1 a 1 1 ]
+"43
+} 0
+"55
+[v _step_enable step_enable `(v  1 e 1 0 ]
+{
+"59
+} 0
+"61
+[v _step_disable step_disable `(v  1 e 1 0 ]
+{
+"65
+} 0
+"3
 [v _stepper_init stepper_init `(v  1 e 1 0 ]
 {
 "16
 } 0
-"15 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\robot.c
-[v _process process `(v  1 e 1 0 ]
-{
-"17
-[v process@y y `c  1 a 1 17 ]
-"16
-[v process@x x `c  1 a 1 16 ]
-"15
-[v process@data_fingers data_fingers `uc  1 p 1 11 ]
-[v process@data_x data_x `uc  1 p 1 12 ]
-[v process@data_y data_y `uc  1 p 1 13 ]
-"23
-} 0
-"13 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\dc.c
-[v _dc_move dc_move `(v  1 e 1 0 ]
-{
-[v dc_move@x x `c  1 a 1 wreg ]
-[v dc_move@x x `c  1 a 1 wreg ]
-[v dc_move@y y `c  1 p 1 7 ]
-"62
-} 0
-"5 C:\Program Files\Microchip\pic\sources\c99\common\printf.c
-[v _printf printf `(i  1 e 2 0 ]
-{
-"8
-[v printf@ap ap `[1]*.4v  1 a 1 79 ]
-"5
-[v printf@fmt fmt `*.25DCuc  1 p 2 3 ]
-"13
-} 0
-"1390 C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-[v _vfprintf vfprintf `(i  1 e 2 0 ]
-{
-[s S1679 _IO_FILE 0 ]
-[v vfprintf@fp fp `*.1S1679  1 a 1 wreg ]
-"1393
-[v vfprintf@cfmt cfmt `*.25uc  1 a 2 1 ]
-"1390
-[v vfprintf@fp fp `*.1S1679  1 a 1 wreg ]
-[v vfprintf@fmt fmt `*.25DCuc  1 p 2 73 ]
-[v vfprintf@ap ap `*.4*.4v  1 p 1 75 ]
-"1395
-"1390
-[v vfprintf@fp fp `*.1S1679  1 a 1 0 ]
-"1404
-} 0
-"692
-[v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
-{
-[s S1679 _IO_FILE 0 ]
-[v vfpfcnvrt@fp fp `*.1S1679  1 a 1 wreg ]
-"696
-[v vfpfcnvrt@ll ll `o  1 a 8 64 ]
-"692
-[v vfpfcnvrt@fp fp `*.1S1679  1 a 1 wreg ]
-[v vfpfcnvrt@fmt fmt `*.4*.25uc  1 p 1 57 ]
-[v vfpfcnvrt@ap ap `*.4*.4v  1 p 1 58 ]
-"702
-"692
-[v vfpfcnvrt@fp fp `*.1S1679  1 a 1 72 ]
-"1387
-} 0
-"287
-[v _dtoa dtoa `(i  1 s 2 dtoa ]
-{
-[s S1679 _IO_FILE 0 ]
-[v dtoa@fp fp `*.1S1679  1 a 1 wreg ]
-"290
-[v dtoa@n n `o  1 a 8 47 ]
-"289
-[v dtoa@i i `i  1 a 2 55 ]
-[v dtoa@s s `i  1 a 2 45 ]
-[v dtoa@w w `i  1 a 2 43 ]
-[v dtoa@p p `i  1 a 2 41 ]
-"287
-[v dtoa@fp fp `*.1S1679  1 a 1 wreg ]
-[v dtoa@d d `o  1 p 8 27 ]
-"293
-"287
-[v dtoa@fp fp `*.1S1679  1 a 1 40 ]
-"328
-} 0
-"72
-[v _pad pad `(i  1 s 2 pad ]
-{
-[s S1679 _IO_FILE 0 ]
-[v pad@fp fp `*.1S1679  1 a 1 wreg ]
-"74
-[v pad@w w `i  1 a 2 23 ]
-[v pad@i i `i  1 a 2 21 ]
-"72
-[v pad@fp fp `*.1S1679  1 a 1 wreg ]
-[v pad@buf buf `*.5uc  1 p 1 17 ]
-[v pad@p p `i  1 p 2 18 ]
-"77
-"72
-[v pad@fp fp `*.1S1679  1 a 1 25 ]
-"95
-} 0
-"5 C:\Program Files\Microchip\pic\sources\c99\common\strlen.c
-[v _strlen strlen `(ui  1 e 2 0 ]
-{
-[v strlen@s s `*.5DCuc  1 a 1 wreg ]
-"7
-[v strlen@a a `*.5DCuc  1 a 1 3 ]
-"5
-[v strlen@s s `*.5DCuc  1 a 1 wreg ]
-"7
-[v strlen@s s `*.5DCuc  1 a 1 4 ]
-"12
-} 0
-"8 C:\Program Files\Microchip\pic\sources\c99\common\nf_fputs.c
-[v _fputs fputs `(i  1 e 2 0 ]
-{
-[v fputs@s s `*.5DCuc  1 a 1 wreg ]
-"11
-[v fputs@i i `i  1 a 2 14 ]
-"10
-[v fputs@c c `uc  1 a 1 13 ]
-"8
-[v fputs@s s `*.5DCuc  1 a 1 wreg ]
-[s S1662 _IO_FILE 5 `*.1uc 1 buffer 1 0 `i 1 count 2 1 `i 1 limit 2 3 ]
-[v fputs@fp fp `*.1S1662  1 p 1 9 ]
-"13
-[v fputs@s s `*.5DCuc  1 a 1 16 ]
-"19
-} 0
-"8 C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
-[v _fputc fputc `(i  1 e 2 0 ]
-{
-[v fputc@c c `i  1 p 2 1 ]
-[s S1662 _IO_FILE 5 `*.1uc 1 buffer 1 0 `i 1 count 2 1 `i 1 limit 2 3 ]
-[v fputc@fp fp `*.1S1662  1 p 1 3 ]
-"24
-} 0
-"40 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\uart.c
-[v _putch putch `(v  1 e 1 0 ]
-{
-[v putch@data data `uc  1 a 1 wreg ]
-[v putch@data data `uc  1 a 1 wreg ]
-[v putch@data data `uc  1 a 1 0 ]
-"44
-} 0
-"1 C:\Program Files\Microchip\pic\sources\c99\common\abs.c
-[v _abs abs `(i  1 e 2 0 ]
-{
-[v abs@a a `i  1 p 2 19 ]
-"4
-} 0
-"7 C:\Program Files\Microchip\pic\sources\c99\common\aomod.c
-[v ___aomod __aomod `(o  1 e 8 0 ]
-{
-"12
-[v ___aomod@sign sign `uc  1 a 1 18 ]
-[v ___aomod@counter counter `uc  1 a 1 17 ]
-"7
-[v ___aomod@divisor divisor `o  1 p 8 0 ]
-[v ___aomod@dividend dividend `o  1 p 8 8 ]
-"36
-} 0
-"7 C:\Program Files\Microchip\pic\sources\c99\common\aodiv.c
-[v ___aodiv __aodiv `(o  1 e 8 0 ]
-{
-"12
-[v ___aodiv@quotient quotient `o  1 a 8 19 ]
-"13
-[v ___aodiv@sign sign `uc  1 a 1 18 ]
-[v ___aodiv@counter counter `uc  1 a 1 17 ]
-"7
-[v ___aodiv@divisor divisor `o  1 p 8 0 ]
-[v ___aodiv@dividend dividend `o  1 p 8 8 ]
-"43
-} 0
-"15 C:\Program Files\Microchip\pic\sources\c99\common\Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
-{
-"17
-[v ___wmul@product product `ui  1 a 2 4 ]
-"15
-[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
-"53
-} 0
-"28 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\PCA9685_driver.c
-[v _PCA_write PCA_write `(v  1 e 1 0 ]
-{
-[v PCA_write@ChannelN ChannelN `uc  1 a 1 wreg ]
-[v PCA_write@ChannelN ChannelN `uc  1 a 1 wreg ]
-[v PCA_write@on on `us  1 p 2 1 ]
-[v PCA_write@off off `us  1 p 2 3 ]
-[v PCA_write@ChannelN ChannelN `uc  1 a 1 5 ]
-"42
-} 0
-"120 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\Main.c
+"126 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\Main.c
 [v _initial_transmission initial_transmission `(v  1 e 1 0 ]
 {
 [v initial_transmission@init_ready init_ready `*.4uc  1 a 1 wreg ]
 [v initial_transmission@init_ready init_ready `*.4uc  1 a 1 wreg ]
 [v initial_transmission@init_ready init_ready `*.4uc  1 a 1 1 ]
-"126
+"132
 } 0
 "47 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\uart.c
 [v _send_ready send_ready `(v  1 e 1 0 ]
@@ -932,18 +734,18 @@
 {
 "40
 } 0
-"72 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\Main.c
+"78 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\Main.c
 [v _receive_isr receive_isr `II(v  1 e 1 0 ]
 {
-"118
+"124
 } 0
 "45 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\Mek_Hand_Robot-main\Mek_HandGesture_Robot.X\Stepper.c
-[v _stepper_stop stepper_stop `(v  1 e 1 0 ]
+[v i1_stepper_stop stepper_stop `(v  1 e 1 0 ]
 {
 "48
 } 0
 "61
-[v _step_disable step_disable `(v  1 e 1 0 ]
+[v i1_step_disable step_disable `(v  1 e 1 0 ]
 {
 "65
 } 0

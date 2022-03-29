@@ -21155,8 +21155,14 @@ void main(void) {
                 ready = 0;
 
 
-                process(data_flex, data_fingers, data_x, data_y);
 
+
+                stepper_move(1);
+                _delay((unsigned long)((500)*(16000000/4000.0)));
+                stepper_stop();
+                _delay((unsigned long)((500)*(16000000/4000.0)));
+                stepper_move(0);
+                _delay((unsigned long)((500)*(16000000/4000.0)));
                  send_ready();
             }
         }
@@ -21197,12 +21203,12 @@ void __attribute__((picinterrupt(("")))) receive_isr() {
 
     if (CCP1IF == 1) {
         CCP1IF = 0;
-        if(get_dir() == 1 && get_steps() > 50 ){
+        if(get_dir() == 1 && get_steps() > 500 ){
 
 
             stepper_stop();
         }
-        else if(get_dir() == 0 && get_steps() < -50){
+        else if(get_dir() == 0 && get_steps() < -500){
 
 
             stepper_stop();
