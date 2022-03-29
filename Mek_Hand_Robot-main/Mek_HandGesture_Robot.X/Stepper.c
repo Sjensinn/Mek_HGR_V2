@@ -16,17 +16,35 @@ void stepper_init(void) {
 }
 
 void stepper_move(uint8_t direction) { //add speed
-    //add formula for speed
-    T1CONbits.ON = 1; //start timer
+    step_enable();
+
     if (direction==1) {
-        LATDbits.LATD4 = 1; //dir pin on A4988
-    } else {
-        LATDbits.LATD4 = 0;
+        if(Step_count <= 50){
+            step_dir = 1;
+            LATDbits.LATD4 = step_dir; //dir pin on A4988
+            T1CONbits.ON = 1;
+        }
+        else{
+            T1CONbits.ON = 0;
+            step_disable();
+        }
+    } else{
+        if(Step_count >= 0){
+            step_dir = 0;
+            LATDbits.LATD4 = step_dir;
+            T1CONbits.ON = 1;
+        }
+        else{
+            T1CONbits.ON = 0;
+            step_disable();
+        }
     }
+    
 }
 
 void stepper_stop(void) {
     T1CONbits.ON = 0; //stop timer
+    step_disable();
 }
 
 void set_stepper_speed(uint16_t speed) {
@@ -34,15 +52,21 @@ void set_stepper_speed(uint16_t speed) {
     CCPR1H = (speed >> 8) & 0xFF;
 }
 
-/*void __interrupt() isr(void) {
-    if (CCP1IF == 1) { //compare flag
-        CCP1IF = 0;
-        LATDbits.LATD5 ^= 1; //toggle pin for A4988
-        //CCPR1H = 0x00;
-        //CCPR1L = 0xFA; //0.0005s 500us 0xFA = 0.5ms@16Mhz
-        CCPR1H = 0x01;
-        CCPR1L = 0x34; //0.0005s 500us 0x134 = 0.616ms@(((16Mhz)/4)/8)
-        //CCPR1H = 0x0;
-        //CCPR1L = 0xFA; //0.0005s 500us 0xFA = 0.616ms@(((16Mhz)/4)/8)
-    }
-}*/
+void step_enable(void){
+    TRISAbits.TRISA1 = 1;
+    return;
+}
+
+void step_disable(void){
+    TRISAbits.TRISA1 = 0;
+    return;
+   }
+
+ uint8_t step_count(void){
+    if(step_dir == 1)
+        Step_count++;
+    else
+        Step_count--;
+    
+    return Step_count;
+}
