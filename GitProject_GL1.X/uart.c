@@ -46,7 +46,12 @@ void putch(char data) {
 
 
 void send_ready(void){
+<<<<<<< HEAD
     uart_Write_uint8(READYSIGNAL);
+=======
+    //printf("%d", READYSIGNAL);
+    uart_Write(READYSIGNAL);
+>>>>>>> d125e3f29d6f38e4fd97794bc8aad698ca3b7580
 }
 
 
@@ -61,7 +66,12 @@ uint8_t is_ready(uint8_t data){
 
 void send_commands(uint8_t* data){
     for (int i = 0; i < 4; i++){
+<<<<<<< HEAD
         uart_Write_uint8(*data);
+=======
+        //printf("%d", *data);
+        uart_Write(*data);
+>>>>>>> d125e3f29d6f38e4fd97794bc8aad698ca3b7580
         data++;
         __delay_ms(100);
     }

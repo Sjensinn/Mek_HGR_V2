@@ -3,8 +3,9 @@
 [d edition pro ]
 [d chip 16F18877 ]
 [d frameptr 6 ]
-"1 C:\Program Files\Microchip\pic\sources\c99\common\abs.c
+"1 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\abs.c
 [v _abs abs `(i  1 e 2 0 ]
+<<<<<<< HEAD
 "5 C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
 "9 C:\Program Files\Microchip\pic\sources\c99\common\nf_sprintf.c
@@ -12,16 +13,29 @@
 "10 C:\Program Files\Microchip\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "4 C:\Program Files\Microchip\pic\sources\c99\common\Umul8_16.c
+=======
+"5 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"9 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\nf_sprintf.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\Umul8_16.c
+>>>>>>> d125e3f29d6f38e4fd97794bc8aad698ca3b7580
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-"6 C:\Program Files\Microchip\pic\sources\c99\pic\__eeprom.c
+"6 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\pic\__eeprom.c
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"9 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+"52 C:\Users\Danio\git_repos\Mek2v16.934\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+[v _format_data_b3 format_data_b3 `(uc  1 e 1 0 ]
+"60
+[v _format_data_b4 format_data_b4 `(uc  1 e 1 0 ]
+"9 C:\Users\Danio\git_repos\Mek2v16.934\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
 [v _gy_init gy_init `(v  1 e 1 0 ]
 "50
 [v _gy_Read gy_Read `(v  1 e 1 0 ]
-"5 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+"5 C:\Users\Danio\git_repos\Mek2v16.934\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
 [v _I2C_init I2C_init `(v  1 e 1 0 ]
 "26
 [v _I2C_Start I2C_Start `(v  1 e 1 0 ]
@@ -33,11 +47,11 @@
 [v _I2C_Write I2C_Write `(v  1 e 1 0 ]
 "57
 [v _I2C_Read I2C_Read `(uc  1 e 1 0 ]
-"41 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+"41 C:\Users\Danio\git_repos\Mek2v16.934\Mek_HGR_V2\GitProject_GL1.X\Main.c
 [v _main main `(v  1 e 1 0 ]
 "92
 [v _isr isr `II(v  1 e 1 0 ]
-"12 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+"12 C:\Users\Danio\git_repos\Mek2v16.934\Mek_HGR_V2\GitProject_GL1.X\system_init.c
 [v _system_init system_init `(v  1 e 1 0 ]
 "21
 [v _clock_init clock_init `(v  1 e 1 0 ]
@@ -45,7 +59,7 @@
 [v _pin_init pin_init `(v  1 e 1 0 ]
 "135
 [v _int_init int_init `(v  1 e 1 0 ]
-"6 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+"6 C:\Users\Danio\git_repos\Mek2v16.934\Mek_HGR_V2\GitProject_GL1.X\uart.c
 [v _uart_init uart_init `(v  1 e 1 0 ]
 "20
 [v _uart_Write uart_Write `(v  1 e 1 0 ]
@@ -53,20 +67,26 @@
 [v _uart_Write_uint8 uart_Write_uint8 `(v  1 e 1 0 ]
 "34
 [v _uart_Write_String uart_Write_String `(v  1 e 1 0 ]
+<<<<<<< HEAD
 "53
 [v _is_ready is_ready `(uc  1 e 1 0 ]
 "62
+=======
+"46
+[v _is_ready is_ready `(uc  1 e 1 0 ]
+"55
+>>>>>>> d125e3f29d6f38e4fd97794bc8aad698ca3b7580
 [v _send_commands send_commands `(v  1 e 1 0 ]
-"132 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X/gy_521.h
+"132 C:\Users\Danio\git_repos\Mek2v16.934\Mek_HGR_V2\GitProject_GL1.X/gy_521.h
 [v _gy_address gy_address `uc  1 e 1 0 ]
-[s S638 . 1 `uc 1 INTEDG 1 0 :1:0 
+[s S642 . 1 `uc 1 INTEDG 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-"371 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
-[u S643 . 1 `S638 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES643  1 e 1 @11 ]
+"371 C:/Users/Danio/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
+[u S647 . 1 `S642 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES647  1 e 1 @11 ]
 "677
 [v _TRISA TRISA `VEuc  1 e 1 @17 ]
 "739
@@ -109,7 +129,7 @@
 [v _SPBRGL SPBRGL `VEuc  1 e 1 @283 ]
 "3955
 [v _SPBRGH SPBRGH `VEuc  1 e 1 @284 ]
-[s S732 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S736 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -119,9 +139,9 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "4030
-[u S741 . 1 `S732 1 . 1 0 ]
-[v _RC1STAbits RC1STAbits `VES741  1 e 1 @285 ]
-[s S690 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S745 . 1 `S736 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES745  1 e 1 @285 ]
+[s S694 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -131,9 +151,9 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "4210
-[u S699 . 1 `S690 1 . 1 0 ]
-[v _TX1STAbits TX1STAbits `VES699  1 e 1 @286 ]
-[s S669 . 1 `uc 1 ABDEN 1 0 :1:0 
+[u S703 . 1 `S694 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES703  1 e 1 @286 ]
+[s S673 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -143,10 +163,10 @@
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "4398
-[u S678 . 1 `S669 1 . 1 0 ]
-[v _BAUD1CONbits BAUD1CONbits `VES678  1 e 1 @287 ]
+[u S682 . 1 `S673 1 . 1 0 ]
+[v _BAUD1CONbits BAUD1CONbits `VES682  1 e 1 @287 ]
 "4531
-[v _BAUDCONbits BAUDCONbits `VES678  1 e 1 @287 ]
+[v _BAUDCONbits BAUDCONbits `VES682  1 e 1 @287 ]
 "4610
 [v _SSP1BUF SSP1BUF `VEuc  1 e 1 @396 ]
 "4630
@@ -320,7 +340,7 @@
 "21382
 [u S255 . 1 `S248 1 . 1 0 ]
 [v _PIR3bits PIR3bits `VES255  1 e 1 @1807 ]
-[s S621 . 1 `uc 1 SSP1IE 1 0 :1:0 
+[s S625 . 1 `uc 1 SSP1IE 1 0 :1:0 
 `uc 1 BCL1IE 1 0 :1:1 
 `uc 1 SSP2IE 1 0 :1:2 
 `uc 1 BCL2IE 1 0 :1:3 
@@ -328,8 +348,8 @@
 `uc 1 RCIE 1 0 :1:5 
 ]
 "21804
-[u S628 . 1 `S621 1 . 1 0 ]
-[v _PIE3bits PIE3bits `VES628  1 e 1 @1817 ]
+[u S632 . 1 `S625 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES632  1 e 1 @1817 ]
 "23443
 [v _OSCCON1 OSCCON1 `VEuc  1 e 1 @2189 ]
 "23513
@@ -439,7 +459,11 @@
 [v _RCIF RCIF `VEb  1 e 0 @14461 ]
 "44429
 [v _TXIF TXIF `VEb  1 e 0 @14460 ]
+<<<<<<< HEAD
 "38 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+=======
+"38 C:\Users\Danio\git_repos\Mek2v16.934\Mek_HGR_V2\GitProject_GL1.X\Main.c
+>>>>>>> d125e3f29d6f38e4fd97794bc8aad698ca3b7580
 [v _data_in data_in `VEuc  1 e 1 0 ]
 "39
 [v _ready_flag ready_flag `VEuc  1 e 1 0 ]
@@ -447,23 +471,31 @@
 [v _main main `(v  1 e 1 0 ]
 {
 "49
+<<<<<<< HEAD
 [v main@tx_data tx_data `[4]uc  1 a 4 4 ]
 "46
 [v main@accelo_y accelo_y `s  1 a 2 10 ]
 [v main@accelo_x accelo_x `s  1 a 2 8 ]
 "78
+=======
+[v main@tx_data tx_data `[4]uc  1 a 4 12 ]
+"46
+[v main@accelo_y accelo_y `s  1 a 2 18 ]
+[v main@accelo_x accelo_x `s  1 a 2 16 ]
+"77
+>>>>>>> d125e3f29d6f38e4fd97794bc8aad698ca3b7580
 } 0
-"12 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+"12 C:\Users\Danio\git_repos\Mek2v16.934\Mek_HGR_V2\GitProject_GL1.X\system_init.c
 [v _system_init system_init `(v  1 e 1 0 ]
 {
 "18
 } 0
-"6 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+"6 C:\Users\Danio\git_repos\Mek2v16.934\Mek_HGR_V2\GitProject_GL1.X\uart.c
 [v _uart_init uart_init `(v  1 e 1 0 ]
 {
 "18
 } 0
-"38 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
+"38 C:\Users\Danio\git_repos\Mek2v16.934\Mek_HGR_V2\GitProject_GL1.X\system_init.c
 [v _pin_init pin_init `(v  1 e 1 0 ]
 {
 "133
@@ -478,11 +510,12 @@
 {
 "36
 } 0
-"5 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+"5 C:\Users\Danio\git_repos\Mek2v16.934\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
 [v _I2C_init I2C_init `(v  1 e 1 0 ]
 {
 "23
 } 0
+<<<<<<< HEAD
 "62 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
 [v _send_commands send_commands `(v  1 e 1 0 ]
 {
@@ -503,6 +536,28 @@
 "32
 } 0
 "9 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+=======
+"55 C:\Users\Danio\git_repos\Mek2v16.934\Mek_HGR_V2\GitProject_GL1.X\uart.c
+[v _send_commands send_commands `(v  1 e 1 0 ]
+{
+[v send_commands@data data `*.4uc  1 a 1 wreg ]
+"56
+[v send_commands@i i `i  1 a 2 6 ]
+"55
+[v send_commands@data data `*.4uc  1 a 1 wreg ]
+[v send_commands@data data `*.4uc  1 a 1 5 ]
+"63
+} 0
+"20
+[v _uart_Write uart_Write `(v  1 e 1 0 ]
+{
+[v uart_Write@data data `uc  1 a 1 wreg ]
+[v uart_Write@data data `uc  1 a 1 wreg ]
+[v uart_Write@data data `uc  1 a 1 2 ]
+"25
+} 0
+"9 C:\Users\Danio\git_repos\Mek2v16.934\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
+>>>>>>> d125e3f29d6f38e4fd97794bc8aad698ca3b7580
 [v _gy_init gy_init `(v  1 e 1 0 ]
 {
 [v gy_init@gyAdd gyAdd `uc  1 a 1 wreg ]
@@ -525,7 +580,7 @@
 [v gy_Read@Ax Ax `*.4s  1 a 1 2 ]
 "70
 } 0
-"51 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
+"51 C:\Users\Danio\git_repos\Mek2v16.934\Mek_HGR_V2\GitProject_GL1.X\I2C_MSSP1_driver.c
 [v _I2C_Write I2C_Write `(v  1 e 1 0 ]
 {
 [v I2C_Write@data data `uc  1 a 1 wreg ]
@@ -560,16 +615,65 @@
 {
 "36
 } 0
+<<<<<<< HEAD
 "92 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+=======
+"60 C:\Users\Danio\git_repos\Mek2v16.934\Mek_HGR_V2\GitProject_GL1.X\control_glove.c
+[v _format_data_b4 format_data_b4 `(uc  1 e 1 0 ]
+{
+"61
+[v format_data_b4@b b `uc  1 a 1 9 ]
+"60
+[v format_data_b4@ay ay `s  1 p 2 5 ]
+"66
+} 0
+"52
+[v _format_data_b3 format_data_b3 `(uc  1 e 1 0 ]
+{
+"53
+[v format_data_b3@b b `uc  1 a 1 9 ]
+"52
+[v format_data_b3@ax ax `s  1 p 2 5 ]
+"58
+} 0
+"1 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\abs.c
+[v _abs abs `(i  1 e 2 0 ]
+{
+[v abs@a a `i  1 p 2 2 ]
+"4
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"10
+[v ___awdiv@quotient quotient `i  1 a 2 3 ]
+"11
+[v ___awdiv@sign sign `uc  1 a 1 2 ]
+[v ___awdiv@counter counter `uc  1 a 1 1 ]
+"5
+[v ___awdiv@divisor divisor `i  1 p 2 6 ]
+[v ___awdiv@dividend dividend `i  1 p 2 8 ]
+"41
+} 0
+"91 C:\Users\Danio\git_repos\Mek2v16.934\Mek_HGR_V2\GitProject_GL1.X\Main.c
+>>>>>>> d125e3f29d6f38e4fd97794bc8aad698ca3b7580
 [v _isr isr `II(v  1 e 1 0 ]
 {
 "99
 } 0
+<<<<<<< HEAD
 "53 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+=======
+"46 C:\Users\Danio\git_repos\Mek2v16.934\Mek_HGR_V2\GitProject_GL1.X\uart.c
+>>>>>>> d125e3f29d6f38e4fd97794bc8aad698ca3b7580
 [v _is_ready is_ready `(uc  1 e 1 0 ]
 {
 [v is_ready@data data `uc  1 a 1 wreg ]
 [v is_ready@data data `uc  1 a 1 wreg ]
 [v is_ready@data data `uc  1 a 1 0 ]
+<<<<<<< HEAD
 "59
+=======
+"52
+>>>>>>> d125e3f29d6f38e4fd97794bc8aad698ca3b7580
 } 0

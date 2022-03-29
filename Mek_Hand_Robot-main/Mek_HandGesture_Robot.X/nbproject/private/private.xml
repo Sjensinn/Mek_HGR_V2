@@ -2,6 +2,18 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+            <file>file:/C:/Users/Danio/git_repos/Mek2v16.934/Mek_HGR_V2/Mek_Hand_Robot-main/Mek_HandGesture_Robot.X/Main.c</file>
+            <file>file:/C:/Users/Danio/git_repos/Mek2v16.934/Mek_HGR_V2/Mek_Hand_Robot-main/Mek_HandGesture_Robot.X/dc.c</file>
+            <file>file:/C:/Users/Danio/git_repos/Mek2v16.934/Mek_HGR_V2/Mek_Hand_Robot-main/Mek_HandGesture_Robot.X/uart.c</file>
+            <file>file:/C:/Users/Danio/git_repos/Mek2v16.934/Mek_HGR_V2/Mek_Hand_Robot-main/Mek_HandGesture_Robot.X/uart.h</file>
+            <file>file:/C:/Users/Danio/git_repos/Mek2v16.934/Mek_HGR_V2/Mek_Hand_Robot-main/Mek_HandGesture_Robot.X/dc.h</file>
+            <file>file:/C:/Users/Danio/git_repos/Mek2v16.934/Mek_HGR_V2/Mek_Hand_Robot-main/Mek_HandGesture_Robot.X/PCA9685_driver.h</file>
+            <file>file:/C:/Users/Danio/git_repos/Mek2v16.934/Mek_HGR_V2/Mek_Hand_Robot-main/Mek_HandGesture_Robot.X/robot.c</file>
+        </group>
+>>>>>>> d125e3f29d6f38e4fd97794bc8aad698ca3b7580
     </open-files>
 </project-private>

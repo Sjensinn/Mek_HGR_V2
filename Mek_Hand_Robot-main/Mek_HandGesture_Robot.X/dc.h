@@ -1,12 +1,16 @@
 #ifndef DC_H
 #define	DC_H
 
-
 #include <xc.h>
-uint16_t ENA_stat = 100;
-uint16_t ENB_stat = 100;
+
+#define DCMAX 1300
+#define DCMIN 100
+
+int16_t ENA_stat = 700;
+int16_t ENB_stat = 700;
+
 
 void dc_stop();
-void dc_move(uint8_t data_x, uint8_t data_y);
+void dc_move(int8_t x, int8_t y);
 
 #endif

@@ -29,6 +29,7 @@ volatile uint8_t data_fingers; //f3 | f2 | f1 | Axdir | Aydir | NA | ADDR1 | ADD
 volatile uint8_t data_x; //00XXXXXX was XXXXXX-10
 volatile uint8_t data_y; //00XXXXXX was XXXXXX-11 
 volatile uint8_t ready = 0;
+volatile uint8_t send_flag = 0;
 
 void __interrupt() receive_isr();
 
@@ -36,21 +37,24 @@ void main(void) {
     int8_t x, y;
     uint8_t init_ready;
     system_init(); //Initiate clock, pins, uart, i2c, timer1 and interrupts
-    //PCA_Init(130, 0x08);            //Initiate PCA9685 unit with I2C address: 0x80 and prescalar of 130
+    PCA_Init(130, 0x80);            //Initiate PCA9685 unit with I2C address: 0x80 and prescalar of 130
     stepper_init();
     //LCD_init(0x4E);
-  
+  init_ready = 1;     //Ready for initial communications
     while(1){
-        init_ready = 1;     //Ready for initial communications
-        while(PORTAbits.RA0){ 
+        
+        if(PORTAbits.RA0 == 1){ 
             if(init_ready == 1){
                 send_ready(); //send ready signal
+                
                 init_ready = 0; //Clear the initial ready
             }
             if(ready == 1){ 
                 ready = 0; //Reset ready status
                 //Do stuff here
-                //process();
+                //uart_Write(data_y);
+                process(data_flex, data_fingers, data_x, data_y);
+                //__delay_ms(500);
                  send_ready();
             }
         }
@@ -59,9 +63,9 @@ void main(void) {
     return;
 }
 
-void __interrupt() receive_isr() {//b�ta counter � �etta ef �a� er eitthva� vesen
+void __interrupt() receive_isr() {
 
-    while (RCIF == 1) {
+    if (RCIF == 1) {
         data_in = RCREG;
     }
     switch (data_in & 0b11) {
