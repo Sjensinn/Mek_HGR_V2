@@ -11,6 +11,11 @@
 #define _XTAL_FREQ 16000000
 #endif
 
+#ifndef STEPPER_LIMITS
+#define STEP_MAX 50     //Maximum number of steps 
+#define STEP_MIN -50    //Minimum number of steps
+#endif
+
 #include <xc.h>
 #include <stdio.h>
 #include "config_bits.h"
@@ -32,31 +37,36 @@ volatile uint8_t ready = 0;
 volatile uint8_t send_flag = 0;
 
 void __interrupt() receive_isr();
+void initial_transmission(uint8_t* init_ready);
 
 void main(void) {
     int8_t x, y;
     uint8_t init_ready;
-    system_init(); //Initiate clock, pins, uart, i2c, timer1 and interrupts
+    system_init();                  //Initiate clock, pins, uart, i2c, timer1 and interrupts
     PCA_Init(130, 0x80);            //Initiate PCA9685 unit with I2C address: 0x80 and prescalar of 130
-    stepper_init();
-    //LCD_init(0x4E);
+    stepper_init();                 //Initiate Stepper
+
   init_ready = 1;     //Ready for initial communications
     while(1){
         
         if(PORTAbits.RA0 == 1){ 
-            if(init_ready == 1){
-                send_ready(); //send ready signal
-                
-                init_ready = 0; //Clear the initial ready
-            }
+            initial_transmission(&init_ready);     //Send Ready flag at power on
             if(ready == 1){ 
                 ready = 0; //Reset ready status
                 //Do stuff here
-                //uart_Write(data_y);
-                process(data_flex, data_fingers, data_x, data_y);
-                //__delay_ms(500);
+  
+                //process(data_flex, data_fingers, data_x, data_y);
+                
+                stepper_move(1);
+                __delay_ms(500);
+                stepper_move(0);
+                __delay_ms(500);
                  send_ready();
             }
+        }
+        else{
+            //Set stepper to home position
+            //Set servos to home position
         }
     }
 
@@ -89,15 +99,32 @@ void __interrupt() receive_isr() {
             break;
     }
 
-
-
     if (CCP1IF == 1) { //compare flag
         CCP1IF = 0;
-        LATDbits.LATD5 ^= 1; //toggle pin for A4988
-        //CCPR1H = 0x00;
-        //CCPR1L = 0xFA; //0.0005s 500us 0xFA = 0.5ms@16Mhz
-        CCPR1H = 0x01; //Finna �t �r �v� hvernig er best a� breyta �essari breytu
-        CCPR1L = 0x34; //0.0005s 500us 0x134 = 0.616ms@(((16Mhz)/4)/8)
-    }
+        if(get_dir() == 1 && get_steps() > STEP_MAX ){
+            //We have reached our limits!
+            //For forward motion
+            stepper_stop();
+        }
+        else if(get_dir() == 0 && get_steps() < STEP_MIN){
+            //We have reached our limits!
+            //For backwards motion
+            stepper_stop();
+        }
+        else{
+            LATDbits.LATD5 ^= 1;    //toggle pin for driver
+            step_inc_dec();         //update the step count
 
+            CCPR1H = 0x01; //Finna �t �r �v� hvernig er best a� breyta �essari breytu
+            CCPR1L = 0x34; //0.0005s 500us 0x134 = 0.616ms@(((16Mhz)/4)/8)
+        }
+    }
+}
+
+void initial_transmission(uint8_t* init_ready){
+    if(*init_ready == 1){
+        send_ready(); //send ready signal
+        
+        *init_ready = 0; //Clear the initial ready
+    }
 }

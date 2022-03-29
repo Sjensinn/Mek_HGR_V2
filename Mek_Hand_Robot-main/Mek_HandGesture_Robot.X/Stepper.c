@@ -16,11 +16,10 @@ void stepper_init(void) {
 }
 
 void stepper_move(uint8_t direction) { //add speed
-    step_enable();
-
-    if (direction==1) {
-        if(Step_count <= 50){
-            step_dir = 1;
+    step_dir = direction;
+    if (step_dir==1) { //forward
+        if(step_count <= 50){
+            step_enable();
             LATDbits.LATD4 = step_dir; //dir pin on A4988
             T1CONbits.ON = 1;
         }
@@ -28,9 +27,10 @@ void stepper_move(uint8_t direction) { //add speed
             T1CONbits.ON = 0;
             step_disable();
         }
-    } else{
-        if(Step_count >= 0){
-            step_dir = 0;
+    } 
+    else{ //Backwards
+        if(step_count >= 0){
+            step_enable();
             LATDbits.LATD4 = step_dir;
             T1CONbits.ON = 1;
         }
@@ -53,20 +53,28 @@ void set_stepper_speed(uint16_t speed) {
 }
 
 void step_enable(void){
+    //Port A1 is connected to enable port of driver
     TRISAbits.TRISA1 = 1;
     return;
 }
 
 void step_disable(void){
+    //Port A1 is connected to enable port of driver    
     TRISAbits.TRISA1 = 0;
     return;
    }
 
- uint8_t step_count(void){
+ void step_inc_dec(void){
     if(step_dir == 1)
-        Step_count++;
+        step_count++;
     else
-        Step_count--;
-    
-    return Step_count;
+        step_count--;
+}
+
+int get_dir(void){
+    return step_dir;
+}
+
+int get_steps(void){
+    return step_count;
 }
