@@ -5,32 +5,12 @@
 [d frameptr 6 ]
 "1 C:\Program Files\Microchip\pic\sources\c99\common\abs.c
 [v _abs abs `(i  1 e 2 0 ]
-"7 C:\Program Files\Microchip\pic\sources\c99\common\aodiv.c
-[v ___aodiv __aodiv `(o  1 e 8 0 ]
-"7 C:\Program Files\Microchip\pic\sources\c99\common\aomod.c
-[v ___aomod __aomod `(o  1 e 8 0 ]
 "5 C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
-"72 C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-[v _pad pad `(i  1 s 2 pad ]
-"287
-[v _dtoa dtoa `(i  1 s 2 dtoa ]
-"692
-[v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
-"1390
-[v _vfprintf vfprintf `(i  1 e 2 0 ]
-"8 C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
-[v _fputc fputc `(i  1 e 2 0 ]
-"8 C:\Program Files\Microchip\pic\sources\c99\common\nf_fputs.c
-[v _fputs fputs `(i  1 e 2 0 ]
 "9 C:\Program Files\Microchip\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
-"5 C:\Program Files\Microchip\pic\sources\c99\common\printf.c
-[v _printf printf `(i  1 e 2 0 ]
 "10 C:\Program Files\Microchip\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
-"5 C:\Program Files\Microchip\pic\sources\c99\common\strlen.c
-[v _strlen strlen `(ui  1 e 2 0 ]
 "4 C:\Program Files\Microchip\pic\sources\c99\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
 "6 C:\Program Files\Microchip\pic\sources\c99\pic\__eeprom.c
@@ -55,7 +35,7 @@
 [v _I2C_Read I2C_Read `(uc  1 e 1 0 ]
 "41 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
 [v _main main `(v  1 e 1 0 ]
-"91
+"92
 [v _isr isr `II(v  1 e 1 0 ]
 "12 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
 [v _system_init system_init `(v  1 e 1 0 ]
@@ -69,13 +49,13 @@
 [v _uart_init uart_init `(v  1 e 1 0 ]
 "20
 [v _uart_Write uart_Write `(v  1 e 1 0 ]
-"26
+"27
+[v _uart_Write_uint8 uart_Write_uint8 `(v  1 e 1 0 ]
+"34
 [v _uart_Write_String uart_Write_String `(v  1 e 1 0 ]
-"33
-[v _putch putch `(v  1 e 1 0 ]
-"45
+"53
 [v _is_ready is_ready `(uc  1 e 1 0 ]
-"54
+"62
 [v _send_commands send_commands `(v  1 e 1 0 ]
 "132 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X/gy_521.h
 [v _gy_address gy_address `uc  1 e 1 0 ]
@@ -459,14 +439,6 @@
 [v _RCIF RCIF `VEb  1 e 0 @14461 ]
 "44429
 [v _TXIF TXIF `VEb  1 e 0 @14460 ]
-"55 C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-[v _flags flags `i  1 s 2 flags ]
-[v _prec prec `i  1 s 2 prec ]
-[v _width width `i  1 s 2 width ]
-"66
-[v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
-"69
-[v _nout nout `i  1 s 2 nout ]
 "38 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
 [v _data_in data_in `VEuc  1 e 1 0 ]
 "39
@@ -475,11 +447,11 @@
 [v _main main `(v  1 e 1 0 ]
 {
 "49
-[v main@tx_data tx_data `[4]uc  1 a 4 13 ]
+[v main@tx_data tx_data `[4]uc  1 a 4 4 ]
 "46
-[v main@accelo_y accelo_y `s  1 a 2 19 ]
-[v main@accelo_x accelo_x `s  1 a 2 17 ]
-"77
+[v main@accelo_y accelo_y `s  1 a 2 10 ]
+[v main@accelo_x accelo_x `s  1 a 2 8 ]
+"78
 } 0
 "12 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
 [v _system_init system_init `(v  1 e 1 0 ]
@@ -511,168 +483,24 @@
 {
 "23
 } 0
-"54 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+"62 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
 [v _send_commands send_commands `(v  1 e 1 0 ]
 {
 [v send_commands@data data `*.4uc  1 a 1 wreg ]
-"55
-[v send_commands@i i `i  1 a 2 9 ]
-"54
+"63
+[v send_commands@i i `i  1 a 2 6 ]
+"62
 [v send_commands@data data `*.4uc  1 a 1 wreg ]
-[v send_commands@data data `*.4uc  1 a 1 8 ]
-"61
+[v send_commands@data data `*.4uc  1 a 1 5 ]
+"69
 } 0
-"5 C:\Program Files\Microchip\pic\sources\c99\common\printf.c
-[v _printf printf `(i  1 e 2 0 ]
+"27
+[v _uart_Write_uint8 uart_Write_uint8 `(v  1 e 1 0 ]
 {
-"8
-[v printf@ap ap `[1]*.4v  1 a 1 5 ]
-"5
-[v printf@fmt fmt `*.25DCuc  1 p 2 0 ]
-"13
-} 0
-"1390 C:\Program Files\Microchip\pic\sources\c99\common\doprnt.c
-[v _vfprintf vfprintf `(i  1 e 2 0 ]
-{
-[s S1292 _IO_FILE 0 ]
-[v vfprintf@fp fp `*.1S1292  1 a 1 wreg ]
-"1393
-[v vfprintf@cfmt cfmt `*.25uc  1 a 2 78 ]
-"1390
-[v vfprintf@fp fp `*.1S1292  1 a 1 wreg ]
-[v vfprintf@fmt fmt `*.25DCuc  1 p 2 72 ]
-[v vfprintf@ap ap `*.4*.4v  1 p 1 74 ]
-"1395
-"1390
-[v vfprintf@fp fp `*.1S1292  1 a 1 77 ]
-"1404
-} 0
-"692
-[v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
-{
-[s S1292 _IO_FILE 0 ]
-[v vfpfcnvrt@fp fp `*.1S1292  1 a 1 wreg ]
-"696
-[v vfpfcnvrt@ll ll `o  1 a 8 63 ]
-"692
-[v vfpfcnvrt@fp fp `*.1S1292  1 a 1 wreg ]
-[v vfpfcnvrt@fmt fmt `*.4*.25uc  1 p 1 56 ]
-[v vfpfcnvrt@ap ap `*.4*.4v  1 p 1 57 ]
-"702
-"692
-[v vfpfcnvrt@fp fp `*.1S1292  1 a 1 71 ]
-"1387
-} 0
-"287
-[v _dtoa dtoa `(i  1 s 2 dtoa ]
-{
-[s S1292 _IO_FILE 0 ]
-[v dtoa@fp fp `*.1S1292  1 a 1 wreg ]
-"290
-[v dtoa@n n `o  1 a 8 46 ]
-"289
-[v dtoa@i i `i  1 a 2 54 ]
-[v dtoa@s s `i  1 a 2 44 ]
-[v dtoa@w w `i  1 a 2 42 ]
-[v dtoa@p p `i  1 a 2 40 ]
-"287
-[v dtoa@fp fp `*.1S1292  1 a 1 wreg ]
-[v dtoa@d d `o  1 p 8 26 ]
-"293
-"287
-[v dtoa@fp fp `*.1S1292  1 a 1 37 ]
-"328
-} 0
-"72
-[v _pad pad `(i  1 s 2 pad ]
-{
-[s S1292 _IO_FILE 0 ]
-[v pad@fp fp `*.1S1292  1 a 1 wreg ]
-"74
-[v pad@w w `i  1 a 2 15 ]
-[v pad@i i `i  1 a 2 13 ]
-"72
-[v pad@fp fp `*.1S1292  1 a 1 wreg ]
-[v pad@buf buf `*.4uc  1 p 1 9 ]
-[v pad@p p `i  1 p 2 10 ]
-"77
-"72
-[v pad@fp fp `*.1S1292  1 a 1 17 ]
-"95
-} 0
-"5 C:\Program Files\Microchip\pic\sources\c99\common\strlen.c
-[v _strlen strlen `(ui  1 e 2 0 ]
-{
-[v strlen@s s `*.4DCuc  1 a 1 wreg ]
-"7
-[v strlen@a a `*.4DCuc  1 a 1 5 ]
-"5
-[v strlen@s s `*.4DCuc  1 a 1 wreg ]
-"7
-[v strlen@s s `*.4DCuc  1 a 1 6 ]
-"12
-} 0
-"8 C:\Program Files\Microchip\pic\sources\c99\common\nf_fputs.c
-[v _fputs fputs `(i  1 e 2 0 ]
-{
-[v fputs@s s `*.4DCuc  1 a 1 wreg ]
-"11
-[v fputs@i i `i  1 a 2 6 ]
-"10
-[v fputs@c c `uc  1 a 1 5 ]
-"8
-[v fputs@s s `*.4DCuc  1 a 1 wreg ]
-[s S1266 _IO_FILE 5 `*.4uc 1 buffer 1 0 `i 1 count 2 1 `i 1 limit 2 3 ]
-[v fputs@fp fp `*.1S1266  1 p 1 6 ]
-"13
-[v fputs@s s `*.4DCuc  1 a 1 8 ]
-"19
-} 0
-"8 C:\Program Files\Microchip\pic\sources\c99\common\nf_fputc.c
-[v _fputc fputc `(i  1 e 2 0 ]
-{
-[v fputc@c c `i  1 p 2 3 ]
-[s S1266 _IO_FILE 5 `*.4uc 1 buffer 1 0 `i 1 count 2 1 `i 1 limit 2 3 ]
-[v fputc@fp fp `*.1S1266  1 p 1 5 ]
-"24
-} 0
-"33 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
-[v _putch putch `(v  1 e 1 0 ]
-{
-[v putch@data data `uc  1 a 1 wreg ]
-[v putch@data data `uc  1 a 1 wreg ]
-[v putch@data data `uc  1 a 1 2 ]
-"37
-} 0
-"1 C:\Program Files\Microchip\pic\sources\c99\common\abs.c
-[v _abs abs `(i  1 e 2 0 ]
-{
-[v abs@a a `i  1 p 2 5 ]
-"4
-} 0
-"7 C:\Program Files\Microchip\pic\sources\c99\common\aomod.c
-[v ___aomod __aomod `(o  1 e 8 0 ]
-{
-"12
-[v ___aomod@sign sign `uc  1 a 1 4 ]
-[v ___aomod@counter counter `uc  1 a 1 3 ]
-"7
-[v ___aomod@divisor divisor `o  1 p 8 0 ]
-[v ___aomod@dividend dividend `o  1 p 8 8 ]
-"36
-} 0
-"7 C:\Program Files\Microchip\pic\sources\c99\common\aodiv.c
-[v ___aodiv __aodiv `(o  1 e 8 0 ]
-{
-"12
-[v ___aodiv@quotient quotient `o  1 a 8 18 ]
-"13
-[v ___aodiv@sign sign `uc  1 a 1 17 ]
-[v ___aodiv@counter counter `uc  1 a 1 16 ]
-"7
-[v ___aodiv@divisor divisor `o  1 p 8 0 ]
-[v ___aodiv@dividend dividend `o  1 p 8 8 ]
-"43
+[v uart_Write_uint8@data data `uc  1 a 1 wreg ]
+[v uart_Write_uint8@data data `uc  1 a 1 wreg ]
+[v uart_Write_uint8@data data `uc  1 a 1 2 ]
+"32
 } 0
 "9 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\gy_521.c
 [v _gy_init gy_init `(v  1 e 1 0 ]
@@ -732,16 +560,16 @@
 {
 "36
 } 0
-"91 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+"92 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"98
+"99
 } 0
-"45 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
+"53 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
 [v _is_ready is_ready `(uc  1 e 1 0 ]
 {
 [v is_ready@data data `uc  1 a 1 wreg ]
 [v is_ready@data data `uc  1 a 1 wreg ]
 [v is_ready@data data `uc  1 a 1 0 ]
-"51
+"59
 } 0

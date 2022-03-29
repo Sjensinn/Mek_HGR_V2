@@ -20773,6 +20773,8 @@ void uart_init(void);
 
 void uart_Write(unsigned char data);
 
+void uart_Write_uint8(uint8_t data);
+
 
 
 
@@ -20785,7 +20787,7 @@ void uart_Write_String(char* buf);
 
 
 
-void putch(uint8_t data);
+void putch(char data);
 
 
 
@@ -20802,7 +20804,7 @@ void send_ready(void);
 
 
 uint8_t is_ready(uint8_t data);
-# 82 "./uart.h"
+# 84 "./uart.h"
 void send_commands(uint8_t* data);
 # 16 "./system_init.h" 2
 # 28 "./system_init.h"

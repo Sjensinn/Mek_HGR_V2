@@ -23,6 +23,14 @@ void uart_Write(unsigned char data){
     }
     TX1REG = data;    // Write the data byte to the USART.
 }
+
+void uart_Write_uint8(uint8_t data){
+     while(0 == PIR3bits.TXIF){
+        continue;
+    }
+    TX1REG = data;    // Write the data byte to the USART.
+}
+
 void uart_Write_String(char* buf){
     int i=0;
     while(buf[i] != '\0'){
@@ -30,7 +38,7 @@ void uart_Write_String(char* buf){
     }
 }
 
-void putch(uint8_t data) {
+void putch(char data) {
     while (!TXIF) // check buffer
         continue; // wait till ready
     TXREG = data; // send data
@@ -38,7 +46,7 @@ void putch(uint8_t data) {
 
 
 void send_ready(void){
-    printf("%d", READYSIGNAL);
+    uart_Write_uint8(READYSIGNAL);
 }
 
 
@@ -53,7 +61,7 @@ uint8_t is_ready(uint8_t data){
 
 void send_commands(uint8_t* data){
     for (int i = 0; i < 4; i++){
-        printf("%d", *data);
+        uart_Write_uint8(*data);
         data++;
         __delay_ms(100);
     }

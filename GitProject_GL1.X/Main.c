@@ -50,7 +50,7 @@ void main(void) {
 
 
     while(1){
-        ready_flag = 1;
+        //ready_flag = 1;
         
         if(ready_flag == 1){
             //Fetch data
@@ -68,6 +68,7 @@ void main(void) {
             //Send data
             send_commands(tx_data);
 
+            //uart_Write_uint8(0b10101010);
             //Reset Ready flag
             ready_flag = 0;
             __delay_ms(1000);

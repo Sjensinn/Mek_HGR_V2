@@ -40,6 +40,8 @@ void uart_init(void);
  */
 void uart_Write(unsigned char data);
 
+void uart_Write_uint8(uint8_t data);
+
 /**
  * @brief   This function writes a string to USART bus
  * @param   char* buf: pointer to char array (string)             
@@ -52,7 +54,7 @@ void uart_Write_String(char* buf);
  * @param   data: characted to write           
  * @return  void 
 */
-void putch(uint8_t data);
+void putch(char data);
 
 /**
  * @brief   This function sends Ready signal

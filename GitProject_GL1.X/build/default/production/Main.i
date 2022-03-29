@@ -20767,6 +20767,8 @@ void uart_init(void);
 
 void uart_Write(unsigned char data);
 
+void uart_Write_uint8(uint8_t data);
+
 
 
 
@@ -20779,7 +20781,7 @@ void uart_Write_String(char* buf);
 
 
 
-void putch(uint8_t data);
+void putch(char data);
 
 
 
@@ -20796,7 +20798,7 @@ void send_ready(void);
 
 
 uint8_t is_ready(uint8_t data);
-# 82 "./uart.h"
+# 84 "./uart.h"
 void send_commands(uint8_t* data);
 # 16 "./system_init.h" 2
 # 28 "./system_init.h"
@@ -21023,7 +21025,7 @@ void main(void) {
 
 
     while(1){
-        ready_flag = 1;
+
 
         if(ready_flag == 1){
 
@@ -21042,13 +21044,14 @@ void main(void) {
             send_commands(tx_data);
 
 
+
             ready_flag = 0;
             _delay((unsigned long)((1000)*(16000000/4000.0)));
         }
     }
     return;
 }
-# 91 "Main.c"
+# 92 "Main.c"
 void __attribute__((picinterrupt(("")))) isr() {
     while (RCIF == 1) {
         data_in = RCREG;
