@@ -37,7 +37,7 @@ void main(void) {
     int8_t x, y;
     uint8_t init_ready;
     system_init(); //Initiate clock, pins, uart, i2c, timer1 and interrupts
-    PCA_Init(130, 0x08);            //Initiate PCA9685 unit with I2C address: 0x80 and prescalar of 130
+    PCA_Init(130, 0x80);            //Initiate PCA9685 unit with I2C address: 0x80 and prescalar of 130
     stepper_init();
     //LCD_init(0x4E);
   init_ready = 1;     //Ready for initial communications
@@ -54,7 +54,7 @@ void main(void) {
                 //Do stuff here
                 //uart_Write(data_y);
                 process(data_flex, data_fingers, data_x, data_y);
-                __delay_ms(500);
+                //__delay_ms(500);
                  send_ready();
             }
         }

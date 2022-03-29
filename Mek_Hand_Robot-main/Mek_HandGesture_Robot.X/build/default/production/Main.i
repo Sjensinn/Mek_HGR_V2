@@ -21123,7 +21123,7 @@ void main(void) {
     int8_t x, y;
     uint8_t init_ready;
     system_init();
-    PCA_Init(130, 0x08);
+    PCA_Init(130, 0x80);
     stepper_init();
 
   init_ready = 1;
@@ -21140,7 +21140,7 @@ void main(void) {
 
 
                 process(data_flex, data_fingers, data_x, data_y);
-                _delay((unsigned long)((500)*(16000000/4000.0)));
+
                  send_ready();
             }
         }

@@ -26,10 +26,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "26 ./robot.h
 [; ;./robot.h: 26: void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t data_y);
 [v _process `(v ~T0 @X0 0 ef4`uc`uc`uc`uc ]
-[v F183 `(v ~T0 @X0 1 tf1`ul ]
-"12 C:/Users/Danio/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\builtins.h
-[v __delay `JF183 ~T0 @X0 0 e ]
-[p i __delay ]
 [t ~ __interrupt . k ]
 [t T2 __interrupt ]
 "41612 C:/Users/Danio/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
@@ -1833,8 +1829,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Main.c: 39:     system_init();
 [e ( _system_init ..  ]
 "40
-[; ;Main.c: 40:     PCA_Init(130, 0x08);
-[e ( _PCA_Init (2 , -> -> 130 `i `uc -> -> 8 `i `uc ]
+[; ;Main.c: 40:     PCA_Init(130, 0x80);
+[e ( _PCA_Init (2 , -> -> 130 `i `uc -> -> 128 `i `uc ]
 "41
 [; ;Main.c: 41:     stepper_init();
 [e ( _stepper_init ..  ]
@@ -1873,9 +1869,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "56
 [; ;Main.c: 56:                 process(data_flex, data_fingers, data_x, data_y);
 [e ( _process (4 , , , _data_flex _data_fingers _data_x _data_y ]
-"57
-[; ;Main.c: 57:                 _delay((unsigned long)((500)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
 "58
 [; ;Main.c: 58:                  send_ready();
 [e ( _send_ready ..  ]

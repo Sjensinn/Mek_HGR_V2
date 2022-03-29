@@ -3,6 +3,8 @@
 #include "PCA9685_driver.h"
 #include "uart.h"
 #include "I2C_MSSP1_driver.h"
+#include <stdio.h>
+
 void dc_stop() {
     LATB &= 0b11001001;
     //write PCA = 0 for EN A,B 
@@ -10,7 +12,7 @@ void dc_stop() {
 
 void dc_move(int8_t x, int8_t y) { //0b---XXXX- these four pins control direction of spin
 
-     ENA_stat += (y& 0b01111111);
+     ENA_stat = (y & 0b01111111)*100;
      ENB_stat += (y& 0b01111111);
      
      if (ENA_stat > (DCMAX)) { //redefine min/max
@@ -25,10 +27,11 @@ void dc_move(int8_t x, int8_t y) { //0b---XXXX- these four pins control directio
      if (ENB_stat < (DCMIN)) {
         ENB_stat = DCMIN;
     }
-     
+     //__delay_ms(1);
      PCA_write(0, 0x00, (ENA_stat));
-     PCA_write(1, 0x00, (ENB_stat));
-     uart_Write((uint8_t)ENA_stat);
+     //__delay_ms(1);
+     //PCA_write(1, 0x00, (ENB_stat));
+     printf("ENA:%d",ENA_stat);
     if (x >> 7) {  // X0000000 -> 0000000X
        // move_servo(5, (data_y - data_x), ENA_stat); //(-) because negative x is added (could be data_y + (data_x & 0b00111111))
        // move_servo(5, (data_y), ENB_stat);

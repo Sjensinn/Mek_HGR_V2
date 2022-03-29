@@ -5,9 +5,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "87 ./PCA9685_driver.h
 [; ;./PCA9685_driver.h: 87: void PCA_write(uint8_t ChannelN, uint16_t on, uint16_t off);
 [v _PCA_write `(v ~T0 @X0 0 ef3`uc`us`us ]
-"40 ./uart.h
-[; ;./uart.h: 40: void uart_Write(unsigned char data);
-[v _uart_Write `(v ~T0 @X0 0 ef1`uc ]
+"111 C:\Program Files\Microchip\xc8\v2.32\pic\include\c99\stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 "55 C:/Users/Danio/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
 [; ;C:/Users/Danio/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 55: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -1658,127 +1657,126 @@ Version 4.0 HI-TECH Software Intermediate Code
 "47 ./PCA9685_driver.h
 [; ;./PCA9685_driver.h: 47:     uint8_t pca_address;
 [v _pca_address `uc ~T0 @X0 1 e ]
-"6 dc.c
-[; ;dc.c: 6: void dc_stop() {
+"8 dc.c
+[; ;dc.c: 8: void dc_stop() {
 [v _dc_stop `(v ~T0 @X0 1 ef ]
 {
 [e :U _dc_stop ]
 [f ]
-"7
-[; ;dc.c: 7:     LATB &= 0b11001001;
-[e =& _LATB -> -> 201 `i `Vuc ]
 "9
-[; ;dc.c: 9: }
-[e :UE 1613 ]
-}
+[; ;dc.c: 9:     LATB &= 0b11001001;
+[e =& _LATB -> -> 201 `i `Vuc ]
 "11
-[; ;dc.c: 11: void dc_move(int8_t x, int8_t y) {
+[; ;dc.c: 11: }
+[e :UE 1615 ]
+}
+"13
+[; ;dc.c: 13: void dc_move(int8_t x, int8_t y) {
 [v _dc_move `(v ~T0 @X0 1 ef2`c`c ]
 {
 [e :U _dc_move ]
 [v _x `c ~T0 @X0 1 r1 ]
 [v _y `c ~T0 @X0 1 r2 ]
 [f ]
-"13
-[; ;dc.c: 13:      ENA_stat += (y& 0b01111111);
-[e =+ _ENA_stat -> & -> _y `i -> 127 `i `s ]
-"14
-[; ;dc.c: 14:      ENB_stat += (y& 0b01111111);
-[e =+ _ENB_stat -> & -> _y `i -> 127 `i `s ]
+"15
+[; ;dc.c: 15:      ENA_stat = (y & 0b01111111)*100;
+[e = _ENA_stat -> * & -> _y `i -> 127 `i -> 100 `i `s ]
 "16
-[; ;dc.c: 16:      if (ENA_stat > (1300)) {
-[e $ ! > -> _ENA_stat `i -> 1300 `i 1615  ]
-{
-"17
-[; ;dc.c: 17:         ENA_stat = 1300;
-[e = _ENA_stat -> -> 1300 `i `s ]
+[; ;dc.c: 16:      ENB_stat += (y& 0b01111111);
+[e =+ _ENB_stat -> & -> _y `i -> 127 `i `s ]
 "18
-[; ;dc.c: 18:     }
-}
-[e :U 1615 ]
+[; ;dc.c: 18:      if (ENA_stat > (1300)) {
+[e $ ! > -> _ENA_stat `i -> 1300 `i 1617  ]
+{
 "19
-[; ;dc.c: 19:      if (ENA_stat < (100)) {
-[e $ ! < -> _ENA_stat `i -> 100 `i 1616  ]
-{
+[; ;dc.c: 19:         ENA_stat = 1300;
+[e = _ENA_stat -> -> 1300 `i `s ]
 "20
-[; ;dc.c: 20:         ENA_stat = 100;
-[e = _ENA_stat -> -> 100 `i `s ]
-"21
-[; ;dc.c: 21:     }
-}
-[e :U 1616 ]
-"22
-[; ;dc.c: 22:      if (ENB_stat > (1300)) {
-[e $ ! > -> _ENB_stat `i -> 1300 `i 1617  ]
-{
-"23
-[; ;dc.c: 23:         ENB_stat = 1300;
-[e = _ENB_stat -> -> 1300 `i `s ]
-"24
-[; ;dc.c: 24:     }
+[; ;dc.c: 20:     }
 }
 [e :U 1617 ]
-"25
-[; ;dc.c: 25:      if (ENB_stat < (100)) {
-[e $ ! < -> _ENB_stat `i -> 100 `i 1618  ]
+"21
+[; ;dc.c: 21:      if (ENA_stat < (100)) {
+[e $ ! < -> _ENA_stat `i -> 100 `i 1618  ]
 {
-"26
-[; ;dc.c: 26:         ENB_stat = 100;
-[e = _ENB_stat -> -> 100 `i `s ]
-"27
-[; ;dc.c: 27:     }
+"22
+[; ;dc.c: 22:         ENA_stat = 100;
+[e = _ENA_stat -> -> 100 `i `s ]
+"23
+[; ;dc.c: 23:     }
 }
 [e :U 1618 ]
-"29
-[; ;dc.c: 29:      PCA_write(0, 0x00, (ENA_stat));
-[e ( _PCA_write (3 , , -> -> 0 `i `uc -> -> 0 `i `us -> _ENA_stat `us ]
-"30
-[; ;dc.c: 30:      PCA_write(1, 0x00, (ENB_stat));
-[e ( _PCA_write (3 , , -> -> 1 `i `uc -> -> 0 `i `us -> _ENB_stat `us ]
-"31
-[; ;dc.c: 31:      uart_Write((uint8_t)ENA_stat);
-[e ( _uart_Write (1 -> _ENA_stat `uc ]
-"32
-[; ;dc.c: 32:     if (x >> 7) {
-[e $ ! != >> -> _x `i -> 7 `i -> 0 `i 1619  ]
+"24
+[; ;dc.c: 24:      if (ENB_stat > (1300)) {
+[e $ ! > -> _ENB_stat `i -> 1300 `i 1619  ]
 {
-"35
-[; ;dc.c: 35:     } else {
+"25
+[; ;dc.c: 25:         ENB_stat = 1300;
+[e = _ENB_stat -> -> 1300 `i `s ]
+"26
+[; ;dc.c: 26:     }
 }
-[e $U 1620  ]
 [e :U 1619 ]
+"27
+[; ;dc.c: 27:      if (ENB_stat < (100)) {
+[e $ ! < -> _ENB_stat `i -> 100 `i 1620  ]
 {
-"38
-[; ;dc.c: 38:     }
+"28
+[; ;dc.c: 28:         ENB_stat = 100;
+[e = _ENB_stat -> -> 100 `i `s ]
+"29
+[; ;dc.c: 29:     }
 }
 [e :U 1620 ]
-"40
-[; ;dc.c: 40:     if (y >> 7) {
-[e $ ! != >> -> _y `i -> 7 `i -> 0 `i 1621  ]
+"31
+[; ;dc.c: 31:      PCA_write(0, 0x00, (ENA_stat));
+[e ( _PCA_write (3 , , -> -> 0 `i `uc -> -> 0 `i `us -> _ENA_stat `us ]
+"34
+[; ;dc.c: 34:      printf("ENA:%d",ENA_stat);
+[e ( _printf , (. :s 1C -> _ENA_stat `i ]
+"35
+[; ;dc.c: 35:     if (x >> 7) {
+[e $ ! != >> -> _x `i -> 7 `i -> 0 `i 1621  ]
 {
-"42
-[; ;dc.c: 42:         LATB &= 0b11101101;
-[e =& _LATB -> -> 237 `i `Vuc ]
-"43
-[; ;dc.c: 43:         LATB |= 0b00100100;
-[e =| _LATB -> -> 36 `i `Vuc ]
-"45
-[; ;dc.c: 45:     } else {
+"38
+[; ;dc.c: 38:     } else {
 }
 [e $U 1622  ]
 [e :U 1621 ]
 {
-"46
-[; ;dc.c: 46:         LATB &= 0b11011011;
-[e =& _LATB -> -> 219 `i `Vuc ]
-"47
-[; ;dc.c: 47:         LATB |= 0b00010010;
-[e =| _LATB -> -> 18 `i `Vuc ]
-"48
-[; ;dc.c: 48:     }
+"41
+[; ;dc.c: 41:     }
 }
 [e :U 1622 ]
-"59
-[; ;dc.c: 59: }
-[e :UE 1614 ]
+"43
+[; ;dc.c: 43:     if (y >> 7) {
+[e $ ! != >> -> _y `i -> 7 `i -> 0 `i 1623  ]
+{
+"45
+[; ;dc.c: 45:         LATB &= 0b11101101;
+[e =& _LATB -> -> 237 `i `Vuc ]
+"46
+[; ;dc.c: 46:         LATB |= 0b00100100;
+[e =| _LATB -> -> 36 `i `Vuc ]
+"48
+[; ;dc.c: 48:     } else {
 }
+[e $U 1624  ]
+[e :U 1623 ]
+{
+"49
+[; ;dc.c: 49:         LATB &= 0b11011011;
+[e =& _LATB -> -> 219 `i `Vuc ]
+"50
+[; ;dc.c: 50:         LATB |= 0b00010010;
+[e =| _LATB -> -> 18 `i `Vuc ]
+"51
+[; ;dc.c: 51:     }
+}
+[e :U 1624 ]
+"62
+[; ;dc.c: 62: }
+[e :UE 1616 ]
+}
+[p f _printf 8388736 ]
+[a 1C 69 78 65 58 37 100 0 ]
