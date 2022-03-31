@@ -1,16 +1,19 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "14 ./dc.h
-[; ;./dc.h: 14: void dc_move(int8_t x, int8_t y);
-[v _dc_move `(v ~T0 @X0 0 ef2`c`c ]
-"13
-[; ;./dc.h: 13: void dc_stop();
-[v _dc_stop `(v ~T0 @X0 0 e? ]
-"15 ./Stepper.h
-[; ;./Stepper.h: 15: void stepper_stop(void);
-[v _stepper_stop `(v ~T0 @X0 0 ef ]
+[; ;./dc.h: 14: void dc_move(uint8_t x, uint8_t y, uint8_t xdir, uint8_t ydir);
+[v _dc_move `(v ~T0 @X0 0 ef4`uc`uc`uc`uc ]
+"27 ./robot.h
+[; ;./robot.h: 27: void update_servo0_stat(uint8_t data, uint8_t dir);
+[v _update_servo0_stat `(v ~T0 @X0 0 ef2`uc`uc ]
 "87 ./PCA9685_driver.h
 [; ;./PCA9685_driver.h: 87: void PCA_write(uint8_t ChannelN, uint16_t on, uint16_t off);
 [v _PCA_write `(v ~T0 @X0 0 ef3`uc`us`us ]
+"28 ./robot.h
+[; ;./robot.h: 28: void update_servo1_stat(uint8_t data, uint8_t dir);
+[v _update_servo1_stat `(v ~T0 @X0 0 ef2`uc`uc ]
+"29
+[; ;./robot.h: 29: void update_servo2_stat(uint8_t data, uint8_t dir);
+[v _update_servo2_stat `(v ~T0 @X0 0 ef2`uc`uc ]
 "55 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 55: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -1650,16 +1653,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./PCA9685_driver.h: 47:     uint8_t pca_address;
 [v _pca_address `uc ~T0 @X0 1 e ]
 "9 ./dc.h
-[; ;./dc.h: 9: int16_t ENA_stat = 700;
-[v _ENA_stat `s ~T0 @X0 1 e ]
+[; ;./dc.h: 9: uint16_t ENA_stat = 100;
+[v _ENA_stat `us ~T0 @X0 1 e ]
 [i _ENA_stat
--> -> 700 `i `s
+-> -> 100 `i `us
 ]
 "10
-[; ;./dc.h: 10: int16_t ENB_stat = 700;
-[v _ENB_stat `s ~T0 @X0 1 e ]
+[; ;./dc.h: 10: uint16_t ENB_stat = 100;
+[v _ENB_stat `us ~T0 @X0 1 e ]
 [i _ENB_stat
--> -> 700 `i `s
+-> -> 100 `i `us
 ]
 "10 ./Stepper.h
 [; ;./Stepper.h: 10: uint8_t step_dir;
@@ -1667,32 +1670,44 @@ Version 4.0 HI-TECH Software Intermediate Code
 "11
 [; ;./Stepper.h: 11: int step_count;
 [v _step_count `i ~T0 @X0 1 e ]
-"19 ./robot.h
-[; ;./robot.h: 19: uint16_t servo0_stat = 300;
+"17 ./robot.h
+[; ;./robot.h: 17: uint8_t xdir = 0;
+[v _xdir `uc ~T0 @X0 1 e ]
+[i _xdir
+-> -> 0 `i `uc
+]
+"18
+[; ;./robot.h: 18: uint8_t ydir = 0;
+[v _ydir `uc ~T0 @X0 1 e ]
+[i _ydir
+-> -> 0 `i `uc
+]
+"20
+[; ;./robot.h: 20: uint16_t servo0_stat = 300;
 [v _servo0_stat `us ~T0 @X0 1 e ]
 [i _servo0_stat
 -> -> 300 `i `us
 ]
-"20
-[; ;./robot.h: 20: uint16_t servo1_stat = 300;
+"21
+[; ;./robot.h: 21: uint16_t servo1_stat = 300;
 [v _servo1_stat `us ~T0 @X0 1 e ]
 [i _servo1_stat
 -> -> 300 `i `us
 ]
-"21
-[; ;./robot.h: 21: uint16_t servo2_stat = 300;
+"22
+[; ;./robot.h: 22: uint16_t servo2_stat = 300;
 [v _servo2_stat `us ~T0 @X0 1 e ]
 [i _servo2_stat
 -> -> 300 `i `us
 ]
-"22
-[; ;./robot.h: 22: uint16_t servo3_stat = 300;
+"23
+[; ;./robot.h: 23: uint16_t servo3_stat = 300;
 [v _servo3_stat `us ~T0 @X0 1 e ]
 [i _servo3_stat
 -> -> 300 `i `us
 ]
 "15 robot.c
-[; ;robot.c: 15: void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t data_y){
+[; ;robot.c: 15: void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t data_y) {
 [v _process `(v ~T0 @X0 1 ef4`uc`uc`uc`uc ]
 {
 [e :U _process ]
@@ -1701,170 +1716,250 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _data_x `uc ~T0 @X0 1 r3 ]
 [v _data_y `uc ~T0 @X0 1 r4 ]
 [f ]
-"16
-[; ;robot.c: 16:     int8_t x = (int8_t)data_x + ((data_fingers<<3) & 0b10000000);
-[v _x `c ~T0 @X0 1 a ]
-[e = _x -> + -> -> _data_x `c `i & << -> _data_fingers `i -> 3 `i -> 128 `i `c ]
 "17
-[; ;robot.c: 17:     int8_t y = (int8_t)data_y + ((data_fingers<<3) & 0b10000000);
-[v _y `c ~T0 @X0 1 a ]
-[e = _y -> + -> -> _data_y `c `i & << -> _data_fingers `i -> 3 `i -> 128 `i `c ]
+[; ;robot.c: 17:     if ((data_fingers & 0b00010000) == 0b00010000) {
+[e $ ! == & -> _data_fingers `i -> 16 `i -> 16 `i 1614  ]
+{
 "18
-[; ;robot.c: 18:     if((data_fingers>>4) == 1){
-[e $ ! == >> -> _data_fingers `i -> 4 `i -> 1 `i 1614  ]
+[; ;robot.c: 18:         xdir = 1;
+[e = _xdir -> -> 1 `i `uc ]
+"19
+[; ;robot.c: 19:     } else {
+}
+[e $U 1615  ]
+[e :U 1614 ]
 {
 "20
-[; ;robot.c: 20:         dc_move(x, y);
-[e ( _dc_move (2 , _x _y ]
+[; ;robot.c: 20:         xdir = 0;
+[e = _xdir -> -> 0 `i `uc ]
 "21
 [; ;robot.c: 21:     }
 }
-[e :U 1614 ]
+[e :U 1615 ]
+"22
+[; ;robot.c: 22:     if ((data_fingers & 0b00001000) == 0b00001000) {
+[e $ ! == & -> _data_fingers `i -> 8 `i -> 8 `i 1616  ]
+{
 "23
-[; ;robot.c: 23: }
-[e :UE 1613 ]
-}
+[; ;robot.c: 23:         ydir = 1;
+[e = _ydir -> -> 1 `i `uc ]
 "24
-[; ;robot.c: 24: void hold() {
-[v _hold `(v ~T0 @X0 1 ef ]
+[; ;robot.c: 24:     } else {
+}
+[e $U 1617  ]
+[e :U 1616 ]
 {
-[e :U _hold ]
-[f ]
 "25
-[; ;robot.c: 25:     dc_stop();
-[e ( _dc_stop ..  ]
+[; ;robot.c: 25:         ydir = 0;
+[e = _ydir -> -> 0 `i `uc ]
 "26
-[; ;robot.c: 26:     stepper_stop();
-[e ( _stepper_stop ..  ]
-"27
-[; ;robot.c: 27: }
-[e :UE 1615 ]
+[; ;robot.c: 26:     }
 }
+[e :U 1617 ]
+"28
+[; ;robot.c: 28:     if ((data_fingers & 0b00100000) == 0b00100000) {
+[e $ ! == & -> _data_fingers `i -> 32 `i -> 32 `i 1618  ]
+{
 "29
-[; ;robot.c: 29: void shoulder(uint8_t data_x, uint8_t data_y) {
-[v _shoulder `(v ~T0 @X0 1 ef2`uc`uc ]
+[; ;robot.c: 29:         dc_move(data_x, data_y, xdir, ydir);
+[e ( _dc_move (4 , , , _data_x _data_y _xdir _ydir ]
+"30
+[; ;robot.c: 30:     } else if ((data_fingers & 0b01000000) == 0b01000000) {
+}
+[e $U 1619  ]
+[e :U 1618 ]
+[e $ ! == & -> _data_fingers `i -> 64 `i -> 64 `i 1620  ]
 {
-[e :U _shoulder ]
-[v _data_x `uc ~T0 @X0 1 r1 ]
-[v _data_y `uc ~T0 @X0 1 r2 ]
-[f ]
 "31
-[; ;robot.c: 31: }
-[e :UE 1616 ]
-}
+[; ;robot.c: 31:         update_servo0_stat(data_x, xdir);
+[e ( _update_servo0_stat (2 , _data_x _xdir ]
+"32
+[; ;robot.c: 32:         PCA_write(0, 0, servo0_stat);
+[e ( _PCA_write (3 , , -> -> 0 `i `uc -> -> 0 `i `us _servo0_stat ]
 "33
-[; ;robot.c: 33: void front_arm(uint8_t data_x, uint8_t data_y) {
-[v _front_arm `(v ~T0 @X0 1 ef2`uc`uc ]
-{
-[e :U _front_arm ]
-[v _data_x `uc ~T0 @X0 1 r1 ]
-[v _data_y `uc ~T0 @X0 1 r2 ]
-[f ]
-"36
-[; ;robot.c: 36: }
-[e :UE 1617 ]
+[; ;robot.c: 33:         update_servo1_stat(data_x, xdir);
+[e ( _update_servo1_stat (2 , _data_x _xdir ]
+"34
+[; ;robot.c: 34:         PCA_write(1, 0, servo1_stat);
+[e ( _PCA_write (3 , , -> -> 1 `i `uc -> -> 0 `i `us _servo1_stat ]
+"35
+[; ;robot.c: 35:     } else if ((data_fingers & 0b10000000) == 0b10000000) {
 }
-"38
-[; ;robot.c: 38: void move_servo(uint8_t servo, uint8_t data, uint16_t servo_stat){
-[v _move_servo `(v ~T0 @X0 1 ef3`uc`uc`us ]
-{
-[e :U _move_servo ]
-[v _servo `uc ~T0 @X0 1 r1 ]
-[v _data `uc ~T0 @X0 1 r2 ]
-[v _servo_stat `us ~T0 @X0 1 r3 ]
-[f ]
-"50
-[; ;robot.c: 50: }
-[e :UE 1618 ]
-}
-"52
-[; ;robot.c: 52: void dc_pwm(uint8_t dc, uint8_t data, uint16_t *EN_stat){
-[v _dc_pwm `(v ~T0 @X0 1 ef3`uc`uc`*us ]
-{
-[e :U _dc_pwm ]
-[v _dc `uc ~T0 @X0 1 r1 ]
-[v _data `uc ~T0 @X0 1 r2 ]
-[v _EN_stat `*us ~T0 @X0 1 r3 ]
-[f ]
-"53
-[; ;robot.c: 53:     *EN_stat += data;
-[e =+ *U _EN_stat -> _data `us ]
-"54
-[; ;robot.c: 54:      if (*EN_stat <= (500 - 10)) {
-[e $ ! <= -> *U _EN_stat `ui -> - -> 500 `i -> 10 `i `ui 1620  ]
-{
-"55
-[; ;robot.c: 55:         *EN_stat += 10;
-[e =+ *U _EN_stat -> -> 10 `i `us ]
-"56
-[; ;robot.c: 56:     }
-}
+[e $U 1621  ]
 [e :U 1620 ]
-"58
-[; ;robot.c: 58:      if (*EN_stat >= (100 + 10)) {
-[e $ ! >= -> *U _EN_stat `ui -> + -> 100 `i -> 10 `i `ui 1621  ]
+[e $ ! == & -> _data_fingers `i -> 128 `i -> 128 `i 1622  ]
 {
-"59
-[; ;robot.c: 59:         *EN_stat -= 10;
-[e =- *U _EN_stat -> -> 10 `i `us ]
-"60
-[; ;robot.c: 60:     }
+"36
+[; ;robot.c: 36:         update_servo2_stat(data_x, xdir);
+[e ( _update_servo2_stat (2 , _data_x _xdir ]
+"37
+[; ;robot.c: 37:         PCA_write(2, 0, servo1_stat);
+[e ( _PCA_write (3 , , -> -> 2 `i `uc -> -> 0 `i `us _servo1_stat ]
+"39
+[; ;robot.c: 39:     }
 }
+[e :U 1622 ]
 [e :U 1621 ]
-"61
-[; ;robot.c: 61:      PCA_write(dc, 0x00, *EN_stat);
-[e ( _PCA_write (3 , , _dc -> -> 0 `i `us *U _EN_stat ]
-"62
-[; ;robot.c: 62: }
-[e :UE 1619 ]
-}
-"64
-[; ;robot.c: 64: void move_servo1_up(uint8_t n) {
-[v _move_servo1_up `(v ~T0 @X0 1 ef1`uc ]
+[e :U 1619 ]
+"42
+[; ;robot.c: 42:     int8_t x = (int8_t) data_x + ((data_fingers << 3) & 0b10000000);
+[v _x `c ~T0 @X0 1 a ]
+[e = _x -> + -> -> _data_x `c `i & << -> _data_fingers `i -> 3 `i -> 128 `i `c ]
+"43
+[; ;robot.c: 43:     int8_t y = (int8_t) data_y + ((data_fingers << 3) & 0b10000000);
+[v _y `c ~T0 @X0 1 a ]
+[e = _y -> + -> -> _data_y `c `i & << -> _data_fingers `i -> 3 `i -> 128 `i `c ]
+"44
+[; ;robot.c: 44:     if ((data_fingers >> 4) == 1) {
+[e $ ! == >> -> _data_fingers `i -> 4 `i -> 1 `i 1623  ]
 {
-[e :U _move_servo1_up ]
-[v _n `uc ~T0 @X0 1 r1 ]
-[f ]
-"71
-[; ;robot.c: 71:     if (servo1_stat <= (500 - 10)) {
-[e $ ! <= -> _servo1_stat `ui -> - -> 500 `i -> 10 `i `ui 1623  ]
-{
-"72
-[; ;robot.c: 72:         servo1_stat += 10;
-[e =+ _servo1_stat -> -> 10 `i `us ]
-"73
-[; ;robot.c: 73:     }
+"47
+[; ;robot.c: 47:     }
 }
 [e :U 1623 ]
+"48
+[; ;robot.c: 48: }
+[e :UE 1613 ]
+}
+"50
+[; ;robot.c: 50: uint16_t get_servo0_stat() {
+[v _get_servo0_stat `(us ~T0 @X0 1 ef ]
+{
+[e :U _get_servo0_stat ]
+[f ]
+"51
+[; ;robot.c: 51:     return servo0_stat;
+[e ) _servo0_stat ]
+[e $UE 1624  ]
+"52
+[; ;robot.c: 52: }
+[e :UE 1624 ]
+}
+"54
+[; ;robot.c: 54: void update_servo0_stat(uint8_t data, uint8_t dir) {
+[v _update_servo0_stat `(v ~T0 @X0 1 ef2`uc`uc ]
+{
+[e :U _update_servo0_stat ]
+[v _data `uc ~T0 @X0 1 r1 ]
+[v _dir `uc ~T0 @X0 1 r2 ]
+[f ]
+"55
+[; ;robot.c: 55:     if (dir == 1) {
+[e $ ! == -> _dir `i -> 1 `i 1626  ]
+{
+"56
+[; ;robot.c: 56:         servo0_stat += (uint16_t) data;
+[e =+ _servo0_stat -> -> _data `us `us ]
+"57
+[; ;robot.c: 57:     } else {
+}
+[e $U 1627  ]
+[e :U 1626 ]
+{
+"58
+[; ;robot.c: 58:         servo0_stat -= (uint16_t) data;
+[e =- _servo0_stat -> -> _data `us `us ]
+"59
+[; ;robot.c: 59:     }
+}
+[e :U 1627 ]
+"60
+[; ;robot.c: 60: }
+[e :UE 1625 ]
+}
+"62
+[; ;robot.c: 62: void update_servo1_stat(uint8_t data, uint8_t dir) {
+[v _update_servo1_stat `(v ~T0 @X0 1 ef2`uc`uc ]
+{
+[e :U _update_servo1_stat ]
+[v _data `uc ~T0 @X0 1 r1 ]
+[v _dir `uc ~T0 @X0 1 r2 ]
+[f ]
+"63
+[; ;robot.c: 63:     if (dir == 1) {
+[e $ ! == -> _dir `i -> 1 `i 1629  ]
+{
+"64
+[; ;robot.c: 64:         servo1_stat += (uint16_t) data;
+[e =+ _servo1_stat -> -> _data `us `us ]
+"65
+[; ;robot.c: 65:     } else {
+}
+[e $U 1630  ]
+[e :U 1629 ]
+{
+"66
+[; ;robot.c: 66:         servo1_stat -= (uint16_t) data;
+[e =- _servo1_stat -> -> _data `us `us ]
+"67
+[; ;robot.c: 67:     }
+}
+[e :U 1630 ]
+"68
+[; ;robot.c: 68: }
+[e :UE 1628 ]
+}
+"70
+[; ;robot.c: 70: void update_servo2_stat(uint8_t data, uint8_t dir) {
+[v _update_servo2_stat `(v ~T0 @X0 1 ef2`uc`uc ]
+{
+[e :U _update_servo2_stat ]
+[v _data `uc ~T0 @X0 1 r1 ]
+[v _dir `uc ~T0 @X0 1 r2 ]
+[f ]
+"71
+[; ;robot.c: 71:     if (dir == 1) {
+[e $ ! == -> _dir `i -> 1 `i 1632  ]
+{
+"72
+[; ;robot.c: 72:         servo2_stat += (uint16_t) data;
+[e =+ _servo2_stat -> -> _data `us `us ]
+"73
+[; ;robot.c: 73:     } else {
+}
+[e $U 1633  ]
+[e :U 1632 ]
+{
+"74
+[; ;robot.c: 74:         servo2_stat -= (uint16_t) data;
+[e =- _servo2_stat -> -> _data `us `us ]
 "75
-[; ;robot.c: 75:     PCA_write(n, 0x00, servo1_stat);
-[e ( _PCA_write (3 , , _n -> -> 0 `i `us _servo1_stat ]
+[; ;robot.c: 75:     }
+}
+[e :U 1633 ]
 "76
 [; ;robot.c: 76: }
-[e :UE 1622 ]
+[e :UE 1631 ]
 }
 "78
-[; ;robot.c: 78: void move_servo1_down(uint8_t n) {
-[v _move_servo1_down `(v ~T0 @X0 1 ef1`uc ]
+[; ;robot.c: 78: void update_servo3_stat(uint8_t data, uint8_t dir) {
+[v _update_servo3_stat `(v ~T0 @X0 1 ef2`uc`uc ]
 {
-[e :U _move_servo1_down ]
-[v _n `uc ~T0 @X0 1 r1 ]
+[e :U _update_servo3_stat ]
+[v _data `uc ~T0 @X0 1 r1 ]
+[v _dir `uc ~T0 @X0 1 r2 ]
 [f ]
 "79
-[; ;robot.c: 79:     if (servo1_stat >= (100 + 10)) {
-[e $ ! >= -> _servo1_stat `ui -> + -> 100 `i -> 10 `i `ui 1625  ]
+[; ;robot.c: 79:     if (dir == 1) {
+[e $ ! == -> _dir `i -> 1 `i 1635  ]
 {
 "80
-[; ;robot.c: 80:         servo1_stat -= 10;
-[e =- _servo1_stat -> -> 10 `i `us ]
+[; ;robot.c: 80:         servo3_stat += (uint16_t) data;
+[e =+ _servo3_stat -> -> _data `us `us ]
 "81
-[; ;robot.c: 81:     }
+[; ;robot.c: 81:     } else {
 }
-[e :U 1625 ]
+[e $U 1636  ]
+[e :U 1635 ]
+{
+"82
+[; ;robot.c: 82:         servo3_stat -= (uint16_t) data;
+[e =- _servo3_stat -> -> _data `us `us ]
 "83
-[; ;robot.c: 83:     PCA_write(n, 0x00, servo1_stat);
-[e ( _PCA_write (3 , , _n -> -> 0 `i `us _servo1_stat ]
+[; ;robot.c: 83:     }
+}
+[e :U 1636 ]
 "84
 [; ;robot.c: 84: }
-[e :UE 1624 ]
+[e :UE 1634 ]
 }

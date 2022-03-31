@@ -26,9 +26,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "14 ./Stepper.h
 [; ;./Stepper.h: 14: void stepper_move(uint8_t direction);
 [v _stepper_move `(v ~T0 @X0 0 ef1`uc ]
-[v F183 `(v ~T0 @X0 1 tf1`ul ]
+[v F192 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\builtins.h
-[v __delay `JF183 ~T0 @X0 0 e ]
+[v __delay `JF192 ~T0 @X0 0 e ]
 [p i __delay ]
 "15 ./Stepper.h
 [; ;./Stepper.h: 15: void stepper_stop(void);
@@ -1763,41 +1763,53 @@ Version 4.0 HI-TECH Software Intermediate Code
 "11
 [; ;./Stepper.h: 11: int step_count;
 [v _step_count `i ~T0 @X0 1 e ]
-"19 ./robot.h
-[; ;./robot.h: 19: uint16_t servo0_stat = 300;
+"17 ./robot.h
+[; ;./robot.h: 17: uint8_t xdir = 0;
+[v _xdir `uc ~T0 @X0 1 e ]
+[i _xdir
+-> -> 0 `i `uc
+]
+"18
+[; ;./robot.h: 18: uint8_t ydir = 0;
+[v _ydir `uc ~T0 @X0 1 e ]
+[i _ydir
+-> -> 0 `i `uc
+]
+"20
+[; ;./robot.h: 20: uint16_t servo0_stat = 300;
 [v _servo0_stat `us ~T0 @X0 1 e ]
 [i _servo0_stat
 -> -> 300 `i `us
 ]
-"20
-[; ;./robot.h: 20: uint16_t servo1_stat = 300;
+"21
+[; ;./robot.h: 21: uint16_t servo1_stat = 300;
 [v _servo1_stat `us ~T0 @X0 1 e ]
 [i _servo1_stat
 -> -> 300 `i `us
 ]
-"21
-[; ;./robot.h: 21: uint16_t servo2_stat = 300;
+"22
+[; ;./robot.h: 22: uint16_t servo2_stat = 300;
 [v _servo2_stat `us ~T0 @X0 1 e ]
 [i _servo2_stat
 -> -> 300 `i `us
 ]
-"22
-[; ;./robot.h: 22: uint16_t servo3_stat = 300;
+"23
+[; ;./robot.h: 23: uint16_t servo3_stat = 300;
 [v _servo3_stat `us ~T0 @X0 1 e ]
 [i _servo3_stat
 -> -> 300 `i `us
 ]
 "9 ./dc.h
-[; ;./dc.h: 9: int16_t ENA_stat = 700;
-[v _ENA_stat `s ~T0 @X0 1 e ]
+[; ;./dc.h: 9: uint16_t ENA_stat = 100;
+[v _ENA_stat `us ~T0 @X0 1 e ]
 [i _ENA_stat
--> -> 700 `i `s
+-> -> 100 `i `us
 ]
 "10
-[; ;./dc.h: 10: int16_t ENB_stat = 700;
-[v _ENB_stat `s ~T0 @X0 1 e ]
+[; ;./dc.h: 10: uint16_t ENB_stat = 100;
+[v _ENB_stat `us ~T0 @X0 1 e ]
 [i _ENB_stat
--> -> 700 `i `s
+-> -> 100 `i `us
 ]
 "38 ./LCD.h
 [; ;./LCD.h: 38: uint8_t lcd_address, RS;
