@@ -7,56 +7,42 @@
 
 void dc_stop() {
     LATB &= 0b11001001;
-    //write PCA = 0 for EN A,B 
 }
 
-void dc_move(int8_t x, int8_t y) { //0b---XXXX- these four pins control direction of spin
+void dc_move(uint8_t x, uint8_t y, uint8_t xdir, uint8_t ydir) { //0b---XXXX- these four pins control direction of spin
+    if (y > 1) {
+        if (ydir == 1) { //forward tilt
+            LATB &= 0b11101101;
+            LATB |= 0b00100100;
 
-     ENA_stat = (y & 0b01111111)*100;
-     ENB_stat += (y& 0b01111111);
-     
-     if (ENA_stat > (DCMAX)) { //redefine min/max
-        ENA_stat = DCMAX;
-    }
-     if (ENA_stat < (DCMIN)) {
-        ENA_stat = DCMIN;
-    }
-     if (ENB_stat > (DCMAX)) { //redefine min/max
-        ENB_stat = DCMAX;
-    }
-     if (ENB_stat < (DCMIN)) {
-        ENB_stat = DCMIN;
-    }
-     //__delay_ms(1);
-     PCA_write(0, 0x00, (ENA_stat));
-     //__delay_ms(1);
-     //PCA_write(1, 0x00, (ENB_stat));
-     printf("ENA:%d",ENA_stat);
-    if (x >> 7) {  // X0000000 -> 0000000X
-       // move_servo(5, (data_y - data_x), ENA_stat); //(-) because negative x is added (could be data_y + (data_x & 0b00111111))
-       // move_servo(5, (data_y), ENB_stat);
-    } else {            //right tilt
-       // move_servo(5, data_y, ENA_stat);
-       // move_servo(5, data_y + data_x, ENB_stat);
-    }
+        } else { //backwards tilt
+            LATB &= 0b11011011;
+            LATB |= 0b00010010;
+        }
+        ENA_stat = y*50; //finna gott gildi, prufa 50
+        ENB_stat = y*50;
 
-    if (y >> 7) {  //  Y0000000 -> 0000000Y
-        //uart_Write((uint8_t)y);
-        LATB &= 0b11101101;
-        LATB |= 0b00100100;
+        if (xdir == 1) { //right tilt
+            ENB_stat += ((uint16_t)x*50);
+        } else {
+            ENA_stat += ((uint16_t)x*50);
+        }
 
-    } else { //backwards tilt
-        LATB &= 0b11011011;
-        LATB |= 0b00010010;
+        if (ENA_stat > (DCMAX)) { //redefine min/max, er 100/1300 atm
+            ENA_stat = DCMAX;
+        }
+        if (ENA_stat < (DCMIN)) {
+            ENA_stat = DCMIN;
+        }
+        if (ENB_stat > (DCMAX)) {
+            ENB_stat = DCMAX;
+        }
+        if (ENB_stat < (DCMIN)) {
+            ENB_stat = DCMIN;
+        }
+        PCA_write(4, 0x00, (ENA_stat));
+        PCA_write(5, 0x00, (ENB_stat));
+    }else{
+        dc_stop();
     }
-
-    //Left wheels
-    //PCA_write() EN A //right tilt + y tilt
-    // data_x(rt) + data_y(ft) = + +
-    // data_x(rt) + data_y(bt) = + -
-
-    //Right wheels
-    //PCA_write() EN B //left tilt + y tilt
-    // data_x(lt) + data_y(ft) = - +
-    // data_x(lt) + data_y(bt) = - -
 }

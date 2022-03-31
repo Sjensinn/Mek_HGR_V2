@@ -12,73 +12,73 @@
 //data_x; //00XXXXXX was XXXXXX-10
 //data_y; //00XXXXXX was XXXXXX-11
 
-void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t data_y){
-    int8_t x = (int8_t)data_x + ((data_fingers<<3) & 0b10000000);
-    int8_t y = (int8_t)data_y + ((data_fingers<<3) & 0b10000000);
-    if((data_fingers>>4) == 1){ // if finger1
+void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t data_y) {
+
+    if ((data_fingers & 0b00010000) == 0b00010000) {
+        xdir = 1;
+    } else {
+        xdir = 0;
+    }
+    if ((data_fingers & 0b00001000) == 0b00001000) {
+        ydir = 1;
+    } else {
+        ydir = 0;
+    }
+
+    if ((data_fingers & 0b00100000) == 0b00100000) { //finger 1
+        dc_move(data_x, data_y, xdir, ydir);
+    } else if ((data_fingers & 0b01000000) == 0b01000000) { //finger 2
+        update_servo0_stat(data_x, xdir);
+        PCA_write(0, 0, servo0_stat);
+        update_servo1_stat(data_x, xdir);
+        PCA_write(1, 0, servo1_stat);
+    } else if ((data_fingers & 0b10000000) == 0b10000000) { //finger 3
+        update_servo2_stat(data_x, xdir);
+        PCA_write(2, 0, servo1_stat);
+        //setja stepper (og færa hvað er á hvaða fingri)
+    }
+
+
+    int8_t x = (int8_t) data_x + ((data_fingers << 3) & 0b10000000);
+    int8_t y = (int8_t) data_y + ((data_fingers << 3) & 0b10000000);
+    if ((data_fingers >> 4) == 1) { // if finger1
         //uart_Write((uint8_t)y);
-        dc_move(x, y);
+
     }
-    
-}
-void hold() {
-    dc_stop();
-    stepper_stop();
 }
 
-void shoulder(uint8_t data_x, uint8_t data_y) {
-    //move_servo(3, data_y, &servo3_stat);
+uint16_t get_servo0_stat() {
+    return servo0_stat;
 }
 
-void front_arm(uint8_t data_x, uint8_t data_y) {
-    //move_servo(1, data_y, &servo1_stat);
-    //move_servo(2, data_x, &servo2_stat);
+void update_servo0_stat(uint8_t data, uint8_t dir) {
+    if (dir == 1) {
+        servo0_stat += (uint16_t) data;
+    } else {
+        servo0_stat -= (uint16_t) data;
+    }
 }
 
-void move_servo(uint8_t servo, uint8_t data, uint16_t servo_stat){
-    /*
-    *servo_stat += data;
-     if (*servo_stat <= (SERVO1MAX - 10)) {
-        *servo_stat += 10;
+void update_servo1_stat(uint8_t data, uint8_t dir) {
+    if (dir == 1) {
+        servo1_stat += (uint16_t) data;
+    } else {
+        servo1_stat -= (uint16_t) data;
     }
-     
-     if (*servo_stat >= (SERVO1MIN + 10)) {
-        *servo_stat -= 10;
-    }
-     PCA_write(servo, 0x00, *servo_stat);
-     *      */
 }
 
-void dc_pwm(uint8_t dc, uint8_t data, uint16_t *EN_stat){
-    *EN_stat += data;
-     if (*EN_stat <= (SERVO1MAX - 10)) { //redefine min/max
-        *EN_stat += 10;
+void update_servo2_stat(uint8_t data, uint8_t dir) {
+    if (dir == 1) {
+        servo2_stat += (uint16_t) data;
+    } else {
+        servo2_stat -= (uint16_t) data;
     }
-     
-     if (*EN_stat >= (SERVO1MIN + 10)) {
-        *EN_stat -= 10;
-    }
-     PCA_write(dc, 0x00, *EN_stat);
 }
 
-void move_servo1_up(uint8_t n) {
-
-    /*
-     Servo1_stat += data_x
-     */
-    //Check if we are at limit for servo
-
-    if (servo1_stat <= (SERVO1MAX - 10)) {
-        servo1_stat += 10;
+void update_servo3_stat(uint8_t data, uint8_t dir) {
+    if (dir == 1) {
+        servo3_stat += (uint16_t) data;
+    } else {
+        servo3_stat -= (uint16_t) data;
     }
-
-    PCA_write(n, 0x00, servo1_stat);
-}
-
-void move_servo1_down(uint8_t n) {
-    if (servo1_stat >= (SERVO1MIN + 10)) {
-        servo1_stat -= 10;
-    }
-
-    PCA_write(n, 0x00, servo1_stat);
 }

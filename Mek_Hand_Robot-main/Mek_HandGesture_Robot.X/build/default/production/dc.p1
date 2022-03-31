@@ -5,8 +5,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "87 ./PCA9685_driver.h
 [; ;./PCA9685_driver.h: 87: void PCA_write(uint8_t ChannelN, uint16_t on, uint16_t off);
 [v _PCA_write `(v ~T0 @X0 0 ef3`uc`us`us ]
-"111 C:\Program Files\Microchip\pic\include\c99\stdio.h
-[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 "55 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 55: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -1643,16 +1641,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 36301: __asm("TOSH equ 01FEFh");
 [; <" TOSH equ 01FEFh ;# ">
 "9 ./dc.h
-[; ;./dc.h: 9: int16_t ENA_stat = 700;
-[v _ENA_stat `s ~T0 @X0 1 e ]
+[; ;./dc.h: 9: uint16_t ENA_stat = 100;
+[v _ENA_stat `us ~T0 @X0 1 e ]
 [i _ENA_stat
--> -> 700 `i `s
+-> -> 100 `i `us
 ]
 "10
-[; ;./dc.h: 10: int16_t ENB_stat = 700;
-[v _ENB_stat `s ~T0 @X0 1 e ]
+[; ;./dc.h: 10: uint16_t ENB_stat = 100;
+[v _ENB_stat `us ~T0 @X0 1 e ]
 [i _ENB_stat
--> -> 700 `i `s
+-> -> 100 `i `us
 ]
 "47 ./PCA9685_driver.h
 [; ;./PCA9685_driver.h: 47:     uint8_t pca_address;
@@ -1666,117 +1664,131 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9
 [; ;dc.c: 9:     LATB &= 0b11001001;
 [e =& _LATB -> -> 201 `i `Vuc ]
-"11
-[; ;dc.c: 11: }
+"10
+[; ;dc.c: 10: }
 [e :UE 1615 ]
 }
-"13
-[; ;dc.c: 13: void dc_move(int8_t x, int8_t y) {
-[v _dc_move `(v ~T0 @X0 1 ef2`c`c ]
+"12
+[; ;dc.c: 12: void dc_move(uint8_t x, uint8_t y, uint8_t xdir, uint8_t ydir) {
+[v _dc_move `(v ~T0 @X0 1 ef4`uc`uc`uc`uc ]
 {
 [e :U _dc_move ]
-[v _x `c ~T0 @X0 1 r1 ]
-[v _y `c ~T0 @X0 1 r2 ]
+[v _x `uc ~T0 @X0 1 r1 ]
+[v _y `uc ~T0 @X0 1 r2 ]
+[v _xdir `uc ~T0 @X0 1 r3 ]
+[v _ydir `uc ~T0 @X0 1 r4 ]
 [f ]
+"13
+[; ;dc.c: 13:     if (y > 1) {
+[e $ ! > -> _y `i -> 1 `i 1617  ]
+{
+"14
+[; ;dc.c: 14:         if (ydir == 1) {
+[e $ ! == -> _ydir `i -> 1 `i 1618  ]
+{
 "15
-[; ;dc.c: 15:      ENA_stat = (y & 0b01111111)*100;
-[e = _ENA_stat -> * & -> _y `i -> 127 `i -> 100 `i `s ]
+[; ;dc.c: 15:             LATB &= 0b11101101;
+[e =& _LATB -> -> 237 `i `Vuc ]
 "16
-[; ;dc.c: 16:      ENB_stat += (y& 0b01111111);
-[e =+ _ENB_stat -> & -> _y `i -> 127 `i `s ]
+[; ;dc.c: 16:             LATB |= 0b00100100;
+[e =| _LATB -> -> 36 `i `Vuc ]
 "18
-[; ;dc.c: 18:      if (ENA_stat > (1300)) {
-[e $ ! > -> _ENA_stat `i -> 1300 `i 1617  ]
+[; ;dc.c: 18:         } else {
+}
+[e $U 1619  ]
+[e :U 1618 ]
 {
 "19
-[; ;dc.c: 19:         ENA_stat = 1300;
-[e = _ENA_stat -> -> 1300 `i `s ]
+[; ;dc.c: 19:             LATB &= 0b11011011;
+[e =& _LATB -> -> 219 `i `Vuc ]
 "20
-[; ;dc.c: 20:     }
-}
-[e :U 1617 ]
+[; ;dc.c: 20:             LATB |= 0b00010010;
+[e =| _LATB -> -> 18 `i `Vuc ]
 "21
-[; ;dc.c: 21:      if (ENA_stat < (100)) {
-[e $ ! < -> _ENA_stat `i -> 100 `i 1618  ]
-{
-"22
-[; ;dc.c: 22:         ENA_stat = 100;
-[e = _ENA_stat -> -> 100 `i `s ]
-"23
-[; ;dc.c: 23:     }
-}
-[e :U 1618 ]
-"24
-[; ;dc.c: 24:      if (ENB_stat > (1300)) {
-[e $ ! > -> _ENB_stat `i -> 1300 `i 1619  ]
-{
-"25
-[; ;dc.c: 25:         ENB_stat = 1300;
-[e = _ENB_stat -> -> 1300 `i `s ]
-"26
-[; ;dc.c: 26:     }
+[; ;dc.c: 21:         }
 }
 [e :U 1619 ]
+"22
+[; ;dc.c: 22:         ENA_stat = y*50;
+[e = _ENA_stat -> * -> _y `i -> 50 `i `us ]
+"23
+[; ;dc.c: 23:         ENB_stat = y*50;
+[e = _ENB_stat -> * -> _y `i -> 50 `i `us ]
+"25
+[; ;dc.c: 25:         if (xdir == 1) {
+[e $ ! == -> _xdir `i -> 1 `i 1620  ]
+{
+"26
+[; ;dc.c: 26:             ENB_stat += ((uint16_t)x*50);
+[e =+ _ENB_stat -> * -> -> _x `us `ui -> -> 50 `i `ui `us ]
 "27
-[; ;dc.c: 27:      if (ENB_stat < (100)) {
-[e $ ! < -> _ENB_stat `i -> 100 `i 1620  ]
+[; ;dc.c: 27:         } else {
+}
+[e $U 1621  ]
+[e :U 1620 ]
 {
 "28
-[; ;dc.c: 28:         ENB_stat = 100;
-[e = _ENB_stat -> -> 100 `i `s ]
+[; ;dc.c: 28:             ENA_stat += ((uint16_t)x*50);
+[e =+ _ENA_stat -> * -> -> _x `us `ui -> -> 50 `i `ui `us ]
 "29
-[; ;dc.c: 29:     }
+[; ;dc.c: 29:         }
 }
-[e :U 1620 ]
-"31
-[; ;dc.c: 31:      PCA_write(0, 0x00, (ENA_stat));
-[e ( _PCA_write (3 , , -> -> 0 `i `uc -> -> 0 `i `us -> _ENA_stat `us ]
-"34
-[; ;dc.c: 34:      printf("ENA:%d",ENA_stat);
-[e ( _printf , (. :s 1C -> _ENA_stat `i ]
-"35
-[; ;dc.c: 35:     if (x >> 7) {
-[e $ ! != >> -> _x `i -> 7 `i -> 0 `i 1621  ]
-{
-"38
-[; ;dc.c: 38:     } else {
-}
-[e $U 1622  ]
 [e :U 1621 ]
+"31
+[; ;dc.c: 31:         if (ENA_stat > (1300)) {
+[e $ ! > -> _ENA_stat `ui -> -> 1300 `i `ui 1622  ]
 {
-"41
-[; ;dc.c: 41:     }
+"32
+[; ;dc.c: 32:             ENA_stat = 1300;
+[e = _ENA_stat -> -> 1300 `i `us ]
+"33
+[; ;dc.c: 33:         }
 }
 [e :U 1622 ]
-"43
-[; ;dc.c: 43:     if (y >> 7) {
-[e $ ! != >> -> _y `i -> 7 `i -> 0 `i 1623  ]
+"34
+[; ;dc.c: 34:         if (ENA_stat < (100)) {
+[e $ ! < -> _ENA_stat `ui -> -> 100 `i `ui 1623  ]
 {
-"45
-[; ;dc.c: 45:         LATB &= 0b11101101;
-[e =& _LATB -> -> 237 `i `Vuc ]
-"46
-[; ;dc.c: 46:         LATB |= 0b00100100;
-[e =| _LATB -> -> 36 `i `Vuc ]
-"48
-[; ;dc.c: 48:     } else {
+"35
+[; ;dc.c: 35:             ENA_stat = 100;
+[e = _ENA_stat -> -> 100 `i `us ]
+"36
+[; ;dc.c: 36:         }
 }
-[e $U 1624  ]
 [e :U 1623 ]
+"37
+[; ;dc.c: 37:         if (ENB_stat > (1300)) {
+[e $ ! > -> _ENB_stat `ui -> -> 1300 `i `ui 1624  ]
 {
-"49
-[; ;dc.c: 49:         LATB &= 0b11011011;
-[e =& _LATB -> -> 219 `i `Vuc ]
-"50
-[; ;dc.c: 50:         LATB |= 0b00010010;
-[e =| _LATB -> -> 18 `i `Vuc ]
-"51
-[; ;dc.c: 51:     }
+"38
+[; ;dc.c: 38:             ENB_stat = 1300;
+[e = _ENB_stat -> -> 1300 `i `us ]
+"39
+[; ;dc.c: 39:         }
 }
 [e :U 1624 ]
-"62
-[; ;dc.c: 62: }
+"40
+[; ;dc.c: 40:         if (ENB_stat < (100)) {
+[e $ ! < -> _ENB_stat `ui -> -> 100 `i `ui 1625  ]
+{
+"41
+[; ;dc.c: 41:             ENB_stat = 100;
+[e = _ENB_stat -> -> 100 `i `us ]
+"42
+[; ;dc.c: 42:         }
+}
+[e :U 1625 ]
+"43
+[; ;dc.c: 43:         PCA_write(4, 0x00, (ENA_stat));
+[e ( _PCA_write (3 , , -> -> 4 `i `uc -> -> 0 `i `us _ENA_stat ]
+"44
+[; ;dc.c: 44:         PCA_write(5, 0x00, (ENB_stat));
+[e ( _PCA_write (3 , , -> -> 5 `i `uc -> -> 0 `i `us _ENB_stat ]
+"45
+[; ;dc.c: 45:     }
+}
+[e :U 1617 ]
+"46
+[; ;dc.c: 46: }
 [e :UE 1616 ]
 }
-[p f _printf 8388736 ]
-[a 1C 69 78 65 58 37 100 0 ]

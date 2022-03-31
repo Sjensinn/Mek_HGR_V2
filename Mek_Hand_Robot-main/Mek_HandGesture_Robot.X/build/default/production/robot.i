@@ -16,35 +16,35 @@ extern double __fpnormalize(double);
 
 
 
-# 1 "C:\\Program Files\\Microchip\\pic\\include\\c99\\xc8debug.h" 1 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\xc8debug.h" 1 3
 
 
 
-# 1 "C:\\Program Files\\Microchip\\pic\\include\\c99\\stdlib.h" 1 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdlib.h" 1 3
 
 
 
-# 1 "C:\\Program Files\\Microchip\\pic\\include\\c99\\musl_xc8.h" 1 3
-# 4 "C:\\Program Files\\Microchip\\pic\\include\\c99\\stdlib.h" 2 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\musl_xc8.h" 1 3
+# 4 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdlib.h" 2 3
 
 
 
 
 
 
-# 1 "C:\\Program Files\\Microchip\\pic\\include\\c99\\features.h" 1 3
-# 10 "C:\\Program Files\\Microchip\\pic\\include\\c99\\stdlib.h" 2 3
-# 21 "C:\\Program Files\\Microchip\\pic\\include\\c99\\stdlib.h" 3
-# 1 "C:\\Program Files\\Microchip\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 18 "C:\\Program Files\\Microchip\\pic\\include\\c99\\bits/alltypes.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\features.h" 1 3
+# 10 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdlib.h" 2 3
+# 21 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdlib.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 18 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long int wchar_t;
-# 122 "C:\\Program Files\\Microchip\\pic\\include\\c99\\bits/alltypes.h" 3
+# 122 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef unsigned size_t;
-# 168 "C:\\Program Files\\Microchip\\pic\\include\\c99\\bits/alltypes.h" 3
+# 168 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef __int24 int24_t;
-# 204 "C:\\Program Files\\Microchip\\pic\\include\\c99\\bits/alltypes.h" 3
+# 204 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef __uint24 uint24_t;
-# 21 "C:\\Program Files\\Microchip\\pic\\include\\c99\\stdlib.h" 2 3
+# 21 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdlib.h" 2 3
 
 
 int atoi (const char *);
@@ -66,12 +66,23 @@ unsigned long long strtoull (const char *restrict, char **restrict, int);
 int rand (void);
 void srand (unsigned);
 
+void *malloc (size_t);
+void *calloc (size_t, size_t);
+void *realloc (void *, size_t);
+void free (void *);
+
           void abort (void);
 int atexit (void (*) (void));
           void exit (int);
           void _Exit (int);
 
 void *bsearch (const void *, const void *, size_t, size_t, int (*)(const void *, const void *));
+
+
+
+
+
+
 
 __attribute__((nonreentrant)) void qsort (void *, size_t, size_t, int (*)(const void *, const void *));
 
@@ -91,13 +102,7 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-
-
-
-
-
-size_t __ctype_get_mb_cur_max(void);
-# 4 "C:\\Program Files\\Microchip\\pic\\include\\c99\\xc8debug.h" 2 3
+# 4 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\xc8debug.h" 2 3
 
 
 
@@ -113,21 +118,21 @@ extern void __builtin_software_breakpoint(void);
 
 
 
-# 1 "C:\\Program Files\\Microchip\\pic\\include\\c99\\stdint.h" 1 3
-# 22 "C:\\Program Files\\Microchip\\pic\\include\\c99\\stdint.h" 3
-# 1 "C:\\Program Files\\Microchip\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 127 "C:\\Program Files\\Microchip\\pic\\include\\c99\\bits/alltypes.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdint.h" 1 3
+# 22 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 127 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef unsigned long uintptr_t;
-# 142 "C:\\Program Files\\Microchip\\pic\\include\\c99\\bits/alltypes.h" 3
+# 142 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long intptr_t;
-# 158 "C:\\Program Files\\Microchip\\pic\\include\\c99\\bits/alltypes.h" 3
+# 158 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef signed char int8_t;
 
 
 
 
 typedef short int16_t;
-# 173 "C:\\Program Files\\Microchip\\pic\\include\\c99\\bits/alltypes.h" 3
+# 173 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long int32_t;
 
 
@@ -135,7 +140,7 @@ typedef long int32_t;
 
 
 typedef long long int64_t;
-# 188 "C:\\Program Files\\Microchip\\pic\\include\\c99\\bits/alltypes.h" 3
+# 188 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long long intmax_t;
 
 
@@ -148,7 +153,7 @@ typedef unsigned char uint8_t;
 
 
 typedef unsigned short uint16_t;
-# 209 "C:\\Program Files\\Microchip\\pic\\include\\c99\\bits/alltypes.h" 3
+# 209 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef unsigned long uint32_t;
 
 
@@ -156,9 +161,9 @@ typedef unsigned long uint32_t;
 
 
 typedef unsigned long long uint64_t;
-# 229 "C:\\Program Files\\Microchip\\pic\\include\\c99\\bits/alltypes.h" 3
+# 229 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef unsigned long long uintmax_t;
-# 22 "C:\\Program Files\\Microchip\\pic\\include\\c99\\stdint.h" 2 3
+# 22 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdint.h" 2 3
 
 
 typedef int8_t int_fast8_t;
@@ -191,13 +196,13 @@ typedef uint24_t uint_fast24_t;
 typedef uint32_t uint_least32_t;
 
 typedef uint64_t uint_least64_t;
-# 144 "C:\\Program Files\\Microchip\\pic\\include\\c99\\stdint.h" 3
-# 1 "C:\\Program Files\\Microchip\\pic\\include\\c99\\bits/stdint.h" 1 3
+# 144 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/stdint.h" 1 3
 typedef int16_t int_fast16_t;
 typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
-# 144 "C:\\Program Files\\Microchip\\pic\\include\\c99\\stdint.h" 2 3
+# 144 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdint.h" 2 3
 # 5 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\\pic\\include\\builtins.h" 2 3
 
 
@@ -20810,12 +20815,12 @@ void PCA_write(uint8_t ChannelN, uint16_t on, uint16_t off);
 
 
 
-int16_t ENA_stat = 700;
-int16_t ENB_stat = 700;
+uint16_t ENA_stat = 100;
+uint16_t ENB_stat = 100;
 
 
 void dc_stop();
-void dc_move(int8_t x, int8_t y);
+void dc_move(uint8_t x, uint8_t y, uint8_t xdir, uint8_t ydir);
 # 6 "robot.c" 2
 
 # 1 "./Stepper.h" 1
@@ -20851,22 +20856,21 @@ int get_steps(void);
 # 7 "robot.c" 2
 
 # 1 "./robot.h" 1
-# 19 "./robot.h"
+# 17 "./robot.h"
+uint8_t xdir = 0;
+uint8_t ydir = 0;
+
 uint16_t servo0_stat = 300;
 uint16_t servo1_stat = 300;
 uint16_t servo2_stat = 300;
 uint16_t servo3_stat = 300;
 
 
-
 void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t data_y);
-void drive(uint8_t data_x, uint8_t data_y);
-void shoulder(uint8_t data_x, uint8_t data_y);
-void front_arm(uint8_t data_x, uint8_t data_y);
-void move_servo(uint8_t servo, uint8_t data, uint16_t servo_stat);
-void dc_pwm(uint8_t servo, uint8_t data, uint16_t *EN_stat);
-void move_servo1_up(uint8_t n);
-void move_servo1_down(uint8_t n);
+void update_servo0_stat(uint8_t data, uint8_t dir);
+void update_servo1_stat(uint8_t data, uint8_t dir);
+void update_servo2_stat(uint8_t data, uint8_t dir);
+void update_servo3_stat(uint8_t data, uint8_t dir);
 # 8 "robot.c" 2
 
 
@@ -20875,63 +20879,73 @@ void move_servo1_down(uint8_t n);
 
 
 
-void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t data_y){
-    int8_t x = (int8_t)data_x + ((data_fingers<<3) & 0b10000000);
-    int8_t y = (int8_t)data_y + ((data_fingers<<3) & 0b10000000);
-    if((data_fingers>>4) == 1){
+void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t data_y) {
 
-        dc_move(x, y);
+    if ((data_fingers & 0b00010000) == 0b00010000) {
+        xdir = 1;
+    } else {
+        xdir = 0;
+    }
+    if ((data_fingers & 0b00001000) == 0b00001000) {
+        ydir = 1;
+    } else {
+        ydir = 0;
     }
 
-}
-void hold() {
-    dc_stop();
-    stepper_stop();
-}
+    if ((data_fingers & 0b00100000) == 0b00100000) {
+        dc_move(data_x, data_y, xdir, ydir);
+    } else if ((data_fingers & 0b01000000) == 0b01000000) {
+        update_servo0_stat(data_x, xdir);
+        PCA_write(0, 0, servo0_stat);
+        update_servo1_stat(data_x, xdir);
+        PCA_write(1, 0, servo1_stat);
+    } else if ((data_fingers & 0b10000000) == 0b10000000) {
+        update_servo2_stat(data_x, xdir);
+        PCA_write(2, 0, servo1_stat);
 
-void shoulder(uint8_t data_x, uint8_t data_y) {
-
-}
-
-void front_arm(uint8_t data_x, uint8_t data_y) {
-
-
-}
-
-void move_servo(uint8_t servo, uint8_t data, uint16_t servo_stat){
-# 50 "robot.c"
-}
-
-void dc_pwm(uint8_t dc, uint8_t data, uint16_t *EN_stat){
-    *EN_stat += data;
-     if (*EN_stat <= (500 - 10)) {
-        *EN_stat += 10;
     }
 
-     if (*EN_stat >= (100 + 10)) {
-        *EN_stat -= 10;
+
+    int8_t x = (int8_t) data_x + ((data_fingers << 3) & 0b10000000);
+    int8_t y = (int8_t) data_y + ((data_fingers << 3) & 0b10000000);
+    if ((data_fingers >> 4) == 1) {
+
+
     }
-     PCA_write(dc, 0x00, *EN_stat);
 }
 
-void move_servo1_up(uint8_t n) {
-
-
-
-
-
-
-    if (servo1_stat <= (500 - 10)) {
-        servo1_stat += 10;
-    }
-
-    PCA_write(n, 0x00, servo1_stat);
+uint16_t get_servo0_stat() {
+    return servo0_stat;
 }
 
-void move_servo1_down(uint8_t n) {
-    if (servo1_stat >= (100 + 10)) {
-        servo1_stat -= 10;
+void update_servo0_stat(uint8_t data, uint8_t dir) {
+    if (dir == 1) {
+        servo0_stat += (uint16_t) data;
+    } else {
+        servo0_stat -= (uint16_t) data;
     }
+}
 
-    PCA_write(n, 0x00, servo1_stat);
+void update_servo1_stat(uint8_t data, uint8_t dir) {
+    if (dir == 1) {
+        servo1_stat += (uint16_t) data;
+    } else {
+        servo1_stat -= (uint16_t) data;
+    }
+}
+
+void update_servo2_stat(uint8_t data, uint8_t dir) {
+    if (dir == 1) {
+        servo2_stat += (uint16_t) data;
+    } else {
+        servo2_stat -= (uint16_t) data;
+    }
+}
+
+void update_servo3_stat(uint8_t data, uint8_t dir) {
+    if (dir == 1) {
+        servo3_stat += (uint16_t) data;
+    } else {
+        servo3_stat -= (uint16_t) data;
+    }
 }
