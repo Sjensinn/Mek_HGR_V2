@@ -10,22 +10,29 @@ void dc_stop() {
 }
 
 void dc_move(uint8_t x, uint8_t y, uint8_t xdir, uint8_t ydir) { //0b---XXXX- these four pins control direction of spin
-    if (y > 1) {
         if (ydir == 1) { //forward tilt
-            LATB &= 0b11101101;
-            LATB |= 0b00100100;
+            //LATB &= 0b11101101;
+            //LATB |= 0b00100100;
+            LATBbits.LATB1 = 0;
+            LATBbits.LATB2 = 1;
+            LATBbits.LATB4 = 0;
+            LATBbits.LATB5 = 1;
 
         } else { //backwards tilt
-            LATB &= 0b11011011;
-            LATB |= 0b00010010;
+            //LATB &= 0b11011011;
+            //LATB |= 0b00010010;
+            LATBbits.LATB1 = 1;
+            LATBbits.LATB2 = 0;
+            LATBbits.LATB4 = 1;
+            LATBbits.LATB5 = 0;
         }
-        ENA_stat = y*50; //finna gott gildi, prufa 50
-        ENB_stat = y*50;
+        ENA_stat = y*100; //finna gott gildi, prufa 50
+        ENB_stat = y*100;
 
         if (xdir == 1) { //right tilt
-            ENB_stat += ((uint16_t)x*50);
+            ENB_stat += ((uint16_t)x*100);
         } else {
-            ENA_stat += ((uint16_t)x*50);
+            ENA_stat += ((uint16_t)x*100);
         }
 
         if (ENA_stat > (DCMAX)) { //redefine min/max, er 100/1300 atm
@@ -42,7 +49,5 @@ void dc_move(uint8_t x, uint8_t y, uint8_t xdir, uint8_t ydir) { //0b---XXXX- th
         }
         PCA_write(4, 0x00, (ENA_stat));
         PCA_write(5, 0x00, (ENB_stat));
-    }else{
-        dc_stop();
-    }
+
 }

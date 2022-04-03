@@ -21147,7 +21147,6 @@ volatile uint8_t ready = 0;
 volatile uint8_t send_flag = 0;
 
 void __attribute__((picinterrupt(("")))) receive_isr();
-void initial_transmission(uint8_t* init_ready);
 
 void main(void) {
     int8_t x, y;
@@ -21158,27 +21157,26 @@ void main(void) {
 
   init_ready = 1;
     while(1){
-
         if(PORTAbits.RA0 == 1){
-            initial_transmission(&init_ready);
+            if(init_ready == 1){
+                send_ready();
+                init_ready = 0;
+            }
+
             if(ready == 1){
                 ready = 0;
+                process(data_flex, data_fingers, data_x, data_y);
 
-
-
-
-                stepper_move(1);
-                _delay((unsigned long)((500)*(16000000/4000.0)));
-                stepper_stop();
-                _delay((unsigned long)((500)*(16000000/4000.0)));
-                stepper_move(0);
-                _delay((unsigned long)((500)*(16000000/4000.0)));
                  send_ready();
             }
         }
         else{
 
 
+            stepper_move(1);
+            _delay((unsigned long)((1000)*(16000000/4000.0)));
+            stepper_move(0);
+            _delay((unsigned long)((1000)*(16000000/4000.0)));
         }
     }
 
@@ -21228,15 +21226,7 @@ void __attribute__((picinterrupt(("")))) receive_isr() {
             step_inc_dec();
 
             CCPR1H = 0x01;
-            CCPR1L = 0x34;
+            CCPR1L = 0x19;
         }
-    }
-}
-
-void initial_transmission(uint8_t* init_ready){
-    if(*init_ready == 1){
-        send_ready();
-
-        *init_ready = 0;
     }
 }

@@ -20974,37 +20974,44 @@ void dc_stop() {
 }
 
 void dc_move(uint8_t x, uint8_t y, uint8_t xdir, uint8_t ydir) {
-    if (y > 1) {
         if (ydir == 1) {
-            LATB &= 0b11101101;
-            LATB |= 0b00100100;
+
+
+            LATBbits.LATB1 = 0;
+            LATBbits.LATB2 = 1;
+            LATBbits.LATB4 = 0;
+            LATBbits.LATB5 = 1;
 
         } else {
-            LATB &= 0b11011011;
-            LATB |= 0b00010010;
+
+
+            LATBbits.LATB1 = 1;
+            LATBbits.LATB2 = 0;
+            LATBbits.LATB4 = 1;
+            LATBbits.LATB5 = 0;
         }
-        ENA_stat = y*50;
-        ENB_stat = y*50;
+        ENA_stat = y*100;
+        ENB_stat = y*100;
 
         if (xdir == 1) {
-            ENB_stat += ((uint16_t)x*50);
+            ENB_stat += ((uint16_t)x*100);
         } else {
-            ENA_stat += ((uint16_t)x*50);
+            ENA_stat += ((uint16_t)x*100);
         }
 
-        if (ENA_stat > (1300)) {
-            ENA_stat = 1300;
+        if (ENA_stat > (4095)) {
+            ENA_stat = 4095;
         }
         if (ENA_stat < (100)) {
             ENA_stat = 100;
         }
-        if (ENB_stat > (1300)) {
-            ENB_stat = 1300;
+        if (ENB_stat > (4095)) {
+            ENB_stat = 4095;
         }
         if (ENB_stat < (100)) {
             ENB_stat = 100;
         }
         PCA_write(4, 0x00, (ENA_stat));
         PCA_write(5, 0x00, (ENB_stat));
-    }
+
 }

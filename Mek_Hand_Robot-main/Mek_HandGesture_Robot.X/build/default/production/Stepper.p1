@@ -1784,215 +1784,218 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Stepper.c: 15:     PIE6bits.CCP1IE = 1;
 [e = . . _PIE6bits 0 0 -> -> 1 `i `uc ]
 "16
-[; ;Stepper.c: 16: }
+[; ;Stepper.c: 16:     step_count = 0;
+[e = _step_count -> 0 `i ]
+"17
+[; ;Stepper.c: 17: }
 [e :UE 1613 ]
 }
-"18
-[; ;Stepper.c: 18: void stepper_move(uint8_t direction) {
+"19
+[; ;Stepper.c: 19: void stepper_move(uint8_t direction) {
 [v _stepper_move `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _stepper_move ]
 [v _direction `uc ~T0 @X0 1 r1 ]
 [f ]
-"19
-[; ;Stepper.c: 19:     step_dir = direction;
-[e = _step_dir _direction ]
 "20
-[; ;Stepper.c: 20:     if (step_dir==1) {
-[e $ ! == -> _step_dir `i -> 1 `i 1615  ]
-{
+[; ;Stepper.c: 20:     step_dir = direction;
+[e = _step_dir _direction ]
 "21
-[; ;Stepper.c: 21:         if(step_count <= 50){
-[e $ ! <= _step_count -> 50 `i 1616  ]
+[; ;Stepper.c: 21:     if (direction == 1) {
+[e $ ! == -> _direction `i -> 1 `i 1615  ]
 {
 "22
-[; ;Stepper.c: 22:             step_enable();
-[e ( _step_enable ..  ]
+[; ;Stepper.c: 22:         if(step_count <= 500){
+[e $ ! <= _step_count -> 500 `i 1616  ]
+{
 "23
-[; ;Stepper.c: 23:             LATDbits.LATD4 = step_dir;
-[e = . . _LATDbits 0 4 _step_dir ]
+[; ;Stepper.c: 23:             step_enable();
+[e ( _step_enable ..  ]
 "24
-[; ;Stepper.c: 24:             T1CONbits.ON = 1;
-[e = . . _T1CONbits 0 0 -> -> 1 `i `uc ]
+[; ;Stepper.c: 24:             LATDbits.LATD4 = step_dir;
+[e = . . _LATDbits 0 4 _step_dir ]
 "25
-[; ;Stepper.c: 25:         }
+[; ;Stepper.c: 25:             T1CONbits.ON = 1;
+[e = . . _T1CONbits 0 0 -> -> 1 `i `uc ]
+"26
+[; ;Stepper.c: 26:         }
 }
 [e $U 1617  ]
-"26
-[; ;Stepper.c: 26:         else{
+"27
+[; ;Stepper.c: 27:         else{
 [e :U 1616 ]
 {
-"27
-[; ;Stepper.c: 27:             T1CONbits.ON = 0;
-[e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
 "28
-[; ;Stepper.c: 28:             step_disable();
-[e ( _step_disable ..  ]
+[; ;Stepper.c: 28:             T1CONbits.ON = 0;
+[e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
 "29
-[; ;Stepper.c: 29:         }
+[; ;Stepper.c: 29:             step_disable();
+[e ( _step_disable ..  ]
+"30
+[; ;Stepper.c: 30:         }
 }
 [e :U 1617 ]
-"30
-[; ;Stepper.c: 30:     }
+"31
+[; ;Stepper.c: 31:     }
 }
 [e $U 1618  ]
-"31
-[; ;Stepper.c: 31:     else{
+"32
+[; ;Stepper.c: 32:     else{
 [e :U 1615 ]
 {
-"32
-[; ;Stepper.c: 32:         if(step_count >= 0){
-[e $ ! >= _step_count -> 0 `i 1619  ]
-{
 "33
-[; ;Stepper.c: 33:             step_enable();
-[e ( _step_enable ..  ]
+[; ;Stepper.c: 33:         if(step_count >= -500){
+[e $ ! >= _step_count -U -> 500 `i 1619  ]
+{
 "34
-[; ;Stepper.c: 34:             LATDbits.LATD4 = step_dir;
-[e = . . _LATDbits 0 4 _step_dir ]
+[; ;Stepper.c: 34:             step_enable();
+[e ( _step_enable ..  ]
 "35
-[; ;Stepper.c: 35:             T1CONbits.ON = 1;
-[e = . . _T1CONbits 0 0 -> -> 1 `i `uc ]
+[; ;Stepper.c: 35:             LATDbits.LATD4 = step_dir;
+[e = . . _LATDbits 0 4 _step_dir ]
 "36
-[; ;Stepper.c: 36:         }
+[; ;Stepper.c: 36:             T1CONbits.ON = 1;
+[e = . . _T1CONbits 0 0 -> -> 1 `i `uc ]
+"37
+[; ;Stepper.c: 37:         }
 }
 [e $U 1620  ]
-"37
-[; ;Stepper.c: 37:         else{
+"38
+[; ;Stepper.c: 38:         else{
 [e :U 1619 ]
 {
-"38
-[; ;Stepper.c: 38:             T1CONbits.ON = 0;
-[e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
 "39
-[; ;Stepper.c: 39:             step_disable();
-[e ( _step_disable ..  ]
+[; ;Stepper.c: 39:             T1CONbits.ON = 0;
+[e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
 "40
-[; ;Stepper.c: 40:         }
+[; ;Stepper.c: 40:             step_disable();
+[e ( _step_disable ..  ]
+"41
+[; ;Stepper.c: 41:         }
 }
 [e :U 1620 ]
-"41
-[; ;Stepper.c: 41:     }
+"42
+[; ;Stepper.c: 42:     }
 }
 [e :U 1618 ]
-"43
-[; ;Stepper.c: 43: }
+"44
+[; ;Stepper.c: 44: }
 [e :UE 1614 ]
 }
-"45
-[; ;Stepper.c: 45: void stepper_stop(void) {
+"46
+[; ;Stepper.c: 46: void stepper_stop(void) {
 [v _stepper_stop `(v ~T0 @X0 1 ef ]
 {
 [e :U _stepper_stop ]
 [f ]
-"46
-[; ;Stepper.c: 46:     T1CONbits.ON = 0;
-[e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
 "47
-[; ;Stepper.c: 47:     step_disable();
-[e ( _step_disable ..  ]
+[; ;Stepper.c: 47:     T1CONbits.ON = 0;
+[e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
 "48
-[; ;Stepper.c: 48: }
+[; ;Stepper.c: 48:     step_disable();
+[e ( _step_disable ..  ]
+"49
+[; ;Stepper.c: 49: }
 [e :UE 1621 ]
 }
-"50
-[; ;Stepper.c: 50: void set_stepper_speed(uint16_t speed) {
+"51
+[; ;Stepper.c: 51: void set_stepper_speed(uint16_t speed) {
 [v _set_stepper_speed `(v ~T0 @X0 1 ef1`us ]
 {
 [e :U _set_stepper_speed ]
 [v _speed `us ~T0 @X0 1 r1 ]
 [f ]
-"51
-[; ;Stepper.c: 51:     CCPR1L = (speed & 0xFF);
-[e = _CCPR1L -> & -> _speed `ui -> -> 255 `i `ui `uc ]
 "52
-[; ;Stepper.c: 52:     CCPR1H = (speed >> 8) & 0xFF;
-[e = _CCPR1H -> & >> -> _speed `ui -> 8 `i -> -> 255 `i `ui `uc ]
+[; ;Stepper.c: 52:     CCPR1L = (speed & 0xFF);
+[e = _CCPR1L -> & -> _speed `ui -> -> 255 `i `ui `uc ]
 "53
-[; ;Stepper.c: 53: }
+[; ;Stepper.c: 53:     CCPR1H = (speed >> 8) & 0xFF;
+[e = _CCPR1H -> & >> -> _speed `ui -> 8 `i -> -> 255 `i `ui `uc ]
+"54
+[; ;Stepper.c: 54: }
 [e :UE 1622 ]
 }
-"55
-[; ;Stepper.c: 55: void step_enable(void){
+"56
+[; ;Stepper.c: 56: void step_enable(void){
 [v _step_enable `(v ~T0 @X0 1 ef ]
 {
 [e :U _step_enable ]
 [f ]
-"57
-[; ;Stepper.c: 57:     TRISAbits.TRISA1 = 1;
-[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
 "58
-[; ;Stepper.c: 58:     return;
-[e $UE 1623  ]
+[; ;Stepper.c: 58:     TRISAbits.TRISA1 = 1;
+[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
 "59
-[; ;Stepper.c: 59: }
+[; ;Stepper.c: 59:     return;
+[e $UE 1623  ]
+"60
+[; ;Stepper.c: 60: }
 [e :UE 1623 ]
 }
-"61
-[; ;Stepper.c: 61: void step_disable(void){
+"62
+[; ;Stepper.c: 62: void step_disable(void){
 [v _step_disable `(v ~T0 @X0 1 ef ]
 {
 [e :U _step_disable ]
 [f ]
-"63
-[; ;Stepper.c: 63:     TRISAbits.TRISA1 = 0;
-[e = . . _TRISAbits 0 1 -> -> 0 `i `uc ]
 "64
-[; ;Stepper.c: 64:     return;
-[e $UE 1624  ]
+[; ;Stepper.c: 64:     TRISAbits.TRISA1 = 0;
+[e = . . _TRISAbits 0 1 -> -> 0 `i `uc ]
 "65
-[; ;Stepper.c: 65:    }
+[; ;Stepper.c: 65:     return;
+[e $UE 1624  ]
+"66
+[; ;Stepper.c: 66:    }
 [e :UE 1624 ]
 }
-"67
-[; ;Stepper.c: 67:  void step_inc_dec(void){
+"68
+[; ;Stepper.c: 68:  void step_inc_dec(void){
 [v _step_inc_dec `(v ~T0 @X0 1 ef ]
 {
 [e :U _step_inc_dec ]
 [f ]
-"68
-[; ;Stepper.c: 68:     if(step_dir == 1)
-[e $ ! == -> _step_dir `i -> 1 `i 1626  ]
 "69
-[; ;Stepper.c: 69:         step_count++;
+[; ;Stepper.c: 69:     if(step_dir == 1)
+[e $ ! == -> _step_dir `i -> 1 `i 1626  ]
+"70
+[; ;Stepper.c: 70:         step_count++;
 [e ++ _step_count -> 1 `i ]
 [e $U 1627  ]
-"70
-[; ;Stepper.c: 70:     else
-[e :U 1626 ]
 "71
-[; ;Stepper.c: 71:         step_count--;
+[; ;Stepper.c: 71:     else
+[e :U 1626 ]
+"72
+[; ;Stepper.c: 72:         step_count--;
 [e -- _step_count -> 1 `i ]
 [e :U 1627 ]
-"72
-[; ;Stepper.c: 72: }
+"73
+[; ;Stepper.c: 73: }
 [e :UE 1625 ]
 }
-"74
-[; ;Stepper.c: 74: int get_dir(void){
+"75
+[; ;Stepper.c: 75: int get_dir(void){
 [v _get_dir `(i ~T0 @X0 1 ef ]
 {
 [e :U _get_dir ]
 [f ]
-"75
-[; ;Stepper.c: 75:     return step_dir;
+"76
+[; ;Stepper.c: 76:     return step_dir;
 [e ) -> _step_dir `i ]
 [e $UE 1628  ]
-"76
-[; ;Stepper.c: 76: }
+"77
+[; ;Stepper.c: 77: }
 [e :UE 1628 ]
 }
-"78
-[; ;Stepper.c: 78: int get_steps(void){
+"79
+[; ;Stepper.c: 79: int get_steps(void){
 [v _get_steps `(i ~T0 @X0 1 ef ]
 {
 [e :U _get_steps ]
 [f ]
-"79
-[; ;Stepper.c: 79:     return step_count;
+"80
+[; ;Stepper.c: 80:     return step_count;
 [e ) _step_count ]
 [e $UE 1629  ]
-"80
-[; ;Stepper.c: 80: }
+"81
+[; ;Stepper.c: 81: }
 [e :UE 1629 ]
 }

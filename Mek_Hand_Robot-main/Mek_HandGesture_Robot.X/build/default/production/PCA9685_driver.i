@@ -20774,14 +20774,11 @@ void PCA_Init(uint8_t prescalar, uint8_t pca_addr){
     I2C_Write(prescalar);
     I2C_Stop();
 
-
     I2C_Start();
     I2C_Write(pca_address);
     I2C_Write(0x00);
     I2C_Write(0x21);
     I2C_Stop();
-
-
 }
 
 void PCA_write(uint8_t ChannelN, uint16_t on, uint16_t off){
@@ -20791,11 +20788,10 @@ void PCA_write(uint8_t ChannelN, uint16_t on, uint16_t off){
 
     I2C_Start();
     I2C_Write(pca_address);
-
-    I2C_Write(0x06);
+    I2C_Write((ChannelN * 4) + 6);
     I2C_Write(on & 0xff);
-    I2C_Write((on & 0xf00) >> 8);
+    I2C_Write((on & 0xffff) >> 8);
     I2C_Write(off & 0xff);
-    I2C_Write((off & 0xf00) >> 8);
+    I2C_Write((off & 0xffff) >> 8);
     I2C_Stop();
 }

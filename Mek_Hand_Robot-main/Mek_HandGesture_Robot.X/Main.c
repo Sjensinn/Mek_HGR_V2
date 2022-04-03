@@ -37,7 +37,6 @@ volatile uint8_t ready = 0;
 volatile uint8_t send_flag = 0;
 
 void __interrupt() receive_isr();
-void initial_transmission(uint8_t* init_ready);
 
 void main(void) {
     int8_t x, y;
@@ -48,27 +47,26 @@ void main(void) {
 
   init_ready = 1;     //Ready for initial communications
     while(1){
-        
         if(PORTAbits.RA0 == 1){ 
-            initial_transmission(&init_ready);     //Send Ready flag at power on
+            if(init_ready == 1){
+                send_ready(); //send ready signal
+                init_ready = 0; //Clear the initial ready
+            }
+            
             if(ready == 1){ 
                 ready = 0; //Reset ready status
-                //Do stuff here
-  
-                //process(data_flex, data_fingers, data_x, data_y);
+                process(data_flex, data_fingers, data_x, data_y);
                 
-                stepper_move(1);
-                __delay_ms(500);
-                stepper_stop();
-                __delay_ms(500);
-                stepper_move(0);
-                __delay_ms(500);
                  send_ready();
             }
         }
         else{
             //Set stepper to home position
             //Set servos to home position
+            stepper_move(1);
+            __delay_ms(1000);
+            stepper_move(0);
+            __delay_ms(1000);
         }
     }
 
@@ -118,15 +116,7 @@ void __interrupt() receive_isr() {
             step_inc_dec();         //update the step count
 
             CCPR1H = 0x01; //Finna �t �r �v� hvernig er best a� breyta �essari breytu
-            CCPR1L = 0x34; //0.0005s 500us 0x134 = 0.616ms@(((16Mhz)/4)/8)
+            CCPR1L = 0x19; //0.0005s 500us 0x134 = 0.616ms@(((16Mhz)/4)/8)
         }
-    }
-}
-
-void initial_transmission(uint8_t* init_ready){
-    if(*init_ready == 1){
-        send_ready(); //send ready signal
-        
-        *init_ready = 0; //Clear the initial ready
     }
 }

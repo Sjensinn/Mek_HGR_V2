@@ -3,7 +3,7 @@
 
 #include <xc.h>
 
-#define DCMAX 1300
+#define DCMAX 4095
 #define DCMIN 100
 
 uint16_t ENA_stat = 100;

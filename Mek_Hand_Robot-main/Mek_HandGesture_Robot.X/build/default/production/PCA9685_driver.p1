@@ -1700,27 +1700,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16
 [; ;PCA9685_driver.c: 16:     I2C_Stop();
 [e ( _I2C_Stop ..  ]
-"19
-[; ;PCA9685_driver.c: 19:     I2C_Start();
+"18
+[; ;PCA9685_driver.c: 18:     I2C_Start();
 [e ( _I2C_Start ..  ]
-"20
-[; ;PCA9685_driver.c: 20:     I2C_Write(pca_address);
+"19
+[; ;PCA9685_driver.c: 19:     I2C_Write(pca_address);
 [e ( _I2C_Write (1 _pca_address ]
-"21
-[; ;PCA9685_driver.c: 21:     I2C_Write(0x00);
+"20
+[; ;PCA9685_driver.c: 20:     I2C_Write(0x00);
 [e ( _I2C_Write (1 -> -> 0 `i `uc ]
-"22
-[; ;PCA9685_driver.c: 22:     I2C_Write(0x21);
+"21
+[; ;PCA9685_driver.c: 21:     I2C_Write(0x21);
 [e ( _I2C_Write (1 -> -> 33 `i `uc ]
-"23
-[; ;PCA9685_driver.c: 23:     I2C_Stop();
+"22
+[; ;PCA9685_driver.c: 22:     I2C_Stop();
 [e ( _I2C_Stop ..  ]
-"26
-[; ;PCA9685_driver.c: 26: }
+"23
+[; ;PCA9685_driver.c: 23: }
 [e :UE 1613 ]
 }
-"28
-[; ;PCA9685_driver.c: 28: void PCA_write(uint8_t ChannelN, uint16_t on, uint16_t off){
+"25
+[; ;PCA9685_driver.c: 25: void PCA_write(uint8_t ChannelN, uint16_t on, uint16_t off){
 [v _PCA_write `(v ~T0 @X0 1 ef3`uc`us`us ]
 {
 [e :U _PCA_write ]
@@ -1728,42 +1728,42 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _on `us ~T0 @X0 1 r2 ]
 [v _off `us ~T0 @X0 1 r3 ]
 [f ]
-"29
-[; ;PCA9685_driver.c: 29:     if(ChannelN > 15){
+"26
+[; ;PCA9685_driver.c: 26:     if(ChannelN > 15){
 [e $ ! > -> _ChannelN `i -> 15 `i 1615  ]
 {
-"30
-[; ;PCA9685_driver.c: 30:         return;
+"27
+[; ;PCA9685_driver.c: 27:         return;
 [e $UE 1614  ]
-"31
-[; ;PCA9685_driver.c: 31:     }
+"28
+[; ;PCA9685_driver.c: 28:     }
 }
 [e :U 1615 ]
-"33
-[; ;PCA9685_driver.c: 33:     I2C_Start();
+"30
+[; ;PCA9685_driver.c: 30:     I2C_Start();
 [e ( _I2C_Start ..  ]
-"34
-[; ;PCA9685_driver.c: 34:     I2C_Write(pca_address);
+"31
+[; ;PCA9685_driver.c: 31:     I2C_Write(pca_address);
 [e ( _I2C_Write (1 _pca_address ]
-"36
-[; ;PCA9685_driver.c: 36:     I2C_Write(0x06);
-[e ( _I2C_Write (1 -> -> 6 `i `uc ]
-"37
-[; ;PCA9685_driver.c: 37:     I2C_Write(on & 0xff);
+"32
+[; ;PCA9685_driver.c: 32:     I2C_Write((ChannelN * 4) + 6);
+[e ( _I2C_Write (1 -> + * -> _ChannelN `i -> 4 `i -> 6 `i `uc ]
+"33
+[; ;PCA9685_driver.c: 33:     I2C_Write(on & 0xff);
 [e ( _I2C_Write (1 -> & -> _on `ui -> -> 255 `i `ui `uc ]
-"38
-[; ;PCA9685_driver.c: 38:     I2C_Write((on & 0xf00) >> 8);
-[e ( _I2C_Write (1 -> >> & -> _on `ui -> -> 3840 `i `ui -> 8 `i `uc ]
-"39
-[; ;PCA9685_driver.c: 39:     I2C_Write(off & 0xff);
+"34
+[; ;PCA9685_driver.c: 34:     I2C_Write((on & 0xffff) >> 8);
+[e ( _I2C_Write (1 -> >> & -> _on `ui -> 65535 `ui -> 8 `i `uc ]
+"35
+[; ;PCA9685_driver.c: 35:     I2C_Write(off & 0xff);
 [e ( _I2C_Write (1 -> & -> _off `ui -> -> 255 `i `ui `uc ]
-"40
-[; ;PCA9685_driver.c: 40:     I2C_Write((off & 0xf00) >> 8);
-[e ( _I2C_Write (1 -> >> & -> _off `ui -> -> 3840 `i `ui -> 8 `i `uc ]
-"41
-[; ;PCA9685_driver.c: 41:     I2C_Stop();
+"36
+[; ;PCA9685_driver.c: 36:     I2C_Write((off & 0xffff) >> 8);
+[e ( _I2C_Write (1 -> >> & -> _off `ui -> 65535 `ui -> 8 `i `uc ]
+"37
+[; ;PCA9685_driver.c: 37:     I2C_Stop();
 [e ( _I2C_Stop ..  ]
-"42
-[; ;PCA9685_driver.c: 42: }
+"38
+[; ;PCA9685_driver.c: 38: }
 [e :UE 1614 ]
 }

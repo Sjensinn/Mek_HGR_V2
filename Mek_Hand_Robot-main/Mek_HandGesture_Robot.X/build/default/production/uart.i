@@ -20966,7 +20966,6 @@ void send_ready(void){
 uint8_t is_ready(uint8_t data){
     if (data == 0xAA)
         return 1;
-
     else
         return 0;
 }

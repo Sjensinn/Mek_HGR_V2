@@ -31,11 +31,11 @@
         uint8_t b = 0;
 
         //Fingers
-        if (f1 == 1)
+        if (f1 > 0)
             b = b+32;
-        else if(f2 == 1)
+        else if(f2 > 0)
             b = b+64;
-        else if(f3 == 1)
+        else if(f3 > 0)
             b = b+128;
 
         //Accel X dir

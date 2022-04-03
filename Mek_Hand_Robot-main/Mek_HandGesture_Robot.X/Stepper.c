@@ -13,12 +13,13 @@ void stepper_init(void) {
     INTCONbits.GIE = 1; //Enables all active interrupts
     INTCONbits.PEIE = 1; //Enables all active peripheral interrupts
     PIE6bits.CCP1IE = 1; //CCP1 interrupt is enabled
+    step_count = 0;
 }
 
 void stepper_move(uint8_t direction) { //add speed
     step_dir = direction;
-    if (step_dir==1) { //forward
-        if(step_count <= 50){
+    if (direction == 1) { //forward
+        if(step_count <= STEP_MAX){
             step_enable();
             LATDbits.LATD4 = step_dir; //dir pin on A4988
             T1CONbits.ON = 1;
@@ -29,7 +30,7 @@ void stepper_move(uint8_t direction) { //add speed
         }
     } 
     else{ //Backwards
-        if(step_count >= 0){
+        if(step_count >= STEP_MIN){
             step_enable();
             LATDbits.LATD4 = step_dir;
             T1CONbits.ON = 1;

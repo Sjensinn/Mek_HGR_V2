@@ -52,7 +52,6 @@ void send_ready(void){
 uint8_t is_ready(uint8_t data){
     if (data == READYSIGNAL)
         return 1;
-    
     else
         return 0;
 }

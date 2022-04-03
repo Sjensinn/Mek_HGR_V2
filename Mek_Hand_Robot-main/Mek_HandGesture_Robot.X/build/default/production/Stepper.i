@@ -20776,12 +20776,13 @@ void stepper_init(void) {
     INTCONbits.GIE = 1;
     INTCONbits.PEIE = 1;
     PIE6bits.CCP1IE = 1;
+    step_count = 0;
 }
 
 void stepper_move(uint8_t direction) {
     step_dir = direction;
-    if (step_dir==1) {
-        if(step_count <= 50){
+    if (direction == 1) {
+        if(step_count <= 500){
             step_enable();
             LATDbits.LATD4 = step_dir;
             T1CONbits.ON = 1;
@@ -20792,7 +20793,7 @@ void stepper_move(uint8_t direction) {
         }
     }
     else{
-        if(step_count >= 0){
+        if(step_count >= -500){
             step_enable();
             LATDbits.LATD4 = step_dir;
             T1CONbits.ON = 1;

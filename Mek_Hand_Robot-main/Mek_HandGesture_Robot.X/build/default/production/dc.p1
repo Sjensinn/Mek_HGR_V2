@@ -2,6 +2,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1019 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 1019: extern volatile unsigned char LATB __attribute__((address(0x017)));
 [v _LATB `Vuc ~T0 @X0 0 e@23 ]
+"1025
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 1025:     struct {
+[s S55 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S55 . LATB0 LATB1 LATB2 LATB3 LATB4 LATB5 LATB6 LATB7 ]
+"1024
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 1024: typedef union {
+[u S54 `S55 1 ]
+[n S54 . . ]
+"1036
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 1036: extern volatile LATBbits_t LATBbits __attribute__((address(0x017)));
+[v _LATBbits `VS54 ~T0 @X0 0 e@23 ]
 "87 ./PCA9685_driver.h
 [; ;./PCA9685_driver.h: 87: void PCA_write(uint8_t ChannelN, uint16_t on, uint16_t off);
 [v _PCA_write `(v ~T0 @X0 0 ef3`uc`us`us ]
@@ -1679,116 +1690,120 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _ydir `uc ~T0 @X0 1 r4 ]
 [f ]
 "13
-[; ;dc.c: 13:     if (y > 1) {
-[e $ ! > -> _y `i -> 1 `i 1617  ]
+[; ;dc.c: 13:         if (ydir == 1) {
+[e $ ! == -> _ydir `i -> 1 `i 1617  ]
 {
-"14
-[; ;dc.c: 14:         if (ydir == 1) {
-[e $ ! == -> _ydir `i -> 1 `i 1618  ]
-{
-"15
-[; ;dc.c: 15:             LATB &= 0b11101101;
-[e =& _LATB -> -> 237 `i `Vuc ]
 "16
-[; ;dc.c: 16:             LATB |= 0b00100100;
-[e =| _LATB -> -> 36 `i `Vuc ]
+[; ;dc.c: 16:             LATBbits.LATB1 = 0;
+[e = . . _LATBbits 0 1 -> -> 0 `i `uc ]
+"17
+[; ;dc.c: 17:             LATBbits.LATB2 = 1;
+[e = . . _LATBbits 0 2 -> -> 1 `i `uc ]
 "18
-[; ;dc.c: 18:         } else {
-}
-[e $U 1619  ]
-[e :U 1618 ]
-{
+[; ;dc.c: 18:             LATBbits.LATB4 = 0;
+[e = . . _LATBbits 0 4 -> -> 0 `i `uc ]
 "19
-[; ;dc.c: 19:             LATB &= 0b11011011;
-[e =& _LATB -> -> 219 `i `Vuc ]
-"20
-[; ;dc.c: 20:             LATB |= 0b00010010;
-[e =| _LATB -> -> 18 `i `Vuc ]
+[; ;dc.c: 19:             LATBbits.LATB5 = 1;
+[e = . . _LATBbits 0 5 -> -> 1 `i `uc ]
 "21
-[; ;dc.c: 21:         }
+[; ;dc.c: 21:         } else {
 }
-[e :U 1619 ]
-"22
-[; ;dc.c: 22:         ENA_stat = y*50;
-[e = _ENA_stat -> * -> _y `i -> 50 `i `us ]
-"23
-[; ;dc.c: 23:         ENB_stat = y*50;
-[e = _ENB_stat -> * -> _y `i -> 50 `i `us ]
+[e $U 1618  ]
+[e :U 1617 ]
+{
+"24
+[; ;dc.c: 24:             LATBbits.LATB1 = 1;
+[e = . . _LATBbits 0 1 -> -> 1 `i `uc ]
 "25
-[; ;dc.c: 25:         if (xdir == 1) {
-[e $ ! == -> _xdir `i -> 1 `i 1620  ]
-{
+[; ;dc.c: 25:             LATBbits.LATB2 = 0;
+[e = . . _LATBbits 0 2 -> -> 0 `i `uc ]
 "26
-[; ;dc.c: 26:             ENB_stat += ((uint16_t)x*50);
-[e =+ _ENB_stat -> * -> -> _x `us `ui -> -> 50 `i `ui `us ]
+[; ;dc.c: 26:             LATBbits.LATB4 = 1;
+[e = . . _LATBbits 0 4 -> -> 1 `i `uc ]
 "27
-[; ;dc.c: 27:         } else {
-}
-[e $U 1621  ]
-[e :U 1620 ]
-{
+[; ;dc.c: 27:             LATBbits.LATB5 = 0;
+[e = . . _LATBbits 0 5 -> -> 0 `i `uc ]
 "28
-[; ;dc.c: 28:             ENA_stat += ((uint16_t)x*50);
-[e =+ _ENA_stat -> * -> -> _x `us `ui -> -> 50 `i `ui `us ]
+[; ;dc.c: 28:         }
+}
+[e :U 1618 ]
 "29
-[; ;dc.c: 29:         }
-}
-[e :U 1621 ]
-"31
-[; ;dc.c: 31:         if (ENA_stat > (1300)) {
-[e $ ! > -> _ENA_stat `ui -> -> 1300 `i `ui 1622  ]
-{
+[; ;dc.c: 29:         ENA_stat = y*100;
+[e = _ENA_stat -> * -> _y `i -> 100 `i `us ]
+"30
+[; ;dc.c: 30:         ENB_stat = y*100;
+[e = _ENB_stat -> * -> _y `i -> 100 `i `us ]
 "32
-[; ;dc.c: 32:             ENA_stat = 1300;
-[e = _ENA_stat -> -> 1300 `i `us ]
+[; ;dc.c: 32:         if (xdir == 1) {
+[e $ ! == -> _xdir `i -> 1 `i 1619  ]
+{
 "33
-[; ;dc.c: 33:         }
-}
-[e :U 1622 ]
+[; ;dc.c: 33:             ENB_stat += ((uint16_t)x*100);
+[e =+ _ENB_stat -> * -> -> _x `us `ui -> -> 100 `i `ui `us ]
 "34
-[; ;dc.c: 34:         if (ENA_stat < (100)) {
-[e $ ! < -> _ENA_stat `ui -> -> 100 `i `ui 1623  ]
+[; ;dc.c: 34:         } else {
+}
+[e $U 1620  ]
+[e :U 1619 ]
 {
 "35
-[; ;dc.c: 35:             ENA_stat = 100;
-[e = _ENA_stat -> -> 100 `i `us ]
+[; ;dc.c: 35:             ENA_stat += ((uint16_t)x*100);
+[e =+ _ENA_stat -> * -> -> _x `us `ui -> -> 100 `i `ui `us ]
 "36
 [; ;dc.c: 36:         }
 }
-[e :U 1623 ]
-"37
-[; ;dc.c: 37:         if (ENB_stat > (1300)) {
-[e $ ! > -> _ENB_stat `ui -> -> 1300 `i `ui 1624  ]
-{
+[e :U 1620 ]
 "38
-[; ;dc.c: 38:             ENB_stat = 1300;
-[e = _ENB_stat -> -> 1300 `i `us ]
+[; ;dc.c: 38:         if (ENA_stat > (4095)) {
+[e $ ! > -> _ENA_stat `ui -> -> 4095 `i `ui 1621  ]
+{
 "39
-[; ;dc.c: 39:         }
+[; ;dc.c: 39:             ENA_stat = 4095;
+[e = _ENA_stat -> -> 4095 `i `us ]
+"40
+[; ;dc.c: 40:         }
+}
+[e :U 1621 ]
+"41
+[; ;dc.c: 41:         if (ENA_stat < (100)) {
+[e $ ! < -> _ENA_stat `ui -> -> 100 `i `ui 1622  ]
+{
+"42
+[; ;dc.c: 42:             ENA_stat = 100;
+[e = _ENA_stat -> -> 100 `i `us ]
+"43
+[; ;dc.c: 43:         }
+}
+[e :U 1622 ]
+"44
+[; ;dc.c: 44:         if (ENB_stat > (4095)) {
+[e $ ! > -> _ENB_stat `ui -> -> 4095 `i `ui 1623  ]
+{
+"45
+[; ;dc.c: 45:             ENB_stat = 4095;
+[e = _ENB_stat -> -> 4095 `i `us ]
+"46
+[; ;dc.c: 46:         }
+}
+[e :U 1623 ]
+"47
+[; ;dc.c: 47:         if (ENB_stat < (100)) {
+[e $ ! < -> _ENB_stat `ui -> -> 100 `i `ui 1624  ]
+{
+"48
+[; ;dc.c: 48:             ENB_stat = 100;
+[e = _ENB_stat -> -> 100 `i `us ]
+"49
+[; ;dc.c: 49:         }
 }
 [e :U 1624 ]
-"40
-[; ;dc.c: 40:         if (ENB_stat < (100)) {
-[e $ ! < -> _ENB_stat `ui -> -> 100 `i `ui 1625  ]
-{
-"41
-[; ;dc.c: 41:             ENB_stat = 100;
-[e = _ENB_stat -> -> 100 `i `us ]
-"42
-[; ;dc.c: 42:         }
-}
-[e :U 1625 ]
-"43
-[; ;dc.c: 43:         PCA_write(4, 0x00, (ENA_stat));
+"50
+[; ;dc.c: 50:         PCA_write(4, 0x00, (ENA_stat));
 [e ( _PCA_write (3 , , -> -> 4 `i `uc -> -> 0 `i `us _ENA_stat ]
-"44
-[; ;dc.c: 44:         PCA_write(5, 0x00, (ENB_stat));
+"51
+[; ;dc.c: 51:         PCA_write(5, 0x00, (ENB_stat));
 [e ( _PCA_write (3 , , -> -> 5 `i `uc -> -> 0 `i `us _ENB_stat ]
-"45
-[; ;dc.c: 45:     }
-}
-[e :U 1617 ]
-"46
-[; ;dc.c: 46: }
+"53
+[; ;dc.c: 53: }
 [e :UE 1616 ]
 }

@@ -26,15 +26,30 @@ void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t da
     }
 
     if ((data_fingers & 0b00100000) == 0b00100000) { //finger 1
+        //stepper_stop();
         dc_move(data_x, data_y, xdir, ydir);
     } else if ((data_fingers & 0b01000000) == 0b01000000) { //finger 2
+        //stepper_stop();
         update_servo0_stat(data_x, xdir);
         PCA_write(0, 0, servo0_stat);
         update_servo1_stat(data_x, xdir);
         PCA_write(1, 0, servo1_stat);
     } else if ((data_fingers & 0b10000000) == 0b10000000) { //finger 3
-        update_servo2_stat(data_x, xdir);
-        PCA_write(2, 0, servo1_stat);
+        
+        if(xdir == 1 && data_x > 10){
+            stepper_move(1);
+            __delay_ms(10);  
+        }
+        else if(xdir == 0 && data_x > 10){
+            stepper_move(0);
+            __delay_ms(10);  
+        }
+        else{
+            stepper_stop();
+        }
+
+        //update_servo2_stat(data_x, xdir);
+        //PCA_write(2, 0, servo1_stat);
         //setja stepper (og færa hvað er á hvaða fingri)
     }
 
