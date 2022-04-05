@@ -1889,8 +1889,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _send_ready ]
 [f ]
 "48
-[; ;uart.c: 48:     uart_Write_uint8(0xAA);
-[e ( _uart_Write_uint8 (1 -> -> 170 `i `uc ]
+[; ;uart.c: 48:     uart_Write_uint8(0b11111111);
+[e ( _uart_Write_uint8 (1 -> -> 255 `i `uc ]
 "49
 [; ;uart.c: 49: }
 [e :UE 1632 ]
@@ -1903,8 +1903,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _data `uc ~T0 @X0 1 r1 ]
 [f ]
 "53
-[; ;uart.c: 53:     if (data == 0xAA)
-[e $ ! == -> _data `i -> 170 `i 1634  ]
+[; ;uart.c: 53:     if (data == 0b11111111)
+[e $ ! == -> _data `i -> 255 `i 1634  ]
 "54
 [; ;uart.c: 54:         return 1;
 [e ) -> -> 1 `i `uc ]

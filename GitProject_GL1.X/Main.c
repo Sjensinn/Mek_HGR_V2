@@ -50,7 +50,10 @@ void main(void) {
 
 
     while(1){
-        ready_flag = 1;
+        //if(is_ready(0b11111111) == 1)
+        //    ready_flag = 1;
+        //else
+        //    ready_flag = 0;
         
         if(ready_flag == 1){
             //Fetch data
@@ -74,7 +77,6 @@ void main(void) {
             //Send data
             send_commands(tx_data);
 
-            ready_flag = 0;
             __delay_ms(100);
         }
     }

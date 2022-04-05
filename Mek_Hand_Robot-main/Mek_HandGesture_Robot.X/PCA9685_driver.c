@@ -36,3 +36,4 @@ void PCA_write(uint8_t ChannelN, uint16_t on, uint16_t off){
     I2C_Write((off & 0xffff) >> 8);      //Higher bits of 12 bit for OFF
     I2C_Stop();                         //Send stop bit
 }
+

@@ -21032,7 +21032,7 @@ int get_steps(void);
 # 26 "Main.c" 2
 
 # 1 "./robot.h" 1
-# 17 "./robot.h"
+# 24 "./robot.h"
 uint8_t xdir = 0;
 uint8_t ydir = 0;
 
@@ -21063,7 +21063,9 @@ uint16_t ENB_stat = 100;
 
 
 void dc_stop();
-void dc_move(uint8_t x, uint8_t y, uint8_t xdir, uint8_t ydir);
+void dc_move(uint8_t y, uint8_t ydir);
+void dc_turn(uint8_t x, uint8_t xdir);
+void dc_update(uint8_t motor_speed);
 # 28 "Main.c" 2
 
 # 1 "./LCD.h" 1
@@ -21155,28 +21157,24 @@ void main(void) {
     PCA_Init(130, 0x80);
     stepper_init();
 
-  init_ready = 1;
-    while(1){
-        if(PORTAbits.RA0 == 1){
-            if(init_ready == 1){
+    init_ready = 1;
+
+    while (1) {
+        if (PORTAbits.RA0 == 1) {
+            if (init_ready == 1) {
                 send_ready();
                 init_ready = 0;
             }
 
-            if(ready == 1){
+            if (ready == 1) {
                 ready = 0;
                 process(data_flex, data_fingers, data_x, data_y);
 
-                 send_ready();
+                send_ready();
             }
         }
         else{
 
-
-            stepper_move(1);
-            _delay((unsigned long)((1000)*(16000000/4000.0)));
-            stepper_move(0);
-            _delay((unsigned long)((1000)*(16000000/4000.0)));
         }
     }
 
@@ -21211,22 +21209,20 @@ void __attribute__((picinterrupt(("")))) receive_isr() {
 
     if (CCP1IF == 1) {
         CCP1IF = 0;
-        if(get_dir() == 1 && get_steps() > 500 ){
+        if (get_dir() == 1 && get_steps() > 15000) {
 
 
             stepper_stop();
-        }
-        else if(get_dir() == 0 && get_steps() < -500){
+        } else if (get_dir() == 0 && get_steps() < -15000) {
 
 
             stepper_stop();
-        }
-        else{
+        } else {
             LATDbits.LATD5 ^= 1;
             step_inc_dec();
 
-            CCPR1H = 0x01;
-            CCPR1L = 0x19;
+            CCPR1H = 0x00;
+            CCPR1L = 0xF0;
         }
     }
 }

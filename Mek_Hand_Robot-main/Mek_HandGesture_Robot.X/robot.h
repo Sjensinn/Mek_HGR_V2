@@ -12,8 +12,15 @@
 
 #include <xc.h>
 
+#define SERVO0MIN 100
+#define SERVO0MAX 500
 #define SERVO1MIN 100
 #define SERVO1MAX 500
+#define SERVO2MIN 100
+#define SERVO2MAX 500
+#define SERVO3MIN 100
+#define SERVO3MAX 500
+
 uint8_t xdir = 0;
 uint8_t ydir = 0;
 

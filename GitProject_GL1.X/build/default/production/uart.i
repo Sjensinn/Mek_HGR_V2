@@ -20949,12 +20949,12 @@ void putch(char data) {
 
 
 void send_ready(void){
-    uart_Write_uint8(0xAA);
+    uart_Write_uint8(0b11111111);
 }
 
 
 uint8_t is_ready(uint8_t data){
-    if (data == 0xAA)
+    if (data == 0b11111111)
         return 1;
 
     else

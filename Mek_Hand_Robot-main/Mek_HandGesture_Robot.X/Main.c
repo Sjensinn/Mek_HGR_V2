@@ -12,8 +12,8 @@
 #endif
 
 #ifndef STEPPER_LIMITS
-#define STEP_MAX 500     //Maximum number of steps 
-#define STEP_MIN -500    //Minimum number of steps
+#define STEP_MAX 15000     //Maximum number of steps 
+#define STEP_MIN -15000    //Minimum number of steps
 #endif
 
 #include <xc.h>
@@ -41,32 +41,28 @@ void __interrupt() receive_isr();
 void main(void) {
     int8_t x, y;
     uint8_t init_ready;
-    system_init();                  //Initiate clock, pins, uart, i2c, timer1 and interrupts
-    PCA_Init(130, 0x80);            //Initiate PCA9685 unit with I2C address: 0x80 and prescalar of 130
-    stepper_init();                 //Initiate Stepper
+    system_init(); //Initiate clock, pins, uart, i2c, timer1 and interrupts
+    PCA_Init(130, 0x80); //Initiate PCA9685 unit with I2C address: 0x80 and prescalar of 130
+    stepper_init(); //Initiate Stepper
 
-  init_ready = 1;     //Ready for initial communications
-    while(1){
-        if(PORTAbits.RA0 == 1){ 
-            if(init_ready == 1){
+    init_ready = 1; //Ready for initial communications
+    
+    while (1) {
+        if (PORTAbits.RA0 == 1) {
+            if (init_ready == 1) {
                 send_ready(); //send ready signal
                 init_ready = 0; //Clear the initial ready
             }
-            
-            if(ready == 1){ 
+
+            if (ready == 1) {
                 ready = 0; //Reset ready status
                 process(data_flex, data_fingers, data_x, data_y);
-                
-                 send_ready();
+
+                send_ready();
             }
         }
         else{
-            //Set stepper to home position
-            //Set servos to home position
-            stepper_move(1);
-            __delay_ms(1000);
-            stepper_move(0);
-            __delay_ms(1000);
+            //Homing start
         }
     }
 
@@ -101,22 +97,20 @@ void __interrupt() receive_isr() {
 
     if (CCP1IF == 1) { //compare flag
         CCP1IF = 0;
-        if(get_dir() == 1 && get_steps() > STEP_MAX ){
+        if (get_dir() == 1 && get_steps() > STEP_MAX) {
             //We have reached our limits!
             //For forward motion
             stepper_stop();
-        }
-        else if(get_dir() == 0 && get_steps() < STEP_MIN){
+        } else if (get_dir() == 0 && get_steps() < STEP_MIN) {
             //We have reached our limits!
             //For backwards motion
             stepper_stop();
-        }
-        else{
-            LATDbits.LATD5 ^= 1;    //toggle pin for driver
-            step_inc_dec();         //update the step count
+        } else {
+            LATDbits.LATD5 ^= 1; //toggle pin for driver
+            step_inc_dec(); //update the step count
 
-            CCPR1H = 0x01; //Finna �t �r �v� hvernig er best a� breyta �essari breytu
-            CCPR1L = 0x19; //0.0005s 500us 0x134 = 0.616ms@(((16Mhz)/4)/8)
+            CCPR1H = 0x00; //Finna �t �r �v� hvernig er best a� breyta �essari breytu
+            CCPR1L = 0xF0; //0.0005s 500us 0x134 = 0.616ms@(((16Mhz)/4)/8)
         }
     }
 }

@@ -1805,8 +1805,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> _direction `i -> 1 `i 1615  ]
 {
 "22
-[; ;Stepper.c: 22:         if(step_count <= 500){
-[e $ ! <= _step_count -> 500 `i 1616  ]
+[; ;Stepper.c: 22:         if(step_count <= 15000){
+[e $ ! <= _step_count -> 15000 `i 1616  ]
 {
 "23
 [; ;Stepper.c: 23:             step_enable();
@@ -1844,8 +1844,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1615 ]
 {
 "33
-[; ;Stepper.c: 33:         if(step_count >= -500){
-[e $ ! >= _step_count -U -> 500 `i 1619  ]
+[; ;Stepper.c: 33:         if(step_count >= -15000){
+[e $ ! >= _step_count -U -> 15000 `i 1619  ]
 {
 "34
 [; ;Stepper.c: 34:             step_enable();

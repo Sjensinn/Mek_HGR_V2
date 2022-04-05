@@ -43,7 +43,7 @@
 [v _I2C_Read I2C_Read `(uc  1 e 1 0 ]
 "41 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
 [v _main main `(v  1 e 1 0 ]
-"84
+"86
 [v _isr isr `II(v  1 e 1 0 ]
 "12 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
 [v _system_init system_init `(v  1 e 1 0 ]
@@ -474,7 +474,7 @@
 "47
 [v main@ayd ayd `uc  1 a 1 18 ]
 [v main@axd axd `uc  1 a 1 17 ]
-"82
+"84
 } 0
 "12 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
 [v _system_init system_init `(v  1 e 1 0 ]
@@ -644,10 +644,10 @@
 [v format_data_b1@flex flex `us  1 p 2 2 ]
 "28
 } 0
-"84 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+"86 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"91
+"93
 } 0
 "53 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
 [v _is_ready is_ready `(uc  1 e 1 0 ]

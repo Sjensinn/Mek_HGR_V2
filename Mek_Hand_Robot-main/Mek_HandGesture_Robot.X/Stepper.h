@@ -4,8 +4,8 @@
 
 #include <xc.h>
 
-#define STEP_MAX 500     //Maximum number of steps 
-#define STEP_MIN -500    //Minimum number of steps
+#define STEP_MAX 15000     //Maximum number of steps 
+#define STEP_MIN -15000    //Minimum number of steps
 
 uint8_t step_dir;       //Variable to keep the direction
 int step_count;

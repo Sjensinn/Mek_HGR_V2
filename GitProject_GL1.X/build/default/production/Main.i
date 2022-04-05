@@ -21025,7 +21025,10 @@ void main(void) {
 
 
     while(1){
-        ready_flag = 1;
+
+
+
+
 
         if(ready_flag == 1){
 
@@ -21049,7 +21052,6 @@ void main(void) {
 
             send_commands(tx_data);
 
-            ready_flag = 0;
             _delay((unsigned long)((100)*(16000000/4000.0)));
         }
     }
