@@ -29,7 +29,6 @@ uint16_t servo1_stat = 300;
 uint16_t servo2_stat = 300;
 uint16_t servo3_stat = 300;
 
-
 void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t data_y);
 void update_servo0_stat(uint8_t data, uint8_t dir);
 void update_servo1_stat(uint8_t data, uint8_t dir);

@@ -21041,7 +21041,6 @@ uint16_t servo1_stat = 300;
 uint16_t servo2_stat = 300;
 uint16_t servo3_stat = 300;
 
-
 void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t data_y);
 void update_servo0_stat(uint8_t data, uint8_t dir);
 void update_servo1_stat(uint8_t data, uint8_t dir);
@@ -21061,11 +21060,12 @@ void update_servo3_stat(uint8_t data, uint8_t dir);
 uint16_t ENA_stat = 100;
 uint16_t ENB_stat = 100;
 
-
+void dc_init(void);
 void dc_stop();
 void dc_move(uint8_t y, uint8_t ydir);
 void dc_turn(uint8_t x, uint8_t xdir);
 void dc_update(uint8_t motor_speed);
+void dc_update_ccp(uint8_t motor_speed);
 # 28 "Main.c" 2
 
 # 1 "./LCD.h" 1
@@ -21156,12 +21156,15 @@ void main(void) {
     system_init();
     PCA_Init(130, 0x80);
     stepper_init();
-
     init_ready = 1;
+
+    _delay((unsigned long)((1000)*(16000000/4000.0)));
 
     while (1) {
         if (PORTAbits.RA0 == 1) {
             if (init_ready == 1) {
+                send_ready();
+                send_ready();
                 send_ready();
                 init_ready = 0;
             }
@@ -21175,6 +21178,7 @@ void main(void) {
         }
         else{
 
+            init_ready = 1;
         }
     }
 

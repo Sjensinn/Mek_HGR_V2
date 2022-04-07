@@ -20781,8 +20781,8 @@ void I2C_Start(void){
 void I2C_Wait(void){
     while(!PIR3bits.SSP1IF){
         if(SSP1CON1bits.WCOL == 1){
-            while(1){
-            }
+
+
         }
         continue;
     }

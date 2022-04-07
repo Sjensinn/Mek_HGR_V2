@@ -9,6 +9,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13 ./Stepper.h
 [; ;./Stepper.h: 13: void stepper_init(void);
 [v _stepper_init `(v ~T0 @X0 0 ef ]
+[v F192 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\builtins.h
+[v __delay `JF192 ~T0 @X0 0 e ]
+[p i __delay ]
 "397 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 397:     struct {
 [s S33 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -23,8 +27,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "64 ./uart.h
 [; ;./uart.h: 64: void send_ready(void);
 [v _send_ready `(v ~T0 @X0 0 ef ]
-"33 ./robot.h
-[; ;./robot.h: 33: void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t data_y);
+"32 ./robot.h
+[; ;./robot.h: 32: void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t data_y);
 [v _process `(v ~T0 @X0 0 ef4`uc`uc`uc`uc ]
 [t ~ __interrupt . k ]
 [t T2 __interrupt ]
@@ -1864,142 +1868,154 @@ Version 4.0 HI-TECH Software Intermediate Code
 "46
 [; ;Main.c: 46:     stepper_init();
 [e ( _stepper_init ..  ]
-"48
-[; ;Main.c: 48:     init_ready = 1;
+"47
+[; ;Main.c: 47:     init_ready = 1;
 [e = _init_ready -> -> 1 `i `uc ]
-"50
-[; ;Main.c: 50:     while (1) {
+"49
+[; ;Main.c: 49:     _delay((unsigned long)((1000)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"51
+[; ;Main.c: 51:     while (1) {
 [e :U 1617 ]
 {
-"51
-[; ;Main.c: 51:         if (PORTAbits.RA0 == 1) {
+"52
+[; ;Main.c: 52:         if (PORTAbits.RA0 == 1) {
 [e $ ! == -> . . _PORTAbits 0 0 `i -> 1 `i 1619  ]
 {
-"52
-[; ;Main.c: 52:             if (init_ready == 1) {
+"53
+[; ;Main.c: 53:             if (init_ready == 1) {
 [e $ ! == -> _init_ready `i -> 1 `i 1620  ]
 {
-"53
-[; ;Main.c: 53:                 send_ready();
-[e ( _send_ready ..  ]
 "54
-[; ;Main.c: 54:                 init_ready = 0;
-[e = _init_ready -> -> 0 `i `uc ]
+[; ;Main.c: 54:                 send_ready();
+[e ( _send_ready ..  ]
 "55
-[; ;Main.c: 55:             }
+[; ;Main.c: 55:                 send_ready();
+[e ( _send_ready ..  ]
+"56
+[; ;Main.c: 56:                 send_ready();
+[e ( _send_ready ..  ]
+"57
+[; ;Main.c: 57:                 init_ready = 0;
+[e = _init_ready -> -> 0 `i `uc ]
+"58
+[; ;Main.c: 58:             }
 }
 [e :U 1620 ]
-"57
-[; ;Main.c: 57:             if (ready == 1) {
+"60
+[; ;Main.c: 60:             if (ready == 1) {
 [e $ ! == -> _ready `i -> 1 `i 1621  ]
 {
-"58
-[; ;Main.c: 58:                 ready = 0;
-[e = _ready -> -> 0 `i `uc ]
-"59
-[; ;Main.c: 59:                 process(data_flex, data_fingers, data_x, data_y);
-[e ( _process (4 , , , _data_flex _data_fingers _data_x _data_y ]
 "61
-[; ;Main.c: 61:                 send_ready();
-[e ( _send_ready ..  ]
+[; ;Main.c: 61:                 ready = 0;
+[e = _ready -> -> 0 `i `uc ]
 "62
-[; ;Main.c: 62:             }
+[; ;Main.c: 62:                 process(data_flex, data_fingers, data_x, data_y);
+[e ( _process (4 , , , _data_flex _data_fingers _data_x _data_y ]
+"64
+[; ;Main.c: 64:                 send_ready();
+[e ( _send_ready ..  ]
+"65
+[; ;Main.c: 65:             }
 }
 [e :U 1621 ]
-"63
-[; ;Main.c: 63:         }
-}
-[e $U 1622  ]
-"64
-[; ;Main.c: 64:         else{
-[e :U 1619 ]
-{
 "66
 [; ;Main.c: 66:         }
 }
-[e :U 1622 ]
+[e $U 1622  ]
 "67
-[; ;Main.c: 67:     }
+[; ;Main.c: 67:         else{
+[e :U 1619 ]
+{
+"69
+[; ;Main.c: 69:             init_ready = 1;
+[e = _init_ready -> -> 1 `i `uc ]
+"70
+[; ;Main.c: 70:         }
+}
+[e :U 1622 ]
+"71
+[; ;Main.c: 71:     }
 }
 [e :U 1616 ]
 [e $U 1617  ]
 [e :U 1618 ]
-"69
-[; ;Main.c: 69:     return;
+"73
+[; ;Main.c: 73:     return;
 [e $UE 1615  ]
-"70
-[; ;Main.c: 70: }
+"74
+[; ;Main.c: 74: }
 [e :UE 1615 ]
 }
 [v $root$_receive_isr `(v ~T0 @X0 0 e ]
-"72
-[; ;Main.c: 72: void __attribute__((picinterrupt(("")))) receive_isr() {
+"76
+[; ;Main.c: 76: void __attribute__((picinterrupt(("")))) receive_isr() {
 [v _receive_isr `(v ~T2 @X0 1 ef ]
 {
 [e :U _receive_isr ]
 [f ]
-"74
-[; ;Main.c: 74:     if (RCIF == 1) {
+"78
+[; ;Main.c: 78:     if (RCIF == 1) {
 [e $ ! == -> _RCIF `i -> 1 `i 1624  ]
 {
-"75
-[; ;Main.c: 75:         data_in = RCREG;
+"79
+[; ;Main.c: 79:         data_in = RCREG;
 [e = _data_in _RCREG ]
-"76
-[; ;Main.c: 76:     }
+"80
+[; ;Main.c: 80:     }
 }
 [e :U 1624 ]
-"77
-[; ;Main.c: 77:     switch (data_in & 0b11) {
+"81
+[; ;Main.c: 81:     switch (data_in & 0b11) {
 [e $U 1626  ]
 {
-"78
-[; ;Main.c: 78:         case 0:
-[e :U 1627 ]
-"79
-[; ;Main.c: 79:             data_flex = data_in >> 2;
-[e = _data_flex -> >> -> _data_in `i -> 2 `i `uc ]
-"80
-[; ;Main.c: 80:             break;
-[e $U 1625  ]
-"81
-[; ;Main.c: 81:         case 1:
-[e :U 1628 ]
 "82
-[; ;Main.c: 82:             data_fingers = data_in;
-[e = _data_fingers _data_in ]
+[; ;Main.c: 82:         case 0:
+[e :U 1627 ]
 "83
-[; ;Main.c: 83:             break;
-[e $U 1625  ]
+[; ;Main.c: 83:             data_flex = data_in >> 2;
+[e = _data_flex -> >> -> _data_in `i -> 2 `i `uc ]
 "84
-[; ;Main.c: 84:         case 2:
-[e :U 1629 ]
+[; ;Main.c: 84:             break;
+[e $U 1625  ]
 "85
-[; ;Main.c: 85:             data_x = data_in >> 2;
-[e = _data_x -> >> -> _data_in `i -> 2 `i `uc ]
+[; ;Main.c: 85:         case 1:
+[e :U 1628 ]
 "86
-[; ;Main.c: 86:             break;
-[e $U 1625  ]
+[; ;Main.c: 86:             data_fingers = data_in;
+[e = _data_fingers _data_in ]
 "87
-[; ;Main.c: 87:         case 3:
-[e :U 1630 ]
+[; ;Main.c: 87:             break;
+[e $U 1625  ]
 "88
-[; ;Main.c: 88:             data_y = data_in >> 2;
-[e = _data_y -> >> -> _data_in `i -> 2 `i `uc ]
+[; ;Main.c: 88:         case 2:
+[e :U 1629 ]
+"89
+[; ;Main.c: 89:             data_x = data_in >> 2;
+[e = _data_x -> >> -> _data_in `i -> 2 `i `uc ]
 "90
-[; ;Main.c: 90:             ready = 1;
-[e = _ready -> -> 1 `i `uc ]
-"93
-[; ;Main.c: 93:             break;
+[; ;Main.c: 90:             break;
 [e $U 1625  ]
+"91
+[; ;Main.c: 91:         case 3:
+[e :U 1630 ]
+"92
+[; ;Main.c: 92:             data_y = data_in >> 2;
+[e = _data_y -> >> -> _data_in `i -> 2 `i `uc ]
 "94
-[; ;Main.c: 94:         default:
-[e :U 1631 ]
-"95
-[; ;Main.c: 95:             break;
+[; ;Main.c: 94:             ready = 1;
+[e = _ready -> -> 1 `i `uc ]
+"97
+[; ;Main.c: 97:             break;
 [e $U 1625  ]
-"96
-[; ;Main.c: 96:     }
+"98
+[; ;Main.c: 98:         default:
+[e :U 1631 ]
+"99
+[; ;Main.c: 99:             break;
+[e $U 1625  ]
+"100
+[; ;Main.c: 100:     }
 }
 [e $U 1625  ]
 [e :U 1626 ]
@@ -2009,58 +2025,58 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 3 `i 1630
  1631 ]
 [e :U 1625 ]
-"98
-[; ;Main.c: 98:     if (CCP1IF == 1) {
+"102
+[; ;Main.c: 102:     if (CCP1IF == 1) {
 [e $ ! == -> _CCP1IF `i -> 1 `i 1632  ]
 {
-"99
-[; ;Main.c: 99:         CCP1IF = 0;
-[e = _CCP1IF -> -> 0 `i `b ]
-"100
-[; ;Main.c: 100:         if (get_dir() == 1 && get_steps() > 15000) {
-[e $ ! && == ( _get_dir ..  -> 1 `i > ( _get_steps ..  -> 15000 `i 1633  ]
-{
 "103
-[; ;Main.c: 103:             stepper_stop();
-[e ( _stepper_stop ..  ]
+[; ;Main.c: 103:         CCP1IF = 0;
+[e = _CCP1IF -> -> 0 `i `b ]
 "104
-[; ;Main.c: 104:         } else if (get_dir() == 0 && get_steps() < -15000) {
-}
-[e $U 1634  ]
-[e :U 1633 ]
-[e $ ! && == ( _get_dir ..  -> 0 `i < ( _get_steps ..  -U -> 15000 `i 1635  ]
+[; ;Main.c: 104:         if (get_dir() == 1 && get_steps() > 15000) {
+[e $ ! && == ( _get_dir ..  -> 1 `i > ( _get_steps ..  -> 15000 `i 1633  ]
 {
 "107
 [; ;Main.c: 107:             stepper_stop();
 [e ( _stepper_stop ..  ]
 "108
-[; ;Main.c: 108:         } else {
+[; ;Main.c: 108:         } else if (get_dir() == 0 && get_steps() < -15000) {
+}
+[e $U 1634  ]
+[e :U 1633 ]
+[e $ ! && == ( _get_dir ..  -> 0 `i < ( _get_steps ..  -U -> 15000 `i 1635  ]
+{
+"111
+[; ;Main.c: 111:             stepper_stop();
+[e ( _stepper_stop ..  ]
+"112
+[; ;Main.c: 112:         } else {
 }
 [e $U 1636  ]
 [e :U 1635 ]
 {
-"109
-[; ;Main.c: 109:             LATDbits.LATD5 ^= 1;
-[e =^ . . _LATDbits 0 5 -> -> 1 `i `Vuc ]
-"110
-[; ;Main.c: 110:             step_inc_dec();
-[e ( _step_inc_dec ..  ]
-"112
-[; ;Main.c: 112:             CCPR1H = 0x00;
-[e = _CCPR1H -> -> 0 `i `uc ]
 "113
-[; ;Main.c: 113:             CCPR1L = 0xF0;
-[e = _CCPR1L -> -> 240 `i `uc ]
+[; ;Main.c: 113:             LATDbits.LATD5 ^= 1;
+[e =^ . . _LATDbits 0 5 -> -> 1 `i `Vuc ]
 "114
-[; ;Main.c: 114:         }
+[; ;Main.c: 114:             step_inc_dec();
+[e ( _step_inc_dec ..  ]
+"116
+[; ;Main.c: 116:             CCPR1H = 0x00;
+[e = _CCPR1H -> -> 0 `i `uc ]
+"117
+[; ;Main.c: 117:             CCPR1L = 0xF0;
+[e = _CCPR1L -> -> 240 `i `uc ]
+"118
+[; ;Main.c: 118:         }
 }
 [e :U 1636 ]
 [e :U 1634 ]
-"115
-[; ;Main.c: 115:     }
+"119
+[; ;Main.c: 119:     }
 }
 [e :U 1632 ]
-"116
-[; ;Main.c: 116: }
+"120
+[; ;Main.c: 120: }
 [e :UE 1623 ]
 }

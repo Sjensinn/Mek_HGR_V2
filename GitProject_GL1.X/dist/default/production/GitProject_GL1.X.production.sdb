@@ -67,14 +67,14 @@
 [v _send_commands send_commands `(v  1 e 1 0 ]
 "132 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X/gy_521.h
 [v _gy_address gy_address `uc  1 e 1 0 ]
-[s S675 . 1 `uc 1 INTEDG 1 0 :1:0 
+[s S673 . 1 `uc 1 INTEDG 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
 "371 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
-[u S680 . 1 `S675 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES680  1 e 1 @11 ]
+[u S678 . 1 `S673 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES678  1 e 1 @11 ]
 [s S510 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
@@ -129,7 +129,7 @@
 [v _SPBRGL SPBRGL `VEuc  1 e 1 @283 ]
 "3955
 [v _SPBRGH SPBRGH `VEuc  1 e 1 @284 ]
-[s S769 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S767 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -139,9 +139,9 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "4030
-[u S778 . 1 `S769 1 . 1 0 ]
-[v _RC1STAbits RC1STAbits `VES778  1 e 1 @285 ]
-[s S727 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S776 . 1 `S767 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES776  1 e 1 @285 ]
+[s S725 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -151,9 +151,9 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "4210
-[u S736 . 1 `S727 1 . 1 0 ]
-[v _TX1STAbits TX1STAbits `VES736  1 e 1 @286 ]
-[s S706 . 1 `uc 1 ABDEN 1 0 :1:0 
+[u S734 . 1 `S725 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES734  1 e 1 @286 ]
+[s S704 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -163,10 +163,10 @@
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "4398
-[u S715 . 1 `S706 1 . 1 0 ]
-[v _BAUD1CONbits BAUD1CONbits `VES715  1 e 1 @287 ]
+[u S713 . 1 `S704 1 . 1 0 ]
+[v _BAUD1CONbits BAUD1CONbits `VES713  1 e 1 @287 ]
 "4531
-[v _BAUDCONbits BAUDCONbits `VES715  1 e 1 @287 ]
+[v _BAUDCONbits BAUDCONbits `VES713  1 e 1 @287 ]
 "4610
 [v _SSP1BUF SSP1BUF `VEuc  1 e 1 @396 ]
 "4630
@@ -340,7 +340,7 @@
 "21382
 [u S255 . 1 `S248 1 . 1 0 ]
 [v _PIR3bits PIR3bits `VES255  1 e 1 @1807 ]
-[s S658 . 1 `uc 1 SSP1IE 1 0 :1:0 
+[s S656 . 1 `uc 1 SSP1IE 1 0 :1:0 
 `uc 1 BCL1IE 1 0 :1:1 
 `uc 1 SSP2IE 1 0 :1:2 
 `uc 1 BCL2IE 1 0 :1:3 
@@ -348,8 +348,8 @@
 `uc 1 RCIE 1 0 :1:5 
 ]
 "21804
-[u S665 . 1 `S658 1 . 1 0 ]
-[v _PIE3bits PIE3bits `VES665  1 e 1 @1817 ]
+[u S663 . 1 `S656 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES663  1 e 1 @1817 ]
 "23443
 [v _OSCCON1 OSCCON1 `VEuc  1 e 1 @2189 ]
 "23513

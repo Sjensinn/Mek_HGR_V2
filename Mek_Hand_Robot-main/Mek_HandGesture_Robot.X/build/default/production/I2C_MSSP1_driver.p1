@@ -1855,16 +1855,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;I2C_MSSP1_driver.c: 33:         if(SSP1CON1bits.WCOL == 1){
 [e $ ! == -> . . _SSP1CON1bits 0 4 `i -> 1 `i 1619  ]
 {
-"34
-[; ;I2C_MSSP1_driver.c: 34:             while(1){
-[e :U 1621 ]
-{
-"35
-[; ;I2C_MSSP1_driver.c: 35:             }
-}
-[e :U 1620 ]
-[e $U 1621  ]
-[e :U 1622 ]
 "36
 [; ;I2C_MSSP1_driver.c: 36:         }
 }
@@ -1901,7 +1891,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _I2C_Wait ..  ]
 "46
 [; ;I2C_MSSP1_driver.c: 46: }
-[e :UE 1623 ]
+[e :UE 1620 ]
 }
 "49
 [; ;I2C_MSSP1_driver.c: 49: void I2C_Stop(void){
@@ -1917,7 +1907,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _I2C_Wait ..  ]
 "52
 [; ;I2C_MSSP1_driver.c: 52: }
-[e :UE 1624 ]
+[e :UE 1621 ]
 }
 "55
 [; ;I2C_MSSP1_driver.c: 55: void I2C_Write(uint8_t data){
@@ -1934,7 +1924,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _I2C_Wait ..  ]
 "58
 [; ;I2C_MSSP1_driver.c: 58: }
-[e :UE 1625 ]
+[e :UE 1622 ]
 }
 "61
 [; ;I2C_MSSP1_driver.c: 61:  int8_t I2C_Read(int8_t ackbit){
@@ -1970,8 +1960,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "74
 [; ;I2C_MSSP1_driver.c: 74:     return tempreadbuffer;
 [e ) _tempreadbuffer ]
-[e $UE 1626  ]
+[e $UE 1623  ]
 "75
 [; ;I2C_MSSP1_driver.c: 75: }
-[e :UE 1626 ]
+[e :UE 1623 ]
 }

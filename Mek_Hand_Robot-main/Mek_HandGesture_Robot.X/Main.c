@@ -44,13 +44,16 @@ void main(void) {
     system_init(); //Initiate clock, pins, uart, i2c, timer1 and interrupts
     PCA_Init(130, 0x80); //Initiate PCA9685 unit with I2C address: 0x80 and prescalar of 130
     stepper_init(); //Initiate Stepper
-
     init_ready = 1; //Ready for initial communications
+    
+    __delay_ms(1000);
     
     while (1) {
         if (PORTAbits.RA0 == 1) {
             if (init_ready == 1) {
                 send_ready(); //send ready signal
+                send_ready();
+                send_ready();
                 init_ready = 0; //Clear the initial ready
             }
 
@@ -63,6 +66,7 @@ void main(void) {
         }
         else{
             //Homing start
+            init_ready = 1;
         }
     }
 

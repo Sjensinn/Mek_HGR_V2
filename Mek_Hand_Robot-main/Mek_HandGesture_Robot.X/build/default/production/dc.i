@@ -20735,11 +20735,12 @@ extern __bank0 __bit __timeout;
 uint16_t ENA_stat = 100;
 uint16_t ENB_stat = 100;
 
-
+void dc_init(void);
 void dc_stop();
 void dc_move(uint8_t y, uint8_t ydir);
 void dc_turn(uint8_t x, uint8_t xdir);
 void dc_update(uint8_t motor_speed);
+void dc_update_ccp(uint8_t motor_speed);
 # 2 "dc.c" 2
 
 # 1 "./PCA9685_driver.h" 1
@@ -20971,26 +20972,25 @@ char *tempnam(const char *, const char *);
 # 6 "dc.c" 2
 
 
+void dc_init(void){
+# 24 "dc.c"
+}
+
 void dc_stop() {
-    LATB &= 0b11001001;
+
+    PCA_write(4, 0x00, 0);
+    PCA_write(5, 0x00, 0);
+
 }
 
 void dc_move(uint8_t y, uint8_t ydir) {
-        if (ydir == 1) {
-
-
-            LATBbits.LATB1 = 0;
+    if (ydir == 1) {
+            LATBbits.LATB1 = 1;
             LATBbits.LATB2 = 1;
-            LATBbits.LATB4 = 0;
-            LATBbits.LATB5 = 1;
 
         } else {
-
-
-            LATBbits.LATB1 = 1;
+            LATBbits.LATB1 = 0;
             LATBbits.LATB2 = 0;
-            LATBbits.LATB4 = 1;
-            LATBbits.LATB5 = 0;
         }
 
         dc_update(y);
@@ -21000,37 +21000,35 @@ void dc_turn(uint8_t x, uint8_t xdir){
         if (xdir == 1) {
             LATBbits.LATB1 = 1;
             LATBbits.LATB2 = 0;
-            LATBbits.LATB4 = 0;
-            LATBbits.LATB5 = 1;
-
-
         } else {
             LATBbits.LATB1 = 0;
             LATBbits.LATB2 = 1;
-            LATBbits.LATB4 = 1;
-            LATBbits.LATB5 = 0;
         }
 
         dc_update(x);
 }
 
 void dc_update(uint8_t motor_speed){
-        ENA_stat = ((uint16_t)motor_speed*100);
-        ENB_stat = ((uint16_t)motor_speed*100);
+        ENA_stat = ((uint16_t)motor_speed*110);
+        ENB_stat = ENA_stat;
 
-        if (ENA_stat >= (4095)) {
-            ENA_stat = 4095;
+        if (ENA_stat >= (2000)) {
+            ENA_stat = 2000;
         }
-        if (ENA_stat <= (100)) {
-            ENA_stat = 100;
+        if (ENA_stat <= (0)) {
+            ENA_stat = 0;
         }
-        if (ENB_stat >= (4095)) {
-            ENB_stat = 4095;
+        if (ENB_stat >= (2000)) {
+            ENB_stat = 2000;
         }
-        if (ENB_stat <= (100)) {
-            ENB_stat = 100;
+        if (ENB_stat <= (0)) {
+            ENB_stat = 0;
         }
 
-        PCA_write(4, 0x00, (ENA_stat));
-        PCA_write(5, 0x00, (ENB_stat));
+        PCA_write(4, 0x00, ENA_stat);
+        PCA_write(5, 0x00, ENB_stat);
+}
+
+void dc_update_ccp(uint8_t motor_speed){
+
 }

@@ -21052,7 +21052,7 @@ void main(void) {
 
             send_commands(tx_data);
 
-            _delay((unsigned long)((100)*(16000000/4000.0)));
+
         }
     }
     return;
