@@ -20969,6 +20969,14 @@ void int_init(void);
 void PCA_Init(uint8_t prescalar, uint8_t pca_addr);
 # 87 "./PCA9685_driver.h"
 void PCA_write(uint8_t ChannelN, uint16_t on, uint16_t off);
+
+
+
+
+
+
+
+void PCA_Set_Freq(uint8_t prescalar);
 # 23 "Main.c" 2
 
 # 1 "./I2C_MSSP1_driver.h" 1

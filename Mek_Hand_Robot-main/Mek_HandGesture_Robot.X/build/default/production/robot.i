@@ -20804,6 +20804,14 @@ void send_commands(uint8_t* data);
 void PCA_Init(uint8_t prescalar, uint8_t pca_addr);
 # 87 "./PCA9685_driver.h"
 void PCA_write(uint8_t ChannelN, uint16_t on, uint16_t off);
+
+
+
+
+
+
+
+void PCA_Set_Freq(uint8_t prescalar);
 # 5 "robot.c" 2
 
 # 1 "./dc.h" 1
@@ -20896,14 +20904,7 @@ void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t da
 
     if ((data_fingers & 0b00100000) == 0b00100000) {
         stepper_stop();
-
-
-        I2C_Start();
-        I2C_Write(0x80);
-        I2C_Write(0xFE);
-        I2C_Write(5);
-        I2C_Stop();
-        _delay((unsigned long)((10)*(16000000/4000.0)));
+        PCA_Set_Freq(0x03);
 
         if (data_y > 4) {
             dc_move(data_y, ydir);
@@ -20916,23 +20917,17 @@ void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t da
     } else if ((data_fingers & 0b01000000) == 0b01000000) {
         stepper_stop();
         dc_stop();
+        PCA_Set_Freq(130);
 
-
-        I2C_Start();
-        I2C_Write(pca_address);
-        I2C_Write(0xFE);
-        I2C_Write(130);
-        I2C_Stop();
-        _delay((unsigned long)((10)*(16000000/4000.0)));
-
-        if(data_x > 6){
+        if(data_x > 10){
             update_servo0_stat(data_x, xdir);
         }
-        if(data_y > 6){
+        if(data_y > 10){
             update_servo1_stat(data_y, ydir);
         }
     } else if ((data_fingers & 0b10000000) == 0b10000000) {
         dc_stop();
+        PCA_Set_Freq(130);
         if (xdir == 1 && data_x > 10) {
             stepper_move(1);
             _delay((unsigned long)((10)*(16000000/4000.0)));
@@ -20947,6 +20942,10 @@ void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t da
         update_servo2_stat(data_x, xdir);
         PCA_write(2, 0, servo1_stat);
 
+    }
+    else{
+        dc_stop();
+        stepper_stop();
     }
 
 

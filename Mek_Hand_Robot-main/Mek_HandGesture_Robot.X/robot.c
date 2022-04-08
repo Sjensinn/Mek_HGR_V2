@@ -27,15 +27,8 @@ void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t da
 
     if ((data_fingers & 0b00100000) == 0b00100000) { //finger 1
         stepper_stop();
+        PCA_Set_Freq(0x03); //Update output frequency of PCA
         
-        //Adjust PCA freq
-        I2C_Start();            //Send start bit
-        I2C_Write(0x80);        //0x40 == address of PCA9685
-        I2C_Write(0xFE);        //Select Prescalar register
-        I2C_Write(5);   //Prescalar value = 0d121 og 0x79 for 50Hz
-        I2C_Stop();             //End this transmission 
-        __delay_ms(10);
-
         if (data_y > 4) {
             dc_move(data_y, ydir);
         } else if (data_x > 4) {
@@ -47,23 +40,17 @@ void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t da
     } else if ((data_fingers & 0b01000000) == 0b01000000) { //finger 2
         stepper_stop();
         dc_stop();
-        
-        //Adjust PCA freq
-        I2C_Start();            //Send start bit
-        I2C_Write(pca_address);        //0x40 == address of PCA9685
-        I2C_Write(0xFE);        //Select Prescalar register
-        I2C_Write(130);   //Prescalar value = 0d121 og 0x79 for 50Hz
-        I2C_Stop();             //End this transmission 
-        __delay_ms(10);
+        PCA_Set_Freq(130);
 
-        if(data_x > 6){
+        if(data_x > 10){
             update_servo0_stat(data_x, xdir);
         }
-        if(data_y > 6){
+        if(data_y > 10){
             update_servo1_stat(data_y, ydir);
         }
     } else if ((data_fingers & 0b10000000) == 0b10000000) { //finger 3
         dc_stop();
+        PCA_Set_Freq(130);
         if (xdir == 1 && data_x > 10) {
             stepper_move(1);
             __delay_ms(10);
@@ -78,6 +65,10 @@ void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t da
         update_servo2_stat(data_x, xdir);
         PCA_write(2, 0, servo1_stat);
 
+    }
+    else{
+        dc_stop();
+        stepper_stop();
     }
 
 

@@ -1812,8 +1812,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Main.c: 72:             tx_data[0] = format_data_b1(flex);
 [e = *U + &U _tx_data * -> -> -> 0 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b1 (1 _flex ]
 "73
-[; ;Main.c: 73:             tx_data[1] = format_data_b2(PORTBbits.RB0, PORTBbits.RB1, PORTBbits.RB2, axd, ayd);
-[e = *U + &U _tx_data * -> -> -> 1 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b2 (4 , , , , . . _PORTBbits 0 0 . . _PORTBbits 0 1 . . _PORTBbits 0 2 _axd _ayd ]
+[; ;Main.c: 73:             tx_data[1] = format_data_b2(!PORTBbits.RB0, !PORTBbits.RB1, !PORTBbits.RB2, axd, ayd);
+[e = *U + &U _tx_data * -> -> -> 1 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b2 (4 , , , , -> -> ! != -> . . _PORTBbits 0 0 `i -> 0 `i `i `uc -> -> ! != -> . . _PORTBbits 0 1 `i -> 0 `i `i `uc -> -> ! != -> . . _PORTBbits 0 2 `i -> 0 `i `i `uc _axd _ayd ]
 "74
 [; ;Main.c: 74:             tx_data[2] = format_data_b3(accelo_x);
 [e = *U + &U _tx_data * -> -> -> 2 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b3 (1 _accelo_x ]

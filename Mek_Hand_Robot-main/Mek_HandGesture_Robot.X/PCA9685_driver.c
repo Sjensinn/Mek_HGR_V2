@@ -37,3 +37,29 @@ void PCA_write(uint8_t ChannelN, uint16_t on, uint16_t off){
     I2C_Stop();                         //Send stop bit
 }
 
+void PCA_Set_Freq(uint8_t prescalar){
+    //Set SLEEP = 1 in MODE1 Register
+    I2C_Start();            //Send start bit
+    I2C_Write(pca_address);        //0x40 == address of PCA9685
+    I2C_Write(0x00);            //Select MODE1 register
+    I2C_Write(0b00110000);      //Sleep en, AI en, int osc
+    I2C_Stop();                 //End this transmission
+    __delay_ms(1);
+    
+    //Update prescalar
+    I2C_Start();            //Send start bit
+    I2C_Write(pca_address);        //0x40 == address of PCA9685
+    I2C_Write(0xFE);        //Select Prescalar register
+    I2C_Write(prescalar);   //Prescalar value = 0d121 og 0x79 for 50Hz
+    I2C_Stop();             //End this transmission
+    __delay_ms(1);
+    
+    //Wake up PCA
+    I2C_Start();            //Send start bit
+    I2C_Write(pca_address);        //0x40 == address of PCA9685
+    I2C_Write(0x00);            //Select MODE1 register
+    I2C_Write(0b00100000);      //Sleep en, AI en, int osc
+    I2C_Stop();                 //End this transmission
+    __delay_ms(1);   
+    
+}

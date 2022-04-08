@@ -20731,6 +20731,14 @@ extern __bank0 __bit __timeout;
 void PCA_Init(uint8_t prescalar, uint8_t pca_addr);
 # 87 "./PCA9685_driver.h"
 void PCA_write(uint8_t ChannelN, uint16_t on, uint16_t off);
+
+
+
+
+
+
+
+void PCA_Set_Freq(uint8_t prescalar);
 # 2 "PCA9685_driver.c" 2
 
 # 1 "./I2C_MSSP1_driver.h" 1
@@ -20794,4 +20802,31 @@ void PCA_write(uint8_t ChannelN, uint16_t on, uint16_t off){
     I2C_Write(off & 0xff);
     I2C_Write((off & 0xffff) >> 8);
     I2C_Stop();
+}
+
+void PCA_Set_Freq(uint8_t prescalar){
+
+    I2C_Start();
+    I2C_Write(pca_address);
+    I2C_Write(0x00);
+    I2C_Write(0b00110000);
+    I2C_Stop();
+    _delay((unsigned long)((1)*(16000000/4000.0)));
+
+
+    I2C_Start();
+    I2C_Write(pca_address);
+    I2C_Write(0xFE);
+    I2C_Write(prescalar);
+    I2C_Stop();
+    _delay((unsigned long)((1)*(16000000/4000.0)));
+
+
+    I2C_Start();
+    I2C_Write(pca_address);
+    I2C_Write(0x00);
+    I2C_Write(0b00100000);
+    I2C_Stop();
+    _delay((unsigned long)((1)*(16000000/4000.0)));
+
 }

@@ -20,9 +20,9 @@
 #define _XTAL_FREQ 16000000
 #endif
 
-#define F1_getVal() PORTBbits.RB0
-#define F2_getVal() PORTBbits.RB1
-#define F3_getVal() PORTBbits.RB2
+#define F1_getVal() !PORTBbits.RB0
+#define F2_getVal() !PORTBbits.RB1
+#define F3_getVal() !PORTBbits.RB2
 
 #include "config_bits.h"
 #include "system_init.h"

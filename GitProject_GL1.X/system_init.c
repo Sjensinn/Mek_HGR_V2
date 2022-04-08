@@ -48,8 +48,8 @@ void pin_init(){
     /**
     TRISx registers
     */
-    TRISA = 0x30;
-    TRISB = 0xF0;
+    TRISA = 0x37;
+    TRISB = 0xFF;
     TRISC = 0xBF;
     TRISD = 0x0;
     TRISE = 0x7;
@@ -67,7 +67,7 @@ void pin_init(){
     WPUx registers
     */
     WPUA = 0x0;
-    WPUB = 0x0;
+    WPUB = 0x7;
     WPUC = 0x0;
     WPUD = 0x0;
     WPUE = 0x0;

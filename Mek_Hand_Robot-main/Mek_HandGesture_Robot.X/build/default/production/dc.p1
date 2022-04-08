@@ -1683,11 +1683,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _dc_stop ]
 [f ]
 "28
-[; ;dc.c: 28:     PCA_write(4, 0x00, 0);
-[e ( _PCA_write (3 , , -> -> 4 `i `uc -> -> 0 `i `us -> -> 0 `i `us ]
+[; ;dc.c: 28:     PCA_write(4, 0x00, 1);
+[e ( _PCA_write (3 , , -> -> 4 `i `uc -> -> 0 `i `us -> -> 1 `i `us ]
 "29
-[; ;dc.c: 29:     PCA_write(5, 0x00, 0);
-[e ( _PCA_write (3 , , -> -> 5 `i `uc -> -> 0 `i `us -> -> 0 `i `us ]
+[; ;dc.c: 29:     PCA_write(5, 0x00, 1);
+[e ( _PCA_write (3 , , -> -> 5 `i `uc -> -> 0 `i `us -> -> 1 `i `us ]
 "31
 [; ;dc.c: 31: }
 [e :UE 1616 ]
@@ -1782,51 +1782,51 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _motor_speed `uc ~T0 @X0 1 r1 ]
 [f ]
 "59
-[; ;dc.c: 59:         ENA_stat = ((uint16_t)motor_speed*110);
-[e = _ENA_stat -> * -> -> _motor_speed `us `ui -> -> 110 `i `ui `us ]
+[; ;dc.c: 59:         ENA_stat = ((uint16_t)motor_speed*100);
+[e = _ENA_stat -> * -> -> _motor_speed `us `ui -> -> 100 `i `ui `us ]
 "60
 [; ;dc.c: 60:         ENB_stat = ENA_stat;
 [e = _ENB_stat _ENA_stat ]
 "62
-[; ;dc.c: 62:         if (ENA_stat >= (2000)) {
-[e $ ! >= -> _ENA_stat `ui -> -> 2000 `i `ui 1624  ]
+[; ;dc.c: 62:         if (ENA_stat >= (4095)) {
+[e $ ! >= -> _ENA_stat `ui -> -> 4095 `i `ui 1624  ]
 {
 "63
-[; ;dc.c: 63:             ENA_stat = 2000;
-[e = _ENA_stat -> -> 2000 `i `us ]
+[; ;dc.c: 63:             ENA_stat = 4095;
+[e = _ENA_stat -> -> 4095 `i `us ]
 "64
 [; ;dc.c: 64:         }
 }
 [e :U 1624 ]
 "65
-[; ;dc.c: 65:         if (ENA_stat <= (0)) {
-[e $ ! <= -> _ENA_stat `ui -> -> 0 `i `ui 1625  ]
+[; ;dc.c: 65:         if (ENA_stat <= (1000)) {
+[e $ ! <= -> _ENA_stat `ui -> -> 1000 `i `ui 1625  ]
 {
 "66
-[; ;dc.c: 66:             ENA_stat = 0;
-[e = _ENA_stat -> -> 0 `i `us ]
+[; ;dc.c: 66:             ENA_stat = 1000;
+[e = _ENA_stat -> -> 1000 `i `us ]
 "67
 [; ;dc.c: 67:         }
 }
 [e :U 1625 ]
 "68
-[; ;dc.c: 68:         if (ENB_stat >= (2000)) {
-[e $ ! >= -> _ENB_stat `ui -> -> 2000 `i `ui 1626  ]
+[; ;dc.c: 68:         if (ENB_stat >= (4095)) {
+[e $ ! >= -> _ENB_stat `ui -> -> 4095 `i `ui 1626  ]
 {
 "69
-[; ;dc.c: 69:             ENB_stat = 2000;
-[e = _ENB_stat -> -> 2000 `i `us ]
+[; ;dc.c: 69:             ENB_stat = 4095;
+[e = _ENB_stat -> -> 4095 `i `us ]
 "70
 [; ;dc.c: 70:         }
 }
 [e :U 1626 ]
 "71
-[; ;dc.c: 71:         if (ENB_stat <= (0)) {
-[e $ ! <= -> _ENB_stat `ui -> -> 0 `i `ui 1627  ]
+[; ;dc.c: 71:         if (ENB_stat <= (1000)) {
+[e $ ! <= -> _ENB_stat `ui -> -> 1000 `i `ui 1627  ]
 {
 "72
-[; ;dc.c: 72:             ENB_stat = 0;
-[e = _ENB_stat -> -> 0 `i `us ]
+[; ;dc.c: 72:             ENB_stat = 1000;
+[e = _ENB_stat -> -> 1000 `i `us ]
 "73
 [; ;dc.c: 73:         }
 }
@@ -1837,18 +1837,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "76
 [; ;dc.c: 76:         PCA_write(5, 0x00, ENB_stat);
 [e ( _PCA_write (3 , , -> -> 5 `i `uc -> -> 0 `i `us _ENB_stat ]
-"77
-[; ;dc.c: 77: }
+"78
+[; ;dc.c: 78: }
 [e :UE 1623 ]
 }
-"79
-[; ;dc.c: 79: void dc_update_ccp(uint8_t motor_speed){
+"80
+[; ;dc.c: 80: void dc_update_ccp(uint8_t motor_speed){
 [v _dc_update_ccp `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _dc_update_ccp ]
 [v _motor_speed `uc ~T0 @X0 1 r1 ]
 [f ]
-"81
-[; ;dc.c: 81: }
+"82
+[; ;dc.c: 82: }
 [e :UE 1628 ]
 }

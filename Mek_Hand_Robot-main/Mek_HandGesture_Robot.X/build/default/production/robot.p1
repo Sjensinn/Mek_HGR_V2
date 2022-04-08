@@ -2,19 +2,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "15 ./Stepper.h
 [; ;./Stepper.h: 15: void stepper_stop(void);
 [v _stepper_stop `(v ~T0 @X0 0 ef ]
-"56 ./I2C_MSSP1_driver.h
-[; ;./I2C_MSSP1_driver.h: 56: void I2C_Start(void);
-[v _I2C_Start `(v ~T0 @X0 0 ef ]
-"86
-[; ;./I2C_MSSP1_driver.h: 86: void I2C_Write(uint8_t data);
-[v _I2C_Write `(v ~T0 @X0 0 ef1`uc ]
-"100
-[; ;./I2C_MSSP1_driver.h: 100: void I2C_Stop(void);
-[v _I2C_Stop `(v ~T0 @X0 0 ef ]
-[v F192 `(v ~T0 @X0 1 tf1`ul ]
-"12 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\builtins.h
-[v __delay `JF192 ~T0 @X0 0 e ]
-[p i __delay ]
+"95 ./PCA9685_driver.h
+[; ;./PCA9685_driver.h: 95: void PCA_Set_Freq(uint8_t prescalar);
+[v _PCA_Set_Freq `(v ~T0 @X0 0 ef1`uc ]
 "14 ./dc.h
 [; ;./dc.h: 14: void dc_move(uint8_t y, uint8_t ydir);
 [v _dc_move `(v ~T0 @X0 0 ef2`uc`uc ]
@@ -33,6 +23,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "14 ./Stepper.h
 [; ;./Stepper.h: 14: void stepper_move(uint8_t direction);
 [v _stepper_move `(v ~T0 @X0 0 ef1`uc ]
+[v F192 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\builtins.h
+[v __delay `JF192 ~T0 @X0 0 e ]
+[p i __delay ]
 "35 ./robot.h
 [; ;./robot.h: 35: void update_servo2_stat(uint8_t data, uint8_t dir);
 [v _update_servo2_stat `(v ~T0 @X0 0 ef2`uc`uc ]
@@ -1788,537 +1782,524 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29
 [; ;robot.c: 29:         stepper_stop();
 [e ( _stepper_stop ..  ]
+"30
+[; ;robot.c: 30:         PCA_Set_Freq(0x03);
+[e ( _PCA_Set_Freq (1 -> -> 3 `i `uc ]
 "32
-[; ;robot.c: 32:         I2C_Start();
-[e ( _I2C_Start ..  ]
-"33
-[; ;robot.c: 33:         I2C_Write(0x80);
-[e ( _I2C_Write (1 -> -> 128 `i `uc ]
-"34
-[; ;robot.c: 34:         I2C_Write(0xFE);
-[e ( _I2C_Write (1 -> -> 254 `i `uc ]
-"35
-[; ;robot.c: 35:         I2C_Write(5);
-[e ( _I2C_Write (1 -> -> 5 `i `uc ]
-"36
-[; ;robot.c: 36:         I2C_Stop();
-[e ( _I2C_Stop ..  ]
-"37
-[; ;robot.c: 37:         _delay((unsigned long)((10)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"39
-[; ;robot.c: 39:         if (data_y > 4) {
+[; ;robot.c: 32:         if (data_y > 4) {
 [e $ ! > -> _data_y `i -> 4 `i 1619  ]
 {
-"40
-[; ;robot.c: 40:             dc_move(data_y, ydir);
+"33
+[; ;robot.c: 33:             dc_move(data_y, ydir);
 [e ( _dc_move (2 , _data_y _ydir ]
-"41
-[; ;robot.c: 41:         } else if (data_x > 4) {
+"34
+[; ;robot.c: 34:         } else if (data_x > 4) {
 }
 [e $U 1620  ]
 [e :U 1619 ]
 [e $ ! > -> _data_x `i -> 4 `i 1621  ]
 {
-"42
-[; ;robot.c: 42:             dc_turn(data_x, xdir);
+"35
+[; ;robot.c: 35:             dc_turn(data_x, xdir);
 [e ( _dc_turn (2 , _data_x _xdir ]
-"43
-[; ;robot.c: 43:         } else {
+"36
+[; ;robot.c: 36:         } else {
 }
 [e $U 1622  ]
 [e :U 1621 ]
 {
-"44
-[; ;robot.c: 44:             dc_stop();
+"37
+[; ;robot.c: 37:             dc_stop();
 [e ( _dc_stop ..  ]
-"45
-[; ;robot.c: 45:         }
+"38
+[; ;robot.c: 38:         }
 }
 [e :U 1622 ]
 [e :U 1620 ]
-"47
-[; ;robot.c: 47:     } else if ((data_fingers & 0b01000000) == 0b01000000) {
+"40
+[; ;robot.c: 40:     } else if ((data_fingers & 0b01000000) == 0b01000000) {
 }
 [e $U 1623  ]
 [e :U 1618 ]
 [e $ ! == & -> _data_fingers `i -> 64 `i -> 64 `i 1624  ]
 {
-"48
-[; ;robot.c: 48:         stepper_stop();
+"41
+[; ;robot.c: 41:         stepper_stop();
 [e ( _stepper_stop ..  ]
-"49
-[; ;robot.c: 49:         dc_stop();
+"42
+[; ;robot.c: 42:         dc_stop();
 [e ( _dc_stop ..  ]
-"52
-[; ;robot.c: 52:         I2C_Start();
-[e ( _I2C_Start ..  ]
-"53
-[; ;robot.c: 53:         I2C_Write(pca_address);
-[e ( _I2C_Write (1 _pca_address ]
-"54
-[; ;robot.c: 54:         I2C_Write(0xFE);
-[e ( _I2C_Write (1 -> -> 254 `i `uc ]
-"55
-[; ;robot.c: 55:         I2C_Write(130);
-[e ( _I2C_Write (1 -> -> 130 `i `uc ]
-"56
-[; ;robot.c: 56:         I2C_Stop();
-[e ( _I2C_Stop ..  ]
-"57
-[; ;robot.c: 57:         _delay((unsigned long)((10)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"59
-[; ;robot.c: 59:         if(data_x > 6){
-[e $ ! > -> _data_x `i -> 6 `i 1625  ]
+"43
+[; ;robot.c: 43:         PCA_Set_Freq(130);
+[e ( _PCA_Set_Freq (1 -> -> 130 `i `uc ]
+"45
+[; ;robot.c: 45:         if(data_x > 10){
+[e $ ! > -> _data_x `i -> 10 `i 1625  ]
 {
-"60
-[; ;robot.c: 60:             update_servo0_stat(data_x, xdir);
+"46
+[; ;robot.c: 46:             update_servo0_stat(data_x, xdir);
 [e ( _update_servo0_stat (2 , _data_x _xdir ]
-"61
-[; ;robot.c: 61:         }
+"47
+[; ;robot.c: 47:         }
 }
 [e :U 1625 ]
-"62
-[; ;robot.c: 62:         if(data_y > 6){
-[e $ ! > -> _data_y `i -> 6 `i 1626  ]
+"48
+[; ;robot.c: 48:         if(data_y > 10){
+[e $ ! > -> _data_y `i -> 10 `i 1626  ]
 {
-"63
-[; ;robot.c: 63:             update_servo1_stat(data_y, ydir);
+"49
+[; ;robot.c: 49:             update_servo1_stat(data_y, ydir);
 [e ( _update_servo1_stat (2 , _data_y _ydir ]
-"64
-[; ;robot.c: 64:         }
+"50
+[; ;robot.c: 50:         }
 }
 [e :U 1626 ]
-"65
-[; ;robot.c: 65:     } else if ((data_fingers & 0b10000000) == 0b10000000) {
+"51
+[; ;robot.c: 51:     } else if ((data_fingers & 0b10000000) == 0b10000000) {
 }
 [e $U 1627  ]
 [e :U 1624 ]
 [e $ ! == & -> _data_fingers `i -> 128 `i -> 128 `i 1628  ]
 {
-"66
-[; ;robot.c: 66:         dc_stop();
+"52
+[; ;robot.c: 52:         dc_stop();
 [e ( _dc_stop ..  ]
-"67
-[; ;robot.c: 67:         if (xdir == 1 && data_x > 10) {
+"53
+[; ;robot.c: 53:         PCA_Set_Freq(130);
+[e ( _PCA_Set_Freq (1 -> -> 130 `i `uc ]
+"54
+[; ;robot.c: 54:         if (xdir == 1 && data_x > 10) {
 [e $ ! && == -> _xdir `i -> 1 `i > -> _data_x `i -> 10 `i 1629  ]
 {
-"68
-[; ;robot.c: 68:             stepper_move(1);
+"55
+[; ;robot.c: 55:             stepper_move(1);
 [e ( _stepper_move (1 -> -> 1 `i `uc ]
-"69
-[; ;robot.c: 69:             _delay((unsigned long)((10)*(16000000/4000.0)));
+"56
+[; ;robot.c: 56:             _delay((unsigned long)((10)*(16000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"70
-[; ;robot.c: 70:         } else if (xdir == 0 && data_x > 10) {
+"57
+[; ;robot.c: 57:         } else if (xdir == 0 && data_x > 10) {
 }
 [e $U 1630  ]
 [e :U 1629 ]
 [e $ ! && == -> _xdir `i -> 0 `i > -> _data_x `i -> 10 `i 1631  ]
 {
-"71
-[; ;robot.c: 71:             stepper_move(0);
+"58
+[; ;robot.c: 58:             stepper_move(0);
 [e ( _stepper_move (1 -> -> 0 `i `uc ]
-"72
-[; ;robot.c: 72:             _delay((unsigned long)((10)*(16000000/4000.0)));
+"59
+[; ;robot.c: 59:             _delay((unsigned long)((10)*(16000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"73
-[; ;robot.c: 73:         } else {
+"60
+[; ;robot.c: 60:         } else {
 }
 [e $U 1632  ]
 [e :U 1631 ]
 {
-"74
-[; ;robot.c: 74:             stepper_stop();
+"61
+[; ;robot.c: 61:             stepper_stop();
 [e ( _stepper_stop ..  ]
-"75
-[; ;robot.c: 75:             dc_stop();
+"62
+[; ;robot.c: 62:             dc_stop();
 [e ( _dc_stop ..  ]
-"76
-[; ;robot.c: 76:         }
+"63
+[; ;robot.c: 63:         }
 }
 [e :U 1632 ]
 [e :U 1630 ]
-"78
-[; ;robot.c: 78:         update_servo2_stat(data_x, xdir);
+"65
+[; ;robot.c: 65:         update_servo2_stat(data_x, xdir);
 [e ( _update_servo2_stat (2 , _data_x _xdir ]
-"79
-[; ;robot.c: 79:         PCA_write(2, 0, servo1_stat);
+"66
+[; ;robot.c: 66:         PCA_write(2, 0, servo1_stat);
 [e ( _PCA_write (3 , , -> -> 2 `i `uc -> -> 0 `i `us _servo1_stat ]
-"81
-[; ;robot.c: 81:     }
+"68
+[; ;robot.c: 68:     }
 }
+[e $U 1633  ]
+"69
+[; ;robot.c: 69:     else{
 [e :U 1628 ]
-[e :U 1627 ]
-[e :U 1623 ]
-"84
-[; ;robot.c: 84:     int8_t x = (int8_t) data_x + ((data_fingers << 3) & 0b10000000);
-[v _x `c ~T0 @X0 1 a ]
-[e = _x -> + -> -> _data_x `c `i & << -> _data_fingers `i -> 3 `i -> 128 `i `c ]
-"85
-[; ;robot.c: 85:     int8_t y = (int8_t) data_y + ((data_fingers << 3) & 0b10000000);
-[v _y `c ~T0 @X0 1 a ]
-[e = _y -> + -> -> _data_y `c `i & << -> _data_fingers `i -> 3 `i -> 128 `i `c ]
-"86
-[; ;robot.c: 86:     if ((data_fingers >> 4) == 1) {
-[e $ ! == >> -> _data_fingers `i -> 4 `i -> 1 `i 1633  ]
 {
-"89
-[; ;robot.c: 89:     }
+"70
+[; ;robot.c: 70:         dc_stop();
+[e ( _dc_stop ..  ]
+"71
+[; ;robot.c: 71:         stepper_stop();
+[e ( _stepper_stop ..  ]
+"72
+[; ;robot.c: 72:     }
 }
 [e :U 1633 ]
-"90
-[; ;robot.c: 90: }
+[e :U 1627 ]
+[e :U 1623 ]
+"75
+[; ;robot.c: 75:     int8_t x = (int8_t) data_x + ((data_fingers << 3) & 0b10000000);
+[v _x `c ~T0 @X0 1 a ]
+[e = _x -> + -> -> _data_x `c `i & << -> _data_fingers `i -> 3 `i -> 128 `i `c ]
+"76
+[; ;robot.c: 76:     int8_t y = (int8_t) data_y + ((data_fingers << 3) & 0b10000000);
+[v _y `c ~T0 @X0 1 a ]
+[e = _y -> + -> -> _data_y `c `i & << -> _data_fingers `i -> 3 `i -> 128 `i `c ]
+"77
+[; ;robot.c: 77:     if ((data_fingers >> 4) == 1) {
+[e $ ! == >> -> _data_fingers `i -> 4 `i -> 1 `i 1634  ]
+{
+"80
+[; ;robot.c: 80:     }
+}
+[e :U 1634 ]
+"81
+[; ;robot.c: 81: }
 [e :UE 1613 ]
 }
-"92
-[; ;robot.c: 92: uint16_t get_servo0_stat() {
+"83
+[; ;robot.c: 83: uint16_t get_servo0_stat() {
 [v _get_servo0_stat `(us ~T0 @X0 1 ef ]
 {
 [e :U _get_servo0_stat ]
 [f ]
-"93
-[; ;robot.c: 93:     return servo0_stat;
+"84
+[; ;robot.c: 84:     return servo0_stat;
 [e ) _servo0_stat ]
-[e $UE 1634  ]
-"94
-[; ;robot.c: 94: }
-[e :UE 1634 ]
+[e $UE 1635  ]
+"85
+[; ;robot.c: 85: }
+[e :UE 1635 ]
 }
-"96
-[; ;robot.c: 96: void update_servo0_stat(uint8_t data, uint8_t dir) {
+"87
+[; ;robot.c: 87: void update_servo0_stat(uint8_t data, uint8_t dir) {
 [v _update_servo0_stat `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _update_servo0_stat ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [v _dir `uc ~T0 @X0 1 r2 ]
 [f ]
-"97
-[; ;robot.c: 97:     if (dir == 1) {
-[e $ ! == -> _dir `i -> 1 `i 1636  ]
+"88
+[; ;robot.c: 88:     if (dir == 1) {
+[e $ ! == -> _dir `i -> 1 `i 1637  ]
 {
-"98
-[; ;robot.c: 98:         for(int i = 0; i < data; i+=2){
+"89
+[; ;robot.c: 89:         for(int i = 0; i < data; i+=2){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 1640  ]
+[e $U 1641  ]
+[e :U 1638 ]
+{
+"90
+[; ;robot.c: 90:             servo0_stat++;
+[e ++ _servo0_stat -> -> 1 `i `us ]
+"91
+[; ;robot.c: 91:             if(servo0_stat > 500)
+[e $ ! > -> _servo0_stat `ui -> -> 500 `i `ui 1642  ]
+"92
+[; ;robot.c: 92:                 servo0_stat = 500;
+[e = _servo0_stat -> -> 500 `i `us ]
+[e :U 1642 ]
+"93
+[; ;robot.c: 93:             PCA_write(0, 0, servo0_stat);
+[e ( _PCA_write (3 , , -> -> 0 `i `uc -> -> 0 `i `us _servo0_stat ]
+"94
+[; ;robot.c: 94:         }
+}
+[e =+ _i -> 2 `i ]
+[e :U 1641 ]
+[e $ < _i -> _data `i 1638  ]
+[e :U 1639 ]
+}
+"95
+[; ;robot.c: 95:     } else {
+}
+[e $U 1643  ]
 [e :U 1637 ]
 {
-"99
-[; ;robot.c: 99:             servo0_stat++;
-[e ++ _servo0_stat -> -> 1 `i `us ]
-"100
-[; ;robot.c: 100:             if(servo0_stat > 500)
-[e $ ! > -> _servo0_stat `ui -> -> 500 `i `ui 1641  ]
-"101
-[; ;robot.c: 101:                 servo0_stat = 500;
-[e = _servo0_stat -> -> 500 `i `us ]
-[e :U 1641 ]
-"102
-[; ;robot.c: 102:             PCA_write(0, 0, servo0_stat);
-[e ( _PCA_write (3 , , -> -> 0 `i `uc -> -> 0 `i `us _servo0_stat ]
-"103
-[; ;robot.c: 103:         }
-}
-[e =+ _i -> 2 `i ]
-[e :U 1640 ]
-[e $ < _i -> _data `i 1637  ]
-[e :U 1638 ]
-}
-"104
-[; ;robot.c: 104:     } else {
-}
-[e $U 1642  ]
-[e :U 1636 ]
-{
-"105
-[; ;robot.c: 105:         for(int i = 0; i < data; i+=2){
+"96
+[; ;robot.c: 96:         for(int i = 0; i < data; i+=2){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 1646  ]
-[e :U 1643 ]
+[e $U 1647  ]
+[e :U 1644 ]
 {
-"106
-[; ;robot.c: 106:             servo0_stat--;
+"97
+[; ;robot.c: 97:             servo0_stat--;
 [e -- _servo0_stat -> -> 1 `i `us ]
-"107
-[; ;robot.c: 107:             if(servo0_stat < 100)
-[e $ ! < -> _servo0_stat `ui -> -> 100 `i `ui 1647  ]
-"108
-[; ;robot.c: 108:                 servo0_stat = 100;
+"98
+[; ;robot.c: 98:             if(servo0_stat < 100)
+[e $ ! < -> _servo0_stat `ui -> -> 100 `i `ui 1648  ]
+"99
+[; ;robot.c: 99:                 servo0_stat = 100;
 [e = _servo0_stat -> -> 100 `i `us ]
-[e :U 1647 ]
-"109
-[; ;robot.c: 109:             PCA_write(0, 0, servo0_stat);
+[e :U 1648 ]
+"100
+[; ;robot.c: 100:             PCA_write(0, 0, servo0_stat);
 [e ( _PCA_write (3 , , -> -> 0 `i `uc -> -> 0 `i `us _servo0_stat ]
-"110
-[; ;robot.c: 110:         }
+"101
+[; ;robot.c: 101:         }
 }
 [e =+ _i -> 2 `i ]
-[e :U 1646 ]
-[e $ < _i -> _data `i 1643  ]
-[e :U 1644 ]
+[e :U 1647 ]
+[e $ < _i -> _data `i 1644  ]
+[e :U 1645 ]
 }
-"111
-[; ;robot.c: 111:     }
+"102
+[; ;robot.c: 102:     }
 }
-[e :U 1642 ]
-"112
-[; ;robot.c: 112: }
-[e :UE 1635 ]
+[e :U 1643 ]
+"103
+[; ;robot.c: 103: }
+[e :UE 1636 ]
 }
-"114
-[; ;robot.c: 114: void update_servo1_stat(uint8_t data, uint8_t dir) {
+"105
+[; ;robot.c: 105: void update_servo1_stat(uint8_t data, uint8_t dir) {
 [v _update_servo1_stat `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _update_servo1_stat ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [v _dir `uc ~T0 @X0 1 r2 ]
 [f ]
-"115
-[; ;robot.c: 115:     if (dir == 1){
-[e $ ! == -> _dir `i -> 1 `i 1649  ]
+"106
+[; ;robot.c: 106:     if (dir == 1){
+[e $ ! == -> _dir `i -> 1 `i 1650  ]
 {
-"116
-[; ;robot.c: 116:         for(int i = 0; i < data; i+=2){
+"107
+[; ;robot.c: 107:         for(int i = 0; i < data; i+=2){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 1653  ]
+[e $U 1654  ]
+[e :U 1651 ]
+{
+"108
+[; ;robot.c: 108:             servo1_stat++;
+[e ++ _servo1_stat -> -> 1 `i `us ]
+"109
+[; ;robot.c: 109:             if(servo1_stat > 500)
+[e $ ! > -> _servo1_stat `ui -> -> 500 `i `ui 1655  ]
+"110
+[; ;robot.c: 110:                 servo1_stat = 500;
+[e = _servo1_stat -> -> 500 `i `us ]
+[e :U 1655 ]
+"111
+[; ;robot.c: 111:             PCA_write(1, 0, servo1_stat);
+[e ( _PCA_write (3 , , -> -> 1 `i `uc -> -> 0 `i `us _servo1_stat ]
+"112
+[; ;robot.c: 112:         }
+}
+[e =+ _i -> 2 `i ]
+[e :U 1654 ]
+[e $ < _i -> _data `i 1651  ]
+[e :U 1652 ]
+}
+"113
+[; ;robot.c: 113:     } else {
+}
+[e $U 1656  ]
 [e :U 1650 ]
 {
-"117
-[; ;robot.c: 117:             servo1_stat++;
-[e ++ _servo1_stat -> -> 1 `i `us ]
-"118
-[; ;robot.c: 118:             if(servo1_stat > 500)
-[e $ ! > -> _servo1_stat `ui -> -> 500 `i `ui 1654  ]
-"119
-[; ;robot.c: 119:                 servo1_stat = 500;
-[e = _servo1_stat -> -> 500 `i `us ]
-[e :U 1654 ]
-"120
-[; ;robot.c: 120:             PCA_write(1, 0, servo1_stat);
-[e ( _PCA_write (3 , , -> -> 1 `i `uc -> -> 0 `i `us _servo1_stat ]
-"121
-[; ;robot.c: 121:         }
-}
-[e =+ _i -> 2 `i ]
-[e :U 1653 ]
-[e $ < _i -> _data `i 1650  ]
-[e :U 1651 ]
-}
-"122
-[; ;robot.c: 122:     } else {
-}
-[e $U 1655  ]
-[e :U 1649 ]
-{
-"123
-[; ;robot.c: 123:         for(int i = 0; i < data; i+=2){
+"114
+[; ;robot.c: 114:         for(int i = 0; i < data; i+=2){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 1659  ]
-[e :U 1656 ]
+[e $U 1660  ]
+[e :U 1657 ]
 {
-"124
-[; ;robot.c: 124:             servo1_stat--;
+"115
+[; ;robot.c: 115:             servo1_stat--;
 [e -- _servo1_stat -> -> 1 `i `us ]
-"125
-[; ;robot.c: 125:             if(servo1_stat < 100)
-[e $ ! < -> _servo1_stat `ui -> -> 100 `i `ui 1660  ]
-"126
-[; ;robot.c: 126:                 servo1_stat = 100;
+"116
+[; ;robot.c: 116:             if(servo1_stat < 100)
+[e $ ! < -> _servo1_stat `ui -> -> 100 `i `ui 1661  ]
+"117
+[; ;robot.c: 117:                 servo1_stat = 100;
 [e = _servo1_stat -> -> 100 `i `us ]
-[e :U 1660 ]
-"127
-[; ;robot.c: 127:             PCA_write(1, 0, servo1_stat);
+[e :U 1661 ]
+"118
+[; ;robot.c: 118:             PCA_write(1, 0, servo1_stat);
 [e ( _PCA_write (3 , , -> -> 1 `i `uc -> -> 0 `i `us _servo1_stat ]
-"128
-[; ;robot.c: 128:         }
+"119
+[; ;robot.c: 119:         }
 }
 [e =+ _i -> 2 `i ]
-[e :U 1659 ]
-[e $ < _i -> _data `i 1656  ]
-[e :U 1657 ]
+[e :U 1660 ]
+[e $ < _i -> _data `i 1657  ]
+[e :U 1658 ]
 }
-"129
-[; ;robot.c: 129:     }
+"120
+[; ;robot.c: 120:     }
 }
-[e :U 1655 ]
-"130
-[; ;robot.c: 130: }
-[e :UE 1648 ]
+[e :U 1656 ]
+"121
+[; ;robot.c: 121: }
+[e :UE 1649 ]
 }
-"132
-[; ;robot.c: 132: void update_servo2_stat(uint8_t data, uint8_t dir) {
+"123
+[; ;robot.c: 123: void update_servo2_stat(uint8_t data, uint8_t dir) {
 [v _update_servo2_stat `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _update_servo2_stat ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [v _dir `uc ~T0 @X0 1 r2 ]
 [f ]
-"133
-[; ;robot.c: 133:     if (dir == 1){
-[e $ ! == -> _dir `i -> 1 `i 1662  ]
+"124
+[; ;robot.c: 124:     if (dir == 1){
+[e $ ! == -> _dir `i -> 1 `i 1663  ]
 {
-"134
-[; ;robot.c: 134:         for(int i = 0; i < data; i++){
+"125
+[; ;robot.c: 125:         for(int i = 0; i < data; i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 1666  ]
+[e $U 1667  ]
+[e :U 1664 ]
+{
+"126
+[; ;robot.c: 126:             servo2_stat++;
+[e ++ _servo2_stat -> -> 1 `i `us ]
+"127
+[; ;robot.c: 127:             if(servo2_stat > 500)
+[e $ ! > -> _servo2_stat `ui -> -> 500 `i `ui 1668  ]
+"128
+[; ;robot.c: 128:                 servo2_stat = 500;
+[e = _servo2_stat -> -> 500 `i `us ]
+[e :U 1668 ]
+"129
+[; ;robot.c: 129:             PCA_write(2, 0, servo2_stat);
+[e ( _PCA_write (3 , , -> -> 2 `i `uc -> -> 0 `i `us _servo2_stat ]
+"130
+[; ;robot.c: 130:         }
+}
+[e ++ _i -> 1 `i ]
+[e :U 1667 ]
+[e $ < _i -> _data `i 1664  ]
+[e :U 1665 ]
+}
+"131
+[; ;robot.c: 131:     } else {
+}
+[e $U 1669  ]
 [e :U 1663 ]
 {
-"135
-[; ;robot.c: 135:             servo2_stat++;
-[e ++ _servo2_stat -> -> 1 `i `us ]
-"136
-[; ;robot.c: 136:             if(servo2_stat > 500)
-[e $ ! > -> _servo2_stat `ui -> -> 500 `i `ui 1667  ]
-"137
-[; ;robot.c: 137:                 servo2_stat = 500;
-[e = _servo2_stat -> -> 500 `i `us ]
-[e :U 1667 ]
-"138
-[; ;robot.c: 138:             PCA_write(2, 0, servo2_stat);
-[e ( _PCA_write (3 , , -> -> 2 `i `uc -> -> 0 `i `us _servo2_stat ]
-"139
-[; ;robot.c: 139:         }
-}
-[e ++ _i -> 1 `i ]
-[e :U 1666 ]
-[e $ < _i -> _data `i 1663  ]
-[e :U 1664 ]
-}
-"140
-[; ;robot.c: 140:     } else {
-}
-[e $U 1668  ]
-[e :U 1662 ]
-{
-"141
-[; ;robot.c: 141:         for(int i = 0; i < data; i++){
+"132
+[; ;robot.c: 132:         for(int i = 0; i < data; i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 1672  ]
-[e :U 1669 ]
+[e $U 1673  ]
+[e :U 1670 ]
 {
-"142
-[; ;robot.c: 142:             servo2_stat--;
+"133
+[; ;robot.c: 133:             servo2_stat--;
 [e -- _servo2_stat -> -> 1 `i `us ]
-"143
-[; ;robot.c: 143:             if(servo2_stat < 100)
-[e $ ! < -> _servo2_stat `ui -> -> 100 `i `ui 1673  ]
-"144
-[; ;robot.c: 144:                 servo2_stat = 100;
+"134
+[; ;robot.c: 134:             if(servo2_stat < 100)
+[e $ ! < -> _servo2_stat `ui -> -> 100 `i `ui 1674  ]
+"135
+[; ;robot.c: 135:                 servo2_stat = 100;
 [e = _servo2_stat -> -> 100 `i `us ]
-[e :U 1673 ]
-"145
-[; ;robot.c: 145:             PCA_write(2, 0, servo2_stat);
+[e :U 1674 ]
+"136
+[; ;robot.c: 136:             PCA_write(2, 0, servo2_stat);
 [e ( _PCA_write (3 , , -> -> 2 `i `uc -> -> 0 `i `us _servo2_stat ]
-"146
-[; ;robot.c: 146:         }
+"137
+[; ;robot.c: 137:         }
 }
 [e ++ _i -> 1 `i ]
-[e :U 1672 ]
-[e $ < _i -> _data `i 1669  ]
-[e :U 1670 ]
+[e :U 1673 ]
+[e $ < _i -> _data `i 1670  ]
+[e :U 1671 ]
 }
-"147
-[; ;robot.c: 147:     }
+"138
+[; ;robot.c: 138:     }
 }
-[e :U 1668 ]
-"148
-[; ;robot.c: 148: }
-[e :UE 1661 ]
+[e :U 1669 ]
+"139
+[; ;robot.c: 139: }
+[e :UE 1662 ]
 }
-"150
-[; ;robot.c: 150: void update_servo3_stat(uint8_t data, uint8_t dir) {
+"141
+[; ;robot.c: 141: void update_servo3_stat(uint8_t data, uint8_t dir) {
 [v _update_servo3_stat `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _update_servo3_stat ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [v _dir `uc ~T0 @X0 1 r2 ]
 [f ]
-"151
-[; ;robot.c: 151:     if (dir == 1){
-[e $ ! == -> _dir `i -> 1 `i 1675  ]
+"142
+[; ;robot.c: 142:     if (dir == 1){
+[e $ ! == -> _dir `i -> 1 `i 1676  ]
 {
-"152
-[; ;robot.c: 152:         for(int i = 0; i < data; i++){
+"143
+[; ;robot.c: 143:         for(int i = 0; i < data; i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 1679  ]
+[e $U 1680  ]
+[e :U 1677 ]
+{
+"144
+[; ;robot.c: 144:             servo3_stat++;
+[e ++ _servo3_stat -> -> 1 `i `us ]
+"145
+[; ;robot.c: 145:             if(servo3_stat > 500)
+[e $ ! > -> _servo3_stat `ui -> -> 500 `i `ui 1681  ]
+"146
+[; ;robot.c: 146:                 servo3_stat = 500;
+[e = _servo3_stat -> -> 500 `i `us ]
+[e :U 1681 ]
+"147
+[; ;robot.c: 147:             PCA_write(3, 0, servo3_stat);
+[e ( _PCA_write (3 , , -> -> 3 `i `uc -> -> 0 `i `us _servo3_stat ]
+"148
+[; ;robot.c: 148:         }
+}
+[e ++ _i -> 1 `i ]
+[e :U 1680 ]
+[e $ < _i -> _data `i 1677  ]
+[e :U 1678 ]
+}
+"149
+[; ;robot.c: 149:     } else {
+}
+[e $U 1682  ]
 [e :U 1676 ]
 {
-"153
-[; ;robot.c: 153:             servo3_stat++;
-[e ++ _servo3_stat -> -> 1 `i `us ]
-"154
-[; ;robot.c: 154:             if(servo3_stat > 500)
-[e $ ! > -> _servo3_stat `ui -> -> 500 `i `ui 1680  ]
-"155
-[; ;robot.c: 155:                 servo3_stat = 500;
-[e = _servo3_stat -> -> 500 `i `us ]
-[e :U 1680 ]
-"156
-[; ;robot.c: 156:             PCA_write(3, 0, servo3_stat);
-[e ( _PCA_write (3 , , -> -> 3 `i `uc -> -> 0 `i `us _servo3_stat ]
-"157
-[; ;robot.c: 157:         }
-}
-[e ++ _i -> 1 `i ]
-[e :U 1679 ]
-[e $ < _i -> _data `i 1676  ]
-[e :U 1677 ]
-}
-"158
-[; ;robot.c: 158:     } else {
-}
-[e $U 1681  ]
-[e :U 1675 ]
-{
-"159
-[; ;robot.c: 159:         for(int i = 0; i < data; i++){
+"150
+[; ;robot.c: 150:         for(int i = 0; i < data; i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 1685  ]
-[e :U 1682 ]
+[e $U 1686  ]
+[e :U 1683 ]
 {
-"160
-[; ;robot.c: 160:             servo3_stat--;
+"151
+[; ;robot.c: 151:             servo3_stat--;
 [e -- _servo3_stat -> -> 1 `i `us ]
-"161
-[; ;robot.c: 161:             if(servo3_stat < 100)
-[e $ ! < -> _servo3_stat `ui -> -> 100 `i `ui 1686  ]
-"162
-[; ;robot.c: 162:                 servo3_stat = 100;
+"152
+[; ;robot.c: 152:             if(servo3_stat < 100)
+[e $ ! < -> _servo3_stat `ui -> -> 100 `i `ui 1687  ]
+"153
+[; ;robot.c: 153:                 servo3_stat = 100;
 [e = _servo3_stat -> -> 100 `i `us ]
-[e :U 1686 ]
-"163
-[; ;robot.c: 163:             PCA_write(3, 0, servo3_stat);
+[e :U 1687 ]
+"154
+[; ;robot.c: 154:             PCA_write(3, 0, servo3_stat);
 [e ( _PCA_write (3 , , -> -> 3 `i `uc -> -> 0 `i `us _servo3_stat ]
-"164
-[; ;robot.c: 164:         }
+"155
+[; ;robot.c: 155:         }
 }
 [e ++ _i -> 1 `i ]
-[e :U 1685 ]
-[e $ < _i -> _data `i 1682  ]
-[e :U 1683 ]
+[e :U 1686 ]
+[e $ < _i -> _data `i 1683  ]
+[e :U 1684 ]
 }
-"165
-[; ;robot.c: 165:     }
+"156
+[; ;robot.c: 156:     }
 }
-[e :U 1681 ]
-"166
-[; ;robot.c: 166: }
-[e :UE 1674 ]
+[e :U 1682 ]
+"157
+[; ;robot.c: 157: }
+[e :UE 1675 ]
 }

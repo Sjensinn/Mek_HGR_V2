@@ -25,8 +25,8 @@ void dc_init(void){
 
 void dc_stop() {
     //LATB &= 0b11001001;
-    PCA_write(4, 0x00, 0);
-    PCA_write(5, 0x00, 0);
+    PCA_write(4, 0x00, 1);
+    PCA_write(5, 0x00, 1);
     
 }
 
@@ -56,7 +56,7 @@ void dc_turn(uint8_t x, uint8_t xdir){
 }
 
 void dc_update(uint8_t motor_speed){
-        ENA_stat = ((uint16_t)motor_speed*110);
+        ENA_stat = ((uint16_t)motor_speed*100);
         ENB_stat = ENA_stat;
         
         if (ENA_stat >= (DCMAX)) { //redefine min/max, er 100/1300 atm
@@ -74,6 +74,7 @@ void dc_update(uint8_t motor_speed){
         
         PCA_write(4, 0x00, ENA_stat);
         PCA_write(5, 0x00, ENB_stat);
+
 }
 
 void dc_update_ccp(uint8_t motor_speed){
