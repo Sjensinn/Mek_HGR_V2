@@ -6,6 +6,7 @@
 #include "dc.h"
 #include "Stepper.h"
 #include "robot.h"
+#include "pwm.h"
 
 //data_flex; //00XXXXXX
 //data_fingers; //f3 | f2 | f1 | Axdir | Aydir | NA | ADDR1 | ADDR0  (01)
@@ -13,6 +14,8 @@
 //data_y; //00XXXXXX was XXXXXX-11
 
 void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t data_y) {
+    
+    update_servo3_stat(data_flex);
 
     if ((data_fingers & 0b00010000) == 0b00010000) {
         xdir = 1;
@@ -25,9 +28,9 @@ void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t da
         ydir = 0;
     }
 
-    if ((data_fingers & 0b00100000) == 0b00100000) { //finger 1
+    if ((data_fingers & 0b00100000) == 0b00100000) { //finger 1 = wheels
         stepper_stop();
-        PCA_Set_Freq(0x03); //Update output frequency of PCA
+        //PCA_Set_Freq(0x03); //Update output frequency of PCA
         
         if (data_y > 4) {
             dc_move(data_y, ydir);
@@ -37,10 +40,10 @@ void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t da
             dc_stop();
         }
 
-    } else if ((data_fingers & 0b01000000) == 0b01000000) { //finger 2
+    } else if ((data_fingers & 0b01000000) == 0b01000000) { //finger 2 = shoulder
         stepper_stop();
         dc_stop();
-        PCA_Set_Freq(130);
+        //PCA_Set_Freq(130);
 
         if(data_x > 10){
             update_servo0_stat(data_x, xdir);
@@ -48,9 +51,9 @@ void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t da
         if(data_y > 10){
             update_servo1_stat(data_y, ydir);
         }
-    } else if ((data_fingers & 0b10000000) == 0b10000000) { //finger 3
+    } else if ((data_fingers & 0b10000000) == 0b10000000) { //finger 3 = wrist
         dc_stop();
-        PCA_Set_Freq(130);
+
         if (xdir == 1 && data_x > 10) {
             stepper_move(1);
             __delay_ms(10);
@@ -61,9 +64,11 @@ void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t da
             stepper_stop();
             dc_stop();
         }
+        if(data_y > 10){
+            update_servo2_stat(data_y, ydir);
+        }
 
-        update_servo2_stat(data_x, xdir);
-        PCA_write(2, 0, servo1_stat);
+        //PCA_write(2, 0, servo1_stat);
 
     }
     else{
@@ -138,20 +143,13 @@ void update_servo2_stat(uint8_t data, uint8_t dir) {
     }
 }
 
-void update_servo3_stat(uint8_t data, uint8_t dir) {
-    if (dir == 1){
-        for(int i = 0; i < data; i++){
-            servo3_stat++;
-            if(servo3_stat > SERVO3MAX)
-                servo3_stat = SERVO3MAX;
-            PCA_write(3, 0, servo3_stat);
-        }
-    } else {
-        for(int i = 0; i < data; i++){
-            servo3_stat--;
-            if(servo3_stat < SERVO3MIN)
-                servo3_stat = SERVO3MIN;
-            PCA_write(3, 0, servo3_stat);
-        }
-    }
+void update_servo3_stat(uint8_t data) {
+
+        servo3_stat = data*10;
+        if(servo3_stat > SERVO3MAX)
+            servo3_stat = SERVO3MAX;
+        if(servo3_stat < SERVO3MIN)
+            servo3_stat = SERVO3MIN;
+        
+        PCA_write(3, 0, servo3_stat);
 }

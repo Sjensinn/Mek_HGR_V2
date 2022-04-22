@@ -35,6 +35,7 @@
 uint16_t adcval;
 void adc_initialize(void);
 uint16_t adc_readvalue(void);
+uint16_t adc_measure(void);
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 

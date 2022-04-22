@@ -1,4 +1,4 @@
-# 1 "C:\\Program Files\\Microchip\\pic\\sources\\c99\\pic\\__eeprom.c"
+# 1 "adc.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,15 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "C:\\Program Files\\Microchip\\pic\\sources\\c99\\pic\\__eeprom.c" 2
+# 1 "adc.c" 2
+
+
+
+
+
+
+
+
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -20716,184 +20724,50 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\\pic\\include\\xc.h" 2 3
-# 1 "C:\\Program Files\\Microchip\\pic\\sources\\c99\\pic\\__eeprom.c" 2
+# 9 "adc.c" 2
+
+# 1 "./adc.h" 1
+# 35 "./adc.h"
+uint16_t adcval;
+void adc_initialize(void);
+uint16_t adc_readvalue(void);
+uint16_t adc_measure(void);
+# 10 "adc.c" 2
+
+
+void adc_initialize(void){
+    TRISAbits.TRISA0 = 1;
+    PORTAbits.RA0 = 1;
+    ANSELAbits.ANSA0 = 1;
+    ADREFbits.ADNREF = 1;
+    ADREFbits.ADPREF1 = 1;
+    ADREFbits.ADPREF0 = 0;
+    ADCON0bits.ADCS = 0;
+# 31 "adc.c"
+    ADCLK = 0;
+    ADCON0bits.ADFRM0 = 1;
+
+
+    ADCON0bits.ADON = 1;
+    ADCON0bits.ADCONT = 0;
 
 
 
 
-void
-__eecpymem(volatile unsigned char *to, __eeprom unsigned char * from, unsigned char size)
-{
- volatile unsigned char *cp = to;
-# 22 "C:\\Program Files\\Microchip\\pic\\sources\\c99\\pic\\__eeprom.c"
- while (NVMCON1bits.WR) {
-  continue;
- }
- NVMCON1bits.NVMREGS = 1;
- NVMADRL = (unsigned char) from;
- NVMADRH = 0x70;
- while (size--) {
-  NVMCON1bits.RD = 1;
-  *cp++ = NVMDATL;
-  NVMADRL++;
- }
 
 
 
+    }
+
+uint16_t adc_readvalue(void){
+    adcval = ADRESH;
+    adcval = adcval<<8;
+    adcval += ADRESL;
+    return adcval;
 }
+uint16_t adc_measure(){
+    ADCON0bits.ADGO = 1;
+    while(ADCON0bits.ADGO == 1);
 
-void
-__memcpyee(__eeprom unsigned char * to, const unsigned char *from, unsigned char size)
-{
- const unsigned char *ptr =from;
-# 69 "C:\\Program Files\\Microchip\\pic\\sources\\c99\\pic\\__eeprom.c"
- while (NVMCON1bits.WR) {
-  continue;
- }
- NVMCON1bits.NVMREGS = 1;
- NVMADRL = (unsigned char) to - 1U;
- NVMADRH = 0x70;
- NVMDATH = 0;
- while (size--) {
-  while (NVMCON1bits.WR) {
-   continue;
-  }
-  NVMDATL = *ptr++;
-  NVMADRL++;
-  STATUSbits.CARRY = 0;
-  if (INTCONbits.GIE) {
-   STATUSbits.CARRY = 1;
-  }
-  NVMCON1bits.WREN = 1;
-  NVMCON2 = 0x55;
-  NVMCON2 = 0xAA;
-  NVMCON1bits.WR = 1;
-  while (NVMCON1bits.WR) {
-   continue;
-  }
-  NVMCON1bits.WREN = 0;
-  if (STATUSbits.CARRY) {
-   INTCONbits.GIE = 1;
-  }
- }
-
-
-
-}
-
-unsigned char
-__eetoc(__eeprom void *addr)
-{
- unsigned char data;
- __eecpymem((unsigned char *) &data,addr,1);
- return data;
-}
-
-unsigned int
-__eetoi(__eeprom void *addr)
-{
- unsigned int data;
- __eecpymem((unsigned char *) &data,addr,2);
- return data;
-}
-
-#pragma warning push
-#pragma warning disable 2040
-__uint24
-__eetom(__eeprom void *addr)
-{
- __uint24 data;
- __eecpymem((unsigned char *) &data,addr,3);
- return data;
-}
-#pragma warning pop
-
-unsigned long
-__eetol(__eeprom void *addr)
-{
- unsigned long data;
- __eecpymem((unsigned char *) &data,addr,4);
- return data;
-}
-
-#pragma warning push
-#pragma warning disable 1516
-unsigned long long
-__eetoo(__eeprom void *addr)
-{
- unsigned long long data;
- __eecpymem((unsigned char *) &data,addr,8);
- return data;
-}
-#pragma warning pop
-
-unsigned char
-__ctoee(__eeprom void *addr, unsigned char data)
-{
- __memcpyee(addr,(unsigned char *) &data,1);
- return data;
-}
-
-unsigned int
-__itoee(__eeprom void *addr, unsigned int data)
-{
- __memcpyee(addr,(unsigned char *) &data,2);
- return data;
-}
-
-#pragma warning push
-#pragma warning disable 2040
-__uint24
-__mtoee(__eeprom void *addr, __uint24 data)
-{
- __memcpyee(addr,(unsigned char *) &data,3);
- return data;
-}
-#pragma warning pop
-
-unsigned long
-__ltoee(__eeprom void *addr, unsigned long data)
-{
- __memcpyee(addr,(unsigned char *) &data,4);
- return data;
-}
-
-#pragma warning push
-#pragma warning disable 1516
-unsigned long long
-__otoee(__eeprom void *addr, unsigned long long data)
-{
- __memcpyee(addr,(unsigned char *) &data,8);
- return data;
-}
-#pragma warning pop
-
-float
-__eetoft(__eeprom void *addr)
-{
- float data;
- __eecpymem((unsigned char *) &data,addr,3);
- return data;
-}
-
-double
-__eetofl(__eeprom void *addr)
-{
- double data;
- __eecpymem((unsigned char *) &data,addr,4);
- return data;
-}
-
-float
-__fttoee(__eeprom void *addr, float data)
-{
- __memcpyee(addr,(unsigned char *) &data,3);
- return data;
-}
-
-double
-__fltoee(__eeprom void *addr, double data)
-{
- __memcpyee(addr,(unsigned char *) &data,4);
- return data;
+    return ADRES;
 }

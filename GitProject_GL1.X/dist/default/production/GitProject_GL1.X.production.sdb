@@ -3,6 +3,10 @@
 [d edition pro ]
 [d chip 16F18877 ]
 [d frameptr 6 ]
+"12 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\adc.c
+[v _adc_initialize adc_initialize `(v  1 e 1 0 ]
+"52
+[v _adc_measure adc_measure `(us  1 e 2 0 ]
 "1 C:\Program Files\Microchip\pic\sources\c99\common\abs.c
 [v _abs abs `(i  1 e 2 0 ]
 "5 C:\Program Files\Microchip\pic\sources\c99\common\awdiv.c
@@ -41,9 +45,9 @@
 [v _I2C_Write I2C_Write `(v  1 e 1 0 ]
 "57
 [v _I2C_Read I2C_Read `(uc  1 e 1 0 ]
-"41 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+"42 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
 [v _main main `(v  1 e 1 0 ]
-"86
+"89
 [v _isr isr `II(v  1 e 1 0 ]
 "12 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
 [v _system_init system_init `(v  1 e 1 0 ]
@@ -65,17 +69,31 @@
 [v _is_ready is_ready `(uc  1 e 1 0 ]
 "62
 [v _send_commands send_commands `(v  1 e 1 0 ]
+"35 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X/adc.h
+[v _adcval adcval `us  1 e 2 0 ]
 "132 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X/gy_521.h
 [v _gy_address gy_address `uc  1 e 1 0 ]
-[s S673 . 1 `uc 1 INTEDG 1 0 :1:0 
+[s S682 . 1 `uc 1 INTEDG 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
 "371 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
-[u S678 . 1 `S673 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES678  1 e 1 @11 ]
-[s S510 . 1 `uc 1 RB0 1 0 :1:0 
+[u S687 . 1 `S682 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES687  1 e 1 @11 ]
+[s S893 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+"408
+[u S902 . 1 `S893 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES902  1 e 1 @12 ]
+[s S518 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -85,10 +103,22 @@
 `uc 1 RB7 1 0 :1:7 
 ]
 "470
-[u S519 . 1 `S510 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES519  1 e 1 @13 ]
+[u S527 . 1 `S518 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES527  1 e 1 @13 ]
 "677
 [v _TRISA TRISA `VEuc  1 e 1 @17 ]
+[s S872 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+`uc 1 TRISA6 1 0 :1:6 
+`uc 1 TRISA7 1 0 :1:7 
+]
+"694
+[u S881 . 1 `S872 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES881  1 e 1 @17 ]
 "739
 [v _TRISB TRISB `VEuc  1 e 1 @18 ]
 "801
@@ -119,6 +149,49 @@
 [v _LATD LATD `VEuc  1 e 1 @25 ]
 "1205
 [v _LATE LATE `VEuc  1 e 1 @26 ]
+"1805
+[v _ADRES ADRES `VEus  1 e 2 @140 ]
+"1812
+[v _ADRESL ADRESL `VEuc  1 e 1 @140 ]
+"1832
+[v _ADRESH ADRESH `VEuc  1 e 1 @141 ]
+[s S953 . 1 `uc 1 ADGO 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 ADFM 1 0 :2:2 
+`uc 1 ADCS 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 ADCONT 1 0 :1:6 
+`uc 1 ADON 1 0 :1:7 
+]
+"2167
+[s S961 . 1 `uc 1 DONE 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 ADFRM 1 0 :2:2 
+]
+[s S965 . 1 `uc 1 nDONE 1 0 :1:0 
+]
+[s S967 . 1 `uc 1 GO 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 ADFM0 1 0 :1:2 
+]
+[s S971 . 1 `uc 1 GO_nDONE 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 ADFRM0 1 0 :1:2 
+]
+[u S975 . 1 `S953 1 . 1 0 `S961 1 . 1 0 `S965 1 . 1 0 `S967 1 . 1 0 `S971 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES975  1 e 1 @147 ]
+"2489
+[v _ADCLK ADCLK `VEuc  1 e 1 @152 ]
+[s S935 . 1 `uc 1 ADPREF 1 0 :2:0 
+`uc 1 . 1 0 :2:2 
+`uc 1 ADNREF 1 0 :1:4 
+]
+"2615
+[s S939 . 1 `uc 1 ADPREF0 1 0 :1:0 
+`uc 1 ADPREF1 1 0 :1:1 
+]
+[u S942 . 1 `S935 1 . 1 0 `S939 1 . 1 0 ]
+[v _ADREFbits ADREFbits `VES942  1 e 1 @154 ]
 "3770
 [v _RCREG RCREG `VEuc  1 e 1 @281 ]
 "3819
@@ -129,7 +202,7 @@
 [v _SPBRGL SPBRGL `VEuc  1 e 1 @283 ]
 "3955
 [v _SPBRGH SPBRGH `VEuc  1 e 1 @284 ]
-[s S767 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S776 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -139,9 +212,9 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "4030
-[u S776 . 1 `S767 1 . 1 0 ]
-[v _RC1STAbits RC1STAbits `VES776  1 e 1 @285 ]
-[s S725 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S785 . 1 `S776 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES785  1 e 1 @285 ]
+[s S734 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -151,9 +224,9 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "4210
-[u S734 . 1 `S725 1 . 1 0 ]
-[v _TX1STAbits TX1STAbits `VES734  1 e 1 @286 ]
-[s S704 . 1 `uc 1 ABDEN 1 0 :1:0 
+[u S743 . 1 `S734 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES743  1 e 1 @286 ]
+[s S713 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -163,10 +236,10 @@
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "4398
-[u S713 . 1 `S704 1 . 1 0 ]
-[v _BAUD1CONbits BAUD1CONbits `VES713  1 e 1 @287 ]
+[u S722 . 1 `S713 1 . 1 0 ]
+[v _BAUD1CONbits BAUD1CONbits `VES722  1 e 1 @287 ]
 "4531
-[v _BAUDCONbits BAUDCONbits `VES713  1 e 1 @287 ]
+[v _BAUDCONbits BAUDCONbits `VES722  1 e 1 @287 ]
 "4610
 [v _SSP1BUF SSP1BUF `VEuc  1 e 1 @396 ]
 "4630
@@ -340,7 +413,7 @@
 "21382
 [u S255 . 1 `S248 1 . 1 0 ]
 [v _PIR3bits PIR3bits `VES255  1 e 1 @1807 ]
-[s S656 . 1 `uc 1 SSP1IE 1 0 :1:0 
+[s S665 . 1 `uc 1 SSP1IE 1 0 :1:0 
 `uc 1 BCL1IE 1 0 :1:1 
 `uc 1 SSP2IE 1 0 :1:2 
 `uc 1 BCL2IE 1 0 :1:3 
@@ -348,8 +421,8 @@
 `uc 1 RCIE 1 0 :1:5 
 ]
 "21804
-[u S663 . 1 `S656 1 . 1 0 ]
-[v _PIE3bits PIE3bits `VES663  1 e 1 @1817 ]
+[u S672 . 1 `S665 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES672  1 e 1 @1817 ]
 "23443
 [v _OSCCON1 OSCCON1 `VEuc  1 e 1 @2189 ]
 "23513
@@ -382,6 +455,20 @@
 [v _RC6PPS RC6PPS `VEuc  1 e 1 @7974 ]
 "33494
 [v _ANSELA ANSELA `VEuc  1 e 1 @7992 ]
+[s S914 . 1 `uc 1 ANSA0 1 0 :1:0 
+`uc 1 ANSA1 1 0 :1:1 
+`uc 1 ANSA2 1 0 :1:2 
+`uc 1 ANSA3 1 0 :1:3 
+`uc 1 ANSA4 1 0 :1:4 
+`uc 1 ANSA5 1 0 :1:5 
+`uc 1 ANSA6 1 0 :1:6 
+`uc 1 ANSA7 1 0 :1:7 
+]
+"33511
+[u S923 . 1 `S914 1 . 1 0 ]
+"33511
+"33511
+[v _ANSELAbits ANSELAbits `VES923  1 e 1 @7992 ]
 "33556
 [v _WPUA WPUA `VEuc  1 e 1 @7993 ]
 "33618
@@ -459,22 +546,22 @@
 [v _RCIF RCIF `VEb  1 e 0 @14461 ]
 "44429
 [v _TXIF TXIF `VEb  1 e 0 @14460 ]
-"38 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+"39 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
 [v _data_in data_in `VEuc  1 e 1 0 ]
-"39
+"40
 [v _ready_flag ready_flag `VEuc  1 e 1 0 ]
-"41
+"42
 [v _main main `(v  1 e 1 0 ]
 {
-"49
+"51
 [v main@tx_data tx_data `[4]uc  1 a 4 13 ]
-"46
+"48
 [v main@accelo_y accelo_y `s  1 a 2 21 ]
 [v main@accelo_x accelo_x `s  1 a 2 19 ]
-"47
+"49
 [v main@ayd ayd `uc  1 a 1 18 ]
 [v main@axd axd `uc  1 a 1 17 ]
-"84
+"87
 } 0
 "12 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\system_init.c
 [v _system_init system_init `(v  1 e 1 0 ]
@@ -639,15 +726,25 @@
 [v _format_data_b1 format_data_b1 `(uc  1 e 1 0 ]
 {
 "23
-[v format_data_b1@b b `uc  1 a 1 8 ]
+[v format_data_b1@b b `uc  1 a 1 0 ]
 "22
-[v format_data_b1@flex flex `us  1 p 2 2 ]
+[v format_data_b1@flex flex `us  1 p 2 4 ]
 "28
 } 0
-"86 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
+"52 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\adc.c
+[v _adc_measure adc_measure `(us  1 e 2 0 ]
+{
+"57
+} 0
+"12
+[v _adc_initialize adc_initialize `(v  1 e 1 0 ]
+{
+"44
+} 0
+"89 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\Main.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"93
+"96
 } 0
 "53 C:\Users\Sindri Jens\git_repos\Mek_HGR_V2\GitProject_GL1.X\uart.c
 [v _is_ready is_ready `(uc  1 e 1 0 ]

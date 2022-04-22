@@ -11,9 +11,9 @@ void PWM6_Initialize(void){
     // Set the PWM to the options selected in the PIC10 / PIC12 / PIC16 / PIC18 MCUs.
     // PWM6POL active_hi; PWM6EN enabled; 
     PWM6CON = 0x80;   //PWM6 enable
-
-    PWM6DCH = 0x0F;   //pulse width length
-    PWM6DCL = 0x40;
+    RA2PPS = 0x0E;
+    //PWM6DCH = 0x0F;   //pulse width length
+    //PWM6DCL = 0x40;
 
     // Select timer
     CCPTMRS1bits.P6TSEL = 1; //PWM6 based on TMR2

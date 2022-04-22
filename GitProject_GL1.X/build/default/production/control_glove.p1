@@ -1666,8 +1666,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _b `uc ~T0 @X0 1 a ]
 [e = _b -> -> 0 `i `uc ]
 "25
-[; ;control_glove.c: 25:         b = (flex/1024) << 2;
-[e = _b -> << / -> _flex `ui -> -> 1024 `i `ui -> 2 `i `uc ]
+[; ;control_glove.c: 25:         b = (flex/16) << 2;
+[e = _b -> << / -> _flex `ui -> -> 16 `i `ui -> 2 `i `uc ]
 "26
 [; ;control_glove.c: 26:         b = b & 11111100;
 [e = _b -> & -> _b `l -> 11111100 `l `uc ]

@@ -26,7 +26,8 @@
 #include "Stepper.h"
 #include "robot.h"
 #include "dc.h"
-#include "LCD.h"
+#include "pwm.h"
+
 
 volatile uint8_t data_in; //each byte transmission
 volatile uint8_t data_flex; //00XXXXXX was XXXXXX-00
@@ -42,6 +43,8 @@ void main(void) {
     int8_t x, y;
     uint8_t init_ready;
     system_init(); //Initiate clock, pins, uart, i2c, timer1 and interrupts
+    PWM6_Initialize();
+    TMR2_Initialize();
     PCA_Init(130, 0x80); //Initiate PCA9685 unit with I2C address: 0x80 and prescalar of 130
     stepper_init(); //Initiate Stepper
     init_ready = 1; //Ready for initial communications
@@ -49,6 +52,7 @@ void main(void) {
     __delay_ms(1000);
     
     while (1) {
+        //PWM6_LoadDutyValue(5); //min = 0, max = 5100(98%)
         if (PORTAbits.RA0 == 1) {
             if (init_ready == 1) {
                 send_ready(); //send ready signal
@@ -68,6 +72,7 @@ void main(void) {
             //Homing start
             init_ready = 1;
         }
+        __delay_ms(25);
     }
 
     return;

@@ -3,6 +3,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28 ./system_init.h
 [; ;./system_init.h: 28: void system_init(void);
 [v _system_init `(v ~T0 @X0 0 ef ]
+"36 ./adc.h
+[; ;./adc.h: 36: void adc_initialize(void);
+[v _adc_initialize `(v ~T0 @X0 0 ef ]
 "149 ./gy_521.h
 [; ;./gy_521.h: 149: void gy_init(uint8_t gyAdd);
 [v _gy_init `(v ~T0 @X0 0 ef1`uc ]
@@ -12,7 +15,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40 ./control_glove.h
 [; ;./control_glove.h: 40: uint8_t format_data_b1(uint16_t flex);
 [v _format_data_b1 `(uc ~T0 @X0 0 ef1`us ]
-"52
+"38 ./adc.h
+[; ;./adc.h: 38: uint16_t adc_measure(void);
+[v _adc_measure `(us ~T0 @X0 0 ef ]
+"52 ./control_glove.h
 [; ;./control_glove.h: 52: uint8_t format_data_b2(uint8_t f1, uint8_t f2, uint8_t f3, uint8_t axd, uint8_t ayd);
 [v _format_data_b2 `(uc ~T0 @X0 0 ef5`uc`uc`uc`uc`uc ]
 "459 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
@@ -1730,151 +1736,157 @@ Version 4.0 HI-TECH Software Intermediate Code
 "132 ./gy_521.h
 [; ;./gy_521.h: 132: uint8_t gy_address;
 [v _gy_address `uc ~T0 @X0 1 e ]
-"38 Main.c
-[; ;Main.c: 38: volatile uint8_t data_in;
+"35 ./adc.h
+[; ;./adc.h: 35: uint16_t adcval;
+[v _adcval `us ~T0 @X0 1 e ]
+"39 Main.c
+[; ;Main.c: 39: volatile uint8_t data_in;
 [v _data_in `Vuc ~T0 @X0 1 e ]
-"39
-[; ;Main.c: 39: volatile uint8_t ready_flag = 0;
+"40
+[; ;Main.c: 40: volatile uint8_t ready_flag = 0;
 [v _ready_flag `Vuc ~T0 @X0 1 e ]
 [i _ready_flag
 -> -> 0 `i `uc
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"41
-[; ;Main.c: 41: void main(void) {
+"42
+[; ;Main.c: 42: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"42
-[; ;Main.c: 42:     system_init();
-[e ( _system_init ..  ]
 "43
-[; ;Main.c: 43:     gy_init(0x68);
+[; ;Main.c: 43:     system_init();
+[e ( _system_init ..  ]
+"44
+[; ;Main.c: 44:     adc_initialize();
+[e ( _adc_initialize ..  ]
+"45
+[; ;Main.c: 45:     gy_init(0x68);
 [e ( _gy_init (1 -> -> 104 `i `uc ]
-"46
-[; ;Main.c: 46:     int16_t accelo_x, accelo_y;
+"48
+[; ;Main.c: 48:     int16_t accelo_x, accelo_y;
 [v _accelo_x `s ~T0 @X0 1 a ]
 [v _accelo_y `s ~T0 @X0 1 a ]
-"47
-[; ;Main.c: 47:     uint8_t axd, ayd;
+"49
+[; ;Main.c: 49:     uint8_t axd, ayd;
 [v _axd `uc ~T0 @X0 1 a ]
 [v _ayd `uc ~T0 @X0 1 a ]
-"48
-[; ;Main.c: 48:     uint16_t flex;
+"50
+[; ;Main.c: 50:     uint16_t flex;
 [v _flex `us ~T0 @X0 1 a ]
-"49
-[; ;Main.c: 49:     uint8_t tx_data[4];
+"51
+[; ;Main.c: 51:     uint8_t tx_data[4];
 [v _tx_data `uc ~T0 @X0 -> 4 `i a ]
-"52
-[; ;Main.c: 52:     while(1){
+"54
+[; ;Main.c: 54:     while(1){
 [e :U 1617 ]
 {
-"58
-[; ;Main.c: 58:         if(ready_flag == 1){
+"60
+[; ;Main.c: 60:         if(ready_flag == 1){
 [e $ ! == -> _ready_flag `i -> 1 `i 1619  ]
 {
-"60
-[; ;Main.c: 60:             gy_Read(&accelo_x, &accelo_y);
-[e ( _gy_Read (2 , &U _accelo_x &U _accelo_y ]
-"61
-[; ;Main.c: 61:             flex = 0000;
-[e = _flex -> -> 0 `i `us ]
 "62
-[; ;Main.c: 62:             if(accelo_x > 0)
-[e $ ! > -> _accelo_x `i -> 0 `i 1620  ]
+[; ;Main.c: 62:             gy_Read(&accelo_x, &accelo_y);
+[e ( _gy_Read (2 , &U _accelo_x &U _accelo_y ]
 "63
-[; ;Main.c: 63:                 axd = 1;
+[; ;Main.c: 63:             flex = 0000;
+[e = _flex -> -> 0 `i `us ]
+"64
+[; ;Main.c: 64:             if(accelo_x > 0)
+[e $ ! > -> _accelo_x `i -> 0 `i 1620  ]
+"65
+[; ;Main.c: 65:                 axd = 1;
 [e = _axd -> -> 1 `i `uc ]
 [e $U 1621  ]
-"64
-[; ;Main.c: 64:             else
+"66
+[; ;Main.c: 66:             else
 [e :U 1620 ]
-"65
-[; ;Main.c: 65:                 axd = 0;
+"67
+[; ;Main.c: 67:                 axd = 0;
 [e = _axd -> -> 0 `i `uc ]
 [e :U 1621 ]
-"66
-[; ;Main.c: 66:             if(accelo_y > 0)
+"68
+[; ;Main.c: 68:             if(accelo_y > 0)
 [e $ ! > -> _accelo_y `i -> 0 `i 1622  ]
-"67
-[; ;Main.c: 67:                 ayd = 1;
+"69
+[; ;Main.c: 69:                 ayd = 1;
 [e = _ayd -> -> 1 `i `uc ]
 [e $U 1623  ]
-"68
-[; ;Main.c: 68:             else
+"70
+[; ;Main.c: 70:             else
 [e :U 1622 ]
-"69
-[; ;Main.c: 69:                 ayd = 0;
+"71
+[; ;Main.c: 71:                 ayd = 0;
 [e = _ayd -> -> 0 `i `uc ]
 [e :U 1623 ]
-"72
-[; ;Main.c: 72:             tx_data[0] = format_data_b1(flex);
-[e = *U + &U _tx_data * -> -> -> 0 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b1 (1 _flex ]
-"73
-[; ;Main.c: 73:             tx_data[1] = format_data_b2(!PORTBbits.RB0, !PORTBbits.RB1, !PORTBbits.RB2, axd, ayd);
-[e = *U + &U _tx_data * -> -> -> 1 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b2 (4 , , , , -> -> ! != -> . . _PORTBbits 0 0 `i -> 0 `i `i `uc -> -> ! != -> . . _PORTBbits 0 1 `i -> 0 `i `i `uc -> -> ! != -> . . _PORTBbits 0 2 `i -> 0 `i `i `uc _axd _ayd ]
 "74
-[; ;Main.c: 74:             tx_data[2] = format_data_b3(accelo_x);
+[; ;Main.c: 74:             tx_data[0] = format_data_b1(adc_measure());
+[e = *U + &U _tx_data * -> -> -> 0 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b1 (1 ( _adc_measure ..  ]
+"76
+[; ;Main.c: 76:             tx_data[1] = format_data_b2(!PORTBbits.RB0, !PORTBbits.RB1, !PORTBbits.RB2, axd, ayd);
+[e = *U + &U _tx_data * -> -> -> 1 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b2 (4 , , , , -> -> ! != -> . . _PORTBbits 0 0 `i -> 0 `i `i `uc -> -> ! != -> . . _PORTBbits 0 1 `i -> 0 `i `i `uc -> -> ! != -> . . _PORTBbits 0 2 `i -> 0 `i `i `uc _axd _ayd ]
+"77
+[; ;Main.c: 77:             tx_data[2] = format_data_b3(accelo_x);
 [e = *U + &U _tx_data * -> -> -> 2 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b3 (1 _accelo_x ]
-"75
-[; ;Main.c: 75:             tx_data[3] = format_data_b4(accelo_y);
-[e = *U + &U _tx_data * -> -> -> 3 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b4 (1 _accelo_y ]
 "78
-[; ;Main.c: 78:             send_commands(tx_data);
-[e ( _send_commands (1 &U _tx_data ]
+[; ;Main.c: 78:             tx_data[3] = format_data_b4(accelo_y);
+[e = *U + &U _tx_data * -> -> -> 3 `i `ui `ux -> -> # *U &U _tx_data `ui `ux ( _format_data_b4 (1 _accelo_y ]
 "81
-[; ;Main.c: 81:         }
+[; ;Main.c: 81:             send_commands(tx_data);
+[e ( _send_commands (1 &U _tx_data ]
+"84
+[; ;Main.c: 84:         }
 }
 [e :U 1619 ]
-"82
-[; ;Main.c: 82:     }
+"85
+[; ;Main.c: 85:     }
 }
 [e :U 1616 ]
 [e $U 1617  ]
 [e :U 1618 ]
-"83
-[; ;Main.c: 83:     return;
+"86
+[; ;Main.c: 86:     return;
 [e $UE 1615  ]
-"84
-[; ;Main.c: 84: }
+"87
+[; ;Main.c: 87: }
 [e :UE 1615 ]
 }
 [v $root$_isr `(v ~T0 @X0 0 e ]
-"86
-[; ;Main.c: 86: void __attribute__((picinterrupt(("")))) isr() {
+"89
+[; ;Main.c: 89: void __attribute__((picinterrupt(("")))) isr() {
 [v _isr `(v ~T2 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"87
-[; ;Main.c: 87:     while (RCIF == 1) {
+"90
+[; ;Main.c: 90:     while (RCIF == 1) {
 [e $U 1625  ]
 [e :U 1626 ]
 {
-"88
-[; ;Main.c: 88:         data_in = RCREG;
-[e = _data_in _RCREG ]
-"89
-[; ;Main.c: 89:     }
-}
-[e :U 1625 ]
-"87
-[; ;Main.c: 87:     while (RCIF == 1) {
-[e $ == -> _RCIF `i -> 1 `i 1626  ]
-[e :U 1627 ]
-"90
-[; ;Main.c: 90:     if (is_ready(data_in) == 1) {
-[e $ ! == -> ( _is_ready (1 _data_in `i -> 1 `i 1628  ]
-{
 "91
-[; ;Main.c: 91:         ready_flag = 1;
-[e = _ready_flag -> -> 1 `i `uc ]
+[; ;Main.c: 91:         data_in = RCREG;
+[e = _data_in _RCREG ]
 "92
 [; ;Main.c: 92:     }
 }
-[e :U 1628 ]
+[e :U 1625 ]
+"90
+[; ;Main.c: 90:     while (RCIF == 1) {
+[e $ == -> _RCIF `i -> 1 `i 1626  ]
+[e :U 1627 ]
 "93
-[; ;Main.c: 93: }
+[; ;Main.c: 93:     if (is_ready(data_in) == 1) {
+[e $ ! == -> ( _is_ready (1 _data_in `i -> 1 `i 1628  ]
+{
+"94
+[; ;Main.c: 94:         ready_flag = 1;
+[e = _ready_flag -> -> 1 `i `uc ]
+"95
+[; ;Main.c: 95:     }
+}
+[e :U 1628 ]
+"96
+[; ;Main.c: 96: }
 [e :UE 1624 ]
 }

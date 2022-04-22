@@ -57,7 +57,7 @@ void pin_init(){
     /**
     ANSELx registers
     */
-    ANSELA = 0x30;
+    ANSELA = 0x31;
     ANSELB = 0xF0;
     ANSELC = 0x67;
     ANSELD = 0x0;

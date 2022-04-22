@@ -4,6 +4,7 @@
 #include "uart.h"
 #include "I2C_MSSP1_driver.h"
 #include <stdio.h>
+#include "pwm.h"
 
 void dc_init(void){
     /*
@@ -25,16 +26,19 @@ void dc_init(void){
 
 void dc_stop() {
     //LATB &= 0b11001001;
-    PCA_write(4, 0x00, 1);
-    PCA_write(5, 0x00, 1);
+    PWM6_LoadDutyValue(0); //min = 0, max = 5100(98%)
+    T2CONbits.T2ON = 0;
+
+    //PCA_write(4, 0x00, 1);
+    //PCA_write(5, 0x00, 1);
     
 }
 
 void dc_move(uint8_t y, uint8_t ydir) { //0b---XXXX- these four pins control direction of spin
+    T2CONbits.T2ON = 1;
     if (ydir == 1) { //forward tilt
             LATBbits.LATB1 = 1;
             LATBbits.LATB2 = 1;
-
         } else { //backwards tilt
             LATBbits.LATB1 = 0;
             LATBbits.LATB2 = 0;
@@ -44,6 +48,7 @@ void dc_move(uint8_t y, uint8_t ydir) { //0b---XXXX- these four pins control dir
 }
 
 void dc_turn(uint8_t x, uint8_t xdir){
+        T2CONbits.T2ON = 1;
         if (xdir == 1) { //right tilt
             LATBbits.LATB1 = 1;
             LATBbits.LATB2 = 0;
@@ -56,8 +61,7 @@ void dc_turn(uint8_t x, uint8_t xdir){
 }
 
 void dc_update(uint8_t motor_speed){
-        ENA_stat = ((uint16_t)motor_speed*100);
-        ENB_stat = ENA_stat;
+        ENA_stat = ((uint16_t)motor_speed*25);
         
         if (ENA_stat >= (DCMAX)) { //redefine min/max, er 100/1300 atm
             ENA_stat = DCMAX;
@@ -65,16 +69,8 @@ void dc_update(uint8_t motor_speed){
         if (ENA_stat <= (DCMIN)) {
             ENA_stat = DCMIN;
         }
-        if (ENB_stat >= (DCMAX)) {
-            ENB_stat = DCMAX;
-        }
-        if (ENB_stat <= (DCMIN)) {
-            ENB_stat = DCMIN;
-        }
-        
-        PCA_write(4, 0x00, ENA_stat);
-        PCA_write(5, 0x00, ENB_stat);
 
+        PWM6_LoadDutyValue(ENA_stat); //min = 0, max = 5100(98%)
 }
 
 void dc_update_ccp(uint8_t motor_speed){

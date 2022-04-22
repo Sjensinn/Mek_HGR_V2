@@ -1,8 +1,31 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"87 ./PCA9685_driver.h
-[; ;./PCA9685_driver.h: 87: void PCA_write(uint8_t ChannelN, uint16_t on, uint16_t off);
-[v _PCA_write `(v ~T0 @X0 0 ef3`uc`us`us ]
-"1025 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
+"9 ./pwm.h
+[; ;./pwm.h: 9: void PWM6_LoadDutyValue(uint16_t dutyValue);
+[v _PWM6_LoadDutyValue `(v ~T0 @X0 0 ef1`us ]
+"9427 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 9427:     struct {
+[s S425 :4 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S425 . OUTPS CKPS ON ]
+"9432
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 9432:     struct {
+[s S426 :4 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S426 . T2OUTPS T2CKPS T2ON ]
+"9437
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 9437:     struct {
+[s S427 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S427 . T2OUTPS0 T2OUTPS1 T2OUTPS2 T2OUTPS3 T2CKPS0 T2CKPS1 T2CKPS2 ]
+"9446
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 9446:     struct {
+[s S428 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S428 . OUTPS0 OUTPS1 OUTPS2 OUTPS3 CKPS0 CKPS1 CKPS2 TMR2ON ]
+"9426
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 9426: typedef union {
+[u S424 `S425 1 `S426 1 `S427 1 `S428 1 ]
+[n S424 . . . . . ]
+"9457
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 9457: extern volatile T2CONbits_t T2CONbits __attribute__((address(0x28E)));
+[v _T2CONbits `VS424 ~T0 @X0 0 e@654 ]
+"1025
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\proc\pic16f18877.h: 1025:     struct {
 [s S55 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S55 . LATB0 LATB1 LATB2 LATB3 LATB4 LATB5 LATB6 LATB7 ]
@@ -1666,189 +1689,167 @@ Version 4.0 HI-TECH Software Intermediate Code
 "47 ./PCA9685_driver.h
 [; ;./PCA9685_driver.h: 47:     uint8_t pca_address;
 [v _pca_address `uc ~T0 @X0 1 e ]
-"8 dc.c
-[; ;dc.c: 8: void dc_init(void){
+"9 dc.c
+[; ;dc.c: 9: void dc_init(void){
 [v _dc_init `(v ~T0 @X0 1 ef ]
 {
 [e :U _dc_init ]
 [f ]
-"24
-[; ;dc.c: 24: }
+"25
+[; ;dc.c: 25: }
 [e :UE 1615 ]
 }
-"26
-[; ;dc.c: 26: void dc_stop() {
+"27
+[; ;dc.c: 27: void dc_stop() {
 [v _dc_stop `(v ~T0 @X0 1 ef ]
 {
 [e :U _dc_stop ]
 [f ]
-"28
-[; ;dc.c: 28:     PCA_write(4, 0x00, 1);
-[e ( _PCA_write (3 , , -> -> 4 `i `uc -> -> 0 `i `us -> -> 1 `i `us ]
 "29
-[; ;dc.c: 29:     PCA_write(5, 0x00, 1);
-[e ( _PCA_write (3 , , -> -> 5 `i `uc -> -> 0 `i `us -> -> 1 `i `us ]
-"31
-[; ;dc.c: 31: }
+[; ;dc.c: 29:     PWM6_LoadDutyValue(0);
+[e ( _PWM6_LoadDutyValue (1 -> -> 0 `i `us ]
+"30
+[; ;dc.c: 30:     T2CONbits.T2ON = 0;
+[e = . . _T2CONbits 1 2 -> -> 0 `i `uc ]
+"35
+[; ;dc.c: 35: }
 [e :UE 1616 ]
 }
-"33
-[; ;dc.c: 33: void dc_move(uint8_t y, uint8_t ydir) {
+"37
+[; ;dc.c: 37: void dc_move(uint8_t y, uint8_t ydir) {
 [v _dc_move `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _dc_move ]
 [v _y `uc ~T0 @X0 1 r1 ]
 [v _ydir `uc ~T0 @X0 1 r2 ]
 [f ]
-"34
-[; ;dc.c: 34:     if (ydir == 1) {
+"38
+[; ;dc.c: 38:     T2CONbits.T2ON = 1;
+[e = . . _T2CONbits 1 2 -> -> 1 `i `uc ]
+"39
+[; ;dc.c: 39:     if (ydir == 1) {
 [e $ ! == -> _ydir `i -> 1 `i 1618  ]
 {
-"35
-[; ;dc.c: 35:             LATBbits.LATB1 = 1;
+"40
+[; ;dc.c: 40:             LATBbits.LATB1 = 1;
 [e = . . _LATBbits 0 1 -> -> 1 `i `uc ]
-"36
-[; ;dc.c: 36:             LATBbits.LATB2 = 1;
+"41
+[; ;dc.c: 41:             LATBbits.LATB2 = 1;
 [e = . . _LATBbits 0 2 -> -> 1 `i `uc ]
-"38
-[; ;dc.c: 38:         } else {
+"42
+[; ;dc.c: 42:         } else {
 }
 [e $U 1619  ]
 [e :U 1618 ]
 {
-"39
-[; ;dc.c: 39:             LATBbits.LATB1 = 0;
+"43
+[; ;dc.c: 43:             LATBbits.LATB1 = 0;
 [e = . . _LATBbits 0 1 -> -> 0 `i `uc ]
-"40
-[; ;dc.c: 40:             LATBbits.LATB2 = 0;
+"44
+[; ;dc.c: 44:             LATBbits.LATB2 = 0;
 [e = . . _LATBbits 0 2 -> -> 0 `i `uc ]
-"41
-[; ;dc.c: 41:         }
+"45
+[; ;dc.c: 45:         }
 }
 [e :U 1619 ]
-"43
-[; ;dc.c: 43:         dc_update(y);
+"47
+[; ;dc.c: 47:         dc_update(y);
 [e ( _dc_update (1 _y ]
-"44
-[; ;dc.c: 44: }
+"48
+[; ;dc.c: 48: }
 [e :UE 1617 ]
 }
-"46
-[; ;dc.c: 46: void dc_turn(uint8_t x, uint8_t xdir){
+"50
+[; ;dc.c: 50: void dc_turn(uint8_t x, uint8_t xdir){
 [v _dc_turn `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _dc_turn ]
 [v _x `uc ~T0 @X0 1 r1 ]
 [v _xdir `uc ~T0 @X0 1 r2 ]
 [f ]
-"47
-[; ;dc.c: 47:         if (xdir == 1) {
+"51
+[; ;dc.c: 51:         T2CONbits.T2ON = 1;
+[e = . . _T2CONbits 1 2 -> -> 1 `i `uc ]
+"52
+[; ;dc.c: 52:         if (xdir == 1) {
 [e $ ! == -> _xdir `i -> 1 `i 1621  ]
 {
-"48
-[; ;dc.c: 48:             LATBbits.LATB1 = 1;
+"53
+[; ;dc.c: 53:             LATBbits.LATB1 = 1;
 [e = . . _LATBbits 0 1 -> -> 1 `i `uc ]
-"49
-[; ;dc.c: 49:             LATBbits.LATB2 = 0;
+"54
+[; ;dc.c: 54:             LATBbits.LATB2 = 0;
 [e = . . _LATBbits 0 2 -> -> 0 `i `uc ]
-"50
-[; ;dc.c: 50:         } else {
+"55
+[; ;dc.c: 55:         } else {
 }
 [e $U 1622  ]
 [e :U 1621 ]
 {
-"51
-[; ;dc.c: 51:             LATBbits.LATB1 = 0;
+"56
+[; ;dc.c: 56:             LATBbits.LATB1 = 0;
 [e = . . _LATBbits 0 1 -> -> 0 `i `uc ]
-"52
-[; ;dc.c: 52:             LATBbits.LATB2 = 1;
+"57
+[; ;dc.c: 57:             LATBbits.LATB2 = 1;
 [e = . . _LATBbits 0 2 -> -> 1 `i `uc ]
-"53
-[; ;dc.c: 53:         }
+"58
+[; ;dc.c: 58:         }
 }
 [e :U 1622 ]
-"55
-[; ;dc.c: 55:         dc_update(x);
+"60
+[; ;dc.c: 60:         dc_update(x);
 [e ( _dc_update (1 _x ]
-"56
-[; ;dc.c: 56: }
+"61
+[; ;dc.c: 61: }
 [e :UE 1620 ]
 }
-"58
-[; ;dc.c: 58: void dc_update(uint8_t motor_speed){
+"63
+[; ;dc.c: 63: void dc_update(uint8_t motor_speed){
 [v _dc_update `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _dc_update ]
 [v _motor_speed `uc ~T0 @X0 1 r1 ]
 [f ]
-"59
-[; ;dc.c: 59:         ENA_stat = ((uint16_t)motor_speed*100);
-[e = _ENA_stat -> * -> -> _motor_speed `us `ui -> -> 100 `i `ui `us ]
-"60
-[; ;dc.c: 60:         ENB_stat = ENA_stat;
-[e = _ENB_stat _ENA_stat ]
-"62
-[; ;dc.c: 62:         if (ENA_stat >= (4095)) {
-[e $ ! >= -> _ENA_stat `ui -> -> 4095 `i `ui 1624  ]
-{
-"63
-[; ;dc.c: 63:             ENA_stat = 4095;
-[e = _ENA_stat -> -> 4095 `i `us ]
 "64
-[; ;dc.c: 64:         }
+[; ;dc.c: 64:         ENA_stat = ((uint16_t)motor_speed*25);
+[e = _ENA_stat -> * -> -> _motor_speed `us `ui -> -> 25 `i `ui `us ]
+"66
+[; ;dc.c: 66:         if (ENA_stat >= (3500)) {
+[e $ ! >= -> _ENA_stat `ui -> -> 3500 `i `ui 1624  ]
+{
+"67
+[; ;dc.c: 67:             ENA_stat = 3500;
+[e = _ENA_stat -> -> 3500 `i `us ]
+"68
+[; ;dc.c: 68:         }
 }
 [e :U 1624 ]
-"65
-[; ;dc.c: 65:         if (ENA_stat <= (1000)) {
-[e $ ! <= -> _ENA_stat `ui -> -> 1000 `i `ui 1625  ]
+"69
+[; ;dc.c: 69:         if (ENA_stat <= (250)) {
+[e $ ! <= -> _ENA_stat `ui -> -> 250 `i `ui 1625  ]
 {
-"66
-[; ;dc.c: 66:             ENA_stat = 1000;
-[e = _ENA_stat -> -> 1000 `i `us ]
-"67
-[; ;dc.c: 67:         }
+"70
+[; ;dc.c: 70:             ENA_stat = 250;
+[e = _ENA_stat -> -> 250 `i `us ]
+"71
+[; ;dc.c: 71:         }
 }
 [e :U 1625 ]
-"68
-[; ;dc.c: 68:         if (ENB_stat >= (4095)) {
-[e $ ! >= -> _ENB_stat `ui -> -> 4095 `i `ui 1626  ]
-{
-"69
-[; ;dc.c: 69:             ENB_stat = 4095;
-[e = _ENB_stat -> -> 4095 `i `us ]
-"70
-[; ;dc.c: 70:         }
-}
-[e :U 1626 ]
-"71
-[; ;dc.c: 71:         if (ENB_stat <= (1000)) {
-[e $ ! <= -> _ENB_stat `ui -> -> 1000 `i `ui 1627  ]
-{
-"72
-[; ;dc.c: 72:             ENB_stat = 1000;
-[e = _ENB_stat -> -> 1000 `i `us ]
 "73
-[; ;dc.c: 73:         }
-}
-[e :U 1627 ]
-"75
-[; ;dc.c: 75:         PCA_write(4, 0x00, ENA_stat);
-[e ( _PCA_write (3 , , -> -> 4 `i `uc -> -> 0 `i `us _ENA_stat ]
-"76
-[; ;dc.c: 76:         PCA_write(5, 0x00, ENB_stat);
-[e ( _PCA_write (3 , , -> -> 5 `i `uc -> -> 0 `i `us _ENB_stat ]
-"78
-[; ;dc.c: 78: }
+[; ;dc.c: 73:         PWM6_LoadDutyValue(ENA_stat);
+[e ( _PWM6_LoadDutyValue (1 _ENA_stat ]
+"74
+[; ;dc.c: 74: }
 [e :UE 1623 ]
 }
-"80
-[; ;dc.c: 80: void dc_update_ccp(uint8_t motor_speed){
+"76
+[; ;dc.c: 76: void dc_update_ccp(uint8_t motor_speed){
 [v _dc_update_ccp `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _dc_update_ccp ]
 [v _motor_speed `uc ~T0 @X0 1 r1 ]
 [f ]
-"82
-[; ;dc.c: 82: }
-[e :UE 1628 ]
+"78
+[; ;dc.c: 78: }
+[e :UE 1626 ]
 }

@@ -1,4 +1,4 @@
-# 1 "Main.c"
+# 1 "pwm.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,15 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "Main.c" 2
-# 19 "Main.c"
+# 1 "pwm.c" 2
+
+
+
+
+
+
+
+
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -20722,510 +20729,51 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\\pic\\include\\xc.h" 2 3
-# 19 "Main.c" 2
+# 9 "pwm.c" 2
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdio.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 1 "./pwm.h" 1
 
 
 
 
 
-typedef void * va_list[1];
 
+void PWM6_Initialize(void);
+void TMR2_Initialize(void);
+void PWM6_LoadDutyValue(uint16_t dutyValue);
+# 10 "pwm.c" 2
 
 
+void PWM6_Initialize(void){
 
-typedef void * __isoc_va_list[1];
-# 137 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long ssize_t;
-# 246 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long long off_t;
-# 399 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdio.h" 2 3
-# 52 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
 
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
+    PWM6CON = 0x80;
 
+    PWM6DCH = 0x0F;
+    PWM6DCL = 0x40;
+    RA2PPS = 0x0E;
 
+    CCPTMRS1bits.P6TSEL = 1;
 
 
+}
+void TMR2_Initialize(void){
 
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
+    T2CLKCON = 0x01;
+    T2HLT = 0x00;
+    T2RST = 0x00;
 
-int remove(const char *);
-int rename(const char *, const char *);
+    T2PR = 255;
+    T2TMR = 0x00;
+    PIR4bits.TMR2IF = 0;
 
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
-
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
-
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
-
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
-
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
-int ungetc(int, FILE *);
-
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
-
-char *fgets(char *restrict, int, FILE *restrict);
-
-char *gets(char *);
-
-
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
-
-__attribute__((__format__(__printf__, 1, 2)))
-int printf(const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int fprintf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int sprintf(char *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 3, 4)))
-int snprintf(char *restrict, size_t, const char *restrict, ...);
-
-__attribute__((__format__(__printf__, 1, 0)))
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 2, 0)))
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 3, 0)))
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
-
-__attribute__((__format__(__scanf__, 1, 2)))
-int scanf(const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int fscanf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int sscanf(const char *restrict, const char *restrict, ...);
-
-__attribute__((__format__(__scanf__, 1, 0)))
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__scanf__, 2, 0)))
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
-
-void perror(const char *);
-
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
-
-char *tmpnam(char *);
-FILE *tmpfile(void);
-
-
-
-
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
-
-
-
-
-
-
-
-char *tempnam(const char *, const char *);
-# 20 "Main.c" 2
-
-# 1 "./config_bits.h" 1
-# 18 "./config_bits.h"
-#pragma config FEXTOSC = OFF
-#pragma config RSTOSC = HFINT32
-#pragma config CLKOUTEN = OFF
-#pragma config CSWEN = ON
-#pragma config FCMEN = ON
-
-
-#pragma config MCLRE = ON
-#pragma config PWRTE = OFF
-#pragma config LPBOREN = OFF
-#pragma config BOREN = ON
-#pragma config BORV = LO
-#pragma config ZCD = OFF
-#pragma config PPS1WAY = ON
-#pragma config STVREN = ON
-#pragma config DEBUG = OFF
-
-
-#pragma config WDTCPS = WDTCPS_31
-#pragma config WDTE = OFF
-#pragma config WDTCWS = WDTCWS_7
-#pragma config WDTCCS = SC
-
-
-#pragma config WRT = OFF
-#pragma config SCANE = available
-#pragma config LVP = ON
-
-
-#pragma config CP = OFF
-#pragma config CPD = OFF
-# 21 "Main.c" 2
-
-# 1 "./system_init.h" 1
-# 16 "./system_init.h"
-# 1 "./uart.h" 1
-# 33 "./uart.h"
-void uart_init(void);
-
-
-
-
-
-
-void uart_Write(unsigned char data);
-
-void uart_Write_uint8(uint8_t data);
-
-
-
-
-
-
-void uart_Write_String(char* buf);
-
-
-
-
-
-
-void putch(char data);
-
-
-
-
-
-
-
-void send_ready(void);
-
-
-
-
-
-
-
-uint8_t is_ready(uint8_t data);
-# 83 "./uart.h"
-void send_commands(uint8_t* data);
-# 16 "./system_init.h" 2
-# 28 "./system_init.h"
-void system_init(void);
-# 39 "./system_init.h"
-void clock_init(void);
-# 50 "./system_init.h"
-void pin_init(void);
-# 59 "./system_init.h"
-void int_init(void);
-# 22 "Main.c" 2
-
-# 1 "./PCA9685_driver.h" 1
-# 47 "./PCA9685_driver.h"
-    uint8_t pca_address;
-# 66 "./PCA9685_driver.h"
-void PCA_Init(uint8_t prescalar, uint8_t pca_addr);
-# 87 "./PCA9685_driver.h"
-void PCA_write(uint8_t ChannelN, uint16_t on, uint16_t off);
-# 23 "Main.c" 2
-
-# 1 "./I2C_MSSP1_driver.h" 1
-# 35 "./I2C_MSSP1_driver.h"
-void I2C_init(void);
-# 56 "./I2C_MSSP1_driver.h"
-void I2C_Start(void);
-# 65 "./I2C_MSSP1_driver.h"
-void I2C_Wait(void);
-# 86 "./I2C_MSSP1_driver.h"
-void I2C_Write(uint8_t data);
-
-
-
-
-
-
-void I2C_RepeatedStart();
-
-
-
-
-
-
-void I2C_Stop(void);
-# 134 "./I2C_MSSP1_driver.h"
-int8_t I2C_Read(int8_t ackbit);
-# 24 "Main.c" 2
-
-
-# 1 "./Stepper.h" 1
-# 10 "./Stepper.h"
-uint8_t step_dir;
-int step_count;
-
-void stepper_init(void);
-void stepper_move(uint8_t direction);
-void stepper_stop(void);
-void set_stepper_speed(uint16_t speed);
-void step_enable(void);
-void step_disable(void);
-
-
-
-
-
-
-void step_inc_dec(void);
-
-
-
-
-
-int get_dir(void);
-
-
-
-
-
-int get_steps(void);
-# 26 "Main.c" 2
-
-# 1 "./robot.h" 1
-# 24 "./robot.h"
-uint8_t xdir = 0;
-uint8_t ydir = 0;
-
-uint16_t servo0_stat = 300;
-uint16_t servo1_stat = 300;
-uint16_t servo2_stat = 300;
-uint16_t servo3_stat = 300;
-
-
-void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t data_y);
-void update_servo0_stat(uint8_t data, uint8_t dir);
-void update_servo1_stat(uint8_t data, uint8_t dir);
-void update_servo2_stat(uint8_t data, uint8_t dir);
-void update_servo3_stat(uint8_t data, uint8_t dir);
-# 27 "Main.c" 2
-
-# 1 "./dc.h" 1
-
-
-
-
-
-
-
-
-uint16_t ENA_stat = 100;
-uint16_t ENB_stat = 100;
-
-
-void dc_stop();
-void dc_move(uint8_t y, uint8_t ydir);
-void dc_turn(uint8_t x, uint8_t xdir);
-void dc_update(uint8_t motor_speed);
-# 28 "Main.c" 2
-
-# 1 "./LCD.h" 1
-# 38 "./LCD.h"
-uint8_t lcd_address, RS;
-uint8_t BackLight_State = 0x08;
-# 48 "./LCD.h"
-void LCD_init(uint8_t lcd_addr);
-# 57 "./LCD.h"
-void IO_Expander(unsigned char data);
-# 66 "./LCD.h"
-void LCD_Write_4Bit(unsigned char Nibble);
-# 76 "./LCD.h"
-void LCD_CMD(unsigned char CMD);
-
-
-
-
-
-
-void LCD_write_char(char data);
-
-
-
-
-
-
-void LCD_write_string(char* str);
-
-
-
-
-
-
-
-void LCD_Set_Cursor(unsigned char ROW, unsigned char COL);
-
-
-
-
-
-
-void Backlight();
-
-
-
-
-
-
-void noBacklight();
-
-
-
-
-
-
-void LCD_SL();
-
-
-
-
-
-
-void LCD_SR();
-
-
-
-
-
-
-void LCD_Clear();
-# 29 "Main.c" 2
-
-
-volatile uint8_t data_in;
-volatile uint8_t data_flex;
-volatile uint8_t data_fingers;
-volatile uint8_t data_x;
-volatile uint8_t data_y;
-volatile uint8_t ready = 0;
-volatile uint8_t send_flag = 0;
-
-void __attribute__((picinterrupt(("")))) receive_isr();
-
-void main(void) {
-    int8_t x, y;
-    uint8_t init_ready;
-    system_init();
-    PCA_Init(130, 0x80);
-    stepper_init();
-
-    init_ready = 1;
-
-    while (1) {
-        if (PORTAbits.RA0 == 1) {
-            if (init_ready == 1) {
-                send_ready();
-                init_ready = 0;
-            }
-
-            if (ready == 1) {
-                ready = 0;
-                process(data_flex, data_fingers, data_x, data_y);
-
-                send_ready();
-            }
-        }
-        else{
-            PCA_write(0, 0, 100);
-            _delay((unsigned long)((5000)*(16000000/4000.0)));
-            PCA_write(0,0, 500);
-            _delay((unsigned long)((5000)*(16000000/4000.0)));
-        }
-    }
-
-    return;
+    T2CON = 0b10000000;
 }
 
-void __attribute__((picinterrupt(("")))) receive_isr() {
-
-    if (RCIF == 1) {
-        data_in = RCREG;
-    }
-    switch (data_in & 0b11) {
-        case 0:
-            data_flex = data_in >> 2;
-            break;
-        case 1:
-            data_fingers = data_in;
-            break;
-        case 2:
-            data_x = data_in >> 2;
-            break;
-        case 3:
-            data_y = data_in >> 2;
-
-            ready = 1;
+void PWM6_LoadDutyValue(uint16_t dutyValue){
 
 
-            break;
-        default:
-            break;
-    }
+    PWM6DCH = (dutyValue & 0x03FC)>>2;
 
-    if (CCP1IF == 1) {
-        CCP1IF = 0;
-        if (get_dir() == 1 && get_steps() > 500) {
-
-
-            stepper_stop();
-        } else if (get_dir() == 0 && get_steps() < -500) {
-
-
-            stepper_stop();
-        } else {
-            LATDbits.LATD5 ^= 1;
-            step_inc_dec();
-
-            CCPR1H = 0x01;
-            CCPR1L = 0x19;
-        }
-    }
+    PWM6DCL = (dutyValue & 0x0003)<<6;
 }

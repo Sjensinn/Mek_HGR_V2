@@ -21053,7 +21053,7 @@ void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t da
 void update_servo0_stat(uint8_t data, uint8_t dir);
 void update_servo1_stat(uint8_t data, uint8_t dir);
 void update_servo2_stat(uint8_t data, uint8_t dir);
-void update_servo3_stat(uint8_t data, uint8_t dir);
+void update_servo3_stat(uint8_t data);
 # 27 "Main.c" 2
 
 # 1 "./dc.h" 1
@@ -21076,76 +21076,18 @@ void dc_update(uint8_t motor_speed);
 void dc_update_ccp(uint8_t motor_speed);
 # 28 "Main.c" 2
 
-# 1 "./LCD.h" 1
-# 38 "./LCD.h"
-uint8_t lcd_address, RS;
-uint8_t BackLight_State = 0x08;
-# 48 "./LCD.h"
-void LCD_init(uint8_t lcd_addr);
-# 57 "./LCD.h"
-void IO_Expander(unsigned char data);
-# 66 "./LCD.h"
-void LCD_Write_4Bit(unsigned char Nibble);
-# 76 "./LCD.h"
-void LCD_CMD(unsigned char CMD);
+# 1 "./pwm.h" 1
 
 
 
 
 
 
-void LCD_write_char(char data);
-
-
-
-
-
-
-void LCD_write_string(char* str);
-
-
-
-
-
-
-
-void LCD_Set_Cursor(unsigned char ROW, unsigned char COL);
-
-
-
-
-
-
-void Backlight();
-
-
-
-
-
-
-void noBacklight();
-
-
-
-
-
-
-void LCD_SL();
-
-
-
-
-
-
-void LCD_SR();
-
-
-
-
-
-
-void LCD_Clear();
+void PWM6_Initialize(void);
+void TMR2_Initialize(void);
+void PWM6_LoadDutyValue(uint16_t dutyValue);
 # 29 "Main.c" 2
+
 
 
 volatile uint8_t data_in;
@@ -21162,6 +21104,8 @@ void main(void) {
     int8_t x, y;
     uint8_t init_ready;
     system_init();
+    PWM6_Initialize();
+    TMR2_Initialize();
     PCA_Init(130, 0x80);
     stepper_init();
     init_ready = 1;
@@ -21169,6 +21113,7 @@ void main(void) {
     _delay((unsigned long)((1000)*(16000000/4000.0)));
 
     while (1) {
+
         if (PORTAbits.RA0 == 1) {
             if (init_ready == 1) {
                 send_ready();
@@ -21188,6 +21133,7 @@ void main(void) {
 
             init_ready = 1;
         }
+        _delay((unsigned long)((25)*(16000000/4000.0)));
     }
 
     return;

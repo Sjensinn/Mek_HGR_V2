@@ -22,7 +22,7 @@
     uint8_t format_data_b1(uint16_t flex){
         uint8_t b = 0;          //Variable to return
 
-        b = (flex/1024) << 2;   //Maximum resolution of 64
+        b = (flex/16) << 2;   //Maximum resolution of 64
         b = b & 11111100;       //make sure address is correct
         return b;               //Return the formatted data
     }

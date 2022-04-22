@@ -20757,7 +20757,7 @@ void gy_test(void);
     uint8_t format_data_b1(uint16_t flex){
         uint8_t b = 0;
 
-        b = (flex/1024) << 2;
+        b = (flex/16) << 2;
         b = b & 11111100;
         return b;
     }

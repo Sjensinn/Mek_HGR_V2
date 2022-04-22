@@ -32,6 +32,7 @@
 #include "gy_521.h"
 #include "uart.h"
 #include "control_glove.h"
+#include "adc.h"
 
 void __interrupt() isr();
 
@@ -40,6 +41,7 @@ volatile uint8_t ready_flag = 0;
 
 void main(void) {
     system_init();                  //Initiate clock, pins, uart, i2c, timer1 and interrupts
+    adc_initialize();
     gy_init(0x68);                  //Initiate MPU6050 with I2C address: 0x68
     
     //Variables
@@ -69,7 +71,8 @@ void main(void) {
                 ayd = 0;
 
             //Format data
-            tx_data[0] = format_data_b1(flex);
+            tx_data[0] = format_data_b1(adc_measure());
+            //tx_data[0] = format_data_b1(flex);
             tx_data[1] = format_data_b2(F1_getVal(), F2_getVal(), F3_getVal(), axd, ayd);
             tx_data[2] = format_data_b3(accelo_x);
             tx_data[3] = format_data_b4(accelo_y);

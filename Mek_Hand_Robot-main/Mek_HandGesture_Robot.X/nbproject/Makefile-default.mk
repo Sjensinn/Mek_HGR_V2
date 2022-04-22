@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=dc.c I2C_MSSP1_driver.c Main.c PCA9685_driver.c robot.c Stepper.c system_init.c uart.c LCD.c
+SOURCEFILES_QUOTED_IF_SPACED=dc.c I2C_MSSP1_driver.c Main.c PCA9685_driver.c robot.c Stepper.c system_init.c uart.c LCD.c pwm.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/dc.p1 ${OBJECTDIR}/I2C_MSSP1_driver.p1 ${OBJECTDIR}/Main.p1 ${OBJECTDIR}/PCA9685_driver.p1 ${OBJECTDIR}/robot.p1 ${OBJECTDIR}/Stepper.p1 ${OBJECTDIR}/system_init.p1 ${OBJECTDIR}/uart.p1 ${OBJECTDIR}/LCD.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/dc.p1.d ${OBJECTDIR}/I2C_MSSP1_driver.p1.d ${OBJECTDIR}/Main.p1.d ${OBJECTDIR}/PCA9685_driver.p1.d ${OBJECTDIR}/robot.p1.d ${OBJECTDIR}/Stepper.p1.d ${OBJECTDIR}/system_init.p1.d ${OBJECTDIR}/uart.p1.d ${OBJECTDIR}/LCD.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/dc.p1 ${OBJECTDIR}/I2C_MSSP1_driver.p1 ${OBJECTDIR}/Main.p1 ${OBJECTDIR}/PCA9685_driver.p1 ${OBJECTDIR}/robot.p1 ${OBJECTDIR}/Stepper.p1 ${OBJECTDIR}/system_init.p1 ${OBJECTDIR}/uart.p1 ${OBJECTDIR}/LCD.p1 ${OBJECTDIR}/pwm.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/dc.p1.d ${OBJECTDIR}/I2C_MSSP1_driver.p1.d ${OBJECTDIR}/Main.p1.d ${OBJECTDIR}/PCA9685_driver.p1.d ${OBJECTDIR}/robot.p1.d ${OBJECTDIR}/Stepper.p1.d ${OBJECTDIR}/system_init.p1.d ${OBJECTDIR}/uart.p1.d ${OBJECTDIR}/LCD.p1.d ${OBJECTDIR}/pwm.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/dc.p1 ${OBJECTDIR}/I2C_MSSP1_driver.p1 ${OBJECTDIR}/Main.p1 ${OBJECTDIR}/PCA9685_driver.p1 ${OBJECTDIR}/robot.p1 ${OBJECTDIR}/Stepper.p1 ${OBJECTDIR}/system_init.p1 ${OBJECTDIR}/uart.p1 ${OBJECTDIR}/LCD.p1
+OBJECTFILES=${OBJECTDIR}/dc.p1 ${OBJECTDIR}/I2C_MSSP1_driver.p1 ${OBJECTDIR}/Main.p1 ${OBJECTDIR}/PCA9685_driver.p1 ${OBJECTDIR}/robot.p1 ${OBJECTDIR}/Stepper.p1 ${OBJECTDIR}/system_init.p1 ${OBJECTDIR}/uart.p1 ${OBJECTDIR}/LCD.p1 ${OBJECTDIR}/pwm.p1
 
 # Source Files
-SOURCEFILES=dc.c I2C_MSSP1_driver.c Main.c PCA9685_driver.c robot.c Stepper.c system_init.c uart.c LCD.c
+SOURCEFILES=dc.c I2C_MSSP1_driver.c Main.c PCA9685_driver.c robot.c Stepper.c system_init.c uart.c LCD.c pwm.c
 
 
 
@@ -166,6 +166,14 @@ ${OBJECTDIR}/LCD.p1: LCD.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/LCD.d ${OBJECTDIR}/LCD.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/LCD.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/pwm.p1: pwm.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/pwm.p1.d 
+	@${RM} ${OBJECTDIR}/pwm.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=pickit3   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/pwm.p1 pwm.c 
+	@-${MV} ${OBJECTDIR}/pwm.d ${OBJECTDIR}/pwm.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/pwm.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/dc.p1: dc.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -238,6 +246,14 @@ ${OBJECTDIR}/LCD.p1: LCD.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/LCD.p1 LCD.c 
 	@-${MV} ${OBJECTDIR}/LCD.d ${OBJECTDIR}/LCD.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/LCD.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/pwm.p1: pwm.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/pwm.p1.d 
+	@${RM} ${OBJECTDIR}/pwm.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/pwm.p1 pwm.c 
+	@-${MV} ${OBJECTDIR}/pwm.d ${OBJECTDIR}/pwm.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/pwm.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

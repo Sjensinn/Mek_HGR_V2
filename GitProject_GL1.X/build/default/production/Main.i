@@ -21007,6 +21007,14 @@ uint8_t format_data_b3(int16_t ax);
 uint8_t format_data_b4(int16_t ay);
 # 34 "Main.c" 2
 
+# 1 "./adc.h" 1
+# 35 "./adc.h"
+uint16_t adcval;
+void adc_initialize(void);
+uint16_t adc_readvalue(void);
+uint16_t adc_measure(void);
+# 35 "Main.c" 2
+
 
 void __attribute__((picinterrupt(("")))) isr();
 
@@ -21015,6 +21023,7 @@ volatile uint8_t ready_flag = 0;
 
 void main(void) {
     system_init();
+    adc_initialize();
     gy_init(0x68);
 
 
@@ -21044,7 +21053,8 @@ void main(void) {
                 ayd = 0;
 
 
-            tx_data[0] = format_data_b1(flex);
+            tx_data[0] = format_data_b1(adc_measure());
+
             tx_data[1] = format_data_b2(!PORTBbits.RB0, !PORTBbits.RB1, !PORTBbits.RB2, axd, ayd);
             tx_data[2] = format_data_b3(accelo_x);
             tx_data[3] = format_data_b4(accelo_y);

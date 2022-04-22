@@ -20979,23 +20979,38 @@ char *ctermid(char *);
 char *tempnam(const char *, const char *);
 # 6 "dc.c" 2
 
+# 1 "./pwm.h" 1
+
+
+
+
+
+
+void PWM6_Initialize(void);
+void TMR2_Initialize(void);
+void PWM6_LoadDutyValue(uint16_t dutyValue);
+# 7 "dc.c" 2
+
 
 void dc_init(void){
-# 24 "dc.c"
+# 25 "dc.c"
 }
 
 void dc_stop() {
 
-    PCA_write(4, 0x00, 1);
-    PCA_write(5, 0x00, 1);
+    PWM6_LoadDutyValue(0);
+    T2CONbits.T2ON = 0;
+
+
+
 
 }
 
 void dc_move(uint8_t y, uint8_t ydir) {
+    T2CONbits.T2ON = 1;
     if (ydir == 1) {
             LATBbits.LATB1 = 1;
             LATBbits.LATB2 = 1;
-
         } else {
             LATBbits.LATB1 = 0;
             LATBbits.LATB2 = 0;
@@ -21005,6 +21020,7 @@ void dc_move(uint8_t y, uint8_t ydir) {
 }
 
 void dc_turn(uint8_t x, uint8_t xdir){
+        T2CONbits.T2ON = 1;
         if (xdir == 1) {
             LATBbits.LATB1 = 1;
             LATBbits.LATB2 = 0;
@@ -21017,25 +21033,16 @@ void dc_turn(uint8_t x, uint8_t xdir){
 }
 
 void dc_update(uint8_t motor_speed){
-        ENA_stat = ((uint16_t)motor_speed*100);
-        ENB_stat = ENA_stat;
+        ENA_stat = ((uint16_t)motor_speed*25);
 
-        if (ENA_stat >= (4095)) {
-            ENA_stat = 4095;
+        if (ENA_stat >= (3500)) {
+            ENA_stat = 3500;
         }
-        if (ENA_stat <= (1000)) {
-            ENA_stat = 1000;
-        }
-        if (ENB_stat >= (4095)) {
-            ENB_stat = 4095;
-        }
-        if (ENB_stat <= (1000)) {
-            ENB_stat = 1000;
+        if (ENA_stat <= (250)) {
+            ENA_stat = 250;
         }
 
-        PCA_write(4, 0x00, ENA_stat);
-        PCA_write(5, 0x00, ENB_stat);
-
+        PWM6_LoadDutyValue(ENA_stat);
 }
 
 void dc_update_ccp(uint8_t motor_speed){

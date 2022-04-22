@@ -7,6 +7,8 @@
 
 
 #include <xc.h>
+#include "pwm.h"
+
 void PWM6_Initialize(void){
     // Set the PWM to the options selected in the PIC10 / PIC12 / PIC16 / PIC18 MCUs.
     // PWM6POL active_hi; PWM6EN enabled; 
@@ -14,7 +16,7 @@ void PWM6_Initialize(void){
 
     PWM6DCH = 0x0F;   //pulse width length
     PWM6DCL = 0x40;
-
+    RA2PPS = 0x0E;
     // Select timer
     CCPTMRS1bits.P6TSEL = 1; //PWM6 based on TMR2
     //CCPTMRS1bits.P6TSEL0 = 0;
@@ -26,7 +28,7 @@ void TMR2_Initialize(void){
     T2HLT = 0x00; // T2PSYNC Not Synchronized; T2MODE Software control; T2CKPOL Rising Edge; T2CKSYNC Not Synchronized; 
     T2RST = 0x00; // T2RSEL T2CKIPPS pin; 
     //T2PR = 0x9B; //Þetta var áður
-    T2PR = 77; //155 = 20kHz@16Mhz with 1 prescaler
+    T2PR = 255; //255 = 15.7khz
     T2TMR = 0x00;//Holding register for the 8-bit TMR2; 
     PIR4bits.TMR2IF = 0;    // Clearing IF flag.
 

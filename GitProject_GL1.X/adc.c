@@ -7,10 +7,12 @@
 
 
 #include <xc.h>
+#include "adc.h"
 
 void adc_initialize(void){
-    PORTBbits.RB0 = 0; //finna bita fyrir þetta
-    ANSELBbits.ANSB0 = 1; //--
+    TRISAbits.TRISA0 = 1;
+    PORTAbits.RA0 = 1; 
+    ANSELAbits.ANSA0 = 1; //--
     ADREFbits.ADNREF = 1; //VREF- is connected to VREF- pin
     ADREFbits.ADPREF1 = 1;//10 = VREF+ is connected to VREF+ pin
     ADREFbits.ADPREF0 = 0;
@@ -46,4 +48,10 @@ uint16_t adc_readvalue(void){
     adcval = adcval<<8;
     adcval += ADRESL;
     return adcval;
+}
+uint16_t adc_measure(){
+    ADCON0bits.ADGO = 1;
+    while(ADCON0bits.ADGO == 1);
+    //return adc_readvalue();
+    return ADRES;
 }

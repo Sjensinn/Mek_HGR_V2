@@ -33,6 +33,6 @@ void process(uint8_t data_flex, uint8_t data_fingers, uint8_t data_x, uint8_t da
 void update_servo0_stat(uint8_t data, uint8_t dir);
 void update_servo1_stat(uint8_t data, uint8_t dir);
 void update_servo2_stat(uint8_t data, uint8_t dir);
-void update_servo3_stat(uint8_t data, uint8_t dir);
+void update_servo3_stat(uint8_t data);
 
 
