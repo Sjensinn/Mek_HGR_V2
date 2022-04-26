@@ -48,6 +48,7 @@ void main(void) {
     PCA_Init(130, 0x80); //Initiate PCA9685 unit with I2C address: 0x80 and prescalar of 130
     stepper_init(); //Initiate Stepper
     init_ready = 1; //Ready for initial communications
+    dc_stop();
     
     __delay_ms(1000);
     

@@ -20771,9 +20771,17 @@ void TMR2_Initialize(void){
 }
 
 void PWM6_LoadDutyValue(uint16_t dutyValue){
+    uint8_t pwml = dutyValue & 0x3;
+    uint8_t pwmh = dutyValue & 0x3FC;
 
 
-    PWM6DCH = (dutyValue & 0x03FC)>>2;
 
-    PWM6DCL = (dutyValue & 0x0003)<<6;
+
+
+
+
+    PWM6DCH = pwmh;
+    PWM6DCL = pwml;
+
+
 }

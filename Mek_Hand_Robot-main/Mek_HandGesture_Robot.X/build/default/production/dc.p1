@@ -1711,145 +1711,145 @@ Version 4.0 HI-TECH Software Intermediate Code
 "30
 [; ;dc.c: 30:     T2CONbits.T2ON = 0;
 [e = . . _T2CONbits 1 2 -> -> 0 `i `uc ]
-"35
-[; ;dc.c: 35: }
+"31
+[; ;dc.c: 31: }
 [e :UE 1616 ]
 }
-"37
-[; ;dc.c: 37: void dc_move(uint8_t y, uint8_t ydir) {
+"33
+[; ;dc.c: 33: void dc_move(uint8_t y, uint8_t ydir) {
 [v _dc_move `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _dc_move ]
 [v _y `uc ~T0 @X0 1 r1 ]
 [v _ydir `uc ~T0 @X0 1 r2 ]
 [f ]
-"38
-[; ;dc.c: 38:     T2CONbits.T2ON = 1;
+"34
+[; ;dc.c: 34:     T2CONbits.T2ON = 1;
 [e = . . _T2CONbits 1 2 -> -> 1 `i `uc ]
-"39
-[; ;dc.c: 39:     if (ydir == 1) {
+"35
+[; ;dc.c: 35:     if (ydir == 1) {
 [e $ ! == -> _ydir `i -> 1 `i 1618  ]
 {
-"40
-[; ;dc.c: 40:             LATBbits.LATB1 = 1;
+"36
+[; ;dc.c: 36:             LATBbits.LATB1 = 1;
 [e = . . _LATBbits 0 1 -> -> 1 `i `uc ]
-"41
-[; ;dc.c: 41:             LATBbits.LATB2 = 1;
+"37
+[; ;dc.c: 37:             LATBbits.LATB2 = 1;
 [e = . . _LATBbits 0 2 -> -> 1 `i `uc ]
-"42
-[; ;dc.c: 42:         } else {
+"38
+[; ;dc.c: 38:         } else {
 }
 [e $U 1619  ]
 [e :U 1618 ]
 {
-"43
-[; ;dc.c: 43:             LATBbits.LATB1 = 0;
+"39
+[; ;dc.c: 39:             LATBbits.LATB1 = 0;
 [e = . . _LATBbits 0 1 -> -> 0 `i `uc ]
-"44
-[; ;dc.c: 44:             LATBbits.LATB2 = 0;
+"40
+[; ;dc.c: 40:             LATBbits.LATB2 = 0;
 [e = . . _LATBbits 0 2 -> -> 0 `i `uc ]
-"45
-[; ;dc.c: 45:         }
+"41
+[; ;dc.c: 41:         }
 }
 [e :U 1619 ]
-"47
-[; ;dc.c: 47:         dc_update(y);
+"43
+[; ;dc.c: 43:         dc_update(y);
 [e ( _dc_update (1 _y ]
-"48
-[; ;dc.c: 48: }
+"44
+[; ;dc.c: 44: }
 [e :UE 1617 ]
 }
-"50
-[; ;dc.c: 50: void dc_turn(uint8_t x, uint8_t xdir){
+"46
+[; ;dc.c: 46: void dc_turn(uint8_t x, uint8_t xdir){
 [v _dc_turn `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _dc_turn ]
 [v _x `uc ~T0 @X0 1 r1 ]
 [v _xdir `uc ~T0 @X0 1 r2 ]
 [f ]
-"51
-[; ;dc.c: 51:         T2CONbits.T2ON = 1;
+"47
+[; ;dc.c: 47:         T2CONbits.T2ON = 1;
 [e = . . _T2CONbits 1 2 -> -> 1 `i `uc ]
-"52
-[; ;dc.c: 52:         if (xdir == 1) {
+"48
+[; ;dc.c: 48:         if (xdir == 1) {
 [e $ ! == -> _xdir `i -> 1 `i 1621  ]
 {
-"53
-[; ;dc.c: 53:             LATBbits.LATB1 = 1;
+"49
+[; ;dc.c: 49:             LATBbits.LATB1 = 1;
 [e = . . _LATBbits 0 1 -> -> 1 `i `uc ]
-"54
-[; ;dc.c: 54:             LATBbits.LATB2 = 0;
+"50
+[; ;dc.c: 50:             LATBbits.LATB2 = 0;
 [e = . . _LATBbits 0 2 -> -> 0 `i `uc ]
-"55
-[; ;dc.c: 55:         } else {
+"51
+[; ;dc.c: 51:         } else {
 }
 [e $U 1622  ]
 [e :U 1621 ]
 {
-"56
-[; ;dc.c: 56:             LATBbits.LATB1 = 0;
+"52
+[; ;dc.c: 52:             LATBbits.LATB1 = 0;
 [e = . . _LATBbits 0 1 -> -> 0 `i `uc ]
-"57
-[; ;dc.c: 57:             LATBbits.LATB2 = 1;
+"53
+[; ;dc.c: 53:             LATBbits.LATB2 = 1;
 [e = . . _LATBbits 0 2 -> -> 1 `i `uc ]
-"58
-[; ;dc.c: 58:         }
+"54
+[; ;dc.c: 54:         }
 }
 [e :U 1622 ]
-"60
-[; ;dc.c: 60:         dc_update(x);
+"56
+[; ;dc.c: 56:         dc_update(x);
 [e ( _dc_update (1 _x ]
-"61
-[; ;dc.c: 61: }
+"57
+[; ;dc.c: 57: }
 [e :UE 1620 ]
 }
-"63
-[; ;dc.c: 63: void dc_update(uint8_t motor_speed){
+"59
+[; ;dc.c: 59: void dc_update(uint8_t motor_speed){
 [v _dc_update `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _dc_update ]
 [v _motor_speed `uc ~T0 @X0 1 r1 ]
 [f ]
-"64
-[; ;dc.c: 64:         ENA_stat = ((uint16_t)motor_speed*25);
-[e = _ENA_stat -> * -> -> _motor_speed `us `ui -> -> 25 `i `ui `us ]
-"66
-[; ;dc.c: 66:         if (ENA_stat >= (3500)) {
-[e $ ! >= -> _ENA_stat `ui -> -> 3500 `i `ui 1624  ]
+"60
+[; ;dc.c: 60:         ENA_stat = ((uint16_t)motor_speed*7);
+[e = _ENA_stat -> * -> -> _motor_speed `us `ui -> -> 7 `i `ui `us ]
+"62
+[; ;dc.c: 62:         if (ENA_stat >= (800)) {
+[e $ ! >= -> _ENA_stat `ui -> -> 800 `i `ui 1624  ]
 {
-"67
-[; ;dc.c: 67:             ENA_stat = 3500;
-[e = _ENA_stat -> -> 3500 `i `us ]
-"68
-[; ;dc.c: 68:         }
+"63
+[; ;dc.c: 63:             ENA_stat = 800;
+[e = _ENA_stat -> -> 800 `i `us ]
+"64
+[; ;dc.c: 64:         }
 }
 [e :U 1624 ]
-"69
-[; ;dc.c: 69:         if (ENA_stat <= (250)) {
-[e $ ! <= -> _ENA_stat `ui -> -> 250 `i `ui 1625  ]
+"65
+[; ;dc.c: 65:         if (ENA_stat <= (100)) {
+[e $ ! <= -> _ENA_stat `ui -> -> 100 `i `ui 1625  ]
 {
-"70
-[; ;dc.c: 70:             ENA_stat = 250;
-[e = _ENA_stat -> -> 250 `i `us ]
-"71
-[; ;dc.c: 71:         }
+"66
+[; ;dc.c: 66:             ENA_stat = 100;
+[e = _ENA_stat -> -> 100 `i `us ]
+"67
+[; ;dc.c: 67:         }
 }
 [e :U 1625 ]
-"73
-[; ;dc.c: 73:         PWM6_LoadDutyValue(ENA_stat);
+"69
+[; ;dc.c: 69:         PWM6_LoadDutyValue(ENA_stat);
 [e ( _PWM6_LoadDutyValue (1 _ENA_stat ]
-"74
-[; ;dc.c: 74: }
+"70
+[; ;dc.c: 70: }
 [e :UE 1623 ]
 }
-"76
-[; ;dc.c: 76: void dc_update_ccp(uint8_t motor_speed){
+"72
+[; ;dc.c: 72: void dc_update_ccp(uint8_t motor_speed){
 [v _dc_update_ccp `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _dc_update_ccp ]
 [v _motor_speed `uc ~T0 @X0 1 r1 ]
 [f ]
-"78
-[; ;dc.c: 78: }
+"74
+[; ;dc.c: 74: }
 [e :UE 1626 ]
 }

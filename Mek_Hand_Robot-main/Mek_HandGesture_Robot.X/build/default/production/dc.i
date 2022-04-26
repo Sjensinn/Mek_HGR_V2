@@ -21000,10 +21000,6 @@ void dc_stop() {
 
     PWM6_LoadDutyValue(0);
     T2CONbits.T2ON = 0;
-
-
-
-
 }
 
 void dc_move(uint8_t y, uint8_t ydir) {
@@ -21033,13 +21029,13 @@ void dc_turn(uint8_t x, uint8_t xdir){
 }
 
 void dc_update(uint8_t motor_speed){
-        ENA_stat = ((uint16_t)motor_speed*25);
+        ENA_stat = ((uint16_t)motor_speed*7);
 
-        if (ENA_stat >= (3500)) {
-            ENA_stat = 3500;
+        if (ENA_stat >= (800)) {
+            ENA_stat = 800;
         }
-        if (ENA_stat <= (250)) {
-            ENA_stat = 250;
+        if (ENA_stat <= (100)) {
+            ENA_stat = 100;
         }
 
         PWM6_LoadDutyValue(ENA_stat);

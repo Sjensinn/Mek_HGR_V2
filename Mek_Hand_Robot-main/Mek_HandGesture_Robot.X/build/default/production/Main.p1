@@ -15,6 +15,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13 ./Stepper.h
 [; ;./Stepper.h: 13: void stepper_init(void);
 [v _stepper_init `(v ~T0 @X0 0 ef ]
+"13 ./dc.h
+[; ;./dc.h: 13: void dc_stop();
+[v _dc_stop `(v ~T0 @X0 0 e? ]
 [v F192 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16F1xxxx_DFP/1.9.163/xc8\pic\include\builtins.h
 [v __delay `JF192 ~T0 @X0 0 e ]
@@ -1873,24 +1876,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "50
 [; ;Main.c: 50:     init_ready = 1;
 [e = _init_ready -> -> 1 `i `uc ]
-"52
-[; ;Main.c: 52:     _delay((unsigned long)((1000)*(16000000/4000.0)));
+"51
+[; ;Main.c: 51:     dc_stop();
+[e ( _dc_stop ..  ]
+"53
+[; ;Main.c: 53:     _delay((unsigned long)((1000)*(16000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"54
-[; ;Main.c: 54:     while (1) {
+"55
+[; ;Main.c: 55:     while (1) {
 [e :U 1617 ]
 {
-"56
-[; ;Main.c: 56:         if (PORTAbits.RA0 == 1) {
+"57
+[; ;Main.c: 57:         if (PORTAbits.RA0 == 1) {
 [e $ ! == -> . . _PORTAbits 0 0 `i -> 1 `i 1619  ]
 {
-"57
-[; ;Main.c: 57:             if (init_ready == 1) {
+"58
+[; ;Main.c: 58:             if (init_ready == 1) {
 [e $ ! == -> _init_ready `i -> 1 `i 1620  ]
 {
-"58
-[; ;Main.c: 58:                 send_ready();
-[e ( _send_ready ..  ]
 "59
 [; ;Main.c: 59:                 send_ready();
 [e ( _send_ready ..  ]
@@ -1898,129 +1901,132 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Main.c: 60:                 send_ready();
 [e ( _send_ready ..  ]
 "61
-[; ;Main.c: 61:                 init_ready = 0;
-[e = _init_ready -> -> 0 `i `uc ]
+[; ;Main.c: 61:                 send_ready();
+[e ( _send_ready ..  ]
 "62
-[; ;Main.c: 62:             }
+[; ;Main.c: 62:                 init_ready = 0;
+[e = _init_ready -> -> 0 `i `uc ]
+"63
+[; ;Main.c: 63:             }
 }
 [e :U 1620 ]
-"64
-[; ;Main.c: 64:             if (ready == 1) {
+"65
+[; ;Main.c: 65:             if (ready == 1) {
 [e $ ! == -> _ready `i -> 1 `i 1621  ]
 {
-"65
-[; ;Main.c: 65:                 ready = 0;
-[e = _ready -> -> 0 `i `uc ]
 "66
-[; ;Main.c: 66:                 process(data_flex, data_fingers, data_x, data_y);
+[; ;Main.c: 66:                 ready = 0;
+[e = _ready -> -> 0 `i `uc ]
+"67
+[; ;Main.c: 67:                 process(data_flex, data_fingers, data_x, data_y);
 [e ( _process (4 , , , _data_flex _data_fingers _data_x _data_y ]
-"68
-[; ;Main.c: 68:                 send_ready();
-[e ( _send_ready ..  ]
 "69
-[; ;Main.c: 69:             }
+[; ;Main.c: 69:                 send_ready();
+[e ( _send_ready ..  ]
+"70
+[; ;Main.c: 70:             }
 }
 [e :U 1621 ]
-"70
-[; ;Main.c: 70:         }
+"71
+[; ;Main.c: 71:         }
 }
 [e $U 1622  ]
-"71
-[; ;Main.c: 71:         else{
+"72
+[; ;Main.c: 72:         else{
 [e :U 1619 ]
 {
-"73
-[; ;Main.c: 73:             init_ready = 1;
-[e = _init_ready -> -> 1 `i `uc ]
 "74
-[; ;Main.c: 74:         }
+[; ;Main.c: 74:             init_ready = 1;
+[e = _init_ready -> -> 1 `i `uc ]
+"75
+[; ;Main.c: 75:         }
 }
 [e :U 1622 ]
-"75
-[; ;Main.c: 75:         _delay((unsigned long)((25)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 25 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
 "76
-[; ;Main.c: 76:     }
+[; ;Main.c: 76:         _delay((unsigned long)((25)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 25 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"77
+[; ;Main.c: 77:     }
 }
 [e :U 1616 ]
 [e $U 1617  ]
 [e :U 1618 ]
-"78
-[; ;Main.c: 78:     return;
-[e $UE 1615  ]
 "79
-[; ;Main.c: 79: }
+[; ;Main.c: 79:     return;
+[e $UE 1615  ]
+"80
+[; ;Main.c: 80: }
 [e :UE 1615 ]
 }
 [v $root$_receive_isr `(v ~T0 @X0 0 e ]
-"81
-[; ;Main.c: 81: void __attribute__((picinterrupt(("")))) receive_isr() {
+"82
+[; ;Main.c: 82: void __attribute__((picinterrupt(("")))) receive_isr() {
 [v _receive_isr `(v ~T2 @X0 1 ef ]
 {
 [e :U _receive_isr ]
 [f ]
-"83
-[; ;Main.c: 83:     if (RCIF == 1) {
+"84
+[; ;Main.c: 84:     if (RCIF == 1) {
 [e $ ! == -> _RCIF `i -> 1 `i 1624  ]
 {
-"84
-[; ;Main.c: 84:         data_in = RCREG;
-[e = _data_in _RCREG ]
 "85
-[; ;Main.c: 85:     }
+[; ;Main.c: 85:         data_in = RCREG;
+[e = _data_in _RCREG ]
+"86
+[; ;Main.c: 86:     }
 }
 [e :U 1624 ]
-"86
-[; ;Main.c: 86:     switch (data_in & 0b11) {
+"87
+[; ;Main.c: 87:     switch (data_in & 0b11) {
 [e $U 1626  ]
 {
-"87
-[; ;Main.c: 87:         case 0:
-[e :U 1627 ]
 "88
-[; ;Main.c: 88:             data_flex = data_in >> 2;
-[e = _data_flex -> >> -> _data_in `i -> 2 `i `uc ]
+[; ;Main.c: 88:         case 0:
+[e :U 1627 ]
 "89
-[; ;Main.c: 89:             break;
-[e $U 1625  ]
+[; ;Main.c: 89:             data_flex = data_in >> 2;
+[e = _data_flex -> >> -> _data_in `i -> 2 `i `uc ]
 "90
-[; ;Main.c: 90:         case 1:
-[e :U 1628 ]
+[; ;Main.c: 90:             break;
+[e $U 1625  ]
 "91
-[; ;Main.c: 91:             data_fingers = data_in;
-[e = _data_fingers _data_in ]
+[; ;Main.c: 91:         case 1:
+[e :U 1628 ]
 "92
-[; ;Main.c: 92:             break;
-[e $U 1625  ]
+[; ;Main.c: 92:             data_fingers = data_in;
+[e = _data_fingers _data_in ]
 "93
-[; ;Main.c: 93:         case 2:
-[e :U 1629 ]
+[; ;Main.c: 93:             break;
+[e $U 1625  ]
 "94
-[; ;Main.c: 94:             data_x = data_in >> 2;
-[e = _data_x -> >> -> _data_in `i -> 2 `i `uc ]
+[; ;Main.c: 94:         case 2:
+[e :U 1629 ]
 "95
-[; ;Main.c: 95:             break;
-[e $U 1625  ]
+[; ;Main.c: 95:             data_x = data_in >> 2;
+[e = _data_x -> >> -> _data_in `i -> 2 `i `uc ]
 "96
-[; ;Main.c: 96:         case 3:
-[e :U 1630 ]
+[; ;Main.c: 96:             break;
+[e $U 1625  ]
 "97
-[; ;Main.c: 97:             data_y = data_in >> 2;
+[; ;Main.c: 97:         case 3:
+[e :U 1630 ]
+"98
+[; ;Main.c: 98:             data_y = data_in >> 2;
 [e = _data_y -> >> -> _data_in `i -> 2 `i `uc ]
-"99
-[; ;Main.c: 99:             ready = 1;
+"100
+[; ;Main.c: 100:             ready = 1;
 [e = _ready -> -> 1 `i `uc ]
-"102
-[; ;Main.c: 102:             break;
-[e $U 1625  ]
 "103
-[; ;Main.c: 103:         default:
-[e :U 1631 ]
-"104
-[; ;Main.c: 104:             break;
+[; ;Main.c: 103:             break;
 [e $U 1625  ]
+"104
+[; ;Main.c: 104:         default:
+[e :U 1631 ]
 "105
-[; ;Main.c: 105:     }
+[; ;Main.c: 105:             break;
+[e $U 1625  ]
+"106
+[; ;Main.c: 106:     }
 }
 [e $U 1625  ]
 [e :U 1626 ]
@@ -2030,58 +2036,58 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 3 `i 1630
  1631 ]
 [e :U 1625 ]
-"107
-[; ;Main.c: 107:     if (CCP1IF == 1) {
+"108
+[; ;Main.c: 108:     if (CCP1IF == 1) {
 [e $ ! == -> _CCP1IF `i -> 1 `i 1632  ]
 {
-"108
-[; ;Main.c: 108:         CCP1IF = 0;
-[e = _CCP1IF -> -> 0 `i `b ]
 "109
-[; ;Main.c: 109:         if (get_dir() == 1 && get_steps() > 15000) {
+[; ;Main.c: 109:         CCP1IF = 0;
+[e = _CCP1IF -> -> 0 `i `b ]
+"110
+[; ;Main.c: 110:         if (get_dir() == 1 && get_steps() > 15000) {
 [e $ ! && == ( _get_dir ..  -> 1 `i > ( _get_steps ..  -> 15000 `i 1633  ]
 {
-"112
-[; ;Main.c: 112:             stepper_stop();
-[e ( _stepper_stop ..  ]
 "113
-[; ;Main.c: 113:         } else if (get_dir() == 0 && get_steps() < -15000) {
+[; ;Main.c: 113:             stepper_stop();
+[e ( _stepper_stop ..  ]
+"114
+[; ;Main.c: 114:         } else if (get_dir() == 0 && get_steps() < -15000) {
 }
 [e $U 1634  ]
 [e :U 1633 ]
 [e $ ! && == ( _get_dir ..  -> 0 `i < ( _get_steps ..  -U -> 15000 `i 1635  ]
 {
-"116
-[; ;Main.c: 116:             stepper_stop();
-[e ( _stepper_stop ..  ]
 "117
-[; ;Main.c: 117:         } else {
+[; ;Main.c: 117:             stepper_stop();
+[e ( _stepper_stop ..  ]
+"118
+[; ;Main.c: 118:         } else {
 }
 [e $U 1636  ]
 [e :U 1635 ]
 {
-"118
-[; ;Main.c: 118:             LATDbits.LATD5 ^= 1;
-[e =^ . . _LATDbits 0 5 -> -> 1 `i `Vuc ]
 "119
-[; ;Main.c: 119:             step_inc_dec();
+[; ;Main.c: 119:             LATDbits.LATD5 ^= 1;
+[e =^ . . _LATDbits 0 5 -> -> 1 `i `Vuc ]
+"120
+[; ;Main.c: 120:             step_inc_dec();
 [e ( _step_inc_dec ..  ]
-"121
-[; ;Main.c: 121:             CCPR1H = 0x00;
-[e = _CCPR1H -> -> 0 `i `uc ]
 "122
-[; ;Main.c: 122:             CCPR1L = 0xF0;
-[e = _CCPR1L -> -> 240 `i `uc ]
+[; ;Main.c: 122:             CCPR1H = 0x00;
+[e = _CCPR1H -> -> 0 `i `uc ]
 "123
-[; ;Main.c: 123:         }
+[; ;Main.c: 123:             CCPR1L = 0xF0;
+[e = _CCPR1L -> -> 240 `i `uc ]
+"124
+[; ;Main.c: 124:         }
 }
 [e :U 1636 ]
 [e :U 1634 ]
-"124
-[; ;Main.c: 124:     }
+"125
+[; ;Main.c: 125:     }
 }
 [e :U 1632 ]
-"125
-[; ;Main.c: 125: }
+"126
+[; ;Main.c: 126: }
 [e :UE 1623 ]
 }

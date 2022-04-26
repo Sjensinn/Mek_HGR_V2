@@ -28,10 +28,6 @@ void dc_stop() {
     //LATB &= 0b11001001;
     PWM6_LoadDutyValue(0); //min = 0, max = 5100(98%)
     T2CONbits.T2ON = 0;
-
-    //PCA_write(4, 0x00, 1);
-    //PCA_write(5, 0x00, 1);
-    
 }
 
 void dc_move(uint8_t y, uint8_t ydir) { //0b---XXXX- these four pins control direction of spin
@@ -61,7 +57,7 @@ void dc_turn(uint8_t x, uint8_t xdir){
 }
 
 void dc_update(uint8_t motor_speed){
-        ENA_stat = ((uint16_t)motor_speed*25);
+        ENA_stat = ((uint16_t)motor_speed*7);
         
         if (ENA_stat >= (DCMAX)) { //redefine min/max, er 100/1300 atm
             ENA_stat = DCMAX;

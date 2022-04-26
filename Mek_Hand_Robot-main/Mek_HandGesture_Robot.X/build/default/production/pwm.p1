@@ -1753,13 +1753,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _PWM6_LoadDutyValue ]
 [v _dutyValue `us ~T0 @X0 1 r1 ]
 [f ]
-"41
-[; ;pwm.c: 41:     PWM6DCH = (dutyValue & 0x03FC)>>2;
-[e = _PWM6DCH -> >> & -> _dutyValue `ui -> -> 1020 `i `ui -> 2 `i `uc ]
-"43
-[; ;pwm.c: 43:     PWM6DCL = (dutyValue & 0x0003)<<6;
-[e = _PWM6DCL -> << & -> _dutyValue `ui -> -> 3 `i `ui -> 6 `i `uc ]
-"44
-[; ;pwm.c: 44: }
+"39
+[; ;pwm.c: 39:     uint8_t pwml = dutyValue & 0x3;
+[v _pwml `uc ~T0 @X0 1 a ]
+[e = _pwml -> & -> _dutyValue `ui -> -> 3 `i `ui `uc ]
+"40
+[; ;pwm.c: 40:     uint8_t pwmh = dutyValue & 0x3FC;
+[v _pwmh `uc ~T0 @X0 1 a ]
+[e = _pwmh -> & -> _dutyValue `ui -> -> 1020 `i `ui `uc ]
+"48
+[; ;pwm.c: 48:     PWM6DCH = pwmh;
+[e = _PWM6DCH _pwmh ]
+"49
+[; ;pwm.c: 49:     PWM6DCL = pwml;
+[e = _PWM6DCL _pwml ]
+"52
+[; ;pwm.c: 52: }
 [e :UE 1615 ]
 }

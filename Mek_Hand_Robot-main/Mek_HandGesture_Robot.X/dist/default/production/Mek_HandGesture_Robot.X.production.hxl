@@ -9,12 +9,12 @@
 ### Memory Usage ###
  Intel Hex-file ranges:
   0h - 3h		(dist/default/production\Mek_HandGesture_Robot.X.production.hex)
-  8h - BF7h		(dist/default/production\Mek_HandGesture_Robot.X.production.hex)
+  8h - BF1h		(dist/default/production\Mek_HandGesture_Robot.X.production.hex)
   10000h - 10007h		(dist/default/production\Mek_HandGesture_Robot.X.production.hex)
   1000Eh - 10017h		(dist/default/production\Mek_HandGesture_Robot.X.production.hex)
  Unused ranges:
   4h - 7h
-  BF8h - FFFFh
+  BF2h - FFFFh
   10008h - 1000Dh
 
 ### Hex Memory Map ###
@@ -215,7 +215,7 @@
 00000BC0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000BD0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000BE0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00000BF0 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
+00000BF0 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
 00010000 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- H1 H1
 00010010 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --

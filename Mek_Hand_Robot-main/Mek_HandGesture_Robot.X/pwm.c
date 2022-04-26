@@ -36,9 +36,17 @@ void TMR2_Initialize(void){
 }
 
 void PWM6_LoadDutyValue(uint16_t dutyValue){
+    uint8_t pwml = dutyValue & 0x3;
+    uint8_t pwmh = dutyValue & 0x3FC;
 
+    
     // Writing to 8 MSBs of PWM duty cycle in PWMDCH register
-    PWM6DCH = (dutyValue & 0x03FC)>>2;
+    //PWM6DCH = (dutyValue & 0x03FC)>>2;
     // Writing to 2 LSBs of PWM duty cycle in PWMDCL register
-    PWM6DCL = (dutyValue & 0x0003)<<6;
+    //PWM6DCL = (dutyValue & 0x0003)<<6;
+    
+    PWM6DCH = pwmh; 
+    PWM6DCL = pwml;
+    
+    //PWM6DC = dutyValue;
 }

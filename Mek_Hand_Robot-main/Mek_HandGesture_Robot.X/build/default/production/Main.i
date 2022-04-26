@@ -21109,6 +21109,7 @@ void main(void) {
     PCA_Init(130, 0x80);
     stepper_init();
     init_ready = 1;
+    dc_stop();
 
     _delay((unsigned long)((1000)*(16000000/4000.0)));
 
